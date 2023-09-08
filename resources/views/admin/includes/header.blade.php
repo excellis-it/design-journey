@@ -1,7 +1,7 @@
 <div class="main-wrapper">
     <div class="header">
         <div class="header-left">
-            <div class="logo"><a href="{{ route('home') }}"><img src="{{ asset('frontend_assets/img/invoice_logo2.png') }}" alt=""/></a></div>
+            <div class="logo"><a href=""><img src="{{ asset('frontend_assets/img/invoice_logo2.png') }}" alt=""/></a></div>
             
         </div>
         <!--<a id="toggle_btn" href="javascript:void(0);">-->
@@ -43,9 +43,7 @@
                     class="fa fa-ellipsis-v"></i></a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a class="dropdown-item" href="{{ route('admin.profile') }}">My Profile</a>
-                <a class="dropdown-item" href="{{ route('user.list') }}">Manage Users </a>
-                <a class="dropdown-item" href="{{ route('managers.index') }}">Manage Managers </a>
-                <a class="dropdown-item" href="{{ route('home.cms') }}">Home Cms</a>
+               
                 <a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a>
             </div>
         </div>
