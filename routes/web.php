@@ -49,6 +49,7 @@ Route::group(['prefix' => 'user'], function () {
         Route::post('profile/update', [UserProfileController::class, 'profileUpdate'])->name('user.profile.update');
         Route::get('logout', [UserProfileController::class, 'logout'])->name('user.logout');
     });
+    
 
 });
 
