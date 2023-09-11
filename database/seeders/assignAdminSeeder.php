@@ -15,8 +15,7 @@ class assignAdminSeeder extends Seeder
     public function run()
     {
         $admin = new User();
-        $admin->first_name = 'Admin';
-        $admin->last_name = 'Admin';
+        $admin->name = 'Admin';
         $admin->email = 'admin@yopmail.com';
         $admin->password = bcrypt('12345678');
         $admin->status = true;

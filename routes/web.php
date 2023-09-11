@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\User\ProfileController as UserProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\PlanController;
+use App\Http\Controllers\Admin\HomeCmsController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Homecontroller;
 use Illuminate\Support\Facades\Artisan;
@@ -38,7 +40,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('profile', [ProfileController::class, 'index'])->name('admin.profile');
         Route::post('profile/update', [ProfileController::class, 'profileUpdate'])->name('admin.profile.update');
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
+
+        Route::resources([
+            'plans' => PlanController::class,
+        ]);
         
+        //cms routes
+        Route::get('/homeCms', [HomeCmsController::class, 'homeCms'])->name('home.cms');
+        Route::post('/homeCms/update', [HomeCmsController::class, 'homeCmsUpdate'])->name('home.cms.update');
     });
 });
 
