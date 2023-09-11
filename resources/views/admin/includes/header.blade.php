@@ -1,7 +1,7 @@
 <div class="main-wrapper">
     <div class="header">
         <div class="header-left">
-            <div class="logo"><a href=""><img src="{{ asset('frontend_assets/img/invoice_logo2.png') }}" alt=""/></a></div>
+            <div class="logo"><a href="" style="color:aliceblue;">Design-Journey</a></div>
             
         </div>
         <!--<a id="toggle_btn" href="javascript:void(0);">-->
