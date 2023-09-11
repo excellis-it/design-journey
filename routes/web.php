@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
+
 Route::group(['prefix' => 'user'], function () {
     Route::group(['middleware' => 'user'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');
