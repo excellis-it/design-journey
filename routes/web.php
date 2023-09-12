@@ -8,10 +8,10 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\User\ProfileController as UserProfileController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\PlanController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\HomeCmsController;
 use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\Homecontroller;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Artisan;
 
 // Clear cache
@@ -21,8 +21,9 @@ Route::get('clear', function () {
 });
 
 /* ----------------- Frontend Routes -----------------*/
-
-Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/admin', [AuthController::class, 'login'])->name('admin.login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register-store', [AuthController::class, 'registerStore'])->name('register.store');
@@ -33,7 +34,7 @@ Route::get('forget-password/show', [ForgotPasswordController::class, 'forgetPass
 Route::get('reset-password/{id}/{token}', [ForgotPasswordController::class, 'resetPassword'])->name('reset.password');
 /* ----------------- Admin Routes -----------------*/
 
-Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
+// Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin'], function () {
         Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
@@ -42,11 +43,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
 
         Route::resources([
-            'plans' => PlanController::class,
+            'blogs' => AdminBlogController::class,
         ]);
+        Route::post('/blogs/statusChange', [AdminBlogController::class, 'changeBlogStatus'])->name('blogs.change-status');
+        Route::get('/blogs/delete/{id}', [AdminBlogController::class, 'deleteBlog'])->name('delete.blog');
+        Route::post('/blog-update/{id}', [AdminBlogController::class, 'blogUpdate'])->name('admin.blogs.update');
         
         //cms routes
-        Route::get('/homeCms', [HomeCmsController::class, 'homeCms'])->name('home.cms');
+        Route::get('/cms/home', [HomeCmsController::class, 'homeCms'])->name('home.cms');
         Route::post('/homeCms/update', [HomeCmsController::class, 'homeCmsUpdate'])->name('home.cms.update');
     });
 });

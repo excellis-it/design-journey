@@ -8,13 +8,18 @@ use App\Models\User;
 use App\Models\HomeCms;
 
 
-class Homecontroller extends Controller
+class HomeController extends Controller
 {
     //
     public function home()
     {
         $home_content = HomeCms::first();
-        return view('home.main',compact('home_content'));
+        return view('frontend.home',compact('home_content'));
+    }
+
+    public function about()
+    {
+        return view('frontend.about');
     }
     
   

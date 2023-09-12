@@ -8,20 +8,20 @@
                     
                 </li>
 
-                <li class="{{ Request::is('admin/plans*') ? 'active' : ' ' }}">
-                    <a href="{{ route('plans.index') }}" ><i class="fa fa-address-card"></i> <span>Plan Management</span></a>                 
-                </li>
                 <li class="submenu">
-                    <a href="#" class=""><i class="la la-list"></i> <span>Cms</span> <span
+                    <a href="#" class="{{ Request::is('admin/cms*') ? 'active' : ' ' }}"><i class="la la-list"></i> <span>Cms</span> <span
                             class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li class="{{ Request::is('admin/cms*') ? 'active' : ' ' }}">
+                        <li class="{{ Request::is('admin/cms/home*') ? 'active' : ' ' }}">
                             <a href="{{ route('home.cms') }}">Home Cms</a>
                         </li>   
                         <li class="">
                             <a href="">About Cms</a>
                         </li>        
                     </ul>
+                </li>
+                <li class="{{ Request::is('admin/blogs*') ? 'active' : ' ' }}">
+                    <a href="{{ route('blogs.index') }}" ><i class="la la-box"></i> <span>Blogs</span></a>                 
                 </li>
             </ul> 
         </div>

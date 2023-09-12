@@ -1710,10 +1710,15 @@ body {
 
 .blog-detail-thumbnail {
     position: relative;
+    width: 100%;
+    height: 600px;
 }
 
 .blog-detail-thumbnail img {
     max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .blog-detail-thumbnail .box-1 {
@@ -2028,7 +2033,13 @@ body {
 }
 
 .comments-single-image {
-    margin-right: 1rem;
+    margin-right: 1rem;    
+}
+.comments-single-image img{
+    width: 80px;
+    height: 80px;
+    display: block;
+    object-fit: cover;
 }
 
 .comments-single .date {
@@ -3949,3 +3960,90 @@ body.loaded .preloader {
     background: #ffd44d;
     padding: 100px 50px;
 }
+.min_height_33{
+    min-height: 700px;
+}
+.boost_engaments ul{
+    list-style: none;
+}
+.boost_engaments ul li{
+    display: inline-block;
+    padding: 10px;
+}
+.boost_engaments ul li a{
+    font-size: 18px;
+    background: rgb(53 204 255 / 19%);
+    padding: 10px;
+    display: inline-block;
+}
+.compare_table table{
+    font-size: 15px;
+}
+.compare_table tr th, .compare_table tr td{
+    padding: 25px;
+    text-align: center;
+}
+.compare_table tbody tr th:first-child{
+    text-align: left;
+    padding-left: 0;
+}
+
+
+
+
+.filters {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+.filters ul {
+    padding: 0;
+
+  }
+.filters ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 30px;
+    cursor: pointer;
+    position: relative;
+    font-size: 13px;
+    text-transform: uppercase;
+    background: transparent;
+    border-radius: 6px;
+    color: #000;
+    margin-bottom: 5px;
+    border: 1px solid rgb(0 0 0 / 10%);
+    font-weight: 600;
+  }
+  .filters ul li span{
+    position: relative;
+    
+  }
+.filters ul li:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    background: var(--color-blue);
+    transition: width 350ms ease-out;
+    top: 0;
+    width: 0;
+    left: 0;
+    border-radius: 6px;
+  }
+.filters ul li:hover:before {
+    width: calc(100% - 60px);
+    transition: width 350ms ease-out;
+    border-radius: 5px;
+  }
+.filters ul li.active:before {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+
+
+
+
+
+
+

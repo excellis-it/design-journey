@@ -7,9 +7,7 @@
 
 @section('content')
     <div class="page-wrapper">
-
         <div class="content container-fluid">
-
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
@@ -212,10 +210,10 @@
                                                         <div class="col-md-6">
                                                             <label for="inputEnterYourName" class="col-form-label">1st Short Details
                                                                 <span style="color: red;">*</span></label>
-                                                            <textarea name="section2_main_description" class="form-control" >{{ $homeCms->section2_main_description }}</textarea> 
-                                                            @if ($errors->has('section2_main_description'))
+                                                            <textarea name="section2_1st_details" class="form-control" >{{ $homeCms->section2_1st_details }}</textarea> 
+                                                            @if ($errors->has('section2_1st_details'))
                                                                 <div class="error" style="color:red;">
-                                                                    {{ $errors->first('section2_main_description') }}</div>
+                                                                    {{ $errors->first('section2_1st_details') }}</div>
                                                             @endif
                                                         </div>
 
@@ -404,10 +402,10 @@
                                                         <div class="col-md-6">
                                                             <label for="inputEnterYourName" class="col-form-label">Section 4 Details
                                                                 <span style="color: red;">*</span></label>
-                                                            <textarea name="section4_main_description" class="form-control" id="editor1"></textarea> 
-                                                            @if ($errors->has('section4_main_title'))
+                                                            <textarea name="section4_main_description" class="form-control" id="editor1">{{ $homeCms->section4_main_description }}</textarea> 
+                                                            @if ($errors->has('section4_main_description'))
                                                                 <div class="error" style="color:red;">
-                                                                    {{ $errors->first('section4_main_title') }}</div>
+                                                                    {{ $errors->first('section4_main_description') }}</div>
                                                             @endif
                                                         </div>
                                                         <div class="col-md-12">
@@ -649,7 +647,7 @@
                                                             <label for="inputEnterYourName" class="col-form-label">Section 6 Image
                                                                 <span style="color: red;">*</span></label>
                                                                 <input type="file" name="section6_image" class="form-control" >
-                                                                <img src="{{ asset($homeCms->section6_image) }}" alt="" width="200px" height="150px">
+                                                                
                                                             @if ($errors->has('section6_image'))
                                                                 <div class="error" style="color:red;">
                                                                     {{ $errors->first('section6_image') }}</div>
@@ -658,6 +656,8 @@
                                                         <div class="col-md-6">
                                                             <label for="inputEnterYourName" class="col-form-label">Image preview
                                                                </label>
+                                                               <br>
+                                                               <img src="{{ asset($homeCms->section6_image) }}" alt="" width="200px" height="150px">
                                                         </div>
                                                     </div>    
 

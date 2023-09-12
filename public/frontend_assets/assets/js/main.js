@@ -68,6 +68,43 @@ let related_posts_slider = new Swiper('.related-posts-slider .swiper-container',
     }
 });
 
+
+/****************************************
+related posts slider
+****************************************/
+let our_related_slider = new Swiper('.our-related-slider .swiper-container', {
+    breakpoints: {
+        0: {
+            slidesPerView: 1.8,
+            centeredSlides: true,
+            initialSlide: 1,
+            spaceBetween: 30
+        },
+        576: {
+            slidesPerView: 2.5,
+            centeredSlides: true,
+            initialSlide: 1,
+            spaceBetween: 30
+        },
+        992: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            centeredSlides: true,
+            paginationClickable: true,
+            loop: true,
+            slideToClickedSlide: true
+
+        }
+    },
+    pagination: {
+        el: '.related-posts-slider-pagination',
+        type: 'bullets',
+        clickable: true
+    }
+});
+
+
+
 /****************************************
 screens slider
 ****************************************/

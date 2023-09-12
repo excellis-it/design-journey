@@ -61,7 +61,8 @@ class AuthController extends Controller
     }
     
     public function login()
-    {   
+    { 
+        
         return view('auth.login');
     }
     
@@ -96,6 +97,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('admin.login');
     }
 }
