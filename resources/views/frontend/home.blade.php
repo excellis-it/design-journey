@@ -433,8 +433,8 @@
                             <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.6s">
                                 <div class="pricing-single">
                                     <div class="pricing-single-wrapper">
-                                        <h3 class="plan c-red">{{ $home_content->section5_title }}</h3>
-                                        <h6 class="c-grey">Get your design back in 1-2 business days.</h6>
+                                        <h3 class="plan c-red">{{ $home_content->section5_1st_content }}</h3>
+                                        <h6 class="c-grey">{{ $home_content->section5_1st_content_details }}</h6>
                                         <div class="box bg-red"></div>
                                     </div>
                                 </div>
@@ -444,8 +444,8 @@
                             <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.7s">
                                 <div class="pricing-single">
                                     <div class="pricing-single-wrapper">
-                                        <h3 class="plan c-purple">Fixed Monthly Rate</h3>
-                                        <h6 class="c-grey">Work with battle-tested professionals only.</h6>
+                                        <h3 class="plan c-purple">{{ $home_content->section5_2nd_content }}</h3>
+                                        <h6 class="c-grey">{{ $home_content->section5_2nd_content_details }}</h6>
                                         <div class="box bg-purple"></div>
                                     </div>
                                 </div>
@@ -455,8 +455,8 @@
                             <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.8s">
                                 <div class="pricing-single">
                                     <div class="pricing-single-wrapper">
-                                        <h3 class="plan c-blue">Professional Designers</h3>
-                                        <h6 class="c-grey">Work with battle-tested professionals only.</h6>
+                                        <h3 class="plan c-blue">{{ $home_content->section5_3rd_content }}</h3>
+                                        <h6 class="c-grey">{{ $home_content->section5_3rd_content_details }}</h6>
                                         <div class="box bg-blue"></div>
                                     </div>
                                 </div>
@@ -466,8 +466,8 @@
                             <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.9s">
                                 <div class="pricing-single">
                                     <div class="pricing-single-wrapper">
-                                        <h3 class="plan c-yellow">Flexible & Scalable</h3>
-                                        <h6 class="c-grey">No contracts. Scale up or down as you go.</h6>
+                                        <h3 class="plan c-yellow">{{ $home_content->section5_4th_content }}</h3>
+                                        <h6 class="c-grey">{{ $home_content->section5_4th_content_details }}</h6>
                                         <div class="box bg-yellow"></div>
                                     </div>
                                 </div>
@@ -584,7 +584,7 @@
             <div class="row">
                 <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="heading">
-                        <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-67">Some frequently asked questions.</h1>
+                        <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-67">{{ $home_content->faq_section_title }}</h1>
                     </div>
                 </div>
             </div>
@@ -605,7 +605,7 @@
                                 data-bs-target="#faqOne"
                                 aria-expanded="true"
                                 aria-controls="faqOne">
-                                    <h4 class="c-dark">Read necessary information before visits</h4>
+                                    <h4 class="c-dark">{{ $home_content->faq_1st_question }}</h4>
                                 </button>
                                 </h2>
                                 <div 
@@ -613,7 +613,7 @@
                                 class="accordion-collapse collapse show"
                                 aria-labelledby="faqHeadingOne" data-bs-parent="#accordionFAQ">
                                     <div class="accordion-body">
-                                        <p>Prepare questions that the patient should answer when registering for an online consultation. We will send them to him before the visit in the form of a survey to which he will also be able to attach his research results.</p>
+                                        <p>{{ $home_content->faq_1st_answer }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -628,7 +628,7 @@
                                 data-bs-target="#faqTwo"
                                 aria-expanded="true"
                                 aria-controls="faqTwo">
-                                    <h4 class="c-dark">Automatic SMS reminders</h4>
+                                    <h4 class="c-dark">{{ $home_content->faq_2nd_question }}</h4>
                                 </button>
                                 </h2>
                                 <div 
@@ -636,7 +636,7 @@
                                 class="accordion-collapse collapse"
                                 aria-labelledby="faqHeadingTwo" data-bs-parent="#accordionFAQ">
                                     <div class="accordion-body">
-                                        <p>Prepare questions that the patient should answer when registering for an online consultation. We will send them to him before the visit in the form of a survey to which he will also be able to attach his research results.</p>
+                                        <p>{{ $home_content->faq_2nd_answer }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -651,7 +651,7 @@
                                 data-bs-target="#faqThree"
                                 aria-expanded="true"
                                 aria-controls="faqThree">
-                                    <h4 class="c-dark">A unique link for each patient</h4>
+                                    <h4 class="c-dark">{{ $home_content->faq_3rd_question }}</h4>
                                 </button>
                                 </h2>
                                 <div 
@@ -659,7 +659,7 @@
                                 class="accordion-collapse collapse"
                                 aria-labelledby="faqHeadingThree" data-bs-parent="#accordionFAQ">
                                     <div class="accordion-body">
-                                        <p>Prepare questions that the patient should answer when registering for an online consultation. We will send them to him before the visit in the form of a survey to which he will also be able to attach his research results.</p>
+                                        <p>{{ $home_content->faq_3rd_answer }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -674,7 +674,7 @@
                                 data-bs-target="#faqFour"
                                 aria-expanded="true"
                                 aria-controls="faqFour">
-                                    <h4 class="c-dark">Informing you about new possibilities</h4>
+                                    <h4 class="c-dark">{{ $home_content->faq_4th_question }}</h4>
                                 </button>
                                 </h2>
                                 <div 
@@ -682,7 +682,7 @@
                                 class="accordion-collapse collapse"
                                 aria-labelledby="faqHeadingFour" data-bs-parent="#accordionFAQ">
                                     <div class="accordion-body">
-                                        <p>Prepare questions that the patient should answer when registering for an online consultation. We will send them to him before the visit in the form of a survey to which he will also be able to attach his research results.</p>
+                                        <p>{{ $home_content->faq_4th_answer }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -881,7 +881,7 @@
                 <!-- content - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-1 col-md-8 offset-md-2 col-10 offset-1 order-2">
                     <div class="cta-section-content">
-                        <h2 class="c-white">Serving Businesses of Every Size with Digital and Print Designs</h2>
+                        <h2 class="c-white">{{ $home_content->section6_title }}</h2>
                         <div class="button-group">
                             <a href="#" class="button button-red button-red-hover-white">
                                 <span>Get Started</span>
@@ -896,7 +896,7 @@
                 <!-- image - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
                     <div class="cta-section-image">
-                        <img src="{{ asset('frontend_assets/assets/images/cta-phone.png')}}" alt="phone">
+                        <img src="{{ asset($home_content->section6_image) }}" alt="phone">
                         <!-- <div class="box-1 bg-green-rgba-8">
                             <div class="box-2 bg-purple">
                                 <div class="box-2-1 bg-dark-1"></div>

@@ -23,6 +23,8 @@ Route::get('clear', function () {
 /* ----------------- Frontend Routes -----------------*/
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
+Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
 Route::get('/admin', [AuthController::class, 'login'])->name('admin.login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register'])->name('register');

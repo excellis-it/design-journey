@@ -34,7 +34,7 @@
                     </div>
                     <ul class="parent">
                         <li>
-                            <a href="index.html" class="link-underline link-underline-1">
+                            <a href="{{ route('home') }}" class="link-underline link-underline-1">
                                 <span>Home</span>
                             </a>
                         </li>
@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="blog.html" class="link-underline link-underline-1">
+                            <a href="{{ route('blogs') }}" class="link-underline link-underline-1">
                                 <span>Blog</span>
                             </a>
                             
