@@ -50,8 +50,8 @@
                             <thead>
                                 <tr>
                                     <th> Title</th>
-                                    <th> Status</th>
                                     <th> Images</th>
+                                    <th> Status</th>
                                     <th> Action</th>
                                 </tr>
                             </thead>
@@ -59,7 +59,7 @@
                                 @foreach ($categories as $key => $category)
                                     <tr>
                                         <td>{{ $category->name }}</td>
-                                        <td><a title="Edit Blog" data-route=""
+                                        <td><a title="Add Images" data-route=""
                                             href="{{ route('categories.edit', $category->id) }}"><i class="fas fa-edit"></i></a></td>
                                         <td>
                                             <div class="button-switch">
@@ -70,7 +70,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <a title="Edit Blog" data-route=""
+                                            <a title="Edit Category" data-route=""
                                                 href="{{ route('categories.edit', $category->id) }}"><i class="fas fa-edit"></i></a>
                                             &nbsp;&nbsp;
    

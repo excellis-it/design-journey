@@ -103,6 +103,8 @@ class CategoryController extends Controller
         //
     }
 
+
+
     public function changeCategoryStatus()
     {
         $category = Category::find(request()->id);
