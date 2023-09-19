@@ -55,12 +55,12 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="link-underline">
+                                        <a href="{{ route('illustration.design') }}" class="link-underline">
                                             <span>illustration design</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="link-underline">
+                                        <a href="{{ route('presentation.design') }}" class="link-underline">
                                             <span>Presentation Design</span>
                                         </a>
                                     </li>
@@ -68,12 +68,12 @@
                             </div>
                         </li>
                         <li>
-                            <a href="features.html" class="link-underline link-underline-1">
+                            <a href="{{ route('our.work') }}" class="link-underline link-underline-1">
                                 <span>Our Work</span>
                             </a>
                         </li>
                         <li>
-                            <a href="pricing.html" class="link-underline link-underline-1">
+                            <a href="{{ route('presentation.design') }}" class="link-underline link-underline-1">
                                 <span>Pricing</span>
                             </a>
                         </li>

@@ -10,8 +10,10 @@ use App\Http\Controllers\User\ProfileController as UserProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\HomeCmsController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\SolutionsController;
 use Illuminate\Support\Facades\Artisan;
 
 // Clear cache
@@ -27,12 +29,22 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register-store', [AuthController::class, 'registerStore'])->name('register.store');
 Route::post('/user-login-check', [AuthController::class, 'loginCheck'])->name('login.check');
+Route::post('forget-password', [ForgetPasswordController::class, 'forgetPassword'])->name('forget.password');
+Route::post('change-password', [ForgetPasswordController::class, 'changePassword'])->name('change.password');
+Route::get('forget-password/show', [ForgetPasswordController::class, 'forgetPasswordShow'])->name('forget.password.show');
+Route::get('reset-password/{id}/{token}', [ForgetPasswordController::class, 'resetPassword'])->name('reset.password');
+
+
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
 Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
 //solutions routes
-Route::get('/social-media-design', [HomeController::class, 'socialMediaDesign'])->name('social.media.design');
-Route::get('/website-design', [HomeController::class, 'websiteDesign'])->name('website.design');
+Route::get('/social-media-design', [SolutionsController::class, 'socialMediaDesign'])->name('social.media.design');
+Route::get('/website-design', [SolutionsController::class, 'websiteDesign'])->name('website.design');
+Route::get('/illustration-design',[SolutionsController::class, 'illustrationDesign'])->name('illustration.design');
+Route::get('/presentation-design',[SolutionsController::class, 'presentationDesign'])->name('presentation.design');
+
+Route::get('/our-work', [HomeController::class, 'ourWork'])->name('our.work');
 
 /* ----------------- Admin Routes -----------------*/
 
@@ -46,14 +58,20 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::resources([
             'blogs' => AdminBlogController::class,
+            'categories' => CategoryController::class,
         ]);
+        Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::post('/blogs/statusChange', [AdminBlogController::class, 'changeBlogStatus'])->name('blogs.change-status');
         Route::get('/blogs/delete/{id}', [AdminBlogController::class, 'deleteBlog'])->name('delete.blog');
         Route::post('/blog-update/{id}', [AdminBlogController::class, 'blogUpdate'])->name('admin.blogs.update');
         
         //cms routes
+        //home cms
         Route::get('/cms/home', [HomeCmsController::class, 'homeCms'])->name('home.cms');
         Route::post('/homeCms/update', [HomeCmsController::class, 'homeCmsUpdate'])->name('home.cms.update');
+        //about cms
+        Route::get('/cms/about', [HomeCmsController::class, 'aboutCms'])->name('about.cms');
+        Route::post('/aboutCms/update', [HomeCmsController::class, 'aboutCmsUpdate'])->name('about.cms.update');
     });
 });
 
@@ -64,8 +82,6 @@ Route::group(['prefix' => 'user'], function () {
         Route::post('profile/update', [UserProfileController::class, 'profileUpdate'])->name('user.profile.update');
         Route::get('logout', [UserProfileController::class, 'logout'])->name('user.logout');
     });
-    
-
 });
 
 

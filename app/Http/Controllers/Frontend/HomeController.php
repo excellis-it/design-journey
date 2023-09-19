@@ -38,15 +38,11 @@ class HomeController extends Controller
         return view('frontend.blog-details',compact('blog_details','similer_blogs'));
     }
 
-    public function socialMediaDesign()
+    public function ourWork()
     {
-        return view('frontend.solution.social-media-design');
+        return view('frontend.our-work');
     }
 
-    public function websiteDesign()
-    {
-        return view('frontend.solution.website-design');
-    }
     
-  
+     
 }

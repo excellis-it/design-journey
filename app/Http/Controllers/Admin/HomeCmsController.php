@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HomeCms;
+use App\Models\About;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -233,5 +234,121 @@ class HomeCmsController extends Controller
         $update_homeCms->update();
         return back()->with('message','Home Cms updated successfully');
 
+    }
+
+    public function aboutCms()
+    {
+        $about = About::first();
+        return view('admin.cms.aboutCms',compact('about'));
+    }
+
+    public function aboutCmsUpdate(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'title1' => 'required',
+            'details1' => 'required',
+            'title2' => 'required',
+            'details2' => 'required',
+            'title3' => 'required',
+            'details3' => 'required',
+            'title4' => 'required',
+            'details4' => 'required',
+            'title5' => 'required',
+            'details5' => 'required',
+            'title6' => 'required',
+            'details6' => 'required',
+        ]);
+
+        $update_about = About::find($request->about_id);
+        $update_about->title = $request->title;
+        $update_about->description = $request->description;
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $image_path = $request->file('image')->store('about', 'public');
+            $update_about->about_image = asset('storage/'.$image_path);
+        }
+        if ($request->hasFile('icon1')) {
+            $request->validate([
+                'icon1' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file1= $request->file('icon1');
+            $filename1= date('YmdHi').$file1->getClientOriginalName();
+            $image_path1 = $request->file('icon1')->store('about', 'public');
+            $update_about->icon1 = asset('storage/'.$image_path1);
+        }
+        $update_about->title1 = $request->title1;
+        $update_about->details1 = $request->details1;
+        if ($request->hasFile('icon2')) {
+            $request->validate([
+                'icon2' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file2= $request->file('icon2');
+            $filename2= date('YmdHi').$file2->getClientOriginalName();
+            $image_path2 = $request->file('icon2')->store('about', 'public');
+            $update_about->icon2 = asset('storage/'.$image_path2);
+        }
+        $update_about->title2 = $request->title2;
+        $update_about->details2 = $request->details2;
+        if ($request->hasFile('icon3')) {
+            $request->validate([
+                'icon3' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file3= $request->file('icon3');
+            $filename3= date('YmdHi').$file3->getClientOriginalName();
+            $image_path3 = $request->file('icon3')->store('about', 'public');
+            $update_about->icon3 = asset('storage/'.$image_path3);
+
+        }
+        $update_about->title3 = $request->title3;
+        $update_about->details3 = $request->details3;
+        if ($request->hasFile('icon4')) {
+            $request->validate([
+                'icon4' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file4= $request->file('icon4');
+            $filename4= date('YmdHi').$file4->getClientOriginalName();
+            $image_path4 = $request->file('icon4')->store('about', 'public');
+            $update_about->icon4 = asset('storage/'.$image_path4);
+        }
+        $update_about->title4 = $request->title4;
+        $update_about->details4 = $request->details4;
+        if ($request->hasFile('icon5')) {
+            $request->validate([
+                'icon5' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file5= $request->file('icon5');
+            $filename5= date('YmdHi').$file5->getClientOriginalName();
+            $image_path5 = $request->file('icon5')->store('about', 'public');
+            $update_about->icon5 = asset('storage/'.$image_path5);
+        }
+        $update_about->title5 = $request->title5;
+        $update_about->details5 = $request->details5;
+        if ($request->hasFile('icon6')) {
+            $request->validate([
+                'icon6' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file6= $request->file('icon6');
+            $filename6= date('YmdHi').$file6->getClientOriginalName();
+            $image_path6 = $request->file('icon6')->store('about', 'public');
+            $update_about->icon6 = asset('storage/'.$image_path6);
+        }
+        $update_about->title6 = $request->title6;
+        $update_about->details6 = $request->details6;
+        $update_about->update();
+
+        return back()->with('message','About Cms updated successfully');
     }
 }

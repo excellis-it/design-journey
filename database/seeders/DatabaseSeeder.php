@@ -15,10 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            // assignRoleSeeder::class,
-            // assignAdminSeeder::class,
-            // homeCmsSeeder::class,
+            assignRoleSeeder::class,
+            assignAdminSeeder::class,
+            homeCmsSeeder::class,
             aboutSeeder::class,
+            categorySeeder::class,
         ]);
     }
 }
