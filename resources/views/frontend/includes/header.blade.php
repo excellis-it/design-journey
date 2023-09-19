@@ -39,18 +39,18 @@
                             </a>
                         </li>
                         <li class="has-child">
-                            <a href="about.html" class="link-underline link-underline-1">
+                            <a href="{{ route('home') }}" class="link-underline link-underline-1">
                                 <span>Solutions</span>
                             </a>
                             <div class="child">
                                 <ul>
                                     <li>
-                                        <a href="" class="link-underline">
+                                        <a href="{{ route('social.media.design') }}" class="link-underline">
                                             <span>Social Media Design</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="link-underline">
+                                        <a href="{{ route('website.design') }}" class="link-underline">
                                             <span>Website Design</span>
                                         </a>
                                     </li>
@@ -85,7 +85,7 @@
                         </li>
                         
                         <li class="has-child">
-                            <a href="" class="link-underline link-underline-1">
+                            <a href="{{ route('home') }}" class="link-underline link-underline-1">
                                 <span>Resources</span>
                             </a>
                             <div class="child">

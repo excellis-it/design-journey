@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class HomeController extends Controller
 
     public function blogs()
     {
-        $blogs = Blog::orderBy('id','desc')->where('status',1)->paginate(2);
+        $blogs = Blog::orderBy('id','desc')->where('status',1)->paginate(6);
         return view('frontend.blogs',compact('blogs'));
     }
 
@@ -36,6 +36,16 @@ class HomeController extends Controller
         $blog_details = Blog::find($blog_id);
         $similer_blogs = Blog::orderBy('id','desc')->where('status',1)->get();
         return view('frontend.blog-details',compact('blog_details','similer_blogs'));
+    }
+
+    public function socialMediaDesign()
+    {
+        return view('frontend.solution.social-media-design');
+    }
+
+    public function websiteDesign()
+    {
+        return view('frontend.solution.website-design');
     }
     
   

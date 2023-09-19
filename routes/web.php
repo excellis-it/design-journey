@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\HomeCmsController;
 use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Artisan;
 
 // Clear cache
@@ -22,18 +22,18 @@ Route::get('clear', function () {
 
 /* ----------------- Frontend Routes -----------------*/
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
-Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
 Route::get('/admin', [AuthController::class, 'login'])->name('admin.login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register-store', [AuthController::class, 'registerStore'])->name('register.store');
 Route::post('/user-login-check', [AuthController::class, 'loginCheck'])->name('login.check');
-Route::post('forget-password', [ForgotPasswordController::class, 'forgetPassword'])->name('forget.password');
-Route::post('change-password', [ForgotPasswordController::class, 'changePassword'])->name('change.password');
-Route::get('forget-password/show', [ForgotPasswordController::class, 'forgetPasswordShow'])->name('forget.password.show');
-Route::get('reset-password/{id}/{token}', [ForgotPasswordController::class, 'resetPassword'])->name('reset.password');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
+Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
+//solutions routes
+Route::get('/social-media-design', [HomeController::class, 'socialMediaDesign'])->name('social.media.design');
+Route::get('/website-design', [HomeController::class, 'websiteDesign'])->name('website.design');
+
 /* ----------------- Admin Routes -----------------*/
 
 // Route::get('/admin', [AdminController::class, 'admin'])->name('admin');

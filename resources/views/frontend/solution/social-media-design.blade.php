@@ -8,6 +8,30 @@
 @endpush
 
 @section('content')
+
+    <!-- header - start -->
+    <div class="header">
+        <div class="header-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                        <div class="header-content t-center">
+                            <h1 class="m-horz-auto heading-width-res-full heading-width-83"><span class="c-red">Social media</span> design service</h1>
+                            <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65">Level up your social media game with gorgeous graphics. Get everything you need with one affordable design subscription.</p>
+                            <div class="col-lg-12 wow">
+                                <div class="button-group button-group-center">
+                                    <a href="#" class="button button-red">
+                                        <span>See How It Works</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header - end -->
  
  <!-- Our Works Sec -->
   <div class="our_works_sec">
@@ -32,7 +56,7 @@
                                 <div class="blog-single">
                                     <a href="">
                                         <figure>
-                                            <img src="assets/images/our_works/our_work.jpeg" alt="blog">                                                    
+                                            <img src="{{ asset('frontend_assets/assets/images/our_works/our_work.jpeg')}}" alt="blog">                                                    
                                             <div class="hover">
                                                 <div class="circle">
                                                     <i class="fas fa-plus"></i>
@@ -50,7 +74,7 @@
                                 <div class="blog-single">
                                     <a href="">
                                         <figure>
-                                            <img src="assets/images/our_works/our_work1.jpeg" alt="blog">                                                    
+                                            <img src="{{ asset('frontend_assets/assets/images/our_works/our_work1.jpeg')}}" alt="blog">                                                    
                                             <div class="hover">
                                                 <div class="circle">
                                                     <i class="fas fa-plus"></i>
@@ -68,7 +92,7 @@
                                 <div class="blog-single">
                                     <a href="">
                                         <figure>
-                                            <img src="assets/images/our_works/our_work2.jpeg" alt="blog">                                                    
+                                            <img src="{{ asset('frontend_assets/assets/images/our_works/our_work2.jpeg')}}" alt="blog">                                                    
                                             <div class="hover">
                                                 <div class="circle">
                                                     <i class="fas fa-plus"></i>
@@ -86,7 +110,7 @@
                                 <div class="blog-single">
                                     <a href="">
                                         <figure>
-                                            <img src="assets/images/our_works/our_work3.jpeg" alt="blog">                                                    
+                                            <img src="{{ asset('frontend_assets/assets/images/our_works/our_work3.jpeg')}}" alt="blog">                                                    
                                             <div class="hover">
                                                 <div class="circle">
                                                     <i class="fas fa-plus"></i>
@@ -104,7 +128,7 @@
                                 <div class="blog-single">
                                     <a href="">
                                         <figure>
-                                            <img src="assets/images/our_works/our_work4.jpeg" alt="blog">                                                    
+                                            <img src="{{ asset('frontend_assets/assets/images/our_works/our_work4.jpeg')}}" alt="blog">                                                    
                                             <div class="hover">
                                                 <div class="circle">
                                                     <i class="fas fa-plus"></i>
@@ -122,7 +146,7 @@
                                 <div class="blog-single">
                                     <a href="">
                                         <figure>
-                                            <img src="assets/images/our_works/our_work3.jpeg" alt="blog">                                                    
+                                            <img src="{{ asset('frontend_assets/assets/images/our_works/our_work3.jpeg')}}" alt="blog">                                                    
                                             <div class="hover">
                                                 <div class="circle">
                                                     <i class="fas fa-plus"></i>
@@ -229,7 +253,7 @@
                             <!-- <img src="assets/images/feature-phone-1.png" alt="phone"> -->
                         </div>
                         <div class="background-layout">
-                            <div class="box-1 box-image" style="background-image: url('assets/images/ssss.jpg');">
+                            <div class="box-1 box-image" style="background-image: url('{{ asset('frontend_assets/assets/images/ssss.jpg')}}');">
                                 <div class="box-1-1 bg-purple wow bounce" data-wow-iteration="infinite"></div>
                                 <div class="box-1-2 bg-red wow pulse" data-wow-iteration="infinite"></div>
                             </div>
@@ -298,7 +322,7 @@
                             <!-- <img src="assets/images/feature-phone-2.png" alt="phone"> -->
                         </div>
                         <div class="background-layout">
-                            <div class="box-1 box-image" style="background-image: url('assets/images/ss.jpg');">
+                            <div class="box-1 box-image" style="background-image: url('{{ asset('frontend_assets/assets/images/ss.jpg')}}');">
                                 <div class="box-1-1 bg-purple wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                                 <div class="box-1-2 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                             </div>
@@ -360,12 +384,12 @@
                             <td>Very Expensive</td>
                             <td>Affordable</td>
                           </tr>
-                          <tr>
+                          <tr>')}}
                             <th scope="row">FLAT RATES</th>
-                            <td><img src="assets/images/cross.svg" alt=""/></td>
-                            <td><img src="assets/images/tick.svg" alt=""/></td>
-                            <td><img src="assets/images/cross.svg" alt=""/></td>
-                            <td><img src="assets/images/tick.svg" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/cross.svg')}}" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/tick.svg')}}" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/cross.svg')}}" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/tick.svg')}}" alt=""/></td>
                           </tr>
                           <tr>
                             <th scope="row">HIRING & ADMIN</th>
@@ -376,10 +400,10 @@
                           </tr>
                           <tr>
                             <th scope="row">VERSTATILE SKILLS</th>
-                            <td><img src="assets/images/tick.svg" alt=""/></td>
-                            <td><img src="assets/images/cross.svg" alt=""/></td>
-                            <td><img src="assets/images/tick.svg" alt=""/></td>
-                            <td><img src="assets/images/tick.svg" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/tick.svg')}}" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/cross.svg')}}" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/tick.svg')}}" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/tick.svg')}}" alt=""/></td>
                           </tr>
                           <tr>
                             <th scope="row">TURNAROUND TIME</th>
@@ -390,10 +414,10 @@
                           </tr>
                           <tr>
                             <th scope="row">FLEXIBLE & SCALABLE</th>
-                            <td><img src="assets/images/cross.svg" alt=""/></td>
-                            <td><img src="assets/images/cross.svg" alt=""/></td>
-                            <td><img src="assets/images/cross.svg" alt=""/></td>
-                            <td><img src="assets/images/tick.svg" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/cross.svg')}}" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/cross.svg')}}" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/cross.svg')}}" alt=""/></td>
+                            <td><img src="{{ asset('frontend_assets/assets/images/tick.svg')}}" alt=""/></td>
                           </tr>
                         </tbody>
                     </table>
@@ -417,6 +441,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- heading - end -->
             <!-- pricing row - start -->
             <div class="row gx-5">
@@ -500,7 +525,7 @@
                                         <!-- image - start -->
                                         <div class="image">
                                             <div class="image-inner">
-                                                <img src="assets/images/testimonial-img.jpg" alt="testimonial">
+                                                <img src="{{ asset('frontend_assets/assets/images/testimonial-img.jpg')}}" alt="testimonial">
                                                 <div class="box-1 bg-dark-1"></div>
                                                 <div class="box-2 bg-yellow">
                                                     <div class="box-2-1 bg-dark-1"></div>
@@ -525,7 +550,7 @@
                                         <!-- image - start -->
                                         <div class="image">
                                             <div class="image-inner">
-                                                <img src="assets/images/testimonial-img.jpg" alt="testimonial">
+                                                <img src="{{ asset('frontend_assets/assets/images/testimonial-img.jpg')}}" alt="testimonial">
                                                 <div class="box-1 bg-dark-1"></div>
                                                 <div class="box-2 bg-yellow">
                                                     <div class="box-2-1 bg-dark-1"></div>
@@ -716,7 +741,7 @@
                 <!-- image - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
                     <div class="cta-section-image">
-                        <img src="assets/images/cta-phone.png" alt="phone">
+                        <img src="{{ asset('frontend_assets/assets/images/cta-phone.png')}}" alt="phone">
                         <!-- <div class="box-1 bg-green-rgba-8">
                             <div class="box-2 bg-purple">
                                 <div class="box-2-1 bg-dark-1"></div>
@@ -818,7 +843,7 @@
                             <div class="heading">
                                 <h3 class="ls-1 t-center m-horz-auto heading-width-76">Join today and get 20% off your plan.</h3>
                             </div>
-                            <div class="image" style="background-image: url('assets/images/cta-image.jpg');">
+                            <div class="image" style="background-image: url('{{ asset('frontend_assets/assets/images/cta-image.jpg')}}');">
                                 <!-- <img src="" alt="cta"> -->
                             </div>
                             <a href="#" class="button button-blue">
