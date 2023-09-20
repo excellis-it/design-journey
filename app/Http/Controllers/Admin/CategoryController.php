@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\CategoryImage;
 
 
 class CategoryController extends Controller
@@ -111,5 +112,12 @@ class CategoryController extends Controller
         $category->status = request()->status;
         $category->save();
         return response()->json(['success' => 'Status change successfully.']);
+    }
+
+    public function addCategoryImage($id)
+    {
+        
+        $category_images = Category::where('id', $id)->with('categoryImages')->get();
+        return view('admin.category.image.create', compact('category_images'));
     }
 }

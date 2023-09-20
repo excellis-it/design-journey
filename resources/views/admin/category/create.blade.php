@@ -1,110 +1,152 @@
 @extends('admin.layouts.master')
 @section('title')
-{{ env('APP_NAME') }} | Create Category
+    Category Create - {{ env('APP_NAME') }}
 @endsection
 @push('styles')
 @endpush
 
 @section('content')
-<div class="page-wrapper">
-
-    <div class="content container-fluid">
-
-        <div class="page-header">
-            <div class="row align-items-center">
-                <div class="col">
-                    <h3 class="page-title">Create</h3>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Categories</a></li>
-                        <li class="breadcrumb-item active">Create Category</li>
-                    </ul>
-                </div>
-                <div class="col-auto float-end ms-auto">
-                    {{-- <a href="#" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_group"><i
-                            class="fa fa-plus"></i> Add Customer</a> --}}
-                </div>
-            </div>
+    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
+        <div class="">
+            <h4 class="page-title m-b-0">Create Category</h4>
+            <!-- <h5 class="page">Hello Evano 👋🏼,</h5> -->
         </div>
+        <div class="">
+            <ul class="breadcrumb breadcrumb-style">
+                <li class="breadcrumb-item">
+                    Home
+                </li>
+                <li class="breadcrumb-item active">Category</li>
+            </ul>
+        </div>
+    </section>
 
-        <div class="card">
-            <div class="card-body">
-                <div class="card-title">
-                    <div class="row">
-                    <div class="col-xl-12 mx-auto">
-                        <h6 class="mb-0 text-uppercase">Create A Category</h6>
-                        <hr>
-                        <div class="card border-0 border-4">
-                            <div class="card-body">
-                                <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="border p-4 rounded">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="inputEnterYourName" class="col-form-label"> Name <span style="color: red;">*</span></label>
-                                                <input type="text" name="name" id="" class="form-control" value="{{ old('name') }}" placeholder="Enter Name">
-                                                @if($errors->has('name'))
-                                                <div class="error" style="color:red;">{{ $errors->first('name') }}</div>
-                                                @endif
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <label for="inputEnterYourName" class="col-form-label"> Slug <span style="color: red;">*</span></label>
-                                                <input type="text" name="slug" id="" class="form-control" value="{{ old('slug') }}" placeholder="Enter Slug">
-                                                @if($errors->has('slug'))
-                                                <div class="error" style="color:red;">{{ $errors->first('slug') }}</div>
-                                                @endif
-                                            </div>
-                               
-                                            <div class="col-md-6">
-                                                <label for="inputEnterYourName" class="col-form-label"> Status <span style="color: red;">*</span></label>
-                                                <select name="status" id="" class="form-control">
-                                                    <option value="">Select a Status</option>
-                                                    <option value="1">Active</option>
-                                                    <option value="0">Inactive</option>
-                                                </select>
-                                                @if($errors->has('status'))
-                                                <div class="error" style="color:red;">{{ $errors->first('status') }}</div>
-                                                @endif
-                                            </div>
-
-                                        </div>    
-                                            
-                                        <div class="row" style="margin-top: 20px; float: left;">
-                                            <div class="col-sm-9">
-                                                <button type="submit" class="btn px-5 submit-btn">Create</button>
-                                            </div>
-                                        </div>
+    <div class="main-content">
+        <div class="inner_page">
+            <div class="card search_bar sales-report-card">
+                <div class="sales-report-card-wrap">
+                    <div class="form-head">
+                        <h4>Category Information</h4>
+                    </div>
+                    <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row justify-content-between">
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue"> Name*</label>
+                                        <input type="text" name="name" class="form-control" id="floatingInputValue"
+                                            placeholder="Enter name*" value="{{ old('name') }}">
+                                        @if ($errors->has('name'))
+                                            <div class="error" style="color:red;">{{ $errors->first('name') }}</div>
+                                        @endif
                                     </div>
-                                </form>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Slug*</label>
+                                        <input type="text" name="slug" class="form-control" id="floatingInputValue"
+                                            placeholder="Enter slug*" value="{{ old('slug') }}">
+                                        @if ($errors->has('slug'))
+                                            <div class="error" style="color:red;">{{ $errors->first('slug') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="add-more-image">
+                        <div class="row justify-content-between">
+                            <div class="col-md-6 ">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue"> Image*</label>
+                                        <input type="file" name="image" class="form-control">
+                                        @if ($errors->has('image'))
+                                            <div class="error" style="color:red;">{{ $errors->first('image') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <a class="btn btn-primary add-image">Add Image</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </d
+
+                        <div class="row justify-content-between">
+
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Status</label>
+                                        <select name="status" class="form-select" aria-label="Default select example">
+                                            <option selected value="">Select</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Deactive</option>
+                                        </select>
+                                        @if ($errors->has('status'))
+                                            <div class="error" style="color:red;">{{ $errors->first('status') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-12">
+                                <div class="btn-1">
+                                    <button type="submit">Create Category</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                </div>
+
             </div>
+
         </div>
-
     </div>
-
-</div>
 @endsection
 
 @push('scripts')
-<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    
 <script>
-    CKEDITOR.replace('editor1');
-    CKEDITOR.on('instanceReady', function(evt) {
-        var editor = evt.editor;
-
-        editor.on('change', function(e) {
-            var contentSpace = editor.ui.space('contents');
-            var ckeditorFrameCollection = contentSpace.$.getElementsByTagName('iframe');
-            var ckeditorFrame = ckeditorFrameCollection[0];
-            var innerDoc = ckeditorFrame.contentDocument;
-            var innerDocTextAreaHeight = $(innerDoc.body).height();
-            console.log(innerDocTextAreaHeight);
+    // add more functionality for milestone
+    $(document).ready(function() {
+        $('.add-image').click(function() {
+            var html = '';
+            html += '<div class="row">';
+            html += '<div class="col-md-6">';
+            html += '<div class="form-group-div">';
+            html += '<div class="form-group">';
+            html += '<label for="floatingInputValue"> Image*</label>';
+            html += '<input type="file" name="image[]" class="form-control">';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '<div class="col-md-6">';
+            html += '<div class="form-group-div">';
+            html += '<div class="form-group">';
+            html += '<a class="btn btn-danger remove">Remove</a>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            $('.add-more-image').append(html);
+        });
+        $(document).on('click', '.remove', function() {
+            $(this).closest('.row').remove();
         });
     });
 </script>
-
 @endpush
+
