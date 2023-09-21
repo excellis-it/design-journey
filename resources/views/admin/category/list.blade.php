@@ -2,11 +2,9 @@
 @section('title')
     All Category Details - {{ env('APP_NAME') }}
 @endsection
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" />
 @push('styles')
-<style>
-    
-</style>
-    
 @endpush
 
 @section('content')
@@ -33,8 +31,8 @@
                     </div>
                     <div class="col-md-3">
                         <div class="add-button">
-                        <a href="{{ route('categories.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
-                            Category</a>
+                            <a href="{{ route('categories.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
+                                Category</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +63,7 @@
                                     </td>
                                     <td>
                                         <div class="edit-1 d-flex align-items-center">
-                                            <a href=""> <span class="edit-icon"><i
+                                            <a href="{{ route('categories.edit', $category->id) }}"> <span class="edit-icon"><i
                                                         class="ph ph-pencil-simple"></i></span></a>
                                     </td>
                                 </tr>
@@ -79,6 +77,7 @@
 @endsection
 
 @push('scripts')
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
             //Default data table
@@ -86,11 +85,11 @@
                 "aaSorting": [],
                 "columnDefs": [{
                         "orderable": false,
-                        "targets": [2]
+                        "targets": [1, 2]
                     },
                     {
                         "orderable": true,
-                        "targets": [0, 1]
+                        "targets": [0]
                     }
                 ]
             });

@@ -8,22 +8,23 @@
     <!-- provide the csrf token -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="bootstrap-5.3/css/bootstrap.min.css">
+   
+    <link rel="stylesheet" href="{{ asset('admin_assets/assets/bootstrap-5.3/css/bootstrap.min.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+   
     <script src="https://unpkg.com/phosphor-icons"></script>
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/app.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/custom.css')}}" />
     <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/style.css')}}" />
-    <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/morris.css')}}">
-    <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/daterangepicker.css')}}" />
-    <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/jqvmap.min.css')}}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css"/>
+    {{-- <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/morris.css')}}"> --}}
+    // <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/daterangepicker.css')}}" />
+    {{-- // <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/jqvmap.min.css')}}" /> --}}
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> --}}
+
 </head>
 
 
@@ -51,6 +52,7 @@
     </div>
 
 </body>
+
     <script src="{{ asset('admin_assets/assets/js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{ asset('admin_assets/assets/bootstrap-5.3/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('admin_assets/assets/js/raphael-min.js')}}"></script>
@@ -60,17 +62,15 @@
     <script src="{{ asset('admin_assets/assets/js/app.min.js')}}"></script>
     <script src="{{ asset('admin_assets/assets/js/scripts.js')}}" async=""></script>
     <script src="{{ asset('admin_assets/assets/js/jquery-ui.min.js')}}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script> --}}
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+   
 
 
 

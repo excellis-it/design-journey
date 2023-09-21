@@ -16,7 +16,7 @@
                 <li class="breadcrumb-item">
                     Home
                 </li>
-                <li class="breadcrumb-item active">Category</li>
+                <li class=""> >>  Category</li>
             </ul>
         </div>
     </section>
@@ -59,30 +59,30 @@
                             </div>
                         </div>
                         <div class="add-more-image">
-                        <div class="row justify-content-between">
-                            <div class="col-md-6 ">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue"> Image*</label>
-                                        <input type="file" name="image" class="form-control">
-                                        @if ($errors->has('image'))
-                                            <div class="error" style="color:red;">{{ $errors->first('image') }}</div>
-                                        @endif
+                            <div class="row justify-content-between">
+                                <div class="col-md-6 ">
+                                    <div class="form-group-div">
+                                        <div class="form-group">
+                                            <label for="floatingInputValue"> Image*</label>
+                                            <input type="file" name="image[]" class="form-control">
+                                            @if ($errors->has('image'))
+                                                <div class="error" style="color:red;">{{ $errors->first('image') }}</div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group-div">
+                                        <div class="form-group">
+                                            <a class="btn btn-primary add-image">Add Image</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <a class="btn btn-primary add-image">Add Image</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-
-                        </d
 
                         <div class="row justify-content-between">
 
@@ -118,35 +118,34 @@
 @endsection
 
 @push('scripts')
-    
-<script>
-    // add more functionality for milestone
-    $(document).ready(function() {
-        $('.add-image').click(function() {
-            var html = '';
-            html += '<div class="row">';
-            html += '<div class="col-md-6">';
-            html += '<div class="form-group-div">';
-            html += '<div class="form-group">';
-            html += '<label for="floatingInputValue"> Image*</label>';
-            html += '<input type="file" name="image[]" class="form-control">';
-            html += '</div>';
-            html += '</div>';
-            html += '</div>';
-            html += '<div class="col-md-6">';
-            html += '<div class="form-group-div">';
-            html += '<div class="form-group">';
-            html += '<a class="btn btn-danger remove">Remove</a>';
-            html += '</div>';
-            html += '</div>';
-            html += '</div>';
-            html += '</div>';
-            $('.add-more-image').append(html);
+    <script>
+        // add more functionality for milestone
+        $(document).ready(function() {
+            $('.add-image').click(function() {
+                
+                var html = '';
+                html += '<div class="row">';
+                html += '<div class="col-md-6">';
+                html += '<div class="form-group-div">';
+                html += '<div class="form-group">';
+                html += '<label for="floatingInputValue"> Image*</label>';
+                html += '<input type="file" name="image[]" class="form-control">';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="col-md-6">';
+                html += '<div class="form-group-div">';
+                html += '<div class="form-group">';
+                html += '<a class="btn btn-danger remove">Remove</a>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                $('.add-more-image').append(html);
+            });
+            $(document).on('click', '.remove', function() {
+                $(this).closest('.row').remove();
+            });
         });
-        $(document).on('click', '.remove', function() {
-            $(this).closest('.row').remove();
-        });
-    });
-</script>
+    </script>
 @endpush
-

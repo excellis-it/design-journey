@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\CategoryImage;
+use Illuminate\Support\Facades\Validator;
 
 
 class CategoryController extends Controller
@@ -42,7 +43,6 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-
         $request->validate([
             'name' => 'required',
             'slug' => 'required',
@@ -54,6 +54,17 @@ class CategoryController extends Controller
         $category->slug = $request->slug;
         $category->status = $request->status;
         $category->save();
+
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
+                $name = $image->getClientOriginalName();
+                $image_path = $image->store('categories', 'public');
+                $category_image = new CategoryImage();
+                $category_image->category_id = $category->id;
+                $category_image->image = asset('storage/'.$image_path);
+                $category_image->save();
+            }
+        }
 
         return redirect()->route('categories.index')->with('success', 'Category created successfully.');
 
@@ -79,6 +90,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        return $id;
     }
 
     /**
