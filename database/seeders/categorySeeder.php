@@ -77,7 +77,7 @@ class categorySeeder extends Seeder
         ];
 
 
-        $images = ["asset('frontend_assets/assets/images/our_works/our_work1.jpeg')", "asset('frontend_assets/assets/images/our_works/our_work2.jpeg')", "asset('frontend_assets/assets/images/our_works/our_work3.jpeg')", "asset('frontend_assets/assets/images/our_works/our_work4.jpeg')", "asset('frontend_assets/assets/images/our_works/our_work.jpeg')"];
+        $images = [asset('frontend_assets/assets/images/our_works/our_work1.jpeg'), asset('frontend_assets/assets/images/our_works/our_work2.jpeg'), asset('frontend_assets/assets/images/our_works/our_work3.jpeg'), asset('frontend_assets/assets/images/our_works/our_work4.jpeg'), asset('frontend_assets/assets/images/our_works/our_work.jpeg')];
 
         foreach ($categories as $value) {
             $category_add = new Category();

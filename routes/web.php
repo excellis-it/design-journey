@@ -61,17 +61,21 @@ Route::group(['prefix' => 'admin'], function () {
             'categories' => CategoryController::class,
         ]);
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
+        Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
+        Route::post('/categories/update', [CategoryController::class, 'updateCategory'])->name('categories.update');
         Route::post('/blogs/statusChange', [AdminBlogController::class, 'changeBlogStatus'])->name('blogs.change-status');
         Route::get('/blogs/delete/{id}', [AdminBlogController::class, 'deleteBlog'])->name('delete.blog');
         Route::post('/blog-update/{id}', [AdminBlogController::class, 'blogUpdate'])->name('admin.blogs.update');
         
         //cms routes
-        //home cms
-        Route::get('/cms/home', [HomeCmsController::class, 'homeCms'])->name('home.cms');
-        Route::post('/homeCms/update', [HomeCmsController::class, 'homeCmsUpdate'])->name('home.cms.update');
-        //about cms
-        Route::get('/cms/about', [HomeCmsController::class, 'aboutCms'])->name('about.cms');
-        Route::post('/aboutCms/update', [HomeCmsController::class, 'aboutCmsUpdate'])->name('about.cms.update');
+        Route::group(['prefix'=>'cms'], function(){
+            //home cms
+            Route::get('/home-cms', [HomeCmsController::class, 'homeCms'])->name('home.cms');
+            Route::post('/homeCms/update', [HomeCmsController::class, 'homeCmsUpdate'])->name('home.cms.update');
+            //about cms
+            Route::get('/about-cms', [HomeCmsController::class, 'aboutCms'])->name('about.cms');
+            Route::post('/aboutCms/update', [HomeCmsController::class, 'aboutCmsUpdate'])->name('about.cms.update');
+        });
     });
 });
 

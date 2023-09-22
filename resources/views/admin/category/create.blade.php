@@ -23,6 +23,13 @@
 
     <div class="main-content">
         <div class="inner_page">
+            <div class="card-title">
+                <div class="row justify-content-between">
+                    <div class="col-md-6">
+                        <h4 class="mb-0">Create</h4>
+                    </div>
+                </div>
+            </div>
             <div class="card search_bar sales-report-card">
                 <div class="sales-report-card-wrap">
                     <div class="form-head">

@@ -2,61 +2,53 @@
 @section('title')
     All Blog Details - {{ env('APP_NAME') }}
 @endsection
+
 @push('styles')
-    <style>
-        .dataTables_filter {
-            margin-bottom: 10px !important;
-        }
-    </style>
 @endpush
 
 @section('content')
-    <section id="loading">
-        <div id="loading-content"></div>
+    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
+        <div class="">
+            <h4 class="page-title m-b-0">Blog List</h4>
+        </div>
+        <div class="">
+            <ul class="breadcrumb breadcrumb-style">
+                <li class="breadcrumb-item">
+                    Home
+                </li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ul>
+        </div>
     </section>
-    <div class="page-wrapper">
+    <div class="main-content" style="min-height: 842px;">
 
-        <div class="content container-fluid">
-
-            <div class="page-header">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h3 class="page-title">Blog Information</h3>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('blogs.index') }}">Blogs</a></li>
-                            <li class="breadcrumb-item active">List</li>
-                        </ul>
+        <div class="inner_page">
+            <div class="card-title">
+                <div class="row justify-content-between">
+                    <div class="col-md-6">
+                        <h4 class="mb-0">List</h4>
                     </div>
-                    <div class="col-auto float-end ms-auto">
-                        <a href="{{ route('blogs.create') }}" class="btn add-btn"><i class="fa fa-plus"></i> Add a Blog</a>
+                    <div class="col-md-3">
+                        <div class="add-button">
+                            <a href="{{ route('blogs.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
+                                Blog</a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-title">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4 class="mb-0">Blogs Details</h4>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <hr />
-                    <div class="table-responsive">
-                        <table id="myTable" class="dd table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th> Title</th>
-                                    <th> Description</th>
-                                    <th> Status</th>
-                                    <th> Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($blogs as $key => $blog)
+            <div class="card table_sec">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="myTable" class="display">
+                        <thead>
+                            <tr>
+                                <th> Title</th>
+                                <th> Description</th>
+                                <th> Status</th>
+                                <th> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($blogs as $key => $blog)
                                     <tr>
                                         <td>{{ $blog->title }}</td>
                                         <td>{!! Str::limit($blog->description, 80) !!}</td>
@@ -78,18 +70,16 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
         </div>
-
     </div>
 @endsection
 
 @push('scripts')
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
             //Default data table

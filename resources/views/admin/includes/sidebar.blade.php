@@ -8,14 +8,14 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header"></li>
-            <li class="dropdown active">
+            <li class="dropdown">
                 <a href="{{ route('admin.dashboard') }}">
                     <i class="ph-gauge"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
 
-            <li class="dropdown {{ Request::is('admin/categories*') ? 'active' : ' ' }}">
+            <li class="{{ Request::is('admin/categories*') ? 'active' : ' ' }}">
                 <a href="{{ route('categories.index') }}">
                     <i class="ph-clipboard-text"></i>
                     <span>Categories</span>
@@ -23,24 +23,24 @@
             </li>
 
             <li class="dropdown">
-                <a href="" class="menu-toggle nav-link has-dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown {{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                     <i class="ph-wallet"></i>
-                    <span>B2B Deposits</span>
+                    <span>CMS</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="">Manage / Add Deposits</a></li>
-                    <li><a class="nav-link" href="">Manage New Deposits
-                            Request</a></li>
-                    <li><a class="nav-link" href="">Approved Deposits Request</a>
+                    <li class="{{ Request::routeIs('home.cms') ? 'mm-active' : '' }}">
+                        <a class="nav-link" href="{{ route('home.cms') }}">Home Cms</a>
                     </li>
-                    <li><a class="nav-link" href="">Deposit History</a></li>
-                    <li><a class="nav-link" href="">Refund Deposit</a></li>
+                    <li class="{{ Request::routeIs('about.cms') ? 'mm-active' : '' }}">
+                        <a class="nav-link" href="{{ route('about.cms') }}">About Cms</a>
+                    </li>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="">
+            
+            <li class="{{ Request::is('admin/blogs*') ? 'active' : ' ' }}">
+                <a href="{{ route('blogs.index') }}">
                     <i class="ph-ticket"></i>
-                    <span>All Cancel Ticket</span>
+                    <span>Blog</span>
                 </a>
             </li>
 

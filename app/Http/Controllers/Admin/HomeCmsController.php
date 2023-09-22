@@ -244,6 +244,7 @@ class HomeCmsController extends Controller
 
     public function aboutCmsUpdate(Request $request)
     {
+        
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -260,8 +261,8 @@ class HomeCmsController extends Controller
             'title6' => 'required',
             'details6' => 'required',
         ]);
-
-        $update_about = About::find($request->about_id);
+        
+        $update_about = About::find($request->about_cms_id);
         $update_about->title = $request->title;
         $update_about->description = $request->description;
         if ($request->hasFile('image')) {

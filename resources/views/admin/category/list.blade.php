@@ -2,8 +2,7 @@
 @section('title')
     All Category Details - {{ env('APP_NAME') }}
 @endsection
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" />
+
 @push('styles')
 @endpush
 

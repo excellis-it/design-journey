@@ -21,7 +21,11 @@
     <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/custom.css')}}" />
     <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/style.css')}}" />
     {{-- <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/morris.css')}}"> --}}
-    // <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/daterangepicker.css')}}" />
+   <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/daterangepicker.css')}}" />
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
     {{-- // <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/jqvmap.min.css')}}" /> --}}
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> --}}
 

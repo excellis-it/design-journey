@@ -66,7 +66,7 @@ class CategoryController extends Controller
             }
         }
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        return redirect()->route('categories.index')->with('message', 'Category created successfully.');
 
     }
 
@@ -90,7 +90,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
-        return $id;
+        $category = Category::with('categoryImages')->find($id);
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -103,6 +104,13 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function deleteCategoryImage($id)
+    {
+        $category_image = CategoryImage::find($id);
+        $category_image->delete();
+        return redirect()->back()->with('message', 'Category image deleted successfully.');
     }
 
     /**
@@ -118,18 +126,42 @@ class CategoryController extends Controller
 
 
 
-    public function changeCategoryStatus()
+    public function changeCategoryStatus(Request $request)
     {
-        $category = Category::find(request()->id);
-        $category->status = request()->status;
+        $category = Category::find($request->cat_id);
+        $category->status = $request->status;
         $category->save();
-        return response()->json(['success' => 'Status change successfully.']);
+        return response()->json(['message' => 'Status change successfully.']);
     }
 
-    public function addCategoryImage($id)
+    public function updateCategory(Request $request)
     {
         
-        $category_images = Category::where('id', $id)->with('categoryImages')->get();
-        return view('admin.category.image.create', compact('category_images'));
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'status' => 'required',
+        ]);
+        $category = Category::find($request->id);
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->status = $request->status;
+        $category->save();
+
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
+                $name = $image->getClientOriginalName();
+                $image_path = $image->store('categories', 'public');
+                $category_image = new CategoryImage();
+                $category_image->category_id = $category->id;
+                $category_image->image = asset('storage/'.$image_path);
+                $category_image->save();
+            }
+        }
+
+
+        return redirect()->back()->with('message', 'Category updated successfully.');
     }
+
+    
 }
