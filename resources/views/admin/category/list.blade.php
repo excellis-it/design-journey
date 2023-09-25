@@ -3,6 +3,8 @@
     All Category Details - {{ env('APP_NAME') }}
 @endsection
 
+
+
 @push('styles')
 @endpush
 
@@ -28,11 +30,9 @@
                     <div class="col-md-6">
                         <h4 class="mb-0">List</h4>
                     </div>
-                    <div class="col-md-3">
-                        <div class="add-button">
-                            <a href="{{ route('categories.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
-                                Category</a>
-                        </div>
+                    <div class="col-auto float-end ms-auto">
+                        <a href="{{ route('categories.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
+                            Category</a>
                     </div>
                 </div>
             </div>
@@ -64,6 +64,8 @@
                                         <div class="edit-1 d-flex align-items-center">
                                             <a href="{{ route('categories.edit', $category->id) }}"> <span class="edit-icon"><i
                                                         class="ph ph-pencil-simple"></i></span></a>
+                                                        <a title="Delete Category" data-route="{{ route('delete.category',$category->id) }}"
+                                                            id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>           
                                     </td>
                                 </tr>
                             @endforeach
@@ -77,6 +79,7 @@
 
 @push('scripts')
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+   
     <script>
         $(document).ready(function() {
             //Default data table
@@ -117,6 +120,8 @@
                 })
         });
     </script>
+
+
     <script>
         $('.toggle-class').change(function() {
             var status = $(this).prop('checked') == true ? 1 : 0;

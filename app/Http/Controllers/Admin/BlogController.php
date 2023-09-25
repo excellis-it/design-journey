@@ -133,6 +133,7 @@ class BlogController extends Controller
 
     public function blogUpdate(Request $request)
     {
+        
         $request->validate([
             'title' => 'required',
             'slug' => 'required',
@@ -198,7 +199,7 @@ class BlogController extends Controller
     public function deleteBlog($id)
     {
         Blog::findOrFail($id)->delete();
-        return redirect()->back()->with('error', 'Blog has been deleted!');
+        return back()->with('error', 'Blog has been deleted!');
     }
  
 }

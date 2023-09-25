@@ -62,10 +62,11 @@ Route::group(['prefix' => 'admin'], function () {
         ]);
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
+        Route::get('/categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
         Route::post('/categories/update', [CategoryController::class, 'updateCategory'])->name('categories.update');
         Route::post('/blogs/statusChange', [AdminBlogController::class, 'changeBlogStatus'])->name('blogs.change-status');
         Route::get('/blogs/delete/{id}', [AdminBlogController::class, 'deleteBlog'])->name('delete.blog');
-        Route::post('/blog-update/{id}', [AdminBlogController::class, 'blogUpdate'])->name('admin.blogs.update');
+        Route::post('/blogs/update', [AdminBlogController::class, 'blogUpdate'])->name('admin.blogs.update');
         
         //cms routes
         Route::group(['prefix'=>'cms'], function(){

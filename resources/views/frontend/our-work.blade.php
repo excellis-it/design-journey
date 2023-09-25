@@ -53,7 +53,9 @@
                         <li data-filter=".stationary"><span>STATIONARY SETS</span></li>
                     </ul>
                 </div>
-                <div class="filters-content">
+
+
+                {{-- <div class="filters-content">
                     <div class="row justify-content-center grid">
                         <!-- single - start -->
                         <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 all socialdesign">
@@ -329,32 +331,10 @@
                             </a>
                         </div>
                     </div>
-                    <!-- single - end -->
-                    <!-- single - start -->
-                    <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 all stationary">
-                        <div class="feature-section-content text-center">
-                            <a href="">
-                                <figure>
-                                    <img src="{{ asset('frontend_assets/assets/images/blog/blog-single-thumbnail-2.jpg')}}" alt="blog">                                    
-                                </figure>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single - end -->
-                    <!-- single - start -->
-                    <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 all stationary">
-                        <div class="feature-section-content text-center">
-                            <a href="">
-                                <figure>
-                                    <img src="{{ asset('frontend_assets/assets/images/blog/blog-single-thumbnail-2.jpg')}}" alt="blog">                                    
-                                </figure>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single - end -->
+                                           
 
 
-                </div>
+                </div> --}}
                 <div class="row">
                     <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="button-group button-group-center">

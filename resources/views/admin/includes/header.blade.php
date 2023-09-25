@@ -69,10 +69,10 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
                             <div class="dropdown-title">Hello Admin</div>
-                            <div class="dropdown-divider"></div>
+                            
                             <button type="submit" class="dropdown-item has-icon text-danger">
                                 <i class="fas fa-sign-out-alt"></i>
-                                <a href="" class="has-icon text-danger">
+                                <a href="{{ route('admin.logout') }}" class="has-icon text-danger">
                                     Logout
                                 </a>
                             </button>

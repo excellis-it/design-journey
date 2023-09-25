@@ -14,9 +14,9 @@
         <div class="">
             <ul class="breadcrumb breadcrumb-style">
                 <li class="breadcrumb-item">
-                    Home
+                    Home /
                 </li>
-                <li class=""> >> Home Cms</li>
+                <li class=""> Home Cms</li>
             </ul>
         </div>
     </section>

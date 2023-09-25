@@ -72,7 +72,7 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue"> Description*</label>
                                         <textarea name="description" class="form-control" id="editor1"
-                                            placeholder="Enter description*" value="{{ old('description') }}"></textarea>
+                                            placeholder="Enter description*" value="{{ old('description') }}">{{ old('description') }}</textarea>
                                         @if ($errors->has('description'))
                                             <div class="error" style="color:red;">{{ $errors->first('description') }}</div>
                                         @endif
@@ -86,7 +86,7 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Conclusion*</label>
                                         <textarea name="conclusion" class="form-control" id="floatingInputValue"
-                                            placeholder="Enter conclusion*" value="{{ old('conclusion') }}"></textarea>
+                                            placeholder="Enter conclusion*" value="{{ old('conclusion') }}">{{ old('conclusion') }}</textarea>
                                         @if ($errors->has('conclusion'))
                                             <div class="error" style="color:red;">{{ $errors->first('conclusion') }}</div>
                                         @endif
@@ -160,7 +160,7 @@
                         <div class="row justify-content-between">
                             <div class="col-xl-12">
                                 <div class="btn-1">
-                                    <button type="submit">Create Category</button>
+                                    <button type="submit">Create</button>
                                 </div>
                             </div>
                         </div>

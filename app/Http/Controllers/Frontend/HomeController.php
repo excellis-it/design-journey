@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\HomeCms;
 use App\Models\Blog;
+use App\Models\Category;
 
 
 class HomeController extends Controller
@@ -40,7 +41,8 @@ class HomeController extends Controller
 
     public function ourWork()
     {
-        return view('frontend.our-work');
+        $categories = Category::orderBy('id','desc')->get();
+        return view('frontend.our-work',compact('categories'));
     }
 
     

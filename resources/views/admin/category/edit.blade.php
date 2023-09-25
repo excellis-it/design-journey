@@ -162,7 +162,7 @@
 
                             <div class="col-xl-12">
                                 <div class="btn-1">
-                                    <button type="submit">Create Category</button>
+                                    <button type="submit">Update</button>
                                 </div>
                             </div>
                         </div>

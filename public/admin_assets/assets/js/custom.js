@@ -72,16 +72,16 @@ $(document).mouseup(function (e) {
 
 
 
-$('.departure_date').datepicker({
-    format: 'dd.mm.yyyy',
-    numberOfMonths: 2,
-    minDate: new Date(),
-    autoclose: true
-}).on('changeDate', function (e) {
-    //on change of date on start datepicker, set end datepicker's date
-    $('.departure_date').datepicker('setStartDate', e.date)
+// $('.departure_date').datepicker({
+//     format: 'dd.mm.yyyy',
+//     numberOfMonths: 2,
+//     minDate: new Date(),
+//     autoclose: true
+// }).on('changeDate', function (e) {
+//     //on change of date on start datepicker, set end datepicker's date
+//     $('.departure_date').datepicker('setStartDate', e.date)
 
-});
+// });
 
 $(document).ready(function () {
     $(".mobile_menu_btn").click(function () {
@@ -143,37 +143,37 @@ $(document).ready(function () {
 
 
 
-$(document).ready(function () {
-    var carousel = $("#flight_matrix");
-    carousel.owlCarousel({
-        nav: true,
-        autoplay: true,
-        dots: false,
-        items: 8,
-        navText: [
-      "<i class='ph-caret-left'></i>",
-      "<i class='ph-caret-right'></i>"
-    ],
-        responsive: {
-            0: {
-                items: 2
-            },
-            600: {
-                items: 2,
-                nav: false,
-                dots: false
-            },
-            800: {
-                items: 4,
-                nav: false,
-                dots: false
-            },
-            1024: {
-                items: 8
-            }
-        }
-    });
-});
+// $(document).ready(function () {
+//     var carousel = $("#flight_matrix");
+//     carousel.owlCarousel({
+//         nav: true,
+//         autoplay: true,
+//         dots: false,
+//         items: 8,
+//         navText: [
+//       "<i class='ph-caret-left'></i>",
+//       "<i class='ph-caret-right'></i>"
+//     ],
+//         responsive: {
+//             0: {
+//                 items: 2
+//             },
+//             600: {
+//                 items: 2,
+//                 nav: false,
+//                 dots: false
+//             },
+//             800: {
+//                 items: 4,
+//                 nav: false,
+//                 dots: false
+//             },
+//             1024: {
+//                 items: 8
+//             }
+//         }
+//     });
+// });
 
 
 $(document).ready(function () {

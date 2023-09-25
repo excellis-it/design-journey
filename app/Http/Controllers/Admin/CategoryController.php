@@ -113,6 +113,12 @@ class CategoryController extends Controller
         return redirect()->back()->with('message', 'Category image deleted successfully.');
     }
 
+    public function deleteCategory($id)
+    {
+        Category::findOrFail($id)->delete();
+        return back()->with('error', 'Category has been deleted!');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

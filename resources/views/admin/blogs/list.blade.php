@@ -1,7 +1,10 @@
 @extends('admin.layouts.master')
 @section('title')
     All Blog Details - {{ env('APP_NAME') }}
+    
+    
 @endsection
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
 
 @push('styles')
 @endpush
@@ -28,11 +31,9 @@
                     <div class="col-md-6">
                         <h4 class="mb-0">List</h4>
                     </div>
-                    <div class="col-md-3">
-                        <div class="add-button">
-                            <a href="{{ route('blogs.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
-                                Blog</a>
-                        </div>
+                    <div class="col-auto float-end ms-auto">
+                        <a href="{{ route('blogs.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
+                            Blog</a>
                     </div>
                 </div>
             </div>
@@ -61,12 +62,11 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <a title="Edit Blog" data-route=""
-                                                href="{{ route('blogs.edit', $blog->id) }}"><i class="fas fa-edit"></i></a>
-                                            &nbsp;&nbsp;
-
-                                            <a title="Delete Blog" data-route="{{ route('delete.blog', $blog->id) }}"
-                                                href="javascipt:void(0);" id="delete"><i class="fas fa-trash"></i></a>
+                                            <div class="edit-1 d-flex align-items-center">
+                                                <a href="{{ route('blogs.edit', $blog->id) }}"> <span class="edit-icon"><i
+                                                            class="ph ph-pencil-simple"></i></span></a>
+                                                <a title="Delete Blog" data-route="{{ route('delete.blog',$blog->id) }}"
+                                                    id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -79,7 +79,32 @@
 @endsection
 
 @push('scripts')
+
+<script>
+    $(document).on('click', '#delete', function(e) {
+        
+        swal({
+                title: "Are you sure?",
+                text: "To delete this blog.",
+                type: "warning",
+                confirmButtonText: "Yes",
+                showCancelButton: true
+            })
+            .then((result) => {
+                if (result.value) {
+                    window.location = $(this).data('route');
+                } else if (result.dismiss === 'cancel') {
+                    swal(
+                        'Cancelled',
+                        'Your stay here :)',
+                        'error'
+                    )
+                }
+            })
+    });
+</script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+   
     <script>
         $(document).ready(function() {
             //Default data table
@@ -98,28 +123,7 @@
 
         });
     </script>
-    <script>
-        $(document).on('click', '#delete', function(e) {
-            swal({
-                    title: "Are you sure?",
-                    text: "To delete this blog.",
-                    type: "warning",
-                    confirmButtonText: "Yes",
-                    showCancelButton: true
-                })
-                .then((result) => {
-                    if (result.value) {
-                        window.location = $(this).data('route');
-                    } else if (result.dismiss === 'cancel') {
-                        swal(
-                            'Cancelled',
-                            'Your stay here :)',
-                            'error'
-                        )
-                    }
-                })
-        });
-    </script>
+    
     <script>
         $('.toggle-class').change(function() {
             var status = $(this).prop('checked') == true ? 1 : 0;
