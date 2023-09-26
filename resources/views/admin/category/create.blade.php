@@ -88,11 +88,9 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="row justify-content-between">
-
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
@@ -117,9 +115,7 @@
                         </div>
                     </form>
                 </div>
-
             </div>
-
         </div>
     </div>
 @endsection

@@ -87,7 +87,7 @@ class categorySeeder extends Seeder
         }
 
         // take 10 category and every category has 5 images in category_images table
-        $category = Category::all()->take(10);
+        $category = Category::all();
         foreach ($category as $value) {
             for ($i = 0; $i < 5; $i++) {
                 $cat_image = new CategoryImage();

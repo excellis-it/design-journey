@@ -119,7 +119,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="" class="link-underline link-underline-1">
+                            <a href="{{ route('login') }}" class="link-underline link-underline-1">
                                 <span>Sign In</span>
                             </a>
                         </li>

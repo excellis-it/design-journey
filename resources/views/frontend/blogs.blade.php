@@ -485,3 +485,7 @@
 <!-- cta section - end -->
 
 @endsection
+
+@push('scripts')
+
+@endpush

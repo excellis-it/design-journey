@@ -25,6 +25,8 @@ Route::get('clear', function () {
 /* ----------------- Frontend Routes -----------------*/
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/admin', [AuthController::class, 'login'])->name('admin.login');
+
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register-store', [AuthController::class, 'registerStore'])->name('register.store');
@@ -45,6 +47,7 @@ Route::get('/illustration-design',[SolutionsController::class, 'illustrationDesi
 Route::get('/presentation-design',[SolutionsController::class, 'presentationDesign'])->name('presentation.design');
 
 Route::get('/our-work', [HomeController::class, 'ourWork'])->name('our.work');
+Route::post('/our-work/filter',[HomeController::class, 'ourWorkFilter'])->name('our-work.filter');
 
 /* ----------------- Admin Routes -----------------*/
 

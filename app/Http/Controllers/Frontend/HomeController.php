@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\HomeCms;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\CategoryImage;
+use Illuminate\Support\Facades\View;
 
 
 class HomeController extends Controller
@@ -41,8 +43,22 @@ class HomeController extends Controller
 
     public function ourWork()
     {
-        $categories = Category::orderBy('id','desc')->get();
-        return view('frontend.our-work',compact('categories'));
+        $categories = Category::orderBy('id','asc')->get();
+        $category_images = CategoryImage::orderBy('id','desc')->paginate(21);
+        
+        return view('frontend.our-work',compact('categories','category_images'));
+    }
+
+    public function ourWorkFilter(Request $request)
+    {
+        $find_category = Category::where('slug',$request->category)->first();
+        if($request->category == 'all'){
+            $category_images = CategoryImage::orderBy('id','desc')->paginate(21);
+        }else{
+            $category_images = CategoryImage::where('category_id', $find_category->id)->paginate(21);
+        }
+
+        return response()->json(['view'=>(String)View::make('frontend.our-work-filter')->with(compact('category_images'))]);
     }
 
     

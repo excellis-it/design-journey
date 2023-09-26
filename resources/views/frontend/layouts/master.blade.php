@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     
     <!-- title tag -->
     <title>Design Journey</title>
@@ -26,6 +27,7 @@
     <!-- <link rel="stylesheet" href="assets/css/overlay-scrollbars.min.css"> -->
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/style.css')}}">
+    @stack('styles')
 </head>
 
 
@@ -43,5 +45,6 @@
     <script src="{{ asset('frontend_assets/assets/js/swiper-bundle.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
     <script src="{{ asset('frontend_assets/assets/js/main.js')}}"></script>
+    @stack('scripts')
 </body>
 </html>    
