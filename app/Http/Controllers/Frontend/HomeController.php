@@ -61,6 +61,11 @@ class HomeController extends Controller
         return response()->json(['view'=>(String)View::make('frontend.our-work-filter')->with(compact('category_images'))]);
     }
 
+    public function pricing()
+    {
+        return view('frontend.pricing');
+    }
+
     
      
 }

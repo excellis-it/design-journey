@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             homeCmsSeeder::class,
             aboutSeeder::class,
             categorySeeder::class,
+            AddPlanSeeder::class,
         ]);
     }
 }

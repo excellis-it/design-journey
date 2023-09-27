@@ -30,6 +30,8 @@ class PlanController extends Controller
     public function create()
     {
         //
+
+        return view('admin.plan.create');
     }
 
     /**
@@ -41,6 +43,29 @@ class PlanController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'plan_name' => 'required',
+            'plan_duration' => 'required',
+            'plan_details' => 'required',
+            'plan_price' => 'required',
+        ]);
+        $plan_store = new Plan;
+        $plan_store->plan_name = $request->plan_name;
+        $plan_store->plan_duration = $request->plan_duration;
+        $plan_store->plan_details = $request->plan_details;
+        $plan_store->plan_price = $request->plan_price;
+        $plan_store->save();
+
+        if ($request->specification) {
+            foreach ($request->specification as $specification) {
+                $specification_add = new PlanSpecfication();
+                $specification_add->plan_id = $plan_store->id;
+                $specification_add->specification_name = $specification;
+                $specification_add->save();
+            }
+        }
+
+        return back()->with('message','Plan Added Successfully');
     }
 
     /**
@@ -74,47 +99,55 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+    public function update()
     {
-        //
+
+    }
+    public function planUpdate(Request $request)
+    {
+        
         $request->validate([
             'plan_name' => 'required',
+            'plan_duration' => 'required',
+            'plan_details' => 'required',
             'plan_price' => 'required',
-            'plan_type' => 'required',
         ]);
 
-        $update_plan = new Plan;
-        $update_plan->where('id',$id)->update([
-            'plan_name' => $request->plan_name,
-            'plan_price' => $request->plan_price,
-            'plan_type' => $request->plan_type
-        ]);
+        $update_plan = Plan::where('id',$request->plan_id)->first();
+        $update_plan->plan_name = $request->plan_name;
+        $update_plan->plan_duration = $request->plan_duration;
+        $update_plan->plan_details = $request->plan_details;
+        $update_plan->plan_price = $request->plan_price;
+        $update_plan->update();
 
-        
-        $delete_plan= PlanSpecfication::where('plan_id',$id)->delete();
-        foreach ($request->plan_specification as $key => $specification) {
-            if($specification != null){
-                
-                $plan = PlanSpecfication::create([
-                    'plan_id' => $id,
-                    'specification_name' => $specification
-                ]);
-            }    
+        if ($request->specification) {
+            $del_specification = PlanSpecfication::where('plan_id',$update_plan->id)->delete();
+            foreach ($request->specification as $specification) {
+                $specification_add = new PlanSpecfication();
+                $specification_add->plan_id = $request->plan_id;
+                $specification_add->specification_name = $specification;
+                $specification_add->save();
+            }
         }
+
+
         return redirect()->route('plans.index')->with('message', 'Plan updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function delete($id)
+    public function deleteSpecification($id)
     {
-        $plan_delete = Plan::findOrFail($id);
-        $plan_delete->delete();
-        $plan_specification_delete = PlanSpecfication::where('plan_id',$id)->delete();
-        return redirect()->route('patients.index')->with('error', 'Plan has been deleted successfully.');
+        
+        $del_specification = PlanSpecfication::where('id',$id)->delete();
+        return response()->json(['message' => 'Delete specification successfully.']);
+
+    }
+
+   
+    public function deletePlan($id)
+    {
+        $del_plan = Plan::where('id',$id)->delete();
+        return back()->with('message','Plan deleted successfully');
     }
 }

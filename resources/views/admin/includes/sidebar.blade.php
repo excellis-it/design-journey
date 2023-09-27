@@ -22,16 +22,23 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/plans*') ? 'active' : ' ' }}">
+                <a href="{{ route('plans.index') }}">
+                    <i class="ph-clipboard-text"></i>
+                    <span>Plans</span>
+                </a>
+            </li>
+
             <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown {{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
                     <span>CMS</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::routeIs('home.cms') ? 'mm-active' : '' }}">
+                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('home.cms') }}">Home Cms</a>
                     </li>
-                    <li class="{{ Request::routeIs('about.cms') ? 'mm-active' : '' }}">
+                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('about.cms') }}">About Cms</a>
                     </li>
                 </ul>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\HomeCmsController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\SolutionsController;
@@ -36,7 +37,7 @@ Route::post('change-password', [ForgetPasswordController::class, 'changePassword
 Route::get('forget-password/show', [ForgetPasswordController::class, 'forgetPasswordShow'])->name('forget.password.show');
 Route::get('reset-password/{id}/{token}', [ForgetPasswordController::class, 'resetPassword'])->name('reset.password');
 
-
+Route::get('/pricing',[HomeController::class, 'pricing'])->name('pricing');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
 Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
@@ -62,6 +63,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::resources([
             'blogs' => AdminBlogController::class,
             'categories' => CategoryController::class,
+            'plans' => PlanController::class,
         ]);
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
@@ -70,6 +72,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/blogs/statusChange', [AdminBlogController::class, 'changeBlogStatus'])->name('blogs.change-status');
         Route::get('/blogs/delete/{id}', [AdminBlogController::class, 'deleteBlog'])->name('delete.blog');
         Route::post('/blogs/update', [AdminBlogController::class, 'blogUpdate'])->name('admin.blogs.update');
+        Route::get('/plans/delete/{id}',[PlanController::class, 'deletePlan'])->name('delete.plans');
+        Route::post('/plans/update', [PlanController::class, 'planUpdate'])->name('update.plans');
+        Route::get('/plans/deleteSpecification/{id}',[PlanController::class, 'deleteSpecification'])->name('specification.delete');
+
         
         //cms routes
         Route::group(['prefix'=>'cms'], function(){

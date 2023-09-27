@@ -73,7 +73,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('presentation.design') }}" class="link-underline link-underline-1">
+                            <a href="{{ route('pricing') }}" class="link-underline link-underline-1">
                                 <span>Pricing</span>
                             </a>
                         </li>
