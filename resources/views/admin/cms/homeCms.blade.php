@@ -614,38 +614,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row justify-content-between">
-                            <div class="col-md-12">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Section 4 Video link*</label>
-                                        <input type="text" name="section4_video_link" class="form-control"
-                                            id="floatingInputValue" value="{{ $homeCms->section4_video_link }}">
-                                        @if ($errors->has('section4_video_link'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('section4_video_link') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Section 4 Image1*</label>
-                                        <input type="file" name="section4_image1" class="form-control"
-                                            id="floatingInputValue">
-                                        <img src="{{ asset($homeCms->section4_image1) }}" alt="" width="200px"
-                                            height="150px">
-                                        @if ($errors->has('section4_image1'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('section4_image1') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                   
 
                         <div class="row justify-content-between">
                             <div class="col-md-12">

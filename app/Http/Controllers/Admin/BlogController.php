@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::orderBy('id', 'desc')->get();
+        $blogs = Blog::orderBy('id', 'desc')->with('category')->get();
         return view('admin.blogs.list')->with(compact('blogs'));
     }
 
@@ -27,7 +28,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        $categories = BlogCategory::orderBy('id', 'desc')->get();
+        return view('admin.blogs.create',compact('categories'));
     }
 
     public function store(Request $request)
@@ -41,9 +43,11 @@ class BlogController extends Controller
             'image2' => 'required',
             'status' => 'required',
             'conclusion' => 'required',
+            'category_id' => 'required',
         ]);
 
         $blog = new blog;
+        $blog->blog_cat_id = $request->category_id;
         $blog->title = $request->title;
         $blog->slug = $request->slug;
         $blog->description = $request->description;
@@ -112,10 +116,10 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        
-        $blog = Blog::findOrFail($id);
-        return view('admin.blogs.edit')->with(compact('blog'));
+    {  
+        $blog = Blog::where('id',$id)->with('category')->first();
+        $categories = BlogCategory::orderBy('id', 'desc')->get();
+        return view('admin.blogs.edit')->with(compact('blog','categories'));
     }
 
     /**
@@ -133,16 +137,17 @@ class BlogController extends Controller
 
     public function blogUpdate(Request $request)
     {
-        
         $request->validate([
             'title' => 'required',
             'slug' => 'required',
             'description' => 'required',
             'status' => 'required',
             'conclusion' => 'required',
+            'category_id' => 'required',
         ]);
 
         $blog = Blog::findOrFail($request->blog_id);
+        $blog->blog_cat_id = $request->category_id;
         $blog->title = $request->title;
         $blog->slug = $request->slug;
         $blog->description = $request->description;
@@ -201,5 +206,60 @@ class BlogController extends Controller
         Blog::findOrFail($id)->delete();
         return back()->with('error', 'Blog has been deleted!');
     }
+
+    public function blogCategoryList()
+    {
+        $blog_categories = BlogCategory::orderBy('id', 'desc')->get();
+        return view('admin.blogs.categories.list')->with(compact('blog_categories'));
+    }
+
+    public function createBlogCategory()
+    {
+        
+        return view('admin.blogs.categories.create');
+    }
+
+    public function storeBlogCategory(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+        ]);
+
+        $blog_category = new BlogCategory;
+        $blog_category->name = $request->name;
+        $blog_category->slug = $request->slug;
+        $blog_category->save();
+
+        return redirect()->route('blogs.categories.list')->with('message', 'Blog category has been added successfully');
+    }
+
+    public function editBlogCategory($id)
+    {
+        $blog_category = BlogCategory::findOrFail($id);
+        return view('admin.blogs.categories.edit')->with(compact('blog_category'));
+    }
+
+    public function updateBlogCategory(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+        ]);
+
+        $blog_category = BlogCategory::findOrFail($request->blog_category_id);
+        $blog_category->name = $request->name;
+        $blog_category->slug = $request->slug;
+        $blog_category->update();
+
+        return redirect()->route('blogs.categories.list')->with('message', 'Blog category has been updated successfully');
+    }
+
+    public function deleteBlogCategory($id)
+    {
+        BlogCategory::findOrFail($id)->delete();
+        return back()->with('error', 'Blog category has been deleted!');
+    }
+
  
 }

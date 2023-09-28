@@ -6,6 +6,7 @@
     Our work
 @endsection
 @push('styles')
+
 @endpush
 
 @section('content')
@@ -34,99 +35,34 @@
                 <div class="Pricing_sec">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="monthly-tab" data-bs-toggle="tab" data-bs-target="#monthly"
-                                type="button" role="tab" aria-controls="monthly" aria-selected="true">MONTHLY
+                            <button class="nav-link active duration" id="monthly" data-bs-toggle="tab" data-bs-target="#monthly"
+                                type="button" role="tab" aria-controls="monthly" aria-selected="true"  >MONTHLY
                                 </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="quarterly-tab" data-bs-toggle="tab" data-bs-target="#quarterly"
-                                type="button" role="tab" aria-controls="quarterly" aria-selected="false">QUARTERLY</button>
+                            <button class="nav-link duration" id="quarterly" data-bs-toggle="tab" data-bs-target="#quarterly"
+                                type="button" role="tab" aria-controls="quarterly" aria-selected="false" >QUARTERLY</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="yearly-tab" data-bs-toggle="tab" data-bs-target="#yearly"
-                                type="button" role="tab" aria-controls="yearly" aria-selected="false">YEARLY</button>
+                            <button class="nav-link duration" id="yearly" data-bs-toggle="tab" data-bs-target="#yearly"
+                                type="button" role="tab" aria-controls="yearly" aria-selected="false" >YEARLY</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
                             <!-- pricing row - start -->
-                            <div class="row">
-                                <!-- single pricing - start -->
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="pricing-single">
-                                        <div class="pricing-single-wrapper">
-                                            <h3 class="plan c-red">Advanced</h3>
-                                            <h5>Create all of your everyday designs.</h5>
-                                            <p class="price c-grey">$549<sup>/mo</sup></p>
-                                            <a href="#" class="button button-red button-full-width">
-                                                <span>GET STARTED</span>
-                                            </a>
-                                            <ul>
-                                                <li class="available">1 Daily Output</li>
-                                                <li class="available">1-2 Days Delivery</li>
-                                                <li class="available">All Design Services</li>
-                                            </ul>
-                                            <div class="box bg-red"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single pricing - end -->
-                                <!-- single pricing - start -->
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="pricing-single">
-                                        <div class="pricing-single-wrapper">
-                                            <h3 class="plan c-purple">Business</h3>
-                                            <h5>Get double the output everyday.</h5>
-                                            <p class="price c-grey">$899<sup>/mo</sup></p>
-                                            <a href="#" class="button button-purple button-full-width">
-                                                <span>GET STARTED</span>
-                                            </a>
-                                            <ul>
-                                                <li class="available">2 Daily Output</li>
-                                                <li class="available">1-2 Days Delivery</li>
-                                                <li class="available">All Design Services</li>
-                                                <li class="available">Motion Graphics Services</li>
-                                            </ul>
-                                            <div class="box bg-purple"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single pricing - end -->
-                                <!-- single pricing - start -->
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="pricing-single">
-                                        <div class="pricing-single-wrapper">
-                                            <h3 class="plan c-blue">Designated Designer</h3>
-                                            <h5>Collaborate in real time with your designer.</h5>
-                                            <p class="price c-grey">$1,199<sup>/mo</sup></p>
-                                            <a href="#" class="button button-blue button-full-width">
-                                                <span>BOOK A CALL</span>
-                                            </a>
-                                            <ul>
-                                                <li class="available">Designated Designer</li>
-                                                <li class="available">Same Day Delivery</li>
-                                                <li class="available">Real Time Slack Communication</li>
-                                                <li class="available">All Design Services</li>
-                                                <li class="available">Motion Graphics Services</li>
-                                            </ul>
-                                            <h6 class="c-grey">Available for US Eastern, Central European & Indochina Time</h6>
-                                            <div class="box bg-blue"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single pricing - end -->  
-                            </div>
+                            <div id="plan-filter">@include('frontend.pricing-filter')</div>
                             <!-- pricing row - end -->
                         </div>
-                        <div class="tab-pane fade" id="quarterly" role="tabpanel" aria-labelledby="quarterly-tab">...</div>
-                        <div class="tab-pane fade" id="yearly" role="tabpanel" aria-labelledby="yearly-tab">...</div>
+                        {{-- <div class="tab-pane fade" id="quarterly" role="tabpanel" aria-labelledby="quarterly-tab">...</div>
+                        <div class="tab-pane fade" id="yearly" role="tabpanel" aria-labelledby="yearly-tab">...</div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- feature section - end -->
-    @include('frontend.includes.get-in-touch')
+    
     @endsection
 
     @push('scripts')
@@ -151,4 +87,26 @@
             }
         });
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.duration').click(function () {
+            //get duration value
+            var duration = $(this).attr('id');
+            $.ajax({
+                url: "{{ route('pricing.filter') }}",
+                method: 'post',
+                data: {
+                    duration: duration
+                },
+                headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                success: function (data) {
+                    $('#plan-filter').html(data.view);
+                }
+            });     
+            });
+        });
+        </script>
 @endpush

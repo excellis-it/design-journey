@@ -9,6 +9,8 @@ use App\Models\HomeCms;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\CategoryImage;
+use App\Models\Plan;
+use App\Models\PlanSpecfication;
 use Illuminate\Support\Facades\View;
 
 
@@ -63,7 +65,14 @@ class HomeController extends Controller
 
     public function pricing()
     {
-        return view('frontend.pricing');
+        $plans = Plan::orderBy('id','asc')->where('plan_duration','monthly')->with('Specification')->take(3)->get();
+        return view('frontend.pricing',compact('plans'));
+    }
+
+    public function pricingFilter(Request $request)
+    {
+        $plans = Plan::orderBy('id','asc')->where('plan_duration',$request->duration)->with('Specification')->take(3)->get();
+        return response()->json(['view'=>(String)View::make('frontend.pricing-filter')->with(compact('plans'))]);
     }
 
     

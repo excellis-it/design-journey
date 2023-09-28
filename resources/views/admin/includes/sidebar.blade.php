@@ -43,15 +43,28 @@
                     </li>
                 </ul>
             </li>
-            
-            <li class="{{ Request::is('admin/blogs*') ? 'active' : ' ' }}">
-                <a href="{{ route('blogs.index') }}">
-                    <i class="ph-ticket"></i>
+
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
                     <span>Blog</span>
                 </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('blogs.categories.list') }}">Category</a>
+                    </li>
+                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                        <a class="nav-link" href="{{ route('blogs.index') }}">Manage</a>
+                    </li>
+                </ul>
             </li>
-
-
+            
+            <li class="{{ Request::is('admin/users*') ? 'active' : ' ' }}">
+                <a href="{{ route('users.index') }}">
+                    <i class="ph-ticket"></i>
+                    <span>Customers</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

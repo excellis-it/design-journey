@@ -42,6 +42,22 @@
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
+                                        <label for="floatingInputValue"> Category*</label>
+                                        <select name="category_id" class="form-select" aria-label="Default select example">
+                                            
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}" {{ $blog->blog === $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @if ($errors->has('category_id'))
+                                            <div class="error" style="color:red;">{{ $errors->first('category_id') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
                                         <label for="floatingInputValue"> Title*</label>
                                         <input type="text" name="title" class="form-control" id="floatingInputValue"
                                             placeholder="Enter title*" value="{{ $blog->title }}">
@@ -50,9 +66,9 @@
                                         @endif
                                     </div>
                                 </div>
-                            </div>
-
-
+                            </div> 
+                        </div>
+                        <div class="row justify-content-between">
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
@@ -65,23 +81,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row justify-content-between">
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue"> Description*</label>
-                                        <textarea name="description" class="form-control" id="editor1"
-                                            placeholder="Enter description*" >{{ $blog->description }}</textarea>
-                                        @if ($errors->has('description'))
-                                            <div class="error" style="color:red;">{{ $errors->first('description') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-
-
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
@@ -95,6 +94,23 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row justify-content-between">
+                            <div class="col-md-12">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue"> Description*</label>
+                                        <textarea name="description" class="form-control" id="editor1"
+                                            placeholder="Enter description*" >{{ $blog->description }}</textarea>
+                                        @if ($errors->has('description'))
+                                            <div class="error" style="color:red;">{{ $errors->first('description') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+
+                       
 
 
                         <div class="add-more-image">

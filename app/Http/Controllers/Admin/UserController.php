@@ -17,63 +17,10 @@ class UserController extends Controller
 
     public function userList(Request $request)
     {
-        
-        $draw = $request->get('draw');
-        $start = $request->get("start");
-        $rowperpage = $request->get("length"); // Rows display per page
+       return $users = User::orderBy('id', 'desc')->hasRole('CUSTOMER')->get();
+        return view('admin.customer.list', compact('users'));
 
-        $columnIndex_arr = $request->get('order');
-        $columnName_arr = $request->get('columns');
-        $order_arr = $request->get('order');
-        $search_arr = $request->get('search');
-
-        $columnIndex = $columnIndex_arr[0]['column']; // Column index
-        $columnName = $columnName_arr[$columnIndex]['data']; // Column name
-        $columnSortOrder = $order_arr[0]['dir']; // asc or desc
-        $searchValue = $search_arr['value']; // Search value
-
-        // Total records
-        $totalRecords = User::orderBy('id','desc')->Role('USER')->count();
-        $totalRecordswithFilter = User::orderBy('id','desc')->Role('USER')->count();
-
-        // Fetch records
-        $records = User::query();
-        $columns = ['first_name','email','phone','status'];
-        foreach($columns as $column){
-            $records->where($column, 'like', '%' . $searchValue . '%');
-        }
-        $records->orderBy($columnName,$columnSortOrder);
-        $records->skip($start);
-        $records->take($rowperpage);
-        $records = $records->Role('USER');
-        $records = $records->get();
-
-        $data_arr = array(); 
-
-        foreach($records as $record){
-            $id = $record->id;
-            $first_name = $record->first_name. ' ' .$record->last_name;
-            $email = $record->email;
-            $phone = $record->phone;
-            $no_of_invoice = Invoice::where('user_id',$id)->get()->count();
-
-            $data_arr[] = array(
-               "first_name" => $first_name,
-               "email" => $email,
-               "phone" => $phone,
-               "invoice" =>$no_of_invoice,
-               "status" => '<div class="button-switch"><input type="checkbox" id="switch-orange" class="switch toggle-class" data-id="'.$record->id.'"'.($record->status ? 'checked' : '').'/><label for="switch-orange" class="lbl-off"></label><label for="switch-orange" class="lbl-on"></label></div>',
-            );
-        }                                                                                                                                                   
-                                                                                                                                                    
-        $response = array(
-           "draw" => intval($draw),
-           "iTotalRecords" => $totalRecords,
-           "iTotalDisplayRecords" => $totalRecordswithFilter,
-           "aaData" => $data_arr
-        );
-
-        return response()->json($response); 
+      
     }
 
     public function userStatusChange(Request $request)

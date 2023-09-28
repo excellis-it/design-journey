@@ -15,6 +15,7 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('blog_cat_id')->references('id')->on('blog_categories')->onDelete('cascade')->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->string('main_image')->nullable();
@@ -22,7 +23,7 @@ class CreateBlogsTable extends Migration
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
             $table->longText('conclusion')->nullable();
-            $table->tinyInteger('status')->default(true);
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

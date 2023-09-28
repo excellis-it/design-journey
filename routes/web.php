@@ -49,6 +49,7 @@ Route::get('/presentation-design',[SolutionsController::class, 'presentationDesi
 
 Route::get('/our-work', [HomeController::class, 'ourWork'])->name('our.work');
 Route::post('/our-work/filter',[HomeController::class, 'ourWorkFilter'])->name('our-work.filter');
+Route::post('/plan/filter',[HomeController::class, 'pricingFilter'])->name('pricing.filter');
 
 /* ----------------- Admin Routes -----------------*/
 
@@ -58,13 +59,23 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
         Route::get('profile', [ProfileController::class, 'index'])->name('admin.profile');
         Route::post('profile/update', [ProfileController::class, 'profileUpdate'])->name('admin.profile.update');
-        Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
+        Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout'); 
 
         Route::resources([
             'blogs' => AdminBlogController::class,
             'categories' => CategoryController::class,
             'plans' => PlanController::class,
         ]);
+
+    
+        Route::get('/blogCategories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
+        Route::get('/createBlogCategory', [AdminBlogController::class, 'createBlogCategory'])->name('blogs.categories.create');
+        Route::post('/storeBlogCategory', [AdminBlogController::class, 'storeBlogCategory'])->name('blogs.categories.store');
+        Route::get('/editBlogCategory/{id}', [AdminBlogController::class, 'editBlogCategory'])->name('blogs.categories.edit');
+        Route::post('/updateBlogCategory', [AdminBlogController::class, 'updateBlogCategory'])->name('blogs.categories.update');
+        Route::get('/deleteBlogCategory/{id}', [AdminBlogController::class, 'deleteBlogCategory'])->name('blogs.categories.delete');
+      
+        
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
         Route::get('/categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
@@ -75,6 +86,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/plans/delete/{id}',[PlanController::class, 'deletePlan'])->name('delete.plans');
         Route::post('/plans/update', [PlanController::class, 'planUpdate'])->name('update.plans');
         Route::get('/plans/deleteSpecification/{id}',[PlanController::class, 'deleteSpecification'])->name('specification.delete');
+
+        Route::get('/users', [UserController::class, 'userList'])->name('users.index');
 
         
         //cms routes
