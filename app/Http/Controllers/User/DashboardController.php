@@ -12,7 +12,7 @@ class DashboardController extends Controller
     
     public function dashboard()
     {
-        $user_invoices = Invoice::orderby('id','desc')->get();
-        return view('user.invoice.list')->with(compact('user_invoices'));
+       
+        return view('user.dashboard');
     }
 }

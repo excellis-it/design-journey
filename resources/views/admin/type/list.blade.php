@@ -11,7 +11,7 @@
 @section('content')
     <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
         <div class="">
-            <h4 class="page-title m-b-0">Customer List</h4>
+            <h4 class="page-title m-b-0">Type List</h4>
         </div>
         <div class="">
             <ul class="breadcrumb breadcrumb-style">
@@ -30,7 +30,10 @@
                     <div class="col-md-6">
                         <h4 class="mb-0">List</h4>
                     </div>
-                    
+                    <div class="col-auto float-end ms-auto">
+                        <a href="{{ route('types.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
+                            Type</a>
+                    </div>
                 </div>
             </div>
             <div class="card table_sec">
@@ -39,32 +42,29 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Status</th>
-                                
+                                <th>Details</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($types as $type)
                                 <tr>
                                     <td>
-                                        {{ $user->name }}
+                                        {{ $type->name }}
                                     </td>
                                     <td>
-                                        {{ $user->email }}
+                                        {{ $type->details }}
                                     </td>
-                                    <td>
-                                        {{ $user->phone }}
-                                    </td>
-                                    
+
                                     <td>
                                         <div class="edit-1 d-flex align-items-center">
-                                            <a href=""> <span class="edit-icon"><i
+                                            <a href="{{ route('types.edit', $type->id) }}"> <span class="edit-icon"><i
                                                         class="ph ph-pencil-simple"></i></span></a>
-                                                        <a title="Delete Category" data-route=""
-                                                            id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>           
+                                            <a title="Delete Type" data-route="{{ route('delete.types', $type->id) }}"
+                                                id="delete"><span class="trash-icon"><i
+                                                        class="ph ph-trash"></i></span></a>
                                     </td>
+
                                 </tr>
                             @endforeach
                         </tbody>
@@ -77,7 +77,7 @@
 
 @push('scripts')
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-   
+
     <script>
         $(document).ready(function() {
             //Default data table
@@ -85,11 +85,11 @@
                 "aaSorting": [],
                 "columnDefs": [{
                         "orderable": false,
-                        "targets": [3]
+                        "targets": [2]
                     },
                     {
                         "orderable": true,
-                        "targets": [0, 1,2]
+                        "targets": [0, 1]
                     }
                 ]
             });
@@ -116,30 +116,6 @@
                         )
                     }
                 })
-        });
-    </script>
-
-
-    <script>
-        $('.toggle-class').change(function() {
-            var status = $(this).prop('checked') == true ? 1 : 0;
-            var cat_id = $(this).data('id');
-
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: '{{ route('categories.change-status') }}',
-                data: {
-                    'status': status,
-                    'cat_id': cat_id
-                },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(resp) {
-                    console.log(resp.success)
-                }
-            });
         });
     </script>
 @endpush

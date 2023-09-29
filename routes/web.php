@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\HomeCmsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PlanController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\SolutionsController;
@@ -65,6 +66,7 @@ Route::group(['prefix' => 'admin'], function () {
             'blogs' => AdminBlogController::class,
             'categories' => CategoryController::class,
             'plans' => PlanController::class,
+            'types' => TypeController::class,
         ]);
 
     
@@ -86,10 +88,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/plans/delete/{id}',[PlanController::class, 'deletePlan'])->name('delete.plans');
         Route::post('/plans/update', [PlanController::class, 'planUpdate'])->name('update.plans');
         Route::get('/plans/deleteSpecification/{id}',[PlanController::class, 'deleteSpecification'])->name('specification.delete');
+        Route::get('/types/delete/{id}',[TypeController::class, 'deleteType'])->name('delete.types');
+        Route::post('/types/update', [TypeController::class, 'typeUpdate'])->name('update.type');
+
 
         Route::get('/users', [UserController::class, 'userList'])->name('users.index');
 
-        
         //cms routes
         Route::group(['prefix'=>'cms'], function(){
             //home cms
@@ -102,6 +106,7 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
+Route::get('/userDashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');
 Route::group(['prefix' => 'user'], function () {
     Route::group(['middleware' => 'user'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');

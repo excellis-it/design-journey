@@ -29,8 +29,8 @@
                             <div class="row">
                                 <div class="col-lg-3 col-md-6 col-12">
                                     <div class="mini_box small_bg_1">
-                                        <h3>0</h3>
-                                        <p>Today Confirmed Booking</p>
+                                        <h3>{{ $count['categories'] }}</h3>
+                                        <p>Total category</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-12">

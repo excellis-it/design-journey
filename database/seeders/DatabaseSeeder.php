@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             aboutSeeder::class,
             categorySeeder::class,
             AddPlanSeeder::class,
+            typeSeeder::class,
         ]);
     }
 }

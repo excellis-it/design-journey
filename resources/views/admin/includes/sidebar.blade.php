@@ -28,6 +28,19 @@
                     <span>Plans</span>
                 </a>
             </li>
+            
+            <li class="{{ Request::is('admin/users*') ? 'active' : ' ' }}">
+                <a href="{{ route('users.index') }}">
+                    <i class="ph-ticket"></i>
+                    <span>Customers</span>
+                </a>
+            </li>
+            <li class="{{ Request::is('admin/types*') ? 'active' : ' ' }}">
+                <a href="{{ route('types.index') }}">
+                    <i class="ph-wallet"></i>
+                    <span>Types</span>
+                </a>
+            </li>
 
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -57,13 +70,6 @@
                         <a class="nav-link" href="{{ route('blogs.index') }}">Manage</a>
                     </li>
                 </ul>
-            </li>
-            
-            <li class="{{ Request::is('admin/users*') ? 'active' : ' ' }}">
-                <a href="{{ route('users.index') }}">
-                    <i class="ph-ticket"></i>
-                    <span>Customers</span>
-                </a>
             </li>
         </ul>
     </aside>

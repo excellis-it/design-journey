@@ -17,7 +17,7 @@ class UserController extends Controller
 
     public function userList(Request $request)
     {
-       return $users = User::orderBy('id', 'desc')->hasRole('CUSTOMER')->get();
+        $users = User::orderBy('id', 'desc')->role('CUSTOMER')->get();
         return view('admin.customer.list', compact('users'));
 
       
