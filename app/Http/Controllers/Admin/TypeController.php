@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Type;
+use App\Models\SubType;
 
 
 class TypeController extends Controller
@@ -137,5 +138,87 @@ class TypeController extends Controller
         $type = Type::find($id);
         $type->delete();
         return redirect()->back()->with('error', 'Type deleted successfully');
+    }
+
+    public function subTypeList()
+    {
+        $subtypes = SubType::orderBy('id','desc')->with('Type')->get();
+        return view('admin.type.subtype.list',compact('subtypes'));
+    }
+
+    public function createSubType()
+    {
+        $types = Type::orderBy('id','desc')->get();
+        return view('admin.type.subtype.create',compact('types'));
+    }
+
+    public function storeSubType(Request $request)
+    {
+        $request->validate([
+            'type_id' => 'required',
+            'name' => 'required',
+            'slug' => 'required',
+            'details' => 'required',
+        ]);
+        $sub_type = new SubType();
+        $sub_type->type_id = $request->type_id;
+        $sub_type->name = $request->name;
+        $sub_type->slug = $request->slug;
+        $sub_type->details = $request->details;  
+        if ($request->hasFile('icon')) {
+            $request->validate([
+                'icon' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file= $request->file('icon');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $image_path = $request->file('icon')->store('subtype', 'public');
+            $sub_type->icon = asset('storage/'.$image_path);
+        }
+        $sub_type->save();
+
+        return redirect()->back()->with('message', 'Sub Type added successfully');
+    }
+
+    public function editSubType($id)
+    {
+        $sub_type = SubType::find($id);
+        $types = Type::orderBy('id','desc')->get();
+        return view('admin.type.subtype.edit',compact('sub_type','types'));
+    }
+
+    public function updateSubType(Request $request)
+    {
+        $request->validate([
+            'type_id' => 'required',
+            'name' => 'required',
+            'slug' => 'required',
+            'details' => 'required',
+        ]);
+        $sub_type = SubType::find($request->id);
+        $sub_type->type_id = $request->type_id;
+        $sub_type->name = $request->name;
+        $sub_type->slug = $request->slug;
+        $sub_type->details = $request->details;  
+        if ($request->hasFile('icon')) {
+            $request->validate([
+                'icon' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file= $request->file('icon');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $image_path = $request->file('icon')->store('subtype', 'public');
+            $sub_type->icon = asset('storage/'.$image_path);
+        }
+        $sub_type->update();
+
+        return redirect()->back()->with('message', 'Sub Type updated successfully');
+    }
+
+    public function deleteSubType($id)
+    {
+        $sub_type = SubType::find($id);
+        $sub_type->delete();
+        return redirect()->back()->with('error', 'Sub Type deleted successfully');
     }
 }

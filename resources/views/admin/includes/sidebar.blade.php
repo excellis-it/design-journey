@@ -6,7 +6,7 @@
             <a href="index.html"><span class="logo-fm"><img
                         src="{{ asset('frontend_assets/assets/images/logo.png') }}" /></span> </a>
         </div>
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu ">
             <li class="menu-header"></li>
             <li class="dropdown">
                 <a href="{{ route('admin.dashboard') }}">
@@ -31,20 +31,29 @@
             
             <li class="{{ Request::is('admin/users*') ? 'active' : ' ' }}">
                 <a href="{{ route('users.index') }}">
-                    <i class="ph-ticket"></i>
+                    <i class="ph-users"></i>
                     <span>Customers</span>
-                </a>
-            </li>
-            <li class="{{ Request::is('admin/types*') ? 'active' : ' ' }}">
-                <a href="{{ route('types.index') }}">
-                    <i class="ph-wallet"></i>
-                    <span>Types</span>
                 </a>
             </li>
 
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i class="ph-wallet"></i>
+                    <i class="ph-pen"></i>
+                    <span>Types</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('admin/types*') ? 'active' : ' ' }}">
+                        <a class="nav-link" href="{{ route('types.index') }}">Manage</a>
+                    </li>
+                    <li class="{{ Request::is('admin/subtypes*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('type.subtypes.list') }}">Subtype</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-image"></i>
                     <span>CMS</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -58,7 +67,7 @@
             </li>
 
             <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown">
+                <a href="#" class="menu-toggle nav-link has-arrow">
                     <i class="ph-wallet"></i>
                     <span>Blog</span>
                 </a>

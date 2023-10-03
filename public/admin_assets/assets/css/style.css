@@ -6846,36 +6846,63 @@ body.layout-3 .breadcrumb-style {
     margin-top: 10px;
 }
 
+.menu-details .has-arrow:after {
+
+	position: absolute;
+
+	content: "";
+
+	width: .50em;
+
+	height: .50em;
+
+	border-style: solid;
+
+	border-width: 1.2px 0 0 1.2px;
+
+	border-color: initial;
+
+	right: 15px;
+
+	transform: rotate(-45deg) translateY(-50%);
+
+	transform-origin: top;
+
+	top: 50%;
+
+	transition: all .3s ease-out;
+
+}
+
 .main-sidebar .sidebar-menu li .menu-toggle:before {
-    content: "\f0c2";
+    /* content: "\f0c2"; */
     font-family: "Phosphor" !important;
     font-style: normal !important;
     font-weight: normal !important;
     position: absolute;
     font-size: 20px;
     right: 0px;
-    transform: scale(1);
     transition: all 0.3s;
 }
 
 .main-sidebar .sidebar-menu li .menu-toggle:after {
-    content: "\f0c5";
+    /* content: "\f0c5"; */
     font-family: "Phosphor" !important;
     font-style: normal !important;
     font-weight: normal !important;
     position: absolute;
     font-size: 20px;
     right: 0px;
-    transform: scale(0);
+    /* transform: scale(0); */
     transition: all 0.3s;
 }
 
 .main-sidebar .sidebar-menu li .menu-toggle.toggled:before {
-    transform: scale(0);
+    /* transform: scale(0); */
 }
 
 .main-sidebar .sidebar-menu li .menu-toggle.toggled:after {
-    transform: scale(1);
+    /* transform: scale(1); */
 }
 
 .main-sidebar .sidebar-menu li a {

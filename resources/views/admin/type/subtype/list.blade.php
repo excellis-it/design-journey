@@ -2,16 +2,13 @@
 @section('title')
     All Category Details - {{ env('APP_NAME') }}
 @endsection
-
-
-
 @push('styles')
 @endpush
 
 @section('content')
     <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
         <div class="">
-            <h4 class="page-title m-b-0">Type List</h4>
+            <h4 class="page-title m-b-0">Sub Type List</h4>
         </div>
         <div class="">
             <ul class="breadcrumb breadcrumb-style">
@@ -31,8 +28,8 @@
                         <h4 class="mb-0">List</h4>
                     </div>
                     <div class="col-auto float-end ms-auto">
-                        <a href="{{ route('types.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
-                            Type</a>
+                        <a href="{{ route('type.subtypes.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
+                            Sub Type</a>
                     </div>
                 </div>
             </div>
@@ -41,26 +38,30 @@
                     <table class="table table-bordered" id="myTable" class="display">
                         <thead>
                             <tr>
+                                <th>Type</th>
                                 <th>Name</th>
                                 <th>Details</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($types as $type)
+                            @foreach ($subtypes as $subtype)
                                 <tr>
                                     <td>
-                                        {{ $type->name }}
+                                        {{ $subtype->Type->name }}
                                     </td>
                                     <td>
-                                        {{ $type->details }}
+                                        {{ $subtype->name }}
+                                    </td>
+                                    <td>
+                                        {{ $subtype->details }}
                                     </td>
 
                                     <td>
                                         <div class="edit-1 d-flex align-items-center">
-                                            <a href="{{ route('types.edit', $type->id) }}"> <span class="edit-icon"><i
+                                            <a href="{{ route('type.subtypes.edit', $subtype->id) }}"> <span class="edit-icon"><i
                                                         class="ph ph-pencil-simple"></i></span></a>
-                                            <a title="Delete Type" data-route="{{ route('delete.types', $type->id) }}"
+                                            <a title="Delete Subtype" data-route="{{ route('type.subtypes.delete', $subtype->id) }}"
                                                 id="delete"><span class="trash-icon"><i
                                                         class="ph ph-trash"></i></span></a>
                                     </td>

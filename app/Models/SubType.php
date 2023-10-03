@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\SubType;
 
-class Type extends Model
+class SubType extends Model
 {
     use HasFactory;
-    public function SubType()
+    public function Type()
     {
-        return $this->hasMany(SubType::class);
+        return $this->belongsTo(Type::class);
     }
 }

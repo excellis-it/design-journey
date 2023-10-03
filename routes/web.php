@@ -91,7 +91,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/types/delete/{id}',[TypeController::class, 'deleteType'])->name('delete.types');
         Route::post('/types/update', [TypeController::class, 'typeUpdate'])->name('update.type');
 
-
+        //subtype
+        Route::get('/subtypes',[TypeController::class, 'subTypeList'])->name('type.subtypes.list');
+        Route::get('/subtypes/create',[TypeController::class, 'createSubType'])->name('type.subtypes.create');
+        Route::post('/subtypes/store',[TypeController::class, 'storeSubType'])->name('type.subtypes.store');
+        Route::get('/subtypes/edit/{id}',[TypeController::class, 'editSubType'])->name('type.subtypes.edit');
+        Route::post('/subtypes/update',[TypeController::class, 'updateSubType'])->name('type.subtypes.update');
+        Route::get('/subtypes/delete/{id}',[TypeController::class, 'deleteSubType'])->name('type.subtypes.delete');
         Route::get('/users', [UserController::class, 'userList'])->name('users.index');
 
         //cms routes
@@ -106,7 +112,7 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
-Route::get('/userDashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');
+Route::get('/user-dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');
 Route::group(['prefix' => 'user'], function () {
     Route::group(['middleware' => 'user'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');
