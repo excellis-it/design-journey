@@ -39,13 +39,13 @@ class HomeController extends Controller
     { 
         $blog_id = decrypt($id);
         $blog_details = Blog::find($blog_id);
-        $similer_blogs = Blog::orderBy('id','desc')->where('status',1)->get();
+        $similer_blogs = Blog::where('blog_cat_id',$blog_details->blog_cat_id)->where('status',1)->get();
         return view('frontend.blog-details',compact('blog_details','similer_blogs'));
     }
 
     public function ourWork()
     {
-        $categories = Category::orderBy('id','asc')->get();
+        $categories = Category::orderBy('id','asc')->where('status',1)->get();
         $category_images = CategoryImage::orderBy('id','desc')->paginate(21);
         
         return view('frontend.our-work',compact('categories','category_images'));

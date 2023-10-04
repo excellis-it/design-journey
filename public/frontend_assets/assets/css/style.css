@@ -1061,7 +1061,9 @@ body {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
-
+.feature-section-content a img{
+width:100%;
+}
 .feature-section-wrapper {
     padding: 15rem 0 13.5rem 0;
 }

@@ -429,71 +429,61 @@
     <!-- feature - end -->
 
     <!-- pricing section - start -->
-    <div class="pricing-section" id="pricing">
+    <div class="pricing-section home-pricing" id="pricing">
         <div class="pricing-section-wrapper">
             <div class="container pricing-section-content">
                 <!-- heading - start -->
                 <div class="row">
                     <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="heading">
-                            <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-67">A design solution you will love</h1>
+                            <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-67">A <span class="bg-gregg c-dark-blue border-rounded">design solution</span> you will love</h1>
                         </div>
                     </div>
                 </div>
                 <!-- heading - end -->
                 <!-- pricing row - start -->
-                <div class="row gx-5">
-                    <div class="pricing-slider">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                                <!-- single pricing - start -->
-                                <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.6s">
-                                    <div class="pricing-single">
-                                        <div class="pricing-single-wrapper">
-                                            <h3 class="plan c-red">Fast & Reliable</h3>
-                                            <h6 class="c-grey">Get your design back in 1-2 business days.</h6>
-                                            <div class="box bg-red"></div>
-                                        </div>
-                                    </div>
+                <ul class="four_box_bh">
+                    <li class="">                        
+                        <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.6s">
+                            <div class="pricing-single">
+                                <div class="pricing-single-wrapper bg-blues height-1">
+                                    <h3 class="plan c-white mb-5"></h3>
+                                    <h2 class="c-white"></h2>
                                 </div>
-                                <!-- single pricing - end -->
-                                <!-- single pricing - start -->
-                                <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.7s">
-                                    <div class="pricing-single">
-                                        <div class="pricing-single-wrapper">
-                                            <h3 class="plan c-purple">Fixed Monthly Rate</h3>
-                                            <h6 class="c-grey">Work with battle-tested professionals only.</h6>
-                                            <div class="box bg-purple"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single pricing - end -->
-                                <!-- single pricing - start -->
-                                <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.8s">
-                                    <div class="pricing-single">
-                                        <div class="pricing-single-wrapper">
-                                            <h3 class="plan c-blue">Professional Designers</h3>
-                                            <h6 class="c-grey">Work with battle-tested professionals only.</h6>
-                                            <div class="box bg-blue"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single pricing - end -->
-                                <!-- single pricing - start -->
-                                <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.9s">
-                                    <div class="pricing-single">
-                                        <div class="pricing-single-wrapper">
-                                            <h3 class="plan c-yellow">Flexible & Scalable</h3>
-                                            <h6 class="c-grey">No contracts. Scale up or down as you go.</h6>
-                                            <div class="box bg-yellow"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single pricing - end -->
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                    <li class="">                        
+                        <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.6s">
+                            <div class="pricing-single">
+                                <div class="pricing-single-wrapper height-2 border-b">
+                                    <h3 class="plan c-purple mb-5"></h3>
+                                    <h2 class="c-grey"></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">                        
+                        <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.6s">
+                            <div class="pricing-single">
+                                <div class="pricing-single-wrapper bg-gregg height-2">
+                                    <h3 class="plan c-grey mb-5"></h3>
+                                    <h2 class="c-grey"></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">                        
+                        <div class="swiper-slide wow fadeInUpBig" data-wow-delay="0.6s">
+                            <div class="pricing-single">
+                                <div class="pricing-single-wrapper bg-blues-dark height-1">
+                                    <h3 class="plan c-white mb-5"></h3>
+                                    <h2 class="c-white"></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
                 <!-- pricing row - end -->
             </div>
             <div class="background-layout">
@@ -774,7 +764,7 @@
         </div>
     </div>
     <!-- cta section - end -->
-    @include('frontend.includes.get-in-touch')
+   
     
     @endsection
        

@@ -60,7 +60,7 @@
         </div>
         <!-- feature section - end -->
 
-        @include('frontend.includes.get-in-touch')
+        
     @endsection
 
     @push('scripts')

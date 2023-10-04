@@ -67,7 +67,7 @@
             </li>
 
             <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-arrow">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
                     <span>Blog</span>
                 </a>
@@ -79,6 +79,12 @@
                         <a class="nav-link" href="{{ route('blogs.index') }}">Manage</a>
                     </li>
                 </ul>
+            </li>
+            <li class="{{ Request::is('admin/contact-us*') ? 'active' : ' ' }}">
+                <a href="{{ route('contact.us.list') }}">
+                    <i class="ph-clipboard-text"></i>
+                    <span>Contactus</span>
+                </a>
             </li>
         </ul>
     </aside>

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\Invoice;
+use App\Models\ContactUs;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -29,5 +30,11 @@ class UserController extends Controller
         $user->status = $request->status;
         $user->save();
         return response()->json(['success'=>'Status change successfully.']);
+    }
+
+    public function contactUsList()
+    {
+        $contact_us = ContactUs::orderBy('id', 'desc')->get();
+        return view('admin.contact-us.list', compact('contact_us'));
     }
 }

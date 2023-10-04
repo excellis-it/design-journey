@@ -141,14 +141,35 @@ let pricing_slider = new Swiper('.pricing-slider .swiper-container', {
             initialSlide: 1
         },
         992: {
-            enabled: false,
-            slidesPerView: 4,
+            enabled: true,
+            slidesPerView: 1.5,
             spaceBetween: 30,
+            centeredSlides: false
+        }
+    },
+        // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+let pricing_inner_slider = new Swiper('.pricing-inner-slider .swiper-container', {
+    breakpoints: {
+        0: {
+            enabled: true,
+            slidesPerView: 1.5,
+            spaceBetween: 0,
+            centeredSlides: true,
+            initialSlide: 1
+        },
+        992: {
+            enabled: false,
+            slidesPerView: 3,
+            spaceBetween: 0,
             centeredSlides: false
         }
     }
 });
-
 /****************************************
 top button
 ****************************************/
@@ -355,35 +376,100 @@ new WOW().init();
 
 
 
-var counted = 0;
-$(window).scroll(function () {
 
-    var oTop = $('#counter').offset().top - window.innerHeight;
-    if (counted == 0 && $(window).scrollTop() > oTop) {
-        $('.count').each(function () {
-            var $this = $(this),
-                countTo = $this.attr('data-count');
-            $({
-                countNum: $this.text()
-            }).animate({
-                countNum: countTo
-            },
+// var counted = 0;
+// $(window).scroll(function () {
 
-                {
+//     var oTop = $('#counter').offset().top - window.innerHeight;
+//     if (counted == 0 && $(window).scrollTop() > oTop) {
+//         $('.count').each(function () {
+//             var $this = $(this),
+//                 countTo = $this.attr('data-count');
+//             $({
+//                 countNum: $this.text()
+//             }).animate({
+//                 countNum: countTo
+//             },
 
-                    duration: 2000,
-                    easing: 'swing',
-                    step: function () {
-                        $this.text(Math.floor(this.countNum));
-                    },
-                    complete: function () {
-                        $this.text(this.countNum);
-                        //alert('finished');
-                    }
+//                 {
 
-                });
-        });
-        counted = 1;
-    }
+//                     duration: 2000,
+//                     easing: 'swing',
+//                     step: function () {
+//                         $this.text(Math.floor(this.countNum));
+//                     },
+//                     complete: function () {
+//                         $this.text(this.countNum);
+//                         //alert('finished');
+//                     }
 
+//                 });
+//         });
+//         counted = 1;
+//     }
+
+// });
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".banerimg", {
+  scale: 1.5,
+  scrollTrigger: {
+    trigger: ".banerimg",
+    start: "top center",
+    end: "bottom top",
+    scrub: 1
+  }
 });
+
+
+
+
+
+new Glide(".glide", {
+    type: "carousel",
+    autoplay: 5000,
+    hoverpause: false,
+    gap: 0
+  }).mount();
+  
+  $(document).ready(function(){
+    var changebox = $(".changebox");
+    
+    var firstclone = changebox.children(":first").clone();
+    changebox.append(firstclone);
+    
+    var fsstr = changebox.parent().css("font-size");
+    fsstr = fsstr.slice(0,fsstr.indexOf("p"));
+    var fs = parseInt(fsstr);
+    
+    changebox.css("height",changebox.parent().css("font-size") );
+    ChangeSize(0);
+    setInterval(Next,2000);
+    
+    function Next(){
+       if( typeof Next.i == 'undefined' ) {
+         Next.i = 0;
+       }
+      Next.i++;
+       if(Next.i == changebox.children("span").length){
+          Next.i = 1;
+          changebox.scrollTop(0);
+       }
+       changebox.animate({scrollTop: (fs*Next.i)+Next.i*5+3},500);
+       setTimeout(function(){
+          ChangeSize(Next.i);
+       },500);
+       
+    }
+    
+    function ChangeSize(i){
+    var word = changebox.children("span").eq(i);
+    var wordsize = word.css("width");
+    changebox.css("width",wordsize);
+ }
+    
+    
+ });
+ 
+

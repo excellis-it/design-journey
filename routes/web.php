@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\SolutionsController;
+use App\Http\Controllers\Frontend\ContactusController;
 use Illuminate\Support\Facades\Artisan;
 
 // Clear cache
@@ -51,6 +52,7 @@ Route::get('/presentation-design',[SolutionsController::class, 'presentationDesi
 Route::get('/our-work', [HomeController::class, 'ourWork'])->name('our.work');
 Route::post('/our-work/filter',[HomeController::class, 'ourWorkFilter'])->name('our-work.filter');
 Route::post('/plan/filter',[HomeController::class, 'pricingFilter'])->name('pricing.filter');
+Route::post('contact-us/submit', [ContactusController::class, 'contactUsSubmit'])->name('contact-us.submit');
 
 /* ----------------- Admin Routes -----------------*/
 
@@ -99,6 +101,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/subtypes/update',[TypeController::class, 'updateSubType'])->name('type.subtypes.update');
         Route::get('/subtypes/delete/{id}',[TypeController::class, 'deleteSubType'])->name('type.subtypes.delete');
         Route::get('/users', [UserController::class, 'userList'])->name('users.index');
+        Route::get('/contact-us', [UserController::class, 'contactUsList'])->name('contact.us.list');
 
         //cms routes
         Route::group(['prefix'=>'cms'], function(){
