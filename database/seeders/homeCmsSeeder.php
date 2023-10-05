@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\homeCms;
+use App\Models\HomeCms;
 
 class homeCmsSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class homeCmsSeeder extends Seeder
     public function run()
     {
         //
-        $homeCms = new homeCms();
+        $homeCms = new HomeCms();
         $homeCms->banner_image = asset('frontend_assets/assets/images/feature-background-image-1.jpg');
         $homeCms->section1_1st_title = 'Submit your request';
         $homeCms->section1_1st_details = 'Let us know what you need. Share references and upload your brand assets';
