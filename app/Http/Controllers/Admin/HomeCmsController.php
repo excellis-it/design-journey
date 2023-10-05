@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HomeCms;
+use App\Models\SolutionCms;
+use App\Models\Solution;
 use App\Models\About;
 use Illuminate\Support\Facades\Validator;
 
@@ -342,5 +344,103 @@ class HomeCmsController extends Controller
         $update_about->update();
 
         return back()->with('message','About Cms updated successfully');
+    }
+
+    public function solutionCms()
+    {
+        $solutionCms = SolutionCms::first();
+        return view('admin.cms.solutionCms',compact('solutionCms'));
+    }
+
+    public function solutionCmsUpdate(Request $request)
+    {
+        $request->validate([
+            'section1_title' => 'required',
+            'section1_content' => 'required',
+            'section2_title' => 'required',
+            'section2_content' => 'required',
+        ]);
+        
+        $update_soluition_cms = SolutionCms::find($request->solution_cms_id);
+        $update_soluition_cms->section1_title = $request->section1_title;
+        $update_soluition_cms->section1_content = $request->section1_content;
+        if ($request->hasFile('section1_image')) {
+            $request->validate([
+                'section1_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file= $request->file('section1_image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $image_path = $request->file('section1_image')->store('solution', 'public');
+            $update_soluition_cms->section1_image = asset('storage/'.$image_path);
+        }
+        $update_soluition_cms->section2_title = $request->section2_title;
+        $update_soluition_cms->section2_content = $request->section2_content;
+        if ($request->hasFile('section2_image')) {
+            $request->validate([
+                'section2_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            
+            $file2= $request->file('section2_image');
+            $filename2= date('YmdHi').$file2->getClientOriginalName();
+            $image_path2 = $request->file('section2_image')->store('solution', 'public');
+            $update_soluition_cms->section2_image = asset('storage/'.$image_path2);
+        }
+        $update_soluition_cms->update();
+
+        return back()->with('message','Solution Cms updated successfully');
+    }
+
+    public function solutionEdit()
+    {
+        $solution = Solution::first();
+        return view('admin.solution.edit',compact('solution'));
+    }
+
+    public function solutionUpdate(Request $request)
+    {
+        $request->validate([
+            'short_freelancer' => 'required',
+            'short_inhouse_designer' => 'required',
+            'short_design_journey' => 'required',
+            'long_freelancer' => 'required',
+            'long_inhouse_designer' => 'required',
+            'long_design_journey'=> 'required',
+            'flat_rate_freelancer' => 'required',
+            'flat_rate_inhouse_designer' => 'required',
+            'flat_rate_design_journey' => 'required',
+            'hiring_freelancer' => 'required',
+            'hiring_inhouse_designer' => 'required',
+            'hiring_design_journey' => 'required',
+            'verstatile_freelancer' => 'required',
+            'verstatile_inhouse_designer' => 'required',
+            'verstatile_design_journey' => 'required',
+            'turnaround_freelancer' => 'required',
+            'turnaround_inhouse_designer' => 'required',
+            'turnaround_design_journey' => 'required',
+        ]);
+
+        $update_solution = Solution::find($request->id);
+        $update_solution->short_freelancer = $request->short_freelancer;
+        $update_solution->short_inhouse_designer = $request->short_inhouse_designer;
+        $update_solution->short_design_journey = $request->short_design_journey;
+        $update_solution->long_freelancer = $request->long_freelancer;
+        $update_solution->long_inhouse_designer = $request->long_inhouse_designer;
+        $update_solution->long_design_journey = $request->long_design_journey;
+        $update_solution->flat_rate_freelancer = $request->flat_rate_freelancer;
+        $update_solution->flat_rate_inhouse_designer = $request->flat_rate_inhouse_designer;
+        $update_solution->flat_rate_design_journey = $request->flat_rate_design_journey;
+        $update_solution->hiring_freelancer = $request->hiring_freelancer;
+        $update_solution->hiring_inhouse_designer = $request->hiring_inhouse_designer;
+        $update_solution->hiring_design_journey = $request->hiring_design_journey;
+        $update_solution->verstatile_freelancer = $request->verstatile_freelancer;
+        $update_solution->verstatile_inhouse_designer = $request->verstatile_inhouse_designer;
+        $update_solution->verstatile_design_journey = $request->verstatile_design_journey;
+        $update_solution->turnaround_freelancer = $request->turnaround_freelancer;
+        $update_solution->turnaround_inhouse_designer = $request->turnaround_inhouse_designer;
+        $update_solution->turnaround_design_journey = $request->turnaround_design_journey;
+        $update_solution->update();
+
+        return back()->with('message','Solution updated successfully');
     }
 }

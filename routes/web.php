@@ -13,8 +13,11 @@ use App\Http\Controllers\Admin\HomeCmsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\FreeIllustrationController;
+use App\Http\Controllers\Admin\FreeIconController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ResourcesController;
 use App\Http\Controllers\Frontend\SolutionsController;
 use App\Http\Controllers\Frontend\ContactusController;
 use Illuminate\Support\Facades\Artisan;
@@ -27,7 +30,8 @@ Route::get('clear', function () {
 
 /* ----------------- Frontend Routes -----------------*/
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/admin', [AuthController::class, 'login'])->name('admin.login');
+Route::get('/admin', [AuthController::class, 'adminLogin'])->name('admin.login');
+
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -42,6 +46,10 @@ Route::get('reset-password/{id}/{token}', [ForgetPasswordController::class, 'res
 Route::get('/pricing',[HomeController::class, 'pricing'])->name('pricing');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
+Route::get('/free-illustration', [ResourcesController::class, 'freeIllustration'])->name('free-illustration');
+Route::get('/free-icon', [ResourcesController::class, 'freeIcon'])->name('free-icons');
+Route::get('/guides', [ResourcesController::class, 'guides'])->name('guides');
+Route::get('/case-studies', [ResourcesController::class, 'casestudies'])->name('case-studies');
 Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
 //solutions routes
 Route::get('/social-media-design', [SolutionsController::class, 'socialMediaDesign'])->name('social.media.design');
@@ -69,6 +77,8 @@ Route::group(['prefix' => 'admin'], function () {
             'categories' => CategoryController::class,
             'plans' => PlanController::class,
             'types' => TypeController::class,
+            'free-illustrations' => FreeIllustrationController::class,
+            'free-icons' => FreeIconController::class,
         ]);
 
     
@@ -111,11 +121,17 @@ Route::group(['prefix' => 'admin'], function () {
             //about cms
             Route::get('/about-cms', [HomeCmsController::class, 'aboutCms'])->name('about.cms');
             Route::post('/aboutCms/update', [HomeCmsController::class, 'aboutCmsUpdate'])->name('about.cms.update');
+            //solution cms
+            Route::get('/solution-cms', [HomeCmsController::class, 'solutionCms'])->name('solution.cms');
+            Route::post('/solutionCms/update', [HomeCmsController::class, 'solutionCmsUpdate'])->name('solution.cms.update');
+
         });
+        Route::get('/solution/edit', [HomeCmsController::class, 'solutionEdit'])->name('solution.design.edit');
+        Route::post('/solution/update', [HomeCmsController::class, 'solutionUpdate'])->name('solution.design.update');
     });
 });
 
-Route::get('/user-dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');
+// Route::get('/user-dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');
 Route::group(['prefix' => 'user'], function () {
     Route::group(['middleware' => 'user'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');

@@ -16,7 +16,7 @@
         <div class="container page-header-content">
             <div class="row align-items-lg-end">
                 <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <h1 class="c-dark">Our Blog</h1>
+                    <h1 class="c-dark">Our Blogs</h1>
                 </div>
                 <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <ul>
@@ -55,7 +55,7 @@
         <div class="container">
             <!-- blog - start -->
             <div class="row blog-row gx-5">
-
+                @if($blogs->count() > 0)
                 @foreach($blogs as $blog)
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="blog-single">
@@ -83,317 +83,11 @@
                     </div>
                 </div>
                 @endforeach
-                {{-- <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-2.jpg" alt="blog">
-                                <div class="date bg-blue">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Continuing Medical Education Activities Across the Globe.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
+                @else
+                <div class="row blog-row gx-5"><h3 class="c-dark">No blogs Available</h3>
                 </div>
-                
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-3.jpg" alt="blog">
-                                <div class="date bg-red">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Advanced Search Tags to Filter Based on Specialty and Disease.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-1.jpg" alt="blog">
-                                <div class="date bg-pink">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Take Command of Your Personal and Professional Development.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-2.jpg" alt="blog">
-                                <div class="date bg-yellow">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Continuing Medical Education Activities Across the Globe.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
+                @endif
                
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-3.jpg" alt="blog">
-                                <div class="date bg-green">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Advanced Search Tags to Filter Based on Specialty and Disease.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure class="thumbnail-big">
-                                <img src="assets/images/blog/blog-single-thumbnail-1.jpg" alt="blog">
-                                <div class="date bg-purple">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Take Command of Your Personal and Professional Development.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure class="thumbnail-big">
-                                <img src="assets/images/blog/blog-single-thumbnail-2.jpg" alt="blog">
-                                <div class="date bg-blue">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Introducting Advanced Search Tags to Filter Based on Specialty and Disease.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-3.jpg" alt="blog">
-                                <div class="date bg-purple">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Take Command of Your Personal and Professional Development.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-1.jpg" alt="blog">
-                                <div class="date bg-blue">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Continuing Medical Education Activities Across the Globe.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-2.jpg" alt="blog">
-                                <div class="date bg-red">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Advanced Search Tags to Filter Based on Specialty and Disease.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-3.jpg" alt="blog">
-                                <div class="date bg-pink">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Take Command of Your Personal and Professional Development.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-               
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-1.jpg" alt="blog">
-                                <div class="date bg-yellow">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Continuing Medical Education Activities Across the Globe.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-single">
-                        <a href="blog-single.html">
-                            <figure>
-                                <img src="assets/images/blog/blog-single-thumbnail-2.jpg" alt="blog">
-                                <div class="date bg-green">
-                                    <p class="c-white">
-                                        27 <span>Dec</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="blog-single.html">
-                            <h3 class="c-dark">Advanced Search Tags to Filter Based on Specialty and Disease.</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div> --}}
                
             </div>
             <!-- blog - end -->
@@ -433,7 +127,7 @@
                 <!-- content - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-1 col-md-8 offset-md-2 col-10 offset-1 order-2">
                     <div class="cta-section-content">
-                        <h2 class="c-white">Serving Businesses of Every Size with Digital and Print Designs</h2>
+                        <h2 class="c-white">{{ $home_content->service_business_title }}</h2>
                         <div class="button-group">
                             <a href="#" class="button button-red button-red-hover-white">
                                 <span>Get Started</span>
@@ -448,7 +142,7 @@
                 <!-- image - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
                     <div class="cta-section-image">
-                        <img src="assets/images/cta-phone.png" alt="phone">
+                        <img src="{{ asset($home_content->service_business_image) }}" alt="phone">
                         <!-- <div class="box-1 bg-green-rgba-8">
                             <div class="box-2 bg-purple">
                                 <div class="box-2-1 bg-dark-1"></div>

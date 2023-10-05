@@ -69,7 +69,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
                             <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>
-                            <a href="{{ route('admin.profile') }}"><div class="dropdown-title">Profile</div></a>
+                            <a href="{{ route('admin.profile') }}">Profile</a>
                             <button type="submit" class="dropdown-item has-icon text-danger">
                                 
                                 <a href="{{ route('admin.logout') }}" class="has-icon text-danger">

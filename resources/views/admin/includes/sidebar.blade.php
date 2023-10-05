@@ -50,6 +50,12 @@
                     </li>
                 </ul>
             </li>
+            <li class="{{ Request::is('admin/solution*') ? 'active' : ' ' }}">
+                <a href="{{ route('solution.design.edit') }}">
+                    <i class="ph-clipboard-text"></i>
+                    <span>Solution</span>
+                </a>
+            </li>
 
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -62,6 +68,9 @@
                     </li>
                     <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('about.cms') }}">About Cms</a>
+                    </li>
+                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                        <a class="nav-link" href="{{ route('solution.cms') }}">Solution Cms</a>
                     </li>
                 </ul>
             </li>
@@ -86,6 +95,37 @@
                     <span>Contactus</span>
                 </a>
             </li>
+     
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Royalty free illustration</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('free-illustrations.index') }}">Manage</a>
+                    </li>
+                    <li class="">
+                        <a class="nav-link" href="{{ route('blogs.index') }}">Image</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Royalty free Icon</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('free-icons.index') }}">Manage</a>
+                    </li>
+                    <li class="">
+                        <a class="nav-link" href="{{ route('blogs.index') }}">Image</a>
+                    </li>
+                </ul>
+            </li>
+            
         </ul>
     </aside>
 </div>

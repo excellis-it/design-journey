@@ -57,18 +57,18 @@
 
         <li class="dropdown">
             <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('user_assets/img/profile.png') }}" class="user-img-radious-style" /> Admin
+                <img alt="image" src="{{ asset('user_assets/img/profile.png') }}" class="user-img-radious-style" /> {{ Auth::user()->name }}
 
                 
 
                 <!---<span class="d-sm-none d-lg-inline-block"><i class="ph-caret-down"></i></span>---->
             </a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
-                <div class="dropdown-title">Hello Admin</div>
-                <div class="dropdown-divider"></div>
+                <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>
+                <a href="{{ route('user.profile') }}"><div class="dropdown-title">Profile</div></a>
                 <button type="submit" class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt"></i>
-                    <a href="" class="has-icon text-danger">
+                    <a href="{{ route('user.logout') }}" class="has-icon text-danger">
                         Logout
                     </a>
                 </button>

@@ -12,10 +12,10 @@
 
     <div class="dashboard_tab pt-5 pl-0 pb-5 pl-sm-5">
         <ul class="nav" role="tablist" id="myTab">
-            <li role="presentation">
+            {{-- <li role="presentation">
                 <a href="index.html" class="active"><i class="ph-airplane-tilt"></i> Flight</a>
             </li>
-            <li role="presentation"><a href=""><i class="ph-buildings"></i> Hotel</a></li>
+            <li role="presentation"><a href=""><i class="ph-buildings"></i> Hotel</a></li> --}}
         </ul>
     </div>
 </div>

@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
             categorySeeder::class,
             AddPlanSeeder::class,
             typeSeeder::class,
+            solutionCmsSeeder::class,
+            solutionSeeder::class,
+            freeIllustrationSeeder::class,
+            freeIconSeeder::class,
         ]);
     }
 }

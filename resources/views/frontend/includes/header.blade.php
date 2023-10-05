@@ -91,17 +91,17 @@
                                 <div class="child">
                                     <ul>
                                         <li>
-                                            <a href="free-illustrations.html" class="link-underline">
+                                            <a href="{{ route('free-illustration') }}" class="link-underline">
                                                 <span>Free Illustrations</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="free-icons.html" class="link-underline">
+                                            <a href="{{ route('free-icons') }}" class="link-underline">
                                                 <span>Free Icons</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="guides.html" class="link-underline">
+                                            <a href="{{ route('guides') }}" class="link-underline">
                                                 <span>Guides</span>
                                             </a>
                                         </li>
@@ -111,7 +111,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="case-studies.html" class="link-underline">
+                                            <a href="{{ route('case-studies') }}" class="link-underline">
                                                 <span>Case Studies</span>
                                             </a>
                                         </li>
@@ -119,12 +119,12 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="" class="link-underline link-underline-1">
+                                <a href="{{ route('login') }}" class="link-underline link-underline-1">
                                     <span>Sign In</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html" class="button button-red button-navigation">
+                                <a href="{{ route('login') }}" class="button button-red button-navigation">
                                     <span>Get Started</span>
                                 </a>
                             </li>

@@ -32,7 +32,8 @@ class HomeController extends Controller
     public function blogs()
     {
         $blogs = Blog::orderBy('id','desc')->where('status',1)->paginate(6);
-        return view('frontend.blogs',compact('blogs'));
+        $home_content = HomeCms::first();
+        return view('frontend.blogs',compact('blogs','home_content'));
     }
 
     public function blogDetails($id)
@@ -75,6 +76,7 @@ class HomeController extends Controller
         return response()->json(['view'=>(String)View::make('frontend.pricing-filter')->with(compact('plans'))]);
     }
 
+  
     
      
 }
