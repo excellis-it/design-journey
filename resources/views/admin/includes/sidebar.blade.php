@@ -99,22 +99,22 @@
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
-                    <span>Royalty free illustration</span>
+                    <span>Free illustration</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="">
                         <a class="nav-link" href="{{ route('free-illustrations.index') }}">Manage</a>
                     </li>
                     <li class="">
-                        <a class="nav-link" href="{{ route('blogs.index') }}">Image</a>
+                        <a class="nav-link" href="{{ route('free-illustrations.images.list') }}">Image</a>
                     </li>
                 </ul>
             </li>
 
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
-                    <span>Royalty free Icon</span>
+                    <span>Free Icon</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="">
@@ -124,7 +124,7 @@
                         <a class="nav-link" href="{{ route('blogs.index') }}">Image</a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
             
         </ul>
     </aside>

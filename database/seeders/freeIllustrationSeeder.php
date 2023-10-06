@@ -17,60 +17,60 @@ class freeIllustrationSeeder extends Seeder
         //
         $categories = [
             [
-                'name' => 'Internet Security',
-                'slug' => 'internet-security',
+                'name' => 'Seasonal',
+                'slug' => 'seasonal',
             ],
             [
-                'name' => 'Creative Tools',
-                'slug' => 'creative-tools',
+                'name' => 'Marketing',
+                'slug' => 'marketing',
             ],
             [
-                'name' => 'Frequently Asked Questions',
-                'slug' => 'frequently-asked-questions',
+                'name' => 'Business coach',
+                'slug' => 'business-coach',
             ],
             [
-                'name' => 'Language Learning',
-                'slug' => 'language-learning',
+                'name' => 'Holidays',
+                'slug' => 'holidays',
             ],
             [
-                'name' => 'Learning',
-                'slug' => 'learning',
+                'name' => 'Hygiene and health',
+                'slug' => 'hygiene-health',
             ],
             [
-                'name' => 'Customer Reviews',
-                'slug' => 'customer-reviews',
+                'name' => 'Cities & monuments',
+                'slug' => 'cities-monuments',
             ],
             [
-                'name' => 'Digital Nomad',
-                'slug' => 'digital-nomad',
+                'name' => 'Entertainment',
+                'slug' => 'entertainment',
             ],
             [
-                'name' => 'Startups',
-                'slug' => 'startups',
+                'name' => 'Science',
+                'slug' => 'science',
             ],
             [
-                'name' => 'Ecommerce',
-                'slug' => 'ecommerce',
+                'name' => 'Shopping',
+                'slug' => 'shopping',
             ],
             [
-                'name' => 'Design Thinking',
-                'slug' => 'design-thinking',
+                'name' => 'Environment',
+                'slug' => 'environment',
             ],
             [
-                'name' => 'Business',
-                'slug' => 'business',
+                'name' => 'Geography',
+                'slug' => 'geography',
             ],
             [
-                'name' => 'Strategy',
-                'slug' => 'strategy',
+                'name' => 'People & activities',
+                'slug' => 'people-activities',
             ],
             [
-                'name' => 'Contact Us',
-                'slug' => 'contact-us',
+                'name' => 'Professions',
+                'slug' => 'professions',
             ],
             [
-                'name' => 'Alphabet and Numbers',
-                'slug' => 'alphabet-numbers',
+                'name' => 'Sport & recreation',
+                'slug' => 'sport-recreation',
             ],
         ];
 

@@ -18,6 +18,7 @@ class CreateIconCategoryImagesTable extends Migration
             $table->foreignId('icon_category_id')->references('id')->on('icon_categories')->onDelete('cascade')->nullable();
             $table->string('style_type')->nullable();
             $table->string('images')->nullable();
+            $table->string('image_name')->nullable();
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ class CreateIllustrationCategoryImagesTable extends Migration
             $table->foreignId('illustration_category_id')->references('id')->on('illustration_categories')->onDelete('cascade')->nullable();
             $table->string('style_type')->nullable();
             $table->string('images')->nullable();
+            $table->string('imgage_name')->nullable();
             $table->timestamps();
         });
     }

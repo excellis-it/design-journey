@@ -1,9 +1,7 @@
 @extends('admin.layouts.master')
 @section('title')
-    All Illustration Category Details - {{ env('APP_NAME') }}
+    Illustration Category Images - {{ env('APP_NAME') }}
 @endsection
-
-
 
 @push('styles')
 @endpush
@@ -31,7 +29,7 @@
                         <h4 class="mb-0">List</h4>
                     </div>
                     <div class="col-auto float-end ms-auto">
-                        <a href="{{ route('free-illustrations.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add category
+                        <a href="{{ route('free-illustrations.image.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add category images
                             </a>
                     </div>
                 </div>
@@ -47,12 +45,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($free_illustrations as $free_illustration)
+                            @foreach ($illustration_images as $illustration_image)
                                 <tr>
-                                    <td>{{ $free_illustration->category }}</td>
-                                    <td>{{ $free_illustration->type }}</td>
+                                    <td>{{ $illustration_image->illustration_category->category_name }}</td>
+                                    <td>{{ $illustration_image->style_type }}</td>
                                     <td>
-                                        
+                                        <div class="edit-1 d-flex align-items-center">
+                                        {{-- <a href="{{ route('free-illustrations.image.edit', $illustration_image->illustration_category_id) }}"> <span class="edit-icon"><i
+                                                    class="ph ph-pencil-simple"></i></span></a> --}}
+                                        <a title="Delete Blog" data-route="{{ route('delete.image.free-illustrations',$illustration_image->illustration_category_id) }}"
+                                            id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>
                                     </td>
                                     
                                 </tr>
@@ -75,11 +77,11 @@
                 "aaSorting": [],
                 "columnDefs": [{
                         "orderable": false,
-                        "targets": [4]
+                        "targets": [2]
                     },
                     {
                         "orderable": true,
-                        "targets": [0, 1, 2, 3]
+                        "targets": [0, 1]
                     }
                 ]
             });
@@ -90,7 +92,7 @@
         $(document).on('click', '#delete', function(e) {
             swal({
                     title: "Are you sure?",
-                    text: "To delete this plan.",
+                    text: "To delete this free illustration.",
                     type: "warning",
                     confirmButtonText: "Yes",
                     showCancelButton: true

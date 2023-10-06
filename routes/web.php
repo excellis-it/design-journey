@@ -103,6 +103,16 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/types/delete/{id}',[TypeController::class, 'deleteType'])->name('delete.types');
         Route::post('/types/update', [TypeController::class, 'typeUpdate'])->name('update.type');
 
+
+        Route::get('/free-illustrations/delete/{id}',[FreeIllustrationController::class, 'deleteIllustration'])->name('delete.free-illustrations');
+        Route::post('/free-illustrations/update',[FreeIllustrationController::class, 'updateIllustration'])->name('update.free-illustrations');
+        Route::get('/free-illustrations-images',[FreeIllustrationController::class, 'illustrationImages'])->name('free-illustrations.images.list');
+        Route::get('/free-illustrations-images/create',[FreeIllustrationController::class, 'createIllustrationImage'])->name('free-illustrations.image.create');
+        Route::post('/free-illustrations-images/store',[FreeIllustrationController::class, 'storeIllustrationImage'])->name('free-illustrations.image.store');
+        Route::get('/free-illustrations-images/edit/{id}',[FreeIllustrationController::class, 'editIllustrationImage'])->name('free-illustrations.image.edit');
+        Route::get('/free-illustrations-images/delete/{id}',[FreeIllustrationController::class, 'deleteIllustrationImage'])->name('delete.image.free-illustrations');
+        Route::post('/free-illustrations-images/updateImage',[FreeIllustrationController::class, 'updateIllustrationImage'])->name('free-illustrations.image.update');
+
         //subtype
         Route::get('/subtypes',[TypeController::class, 'subTypeList'])->name('type.subtypes.list');
         Route::get('/subtypes/create',[TypeController::class, 'createSubType'])->name('type.subtypes.create');

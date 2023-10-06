@@ -75,10 +75,10 @@ class freeIconSeeder extends Seeder
         ];
 
         foreach ($categories as $value) {
-            $illustration_category = new IconCategory;
-            $illustration_category->category_name = $value['name'];
-            $illustration_category->category_slug = $value['slug'];
-            $illustration_category->save();
+            $icon_category = new IconCategory;
+            $icon_category->category_name = $value['name'];
+            $icon_category->category_slug = $value['slug'];
+            $icon_category->save();
         }
     }
 }
