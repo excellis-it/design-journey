@@ -123,12 +123,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <script>
-        var typing = new Typed(".text_type", {
-            strings: ["", "Web", "Graphic", "Logo", "3D Graphic"],
-            typeSpeed: 200,
-            backSpeed: 400,
-            loop: true,
-        });
+       var words = ["Web", "Graphic", "Logo", "3D Graphic"]
+var colors = ["#1a73e8" , "#e1392d", "#279947", "#7e57ff"]
+
+var counter = 0;
+var currentIndex = getRandomInt(0, words.length - 1);
+
+var text = document.getElementById("text2");
+
+var stepInterval = setInterval(() => { step(); }, 200);
+var delInterval = null;
+var delTimeout = null;
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function delIntervalCallback(){
+    delInterval = setInterval(() => { del(); }, 100);
+    clearTimeout(delTimeout);
+}
+
+function del(){
+    if(counter == 0){
+        let newIndex = getRandomInt(0, words.length - 1);
+        while(newIndex == currentIndex){
+            newIndex = getRandomInt(0, words.length -1 );
+        }
+        currentIndex = newIndex;
+        clearInterval(delInterval);
+        stepInterval = setInterval(() => { step(); }, 200);
+    }
+    else{
+        text.textContent = text.textContent.slice(0, -1)
+        counter--;
+    }
+}
+
+function step(){
+    if(counter >= words[currentIndex].length){
+        clearInterval(stepInterval);
+        delTimeout = setTimeout(() => { delIntervalCallback(); }, 2000);
+    }
+    else{
+        text.textContent += words[currentIndex][counter];
+        text.style.color = colors[currentIndex];
+        counter++;
+    }
+}
     </script>
     <script>
         @if (Session::has('message'))

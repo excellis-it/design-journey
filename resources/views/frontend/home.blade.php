@@ -23,7 +23,7 @@
                                 <span class="c-yellow slider-text">Logo</span><br>
                                 <span class="c-green slider-text">3D Graphic</span><br>
                             </div>                              -->
-                            <div class="text_type"></div>
+                            <div class="text_type" id="text2"></div>
                           <br>                             
                           <div class="d-inline-block">Designer for any job, online.</div>
                         </h1>

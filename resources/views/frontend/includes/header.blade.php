@@ -35,12 +35,12 @@
                         <ul class="parent">
                             <li>
                                 <a href="{{ route('home') }}" class="link-underline link-underline-1">
-                                    <span>Home</span>
+                                    <span>Perks</span>
                                 </a>
                             </li>
                             <li class="has-child">
                                 <a href="#" class="link-underline link-underline-1">
-                                    <span>Solutions</span>
+                                    <span>Features</span>
                                 </a>
                                 <div class="child">
                                     <ul>
@@ -77,14 +77,20 @@
                                     <span>Pricing</span>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="{{ route('blogs') }}" class="link-underline link-underline-1">
                                     <span>Blog</span>
                                 </a>
 
-                            </li>
+                            </li> --}}
+                            <li>
+                                <a href="" class="link-underline link-underline-1">
+                                    <span>FAQ</span>
+                                </a>
 
-                            <li class="has-child">
+                            </li> 
+
+                            {{-- <li class="has-child">
                                 <a href="" class="link-underline link-underline-1">
                                     <span>Resources</span>
                                 </a>
@@ -117,7 +123,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="{{ route('login') }}" class="link-underline link-underline-1">
                                     <span>Sign In</span>
