@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\RequestController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\User\ProfileController as UserProfileController;
@@ -148,6 +149,10 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('profile', [UserProfileController::class, 'index'])->name('user.profile');
         Route::post('profile/update', [UserProfileController::class, 'profileUpdate'])->name('user.profile.update');
         Route::get('logout', [UserProfileController::class, 'logout'])->name('user.logout');
+
+        Route::get('/order/new', [RequestController::class, 'createOrder'])->name('order.create');
+        Route::get('/order/{id}', [RequestController::class, 'singleOrder'])->name('order.single');
+        Route::get('/order/form/{id}', [RequestController::class, 'formOrder'])->name('order.form');
     });
 });
 

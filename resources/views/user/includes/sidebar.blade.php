@@ -1,13 +1,13 @@
 <div class="main-sidebar sidebar-style-2" tabindex="1">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html"><span class="logo-name"><img src="{{ asset('user_assets/img/logo.png')}}" /></span> </a>
-            <a href="index.html"><span class="logo-fm"><img src="{{ asset('user_assets/img/logo.png')}}" /></span> </a>
+            <a href="#"><span class="logo-name"><img src="{{ asset('user_assets/img/logo.png')}}" /></span> </a>
+            <a href="#"><span class="logo-fm"><img src="{{ asset('user_assets/img/logo.png')}}" /></span> </a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header"></li>
             <li class="dropdown">
-                <a href="index.html" class="creat_request_btn">
+                <a href="{{ route('order.create') }}" class="creat_request_btn">
                     <i class="ph ph-plus-circle"></i>
                     <span>Create Request</span>
                 </a>

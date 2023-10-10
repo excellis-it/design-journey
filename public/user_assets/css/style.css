@@ -7033,3 +7033,193 @@ a.dt-button {
     font-size: 18px;
     font-weight: 600;
 }
+/* 09-10-2023 */
+.order-img{
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+}
+.order-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.order-box{
+    padding: 50px 30px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 5px 10px 20px rgb(0 0 0 / 20%);
+    background: #fff;
+    margin-bottom: 20px;
+}
+.order-text h3{
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 800;
+  color: #000;
+}
+a:hover{
+    text-decoration: none;
+}
+.order-text p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #6d6565;
+}
+.order-div{
+    margin: 50px 20px;
+}
+/* Form */
+.order-form{
+    margin: 50px 20px;
+    box-shadow: 5px 10px 20px rgb(0 0 0 / 20%);
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+}
+.order-form form .form-group label{
+   font-size: 16px;  
+   text-transform: uppercase;  
+}
+.order-form form .form-group label span{
+    color: #ccc;
+    padding-left: 10px;
+}
+.order-form form .form-select:focus {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+.order-form form .form-select{
+    padding: 10px 15px;
+}
+.order-form form textarea.form-control {
+    height: 100px !important;
+}
+.order-form form .btn-up{
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.up-icon{
+    color: #003d8d !important;
+    padding-left: 0 !important;
+    font-size: 25px;
+    padding-right: 10px;
+}
+.up-file{
+    background: #fff;
+    padding: 30px;
+    text-align: center;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+/* .up-file .form-group{
+  margin-bottom: 0px !important;
+} */
+.btn-up-file{
+    display: block;
+}
+.up-file-icon{
+    color: #003d8d !important;
+    padding-left: 0 !important;
+    font-size: 40px;
+    padding-right: 0px !important; 
+}
+/* orders-deliver */
+.orders-deliver{
+    padding: 20px 50px;
+}
+.orders-deliver{
+
+}
+.orders-deliver .nav-tabs .nav-link.active{
+  background: transparent;
+  color: #000;
+  border-bottom: 2px solid #003d8d;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-weight: 700;
+}
+.orders-deliver .nav-tabs .nav-link{
+    color: #000;
+}
+.table {
+
+}
+.tab-table .table thead th{
+    background: transparent;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    color: #646363;
+}
+.tab-table .table td{
+    background: transparent;
+    font-size: 16px;
+    font-weight: 800;
+}
+.deliver{
+    color: #008040!important;
+}
+.edit{
+    color: #003d8d!important;
+    font-size: 20px!important;
+    font-weight: 800!important;
+    cursor: pointer;
+}
+.tab-table thead {
+  margin-bottom: 10px;
+}
+.tab-table tbody tr td{
+    /* border: 1px solid rgb(0 0 0 / 50%); */
+    border-radius: 20px;
+}
+.tab-table tbody tr{
+    margin-bottom: 20px;
+}
+.tab-table tbody tr > td:first-child{
+   border-top: transparent;
+   border-left: transparent;
+   border-right: transparent;
+   border-bottom: transparent;
+}
+.tab-table .table td{
+  border-top: none;
+  border-bottom: none;
+}
+.tab-table .table th{
+    border-top: none;
+}
+.tab-table .table thead th{
+    border: none;
+  }
+  .table-check{
+    border-left: none!important;
+    text-align: center;
+  }
+  .table-check span{
+    color: #008040;
+    border: 1px solid #008040;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    font-size: 20px!important;
+    font-weight: 800!important;
+  }
