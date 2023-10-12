@@ -75,8 +75,10 @@ class HomeController extends Controller
         $plans = Plan::orderBy('id','asc')->where('plan_duration',$request->duration)->with('Specification')->take(3)->get();
         return response()->json(['view'=>(String)View::make('frontend.pricing-filter')->with(compact('plans'))]);
     }
-
-  
     
-     
+    public function faq()
+    {
+        $home_content = HomeCms::first(); 
+        return view('frontend.faq',compact('home_content'));
+    }    
 }

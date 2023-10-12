@@ -53,6 +53,81 @@
     </div>
 </div>
 
+
+<!-- screens section - start -->
+<div class="feature-section">
+    <div class="feature-section-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="heading">
+                        <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-60">
+                            App screenshots for you to review.
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- screen slider - start -->
+        <div class="screen-slider position-relative">
+            <div class="screen-slider-wrapper">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- screen slide - start -->
+                        <div class="swiper-slide">
+                            <div class="screen-slide wow flipInY" data-wow-delay="0.3s">
+                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-1.webp')}}" alt="app-screen"></a>
+                            </div>
+                        </div>
+                        <!-- screen slide - end -->
+                        <!-- screen slide - start -->
+                        <div class="swiper-slide">
+                            <div class="screen-slide wow flipInY" data-wow-delay="0.4s">
+                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-2.webp')}}" alt="app-screen"></a>
+                            </div>
+                        </div>
+                        <!-- screen slide - end -->
+                        <!-- screen slide - start -->
+                        <div class="swiper-slide">
+                            <div class="screen-slide wow flipInY" data-wow-delay="0.5s">
+                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-3.webp')}}" alt="app-screen"></a>
+                            </div>
+                        </div>
+                        <!-- screen slide - end -->
+                        <!-- screen slide - start -->
+                        <div class="swiper-slide">
+                            <div class="screen-slide wow flipInY" data-wow-delay="0.6s">
+                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-4.webp')}}" alt="app-screen"></a>
+                            </div>
+                        </div>
+                        <!-- screen slide - end -->
+                        <!-- screen slide - start -->
+                        <div class="swiper-slide">
+                            <div class="screen-slide wow flipInY" data-wow-delay="0.7s">
+                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-5.webp')}}" alt="app-screen"></a>
+                            </div>
+                        </div>
+                        <!-- screen slide - end -->
+                    </div>
+                </div>
+            </div>
+            <div class="background-layout">
+                <div class="box-1 bg-green">
+                    <div class="box-2 bg-blue">
+                        <div class="box-2-1 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
+                    </div>
+                    <div class="box-3 bg-yellow">
+                        <div class="box-3-1 bg-purple wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
+                    </div>
+                </div>     
+            </div>
+        </div>
+        <!-- screen slider - end -->
+        
+    </div>
+</div>
+<!-- screens section - end -->
+
 <!-- feature section - start -->
 <div class="feature-section" id="about">
     <div class="feature-section-wrapper">
@@ -687,81 +762,9 @@
 </div>
 <!-- faq section - end -->
 
-<!-- screens section - start -->
-<div class="screen-section">
-    <div class="screen-section-wrapper">
-        <div class="container">
-            <!-- heading - start -->
-            <div class="row">
-                <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="heading">
-                        <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-60">
-                            App screenshots for you to review.
-                        </h1>
-                    </div>
-                </div>
-            </div>
-            <!-- heading - end -->
-        </div>
-        <!-- screen slider - start -->
-        <div class="screen-slider position-relative">
-            <div class="screen-slider-wrapper">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <!-- screen slide - start -->
-                        <div class="swiper-slide">
-                            <div class="screen-slide wow flipInY" data-wow-delay="0.3s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-1.webp')}}" alt="app-screen"></a>
-                            </div>
-                        </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
-                        <div class="swiper-slide">
-                            <div class="screen-slide wow flipInY" data-wow-delay="0.4s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-2.webp')}}" alt="app-screen"></a>
-                            </div>
-                        </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
-                        <div class="swiper-slide">
-                            <div class="screen-slide wow flipInY" data-wow-delay="0.5s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-3.webp')}}" alt="app-screen"></a>
-                            </div>
-                        </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
-                        <div class="swiper-slide">
-                            <div class="screen-slide wow flipInY" data-wow-delay="0.6s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-4.webp')}}" alt="app-screen"></a>
-                            </div>
-                        </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
-                        <div class="swiper-slide">
-                            <div class="screen-slide wow flipInY" data-wow-delay="0.7s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-5.webp')}}" alt="app-screen"></a>
-                            </div>
-                        </div>
-                        <!-- screen slide - end -->
-                    </div>
-                </div>
-            </div>
-            <div class="background-layout">
-                <div class="box-1 bg-green">
-                    <div class="box-2 bg-blue">
-                        <div class="box-2-1 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-                    </div>
-                    <div class="box-3 bg-yellow">
-                        <div class="box-3-1 bg-purple wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-                    </div>
-                </div>     
-            </div>
-        </div>
-        <!-- screen slider - end -->
-        
-    </div>
-</div>
-<!-- screens section - end -->
+
+
+
 
 <!-- blog section - start -->
 <div class="blog-section" id="blog">

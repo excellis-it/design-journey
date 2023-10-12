@@ -46,6 +46,7 @@ Route::get('reset-password/{id}/{token}', [ForgetPasswordController::class, 'res
 
 Route::get('/pricing',[HomeController::class, 'pricing'])->name('pricing');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
 Route::get('/free-illustration', [ResourcesController::class, 'freeIllustration'])->name('free-illustration');
 Route::get('/free-icon', [ResourcesController::class, 'freeIcon'])->name('free-icons');

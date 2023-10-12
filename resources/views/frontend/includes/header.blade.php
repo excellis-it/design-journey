@@ -1,12 +1,12 @@
     <!-- preloader - start -->
-    <div class="preloader">
+    <!--<div class="preloader">
         <div class='sk-folding-cube'>
             <div class='sk-cube sk-cube-1 bg-red'></div>
             <div class='sk-cube sk-cube-2 bg-green'></div>
             <div class='sk-cube sk-cube-4 bg-yellow'></div>
             <div class='sk-cube sk-cube-3 bg-purple'></div>
         </div>
-    </div>
+    </div>-->
     <!-- preloader - end -->
 
     <!-- navigation - start -->
@@ -84,7 +84,7 @@
 
                             </li> --}}
                             <li>
-                                <a href="" class="link-underline link-underline-1">
+                                <a href="{{route('faq')}}" class="link-underline link-underline-1">
                                     <span>FAQ</span>
                                 </a>
 
@@ -129,17 +129,9 @@
                                     <span>Sign In</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('login') }}" class="button button-red button-navigation">
-                                    <span>Get Started</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="contact.html" class="button button-blue button-navigation">
-                                    <span>Book a Call</span>
-                                </a>
-                            </li>
+                            
                         </ul>
+                        
                         <div class="social">
                             <h5>Follow</h5>
                             <ul>
@@ -174,6 +166,18 @@
                             </ul>
                         </div>
                     </div>
+                    <ul class="parent new-menu-cls">
+                        <li>
+                                <a href="{{ route('login') }}" class="button button-red button-navigation">
+                                    <span>Get Started</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html" class="button button-blue button-navigation">
+                                    <span>Book a Call</span>
+                                </a>
+                            </li>
+                        </ul>
                     <div class="navigation-bar">
                         <div></div>
                         <div></div>
