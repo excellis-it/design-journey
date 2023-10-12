@@ -17,7 +17,7 @@ class CreatePlansTable extends Migration
             $table->id();
             $table->enum('plan_duration', ['monthly', 'quarterly', 'yearly'])->default('monthly');
             $table->string('plan_name')->nullable();
-            $table->string('plan_description')->nullable();
+            $table->string('plan_details')->nullable();
             $table->string('plan_price')->nullable();
             $table->timestamps();
         });

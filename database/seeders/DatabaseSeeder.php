@@ -18,6 +18,14 @@ class DatabaseSeeder extends Seeder
             assignRoleSeeder::class,
             assignAdminSeeder::class,
             homeCmsSeeder::class,
+            aboutSeeder::class,
+            categorySeeder::class,
+            AddPlanSeeder::class,
+            typeSeeder::class,
+            solutionCmsSeeder::class,
+            solutionSeeder::class,
+            freeIllustrationSeeder::class,
+            freeIconSeeder::class,
         ]);
     }
 }

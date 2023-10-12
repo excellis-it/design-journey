@@ -21,18 +21,27 @@ class AuthController extends Controller
         }
     }
 
+    public function adminLogin()
+    {
+        if (Auth::check() && Auth::user()->hasRole('ADMIN')) {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return view('admin.auth.login');
+        }
+    }
+
     public function register()
     {   
-        return view('auth.register');
+       
+        return view('frontend.auth.register');
     }
 
     public function registerStore(Request $request)
     {
        
         $request->validate([
-            'fname'     => 'required',
-            'lname'     => 'required',
-            'phone'     => 'required',
+            'first_name'     => 'required',
+            'last_name'     => 'required',
             'email'    => 'required|email|unique:users|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
             'password' => 'required|min:8',
             'confirm_password' => 'required|min:8|same:password',
@@ -42,18 +51,16 @@ class AuthController extends Controller
 
         $input = $request->all();
         $user = new User;
-        $user->first_name = $input['fname'];
-         $user->last_name = $input['lname'];
+        $user->name = $input['first_name'].' '.$input['last_name'];
         $user->email = $input['email'];
-        $user->phone = $input['phone'];
         $user->password = bcrypt($input['password']);
+        $user->status = 1;
         $user->save();
-        $user->assignRole('USER');
+        $user->assignRole('CUSTOMER');
 
         $maildata = [
             'name' => $user->name,
             'email' => $user->email,
-            'phone' => $user->phone,
         ];
         Mail::to($request->email)->send(new WelcomeMail($maildata));
         
@@ -61,13 +68,14 @@ class AuthController extends Controller
     }
     
     public function login()
-    {   
-        return view('auth.login');
+    { 
+        
+        return view('frontend.auth.login');
     }
     
     public function loginCheck(Request $request)
     {
-        
+       
         $request->validate([
             'email'    => 'required|email|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
             'password' => 'required|min:8'
@@ -80,6 +88,7 @@ class AuthController extends Controller
             if ($user->hasRole('ADMIN')) {
                 return redirect()->route('admin.dashboard');
             } else if($user->hasRole('CUSTOMER') && $user->status == 1){
+                
                 return redirect()->route('user.dashboard');
             } else{
                
@@ -96,6 +105,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('admin.login');
     }
 }

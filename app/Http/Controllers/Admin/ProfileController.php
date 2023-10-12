@@ -32,6 +32,10 @@ class ProfileController extends Controller
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
+        if($request->password)
+        {
+            $data->password = Hash::make($request->password);;
+        }
         $data->save();
         return redirect()->back()->with('message', 'Profile updated successfully.');
     }

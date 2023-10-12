@@ -11,7 +11,6 @@ class Plan extends Model
     protected $fillable = [
         'plan_name',
         'plan_price',
-        'plan_type',
     ];
 
     public function Specification()

@@ -17,78 +17,65 @@ class AddPlanSeeder extends Seeder
     {
         $plans = [
             [
-                'plan_name' => 'Basic',
-                'plan_price' => '100',
-                'plan_type' => 'Basic',
+                'plan_name' => 'Advance',
+                'plan_details' => 'Create all of your everyday designs.',
+                'plan_price' => '549',
+                'plan_duration' => 'monthly',
                 'specification' => [
                     [
-                        'specification_name' => 'Domain Name',
+                        'specification_name' => '1 Daily Output',
                     ],
                     [
-                        'specification_name' => 'Upto 8 Pages',
+                        'specification_name' => '1-2 Days Delivery',
                     ],
                     [
-                        'specification_name' => 'Direct Call Integration',
-                    ],
-                    [
-                        'specification_name' => 'SEO Friendly Design',
-                    ],
-                    [
-                        'specification_name' => 'Whatsapp Integration',
-                    ],
-                    [
-                        'specification_name' => 'Responsive Design',
-                    ],
+                        'specification_name' => 'All Design Services',
+                    ],  
                 ],
             ],
             [
-                'plan_name' => 'Standard',
-                'plan_price' => '200',
-                'plan_type' => 'Gold',
+                'plan_name' => 'Business',
+                'plan_details' => 'Get double the output everyday.',
+                'plan_price' => '899',
+                'plan_duration' => 'monthly',
                 'specification' => [
                     [
-                        'specification_name' => 'Domain Name',
+                        'specification_name' => '2 Daily Output',
                     ],
                     [
-                        'specification_name' => 'Upto 8 Pages',
+                        'specification_name' => '1-2 Days Delivery',
                     ],
                     [
-                        'specification_name' => 'Direct Call Integration',
+                        'specification_name' => 'All Design Services',
                     ],
                     [
-                        'specification_name' => 'SEO Friendly Design',
+                        'specification_name' => 'Motion Graphics Services',
                     ],
-                    [
-                        'specification_name' => 'Whatsapp Integration',
-                    ],
-                    [
-                        'specification_name' => 'Responsive Design',
-                    ],
+                    
                 ],
             ],
             [
-                'plan_name' => 'Quality',
-                'plan_price' => '300',
-                'plan_type' => 'Platinum',
+                'plan_name' => 'Designated Designer',
+                'plan_details' => 'Collaborate in real time with your designer.',
+                'plan_price' => '1,199',
+                'plan_duration' => 'monthly',
                 'specification' => [
                     [
-                        'specification_name' => 'Domain Name',
+                        'specification_name' => 'Designated Designer',
                     ],
                     [
-                        'specification_name' => 'Upto 8 Pages',
+                        'specification_name' => 'Same Day Delivery',
                     ],
                     [
-                        'specification_name' => 'Direct Call Integration',
+                        'specification_name' => 'Real Time Slack Communication',
                     ],
                     [
-                        'specification_name' => 'SEO Friendly Design',
+                        'specification_name' => 'All Design Services',
                     ],
                     [
-                        'specification_name' => 'Whatsapp Integration',
+                        'specification_name' => 'Motion Graphics Services',
                     ],
-                    [
-                        'specification_name' => 'Responsive Design',
-                    ],
+                   
                 ],
             ],
         ];
@@ -96,8 +83,9 @@ class AddPlanSeeder extends Seeder
         foreach ($plans as $plan) {
             $planModel = new Plan();
             $planModel->plan_name = $plan['plan_name'];
+            $planModel->plan_details = $plan['plan_details'];
             $planModel->plan_price = $plan['plan_price'];
-            $planModel->plan_type = $plan['plan_type'];
+            $planModel->plan_duration = $plan['plan_duration'];
             $planModel->save();
 
             foreach ($plan['specification'] as $specification) {

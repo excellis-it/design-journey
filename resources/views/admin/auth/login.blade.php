@@ -39,7 +39,7 @@
             <div class="container">
 
                 <div class="account-logo">
-                    <a href="admin-dashboard.html"><img src="{{ asset('admin_assets/img/logo.png') }}"
+                    <a href="admin-dashboard.html"><img src="{{ asset('frontend_assets/assets/images/logo.png')}}"
                             alt="Dreamguy's Technologies"></a>
                 </div>
 
@@ -48,7 +48,7 @@
                         <h3 class="account-title">Login</h3>
                         <p class="account-subtitle">Access to our dashboard</p>
 
-                        <form action="{{ route('admin.login.check') }}" method="POST">
+                        <form action="{{ route('login.check') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label>Email Address</label>
@@ -82,7 +82,7 @@
                                 <button class="btn btn-primary account-btn" type="submit">Login</button>
                             </div>
                             <div class="account-footer">
-                                <p><a href="{{ route('admin.forget.password.show') }}">Forgot Password?</a></p>
+                                <p><a href="">Forgot Password?</a></p>
                             </div>
                         </form>
 
