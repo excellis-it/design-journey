@@ -4744,6 +4744,11 @@ body.loaded .preloader {
    
        padding-left:10px;
    }
+   
+   .inner-faq .accordion-item{
+       width:100%;
+       
+   }
 
 
   
