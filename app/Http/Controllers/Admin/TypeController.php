@@ -157,7 +157,7 @@ class TypeController extends Controller
         $request->validate([
             'type_id' => 'required',
             'name' => 'required',
-            'slug' => 'required',
+            'slug'    =>  'required|unique:sub_types,slug',
             'details' => 'required',
         ]);
         $sub_type = new SubType();

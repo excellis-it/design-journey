@@ -7,9 +7,22 @@ use Illuminate\Http\Request;
 use App\Models\Type;
 use App\Models\PresentationForm;
 use App\Models\SubType;
+use Auth;
 
 class RequestController extends Controller
 {
+
+    public function requestList(Request $request)
+    {
+        $user_requests = PresentationForm::where('user_id', Auth::user()->id)->orderBy('id','asc')->with('SubType')->get();
+        return view('user.request.list',compact('user_requests'));
+    }
+
+    public function requestDetails($id)
+    {
+        $user_request = PresentationForm::where('id',$id)->with('SubType','Type')->first();
+        return view('user.request.details',compact('user_request'));
+    }
     
     public function createOrder()
     {

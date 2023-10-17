@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li class="dropdown active">
-                <a href="sales-report.html">
+                <a href="{{ route('request.list') }}">
                     <i class="ph ph-article"></i>
                     <span>Requests</span>
                 </a>

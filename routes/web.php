@@ -156,6 +156,10 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('/order/form/{id}', [RequestController::class, 'formOrder'])->name('order.form');
 
         Route::post('/presentation/store',[RequestController::class, 'submitPresentation'])->name('presentation.submit');
+        Route::get('/request/list',[RequestController::class, 'requestList'])->name('request.list');
+        Route::get('/request/deatils/{id}',[RequestController::class, 'requestDetails'])->name('request.details');
+
+
     });
 });
 
