@@ -41,7 +41,7 @@ class Requestcontroller extends Controller
     
         if ($request->hasFile('upload_zip')) {
             $zipFile = $request->file('upload_zip');
-            $filename1= date('YmdHi').$file1->getClientOriginalName();
+            $filename1= date('YmdHi').$zipFile->getClientOriginalName();
             $image1_path = $request->file('upload_zip')->store('uploads', 'public');
             
             $uploadedFile = new UploadFile();

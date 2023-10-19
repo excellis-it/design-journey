@@ -11923,6 +11923,9 @@ a.dt-button {
     flex: 1;
     padding: 20px;
     text-align: left;
+    border: 1px solid rgb(0 0 0 / 50%);
+    border-radius: 15px;
+    min-height: 190px;
 }
 
 .order-form {
@@ -11932,5 +11935,19 @@ a.dt-button {
     padding: 30px;
     border-radius: 20px;
 }
+
+.description{
+    margin-bottom: 0px;
+    font-size: 14px; 
+    color: #000;
+ }
+ .product-info h2{
+     font-size: 28px;
+     font-weight: 600;
+     color: #000;
+     margin-bottom: 0;
+     text-transform: uppercase;
+     position: relative;
+ }
 
 /* Add hover effect to the button */
