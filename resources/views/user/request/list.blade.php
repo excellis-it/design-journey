@@ -44,7 +44,7 @@
                               <td>{{ $request->SubType->name }}</td>
                               <td>{{ $request->created_at->format('F j, g:i A') }}
                               </td>
-                              <td class="deliver">Request</td>
+                              <td class="deliver">{{ $request->status }}</td>
                               {{-- <td class="edit"><a><i class="ph ph-dots-three"></i></a></td> --}}
                               <td>
                                 

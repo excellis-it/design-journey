@@ -58,7 +58,7 @@
 
 </body>
 
-<script src="{{ asset('admin_assets/assets/js/jquery-3.4.1.min.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset('admin_assets/assets/bootstrap-5.3/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('admin_assets/assets/js/raphael-min.js') }}"></script>
 <script src="{{ asset('admin_assets/assets/js/morris.min.js') }}"></script>

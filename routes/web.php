@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\RequestController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Requestcontroller as AdminRequestController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\User\ProfileController as UserProfileController;
 use App\Http\Controllers\Admin\UserController;
@@ -83,7 +84,6 @@ Route::group(['prefix' => 'admin'], function () {
             'free-icons' => FreeIconController::class,
         ]);
 
-    
         Route::get('/blogCategories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
         Route::get('/createBlogCategory', [AdminBlogController::class, 'createBlogCategory'])->name('blogs.categories.create');
         Route::post('/storeBlogCategory', [AdminBlogController::class, 'storeBlogCategory'])->name('blogs.categories.store');
@@ -91,7 +91,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/updateBlogCategory', [AdminBlogController::class, 'updateBlogCategory'])->name('blogs.categories.update');
         Route::get('/deleteBlogCategory/{id}', [AdminBlogController::class, 'deleteBlogCategory'])->name('blogs.categories.delete');
       
-        
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
         Route::get('/categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
@@ -104,7 +103,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/plans/deleteSpecification/{id}',[PlanController::class, 'deleteSpecification'])->name('specification.delete');
         Route::get('/types/delete/{id}',[TypeController::class, 'deleteType'])->name('delete.types');
         Route::post('/types/update', [TypeController::class, 'typeUpdate'])->name('update.type');
-
+        Route::get('/requests/list',[AdminRequestController::class, 'requestList'])->name('requests.list');
+        Route::post('/requests/change-status', [AdminRequestController::class, 'changeRequestStatus'])->name('change.request.status');
+        Route::get('/requests/details/{id}',[AdminRequestController::class, 'userRequestDetails'])->name('admin.request-details');
+        Route::post('/requests/update', [AdminRequestController::class, 'requestFileUpdate'])->name('request.file-upload');
 
         Route::get('/free-illustrations/delete/{id}',[FreeIllustrationController::class, 'deleteIllustration'])->name('delete.free-illustrations');
         Route::post('/free-illustrations/update',[FreeIllustrationController::class, 'updateIllustration'])->name('update.free-illustrations');
@@ -124,6 +126,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/subtypes/delete/{id}',[TypeController::class, 'deleteSubType'])->name('type.subtypes.delete');
         Route::get('/users', [UserController::class, 'userList'])->name('users.index');
         Route::get('/contact-us', [UserController::class, 'contactUsList'])->name('contact.us.list');
+
+        
 
         //cms routes
         Route::group(['prefix'=>'cms'], function(){

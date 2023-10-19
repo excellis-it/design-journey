@@ -27,6 +27,7 @@ class CreatePresentationFormsTable extends Migration
             $table->string('demo_design_file')->nullable();
             $table->string('custom_illustration')->nullable();
             $table->longText('additional_information')->nullable();
+            $table->enum('status', ['Pending', 'Pause','Delivered','Accept'])->default('Pending'); 
             $table->timestamps();
         });
     }

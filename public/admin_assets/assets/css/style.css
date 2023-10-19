@@ -11919,4 +11919,18 @@ a.dt-button {
     color: #fff;
 }
 
+.product-info {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+.order-form {
+    margin: 50px 20px;
+    box-shadow: 5px 10px 20px rgb(0 0 0 / 20%);
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+}
+
 /* Add hover effect to the button */

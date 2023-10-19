@@ -81,7 +81,7 @@ class RequestController extends Controller
 
         $presentation->save();
 
-        return back()->with('success','Your Presentation Form has been submitted successfully!');
+        return back()->with('message','Your Presentation Form has been submitted successfully!');
 
     }
 }

@@ -57,6 +57,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/requests*') ? 'active' : ' ' }}">
+                <a href="{{ route('requests.list') }}">
+                    <i class="ph-book"></i>
+                    <span>Requests</span>
+                </a>
+            </li>
+
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-image"></i>
