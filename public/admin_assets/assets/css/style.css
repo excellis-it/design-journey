@@ -6848,29 +6848,29 @@ body.layout-3 .breadcrumb-style {
 
 .menu-details .has-arrow:after {
 
-	position: absolute;
+    position: absolute;
 
-	content: "";
+    content: "";
 
-	width: .50em;
+    width: .50em;
 
-	height: .50em;
+    height: .50em;
 
-	border-style: solid;
+    border-style: solid;
 
-	border-width: 1.2px 0 0 1.2px;
+    border-width: 1.2px 0 0 1.2px;
 
-	border-color: initial;
+    border-color: initial;
 
-	right: 15px;
+    right: 15px;
 
-	transform: rotate(-45deg) translateY(-50%);
+    transform: rotate(-45deg) translateY(-50%);
 
-	transform-origin: top;
+    transform-origin: top;
 
-	top: 50%;
+    top: 50%;
 
-	transition: all .3s ease-out;
+    transition: all .3s ease-out;
 
 }
 
@@ -11716,14 +11716,16 @@ a.dt-button {
     border: none;
     position: relative;
 }
-.form-group-div .form-group .form-select{
+
+.form-group-div .form-group .form-select {
     border-radius: 10px;
     border: 1px solid rgb(0 0 0 / 30%);
     padding: 15px 20px 20px 20px !important;
     background: #fff;
     width: 100%;
 }
-.form-group-div .form-group textarea{
+
+.form-group-div .form-group textarea {
     border-radius: 10px;
     border: 1px solid rgb(0 0 0 / 30%);
     padding: 15px 20px 20px 20px !important;
@@ -11731,13 +11733,14 @@ a.dt-button {
     width: 100%;
     min-height: 150px;
 }
+
 .form-group-div .form-group label {
     padding: 5px 10px;
     background: #fff;
     position: absolute;
     top: -7px;
     left: 12px;
-    transform: translate(0px,-7px);
+    transform: translate(0px, -7px);
     font-size: 16px;
     font-weight: 600;
 }
@@ -11755,9 +11758,11 @@ a.dt-button {
 
 /* stuff-list-table */
 .stuff-list-table {}
-.edit-1 a{
+
+.edit-1 a {
     text-decoration: none;
 }
+
 .edit-1 a .edit-icon {
     color: #2C8CFD;
     font-size: 20px;
@@ -11802,18 +11807,19 @@ a.dt-button {
     font-size: 20px;
     color: #000;
 }
+
 /* create B2B user */
-.form-head{
+.form-head {
     margin-bottom: 50px;
 }
-.form-head h4{
+
+.form-head h4 {
     color: #000;
     font-size: 18px;
     font-weight: 600;
 }
-.sales-report-card-wrap{
 
-}
+.sales-report-card-wrap {}
 
 
 /* Start Toogle */
@@ -11825,6 +11831,7 @@ a.dt-button {
     position: relative;
     width: 4.5em;
 }
+
 .button-switch .lbl-off,
 .button-switch .lbl-on {
     cursor: pointer;
@@ -11837,14 +11844,17 @@ a.dt-button {
     transition: opacity 0.25s ease-out 0.1s;
     text-transform: uppercase;
 }
+
 .button-switch .lbl-off {
     right: 0.4375em;
 }
+
 .button-switch .lbl-on {
     color: #fefefe;
     opacity: 0;
     left: 0.4375em;
 }
+
 .button-switch .switch {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -11859,12 +11869,14 @@ a.dt-button {
     width: 0;
     margin-top: 21px;
 }
+
 .button-switch .switch:before,
 .button-switch .switch:after {
     content: "";
     font-size: 1em;
     position: absolute;
 }
+
 .button-switch .switch:before {
     border-radius: 1.25em;
     background: #bdc3c7;
@@ -11874,6 +11886,7 @@ a.dt-button {
     transition: background-color 0.25s ease-out 0.1s;
     width: 2.6em;
 }
+
 .button-switch .switch:after {
     box-shadow: 0 0.0625em 0.375em 0 #666;
     border-radius: 50%;
@@ -11883,18 +11896,23 @@ a.dt-button {
     transition: transform 0.25s ease-out 0.1s;
     width: 0.7em;
 }
+
 .button-switch .switch:checked:after {
     transform: translate(1.3em, 0);
 }
-.button-switch .switch:checked ~ .lbl-off {
+
+.button-switch .switch:checked~.lbl-off {
     opacity: 0;
 }
-.button-switch .switch:checked ~ .lbl-on {
+
+.button-switch .switch:checked~.lbl-on {
     opacity: 1;
 }
+
 .button-switch .switch#switch-orange:checked:before {
     background: #e67e22;
 }
+
 .button-switch .switch#switch-blue:checked:before {
     background: #3498db;
 }
@@ -11923,9 +11941,6 @@ a.dt-button {
     flex: 1;
     padding: 20px;
     text-align: left;
-    border: 1px solid rgb(0 0 0 / 50%);
-    border-radius: 15px;
-    min-height: 190px;
 }
 
 .order-form {
@@ -11936,18 +11951,111 @@ a.dt-button {
     border-radius: 20px;
 }
 
-.description{
+.description {
     margin-bottom: 0px;
-    font-size: 14px; 
+    font-size: 14px;
     color: #000;
- }
- .product-info h2{
-     font-size: 28px;
-     font-weight: 600;
-     color: #000;
-     margin-bottom: 0;
-     text-transform: uppercase;
-     position: relative;
- }
+}
+
+.product-info h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    position: relative;
+}
 
 /* Add hover effect to the button */
+/* Files */
+.file-date h3 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+}
+
+.file-description {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1), 0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+    padding: 20px;
+}
+
+.file-description p {
+    color: #000;
+    font-size: 14px;
+}
+
+.edit-icon {
+    color: #2C8CFD;
+    font-size: 20px;
+    background: #D5E8FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.file-img-box {
+    min-height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1), 0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.file-img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    /* position: relative; */
+}
+
+.file-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.down-load-icon {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    background: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    box-shadow: 5px 10px 20px rgb(0 0 0 / 20%);
+}
+
+.down-load-icon span {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    background: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.down-load-icon a{
+  text-decoration: none;
+}

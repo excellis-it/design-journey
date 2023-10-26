@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Type;
 use App\Models\PresentationForm;
 use App\Models\SubType;
+use App\Models\BrandProfile;
+use App\Models\UploadFile;
 use Auth;
 
 class RequestController extends Controller
@@ -14,14 +16,16 @@ class RequestController extends Controller
 
     public function requestList(Request $request)
     {
-        $user_requests = PresentationForm::where('user_id', Auth::user()->id)->orderBy('id','asc')->with('SubType')->get();
-        return view('user.request.list',compact('user_requests'));
+        $user_requests = PresentationForm::where('user_id', Auth::user()->id)->orderBy('id','desc')->where('status','!=','Delivered')->with('SubType')->get();
+        $request_delivers = PresentationForm::where('user_id', Auth::user()->id)->orderBy('id','desc')->where('status','==','Delivered')->with('SubType')->get();
+        return view('user.request.list',compact('user_requests','request_delivers'));
     }
 
     public function requestDetails($id)
     {
         $user_request = PresentationForm::where('id',$id)->with('SubType','Type')->first();
-        return view('user.request.details',compact('user_request'));
+        $request_files = UploadFile::where('request_id',$id)->get();
+        return view('user.request.details',compact('user_request','request_files'));
     }
     
     public function createOrder()
@@ -39,7 +43,8 @@ class RequestController extends Controller
 
     public function formOrder($id)
     {
-        return view('user.order.form',compact('id'));
+        $brands = BrandProfile::where('user_id',Auth::user()->id)->orderBy('id','desc')->get();
+        return view('user.order.form',compact('id','brands'));
     }
 
     public function submitPresentation(Request $request)
@@ -75,13 +80,32 @@ class RequestController extends Controller
             $file= $request->file('demo_design_file');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('demo_design_file')->store('presentation', 'public');
-            $presentation->demo_design_file = asset('storage/'.$image_path);
+            $presentation->demo_design_file = asset('public/storage/'.$image_path);
         }
 
 
         $presentation->save();
 
-        return back()->with('message','Your Presentation Form has been submitted successfully!');
+        return redirect()->route('request.list')->with('message','Your Presentation Form has been submitted successfully!');
 
+    }
+
+    public function userZipDownload($id)
+    {
+        $file = UploadFile::where('id', $id)->select('file_name')->first();
+
+        if ($file) {
+            // Construct the full file path on the server
+            $filePath = public_path('storage/'.$file->file_name);
+            
+
+            if (file_exists($filePath)) {
+                return response()->download($filePath);
+            } else {
+                return ['status' => 'The file does not exist'];
+            }
+        } else {
+            return ['status' => 'File not found'];
+        } 
     }
 }

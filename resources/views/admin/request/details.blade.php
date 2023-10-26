@@ -37,8 +37,9 @@ All Request Details - {{ env('APP_NAME') }}
                 <div class="col-lg-6">
                     <div class="product-info">
                         <h2>Project Details</h2>
-                        <p class="description">{{ $request_details->size_format }}</p>
-                        <p class="description">{{ $request_details->size_format }}</p>
+                        <p class="description">{{ $request_details->Type->name }}</p>
+                        <p class="description">Subtype: {{ $request_details->Subtype->name }}</p>
+                        <p class="description">Request Name : {{ $request_details->request_name }}</p>
                         <p class="description">Design Type : {{ $request_details->design_type }}</p>
                         <p class="description">No of Pages : {{ $request_details->pages_number }}</p>
                         <p class="description">{{ $request_details->brand_name }}</p>

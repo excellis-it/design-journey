@@ -28,15 +28,15 @@ class Requestcontroller extends Controller
 
     public function userRequestDetails($id)
     {
-        $request_details = PresentationForm::where('id',$id)->with('Type','Subtype','User')->first();
+         $request_details = PresentationForm::where('id',$id)->with('Type','Subtype','User')->first();
         return view('admin.request.details',compact('request_details'));
     }
 
     public function requestFileUpdate(Request $request)
     {
         $request->validate([
-            
-            'upload_zip' => 'required|mimes:zip', // Validate that it's a zip file
+
+            'upload_zip' => 'required|mimes:jpg,jpeg,png,zip,rar', // Validate that it's a zip file
         ]);
     
         if ($request->hasFile('upload_zip')) {
@@ -47,7 +47,7 @@ class Requestcontroller extends Controller
             $uploadedFile = new UploadFile();
             $uploadedFile->user_id = $request->user_id;
             $uploadedFile->request_id = $request->request_id;
-            $uploadedFile->file_name = asset('storage/'.$image1_path);
+            $uploadedFile->file_name = $image1_path;
             $uploadedFile->file_description = $request->description;
             $uploadedFile->save();   
         }
@@ -55,5 +55,33 @@ class Requestcontroller extends Controller
 
         return redirect()->back()->with('message','File uploaded successfully');
 
+    }
+
+    public function viewRequestFile($id)
+    {
+        $files = UploadFile::where('request_id',$id)->get();
+        return view('admin.request.view-file',compact('files'));
+    }
+
+    public function downloadRequestFile($id)
+    {
+
+        $file = UploadFile::where('id', $id)->select('file_name')->first();
+
+        if ($file) {
+            // Construct the full file path on the server
+            $filePath = public_path('storage/'.$file->file_name);
+            
+
+            if (file_exists($filePath)) {
+                return response()->download($filePath);
+            } else {
+                return ['status' => 'The file does not exist'];
+            }
+        } else {
+            return ['status' => 'File not found'];
+        }
+
+        
     }
 }

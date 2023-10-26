@@ -36,6 +36,8 @@
                 </a>
             </li>
 
+          
+
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-pen"></i>
@@ -50,12 +52,12 @@
                     </li>
                 </ul>
             </li>
-            <li class="{{ Request::is('admin/solution*') ? 'active' : ' ' }}">
+            {{-- <li class="{{ Request::is('admin/solution*') ? 'active' : ' ' }}">
                 <a href="{{ route('solution.design.edit') }}">
                     <i class="ph-clipboard-text"></i>
                     <span>Solution</span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="{{ Request::is('admin/requests*') ? 'active' : ' ' }}">
                 <a href="{{ route('requests.list') }}">
@@ -76,9 +78,9 @@
                     <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('about.cms') }}">About Cms</a>
                     </li>
-                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                    {{-- <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('solution.cms') }}">Solution Cms</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
 
@@ -103,7 +105,7 @@
                 </a>
             </li>
      
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
                     <span>Free illustration</span>
@@ -116,7 +118,7 @@
                         <a class="nav-link" href="{{ route('free-illustrations.images.list') }}">Image</a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
             {{-- <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">

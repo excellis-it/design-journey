@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\RequestController;
+use App\Http\Controllers\User\BrandProfileController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Requestcontroller as AdminRequestController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -107,6 +108,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/requests/change-status', [AdminRequestController::class, 'changeRequestStatus'])->name('change.request.status');
         Route::get('/requests/details/{id}',[AdminRequestController::class, 'userRequestDetails'])->name('admin.request-details');
         Route::post('/requests/update', [AdminRequestController::class, 'requestFileUpdate'])->name('request.file-upload');
+        Route::get('/requests/file/{id}',[AdminRequestController::class, 'viewRequestFile'])->name('request-files.view');
+        Route::get('/requests/file-download/{id}',[AdminRequestController::class, 'downloadRequestFile'])->name('download.zip-files');
 
         Route::get('/free-illustrations/delete/{id}',[FreeIllustrationController::class, 'deleteIllustration'])->name('delete.free-illustrations');
         Route::post('/free-illustrations/update',[FreeIllustrationController::class, 'updateIllustration'])->name('update.free-illustrations');
@@ -159,10 +162,18 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('/order/{id}', [RequestController::class, 'singleOrder'])->name('order.single');
         Route::get('/order/form/{id}', [RequestController::class, 'formOrder'])->name('order.form');
 
+        Route::get('/request/download/{id}', [RequestController::class, 'userZipDownload'])->name('user.zip-files.download');
+
         Route::post('/presentation/store',[RequestController::class, 'submitPresentation'])->name('presentation.submit');
         Route::get('/request/list',[RequestController::class, 'requestList'])->name('request.list');
         Route::get('/request/deatils/{id}',[RequestController::class, 'requestDetails'])->name('request.details');
 
+        Route::resources([
+            'brand-profile' => BrandProfileController::class,
+        ]);
+
+        Route::get('/brand-profile/edit/{id}', [BrandProfileController::class, 'editBrandProfile'])->name('edit.brand-profile');
+        Route::post('/brand-profile/store', [BrandProfileController::class, 'updateBrandProfile'])->name('update.brand-profile');
 
     });
 });

@@ -40,17 +40,19 @@
                                             <td>{{ $request->SubType->name }}</td>
                                             <td>{{ $request->created_at->format('F j, g:i A') }}
                                             </td>
-                                            <td class="deliver">Delivered</td>
+                                            
+                                            <td class="deliver">{{ $request->status }}</td>
+                                           
                                             <td class="edit text-center">
                                                 <div>
                                                     <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
                                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                       
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item"
                                                             href="{{ route('request.details', $request->id) }}">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                       
                                                     </div>
                                                 </div>
                                             </td>
@@ -64,6 +66,49 @@
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
                     tabindex="0">
+                    <div class="tab-table">
+                        <div class="table-responsive">
+                            <table class="table rowNumbers">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Request name</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Last Upadate</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($request_delivers as $delivery)
+                                        <tr>
+                                            <td class="table-check"><span><i class="ph ph-check"></i></span></td>
+                                            <td>{{ $delivery->request_name }}</td>
+                                            <td>{{ $delivery->SubType->name }}</td>
+                                            <td>{{ $delivery->created_at->format('F j, g:i A') }}
+                                            </td>
+                                            
+                                            <td class="deliver">{{ $delivery->status }}</td>
+                                           
+                                            <td class="edit text-center">
+                                                <div>
+                                                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                       
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('request.details', $request->id) }}">View</a>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 

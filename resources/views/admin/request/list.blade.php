@@ -54,7 +54,7 @@
                                     <td>{{ $request->Type->name }}</td>
                                     <td>{{ $request->created_at->format('F j, g:i A') }}</td>
                                     <td>
-                                        <select name="status" class="form-control status" data-id="{{ $request->id }}">
+                                        <select name="status" class="form-control change-status" data-id="{{ $request->id }}">
                                             <option value="Pending" {{ $request->status == 'Pending' ? 'selected' : '' }}>
                                                 Pending</option>
                                             <option value="Accept" {{ $request->status == 'Accept' ? 'selected' : '' }}>
@@ -70,7 +70,7 @@
                                         <div class="edit-1 d-flex align-items-center">
                                             <a href="{{ route('admin.request-details', $request->id) }}"> <span class="edit-icon"><i
                                                         class="ph ph-eye"></i></span></a>
-                                            <a href="{{ route('plans.edit', $request->id) }}"> <span class="edit-icon"><i
+                                            <a href="{{ route('request-files.view', $request->id) }}"> <span class="edit-icon"><i
                                                         class="ph ph-files"></i></span></a>
                                         </div>
                                     </td>
@@ -110,9 +110,10 @@
 
     <script>
         $(document).ready(function() {
-            $('.status').on('change', function() {
-                var status = $('.status').val();
-                var id = $('.status').data('id');
+            $('.change-status').on('change', function() {
+                
+                var status = $('.change-status').val();
+                var id = $('.change-status').data('id');
 
                 // Show a confirmation SweetAlert
                 Swal.fire({
