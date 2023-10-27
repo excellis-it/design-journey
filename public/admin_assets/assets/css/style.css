@@ -5117,7 +5117,7 @@ h6 .badge {
 }
 
 .navbar .nav-link.nav-link-user {
-    color: #fff;
+    color: #000;
     font-weight: 500;
     padding-right: 12px !important;
 }
@@ -5794,7 +5794,7 @@ a.dropdown-item.active {
 }
 
 body {
-    background-color: #edf1f5;
+    background-color: #f4f5ff;
     font-size: 14px;
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
@@ -6910,12 +6910,12 @@ body.layout-3 .breadcrumb-style {
     display: flex;
     align-items: center;
     height: 65px;
-    padding: 0px;
+    padding: 0 8px;
     letter-spacing: 0.3px;
     color: #000;
     font-weight: 600;
     text-decoration: none;
-    margin: 0px 10px;
+    margin:0 10px 0 0;
 }
 
 .main-sidebar .sidebar-menu li a .badge {
@@ -7049,7 +7049,7 @@ body.layout-3 .breadcrumb-style {
 .main-content {
     padding-left: 280px;
     padding-right: 30px;
-    padding-top: 130px;
+    padding-top: 70px;
     width: 100%;
     position: relative;
 }
@@ -7103,7 +7103,6 @@ body:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-men
 
 body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a {
     position: relative;
-    margin: 0px 10px;
     border-radius: 10px;
 }
 
@@ -9066,7 +9065,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .light-sidebar .main-sidebar .sidebar-menu li.active a {
-    color: #E44904;
+        color: #673de6;
+    background: #ebe4ff;
+    border-radius: 0 30px 30px 0 !important;
 }
 
 .light-sidebar .main-sidebar .sidebar-menu li ul.dropdown-menu li.active>a {
@@ -10867,9 +10868,10 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .theme-white .navbar {
-    background: linear-gradient(269deg, #E34804 6.88%, #F3913B 101.88%);
+    background: #ffffff;
     border-radius: 0;
     padding-right: 43px;
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
 }
 
 .theme-white .jqvmap-circle {
@@ -11006,7 +11008,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .theme-white .navbar .nav-link .feather {
-    color: #fff;
+    color: #000;
 }
 
 .theme-white .navbar .form-inline .form-control {
@@ -11039,6 +11041,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     z-index: 881;
     padding: 18px 30px;
     transition: all 0.5s;
+    display:none !important;
 
 }
 
@@ -12059,3 +12062,13 @@ a.dt-button {
 .down-load-icon a{
   text-decoration: none;
 }
+
+.table-responsive{
+    overflow-x:hidden !important;
+}
+@media (max-width: 767.98px) {
+    .table-responsive{
+    overflow-x:auto !important;
+}
+}
+

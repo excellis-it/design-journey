@@ -29,14 +29,14 @@
 <body>
 
     <!-- preloader - start -->
-    <div class="preloader">
-        <div class='sk-folding-cube'>
-            <div class='sk-cube sk-cube-1 bg-red'></div>
-            <div class='sk-cube sk-cube-2 bg-green'></div>
-            <div class='sk-cube sk-cube-4 bg-yellow'></div>
-            <div class='sk-cube sk-cube-3 bg-purple'></div>
-        </div>
-    </div>
+    <!--<div class="preloader">-->
+    <!--    <div class='sk-folding-cube'>-->
+    <!--        <div class='sk-cube sk-cube-1 bg-red'></div>-->
+    <!--        <div class='sk-cube sk-cube-2 bg-green'></div>-->
+    <!--        <div class='sk-cube sk-cube-4 bg-yellow'></div>-->
+    <!--        <div class='sk-cube sk-cube-3 bg-purple'></div>-->
+    <!--    </div>-->
+    <!--</div>-->
     <!-- preloader - end -->
     <!-- Login-Page -->
     <section class="login-page">

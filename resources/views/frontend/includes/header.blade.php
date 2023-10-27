@@ -173,7 +173,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html" class="button button-blue button-navigation">
+                                <a href="" class="button button-blue button-navigation">
                                     <span>Book a Call</span>
                                 </a>
                             </li>

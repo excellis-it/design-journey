@@ -8,7 +8,7 @@
         </div>
         <ul class="sidebar-menu ">
             <li class="menu-header"></li>
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('admin/dashboard*') ? 'active' : ' ' }}">
                 <a href="{{ route('admin.dashboard') }}">
                     <i class="ph-gauge"></i>
                     <span>Dashboard</span>

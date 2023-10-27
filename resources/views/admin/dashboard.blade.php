@@ -35,19 +35,19 @@
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-12">
                                     <div class="mini_box small_bg_2">
-                                        <h3>49</h3>
+                                        <h3>00</h3>
                                         <p>This Month Booking</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-12">
                                     <div class="mini_box small_bg_3">
-                                        <h3>1063</h3>
+                                        <h3>00</h3>
                                         <p>Total Booking</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-12">
                                     <div class="mini_box small_bg_4">
-                                        <h3>0</h3>
+                                        <h3>00</h3>
                                         <p>Today Pending Booking</p>
                                     </div>
                                 </div>

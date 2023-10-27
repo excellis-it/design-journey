@@ -94,7 +94,7 @@ Request - {{ env('APP_NAME') }} user
 
                         </div>
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                            @if(isset($request_files) && count($request_files) > 0)
+                             @if(isset($request_files) && count($request_files) > 0)
                             <div class="file-img-div">
                                 <div class="file-head">
                                     <h3>Folder</h3>
@@ -129,7 +129,7 @@ Request - {{ env('APP_NAME') }} user
                                                 <div class="file-img">
                                                     <img src="{{ asset('user_assets/img/file.png')}}" alt="">
                                                     <div class="down-load-icon">
-                                                        <a href=""><span><i class="fa-solid fa-arrow-down"></i></span></a>
+                                                        <a href="{{ route('user.zip-files.download',$file->id) }}"><span><i class="fa-solid fa-arrow-down"></i></span></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,70 +142,70 @@ Request - {{ env('APP_NAME') }} user
                             </div>
                             @endif
                         </div>
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                            <div class="msg-div">
-                                <div class="profile-box-wrap d-flex align-items-center justify-content-between">
-                                    <div class="profile-box-div d-flex align-items-center">
-                                        <div class="profile-box-img">
-                                            <img src="{{ asset('user_assets/img/profile.png')}}" alt="">
-                                        </div>
-                                        <div class="profile-box-text">
-                                            <h3>Designer</h3>
-                                            <h4>Thank You</h4>
-                                        </div>
-                                    </div>
-                                    <div class="profile-box-date">
-                                        <h3>October 25, 5:00 PM</h3>
-                                        <h4><span><i class="ph ph-dots-three"></i></span></h4>
-                                    </div>
-                                </div>
-                                <div class="profile-box-wrap d-flex align-items-center justify-content-between">
-                                    <div class="profile-box-div d-flex align-items-center">
-                                        <div class="profile-box-img">
-                                            <img src="{{ asset('user_assets/img/profile.png')}}" alt="">
-                                        </div>
-                                        <div class="profile-box-text">
-                                            <h3>Designer</h3>
-                                            <h4>Thank You</h4>
-                                        </div>
-                                    </div>
-                                    <div class="profile-box-date">
-                                        <h3>October 25, 5:00 PM</h3>
-                                        <h4><span><i class="ph ph-dots-three"></i></span></h4>
-                                    </div>
-                                </div>
-                                <div class="profile-box-wrap d-flex align-items-center justify-content-between">
-                                    <div class="profile-box-div d-flex align-items-center">
-                                        <div class="profile-box-img">
-                                            <img src="{{ asset('user_assets/img/profile.png')}}" alt="">
-                                        </div>
-                                        <div class="profile-box-text">
-                                            <h3>Designer</h3>
-                                            <h4>Thank You</h4>
-                                        </div>
-                                    </div>
-                                    <div class="profile-box-date">
-                                        <h3>October 25, 5:00 PM</h3>
-                                        <h4><span><i class="ph ph-dots-three"></i></span></h4>
-                                    </div>
-                                </div>
-                                <div class="profile-box-wrap d-flex align-items-center justify-content-between">
-                                    <div class="profile-box-div d-flex align-items-center">
-                                        <div class="profile-box-img">
-                                            <img src="{{ asset('user_assets/img/profile.png')}}" alt="">
-                                        </div>
-                                        <div class="profile-box-text">
-                                            <h3>Designer</h3>
-                                            <h4>Thank You</h4>
-                                        </div>
-                                    </div>
-                                    <div class="profile-box-date">
-                                        <h3>October 25, 5:00 PM</h3>
-                                        <h4><span><i class="ph ph-dots-three"></i></span></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!--<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">-->
+                        <!--    <div class="msg-div">-->
+                        <!--        <div class="profile-box-wrap d-flex align-items-center justify-content-between">-->
+                        <!--            <div class="profile-box-div d-flex align-items-center">-->
+                        <!--                <div class="profile-box-img">-->
+                        <!--                    <img src="{{ asset('user_assets/img/profile.png')}}" alt="">-->
+                        <!--                </div>-->
+                        <!--                <div class="profile-box-text">-->
+                        <!--                    <h3>Designer</h3>-->
+                        <!--                    <h4>Thank You</h4>-->
+                        <!--                </div>-->
+                        <!--            </div>-->
+                        <!--            <div class="profile-box-date">-->
+                        <!--                <h3>October 25, 5:00 PM</h3>-->
+                        <!--                <h4><span><i class="ph ph-dots-three"></i></span></h4>-->
+                        <!--            </div>-->
+                        <!--        </div>-->
+                        <!--        <div class="profile-box-wrap d-flex align-items-center justify-content-between">-->
+                        <!--            <div class="profile-box-div d-flex align-items-center">-->
+                        <!--                <div class="profile-box-img">-->
+                        <!--                    <img src="{{ asset('user_assets/img/profile.png')}}" alt="">-->
+                        <!--                </div>-->
+                        <!--                <div class="profile-box-text">-->
+                        <!--                    <h3>Designer</h3>-->
+                        <!--                    <h4>Thank You</h4>-->
+                        <!--                </div>-->
+                        <!--            </div>-->
+                        <!--            <div class="profile-box-date">-->
+                        <!--                <h3>October 25, 5:00 PM</h3>-->
+                        <!--                <h4><span><i class="ph ph-dots-three"></i></span></h4>-->
+                        <!--            </div>-->
+                        <!--        </div>-->
+                        <!--        <div class="profile-box-wrap d-flex align-items-center justify-content-between">-->
+                        <!--            <div class="profile-box-div d-flex align-items-center">-->
+                        <!--                <div class="profile-box-img">-->
+                        <!--                    <img src="{{ asset('user_assets/img/profile.png')}}" alt="">-->
+                        <!--                </div>-->
+                        <!--                <div class="profile-box-text">-->
+                        <!--                    <h3>Designer</h3>-->
+                        <!--                    <h4>Thank You</h4>-->
+                        <!--                </div>-->
+                        <!--            </div>-->
+                        <!--            <div class="profile-box-date">-->
+                        <!--                <h3>October 25, 5:00 PM</h3>-->
+                        <!--                <h4><span><i class="ph ph-dots-three"></i></span></h4>-->
+                        <!--            </div>-->
+                        <!--        </div>-->
+                        <!--        <div class="profile-box-wrap d-flex align-items-center justify-content-between">-->
+                        <!--            <div class="profile-box-div d-flex align-items-center">-->
+                        <!--                <div class="profile-box-img">-->
+                        <!--                    <img src="{{ asset('user_assets/img/profile.png')}}" alt="">-->
+                        <!--                </div>-->
+                        <!--                <div class="profile-box-text">-->
+                        <!--                    <h3>Designer</h3>-->
+                        <!--                    <h4>Thank You</h4>-->
+                        <!--                </div>-->
+                        <!--            </div>-->
+                        <!--            <div class="profile-box-date">-->
+                        <!--                <h3>October 25, 5:00 PM</h3>-->
+                        <!--                <h4><span><i class="ph ph-dots-three"></i></span></h4>-->
+                        <!--            </div>-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>

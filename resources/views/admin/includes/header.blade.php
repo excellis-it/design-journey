@@ -19,44 +19,44 @@
                 </div>
                 <ul class="navbar-nav navbar-right">
 
-                    <li class="dropdown">
-                        <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <i class="ph-bell"></i> <span class="notification_round">10</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Notification</div>
-                            <div class="notification_scroll">
-                                <div class="notify_me">
-                                    <a href="" class="notify_me_a">
-                                        <span class="number_notify">1</span>
-                                        <p>Today’s New Bookings</p>
-                                    </a>
-                                    <a href="" class="notify_me_a">
-                                        <span class="number_notify">2</span>
-                                        <p>Today’s New Bookings</p>
-                                    </a>
-                                    <a href="" class="notify_me_a">
-                                        <span class="number_notify">3</span>
-                                        <p>Today’s New Bookings</p>
-                                    </a>
-                                    <a href="" class="notify_me_a">
-                                        <span class="number_notify">4</span>
-                                        <p>Today’s New Bookings</p>
-                                    </a>
-                                    <a href="" class="notify_me_a">
-                                        <span class="number_notify">5</span>
-                                        <p>Today’s New Bookings</p>
-                                    </a>
-                                    <a href="" class="notify_me_a">
-                                        <span class="number_notify">6</span>
-                                        <p>Today’s New Bookings</p>
-                                    </a>
+                    <!--<li class="dropdown">-->
+                    <!--    <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">-->
+                    <!--        <i class="ph-bell"></i> <span class="notification_round">10</span>-->
+                    <!--    </a>-->
+                    <!--    <div class="dropdown-menu dropdown-menu-right pullDown">-->
+                    <!--        <div class="dropdown-title">Notification</div>-->
+                    <!--        <div class="notification_scroll">-->
+                    <!--            <div class="notify_me">-->
+                    <!--                <a href="" class="notify_me_a">-->
+                    <!--                    <span class="number_notify">1</span>-->
+                    <!--                    <p>Today’s New Bookings</p>-->
+                    <!--                </a>-->
+                    <!--                <a href="" class="notify_me_a">-->
+                    <!--                    <span class="number_notify">2</span>-->
+                    <!--                    <p>Today’s New Bookings</p>-->
+                    <!--                </a>-->
+                    <!--                <a href="" class="notify_me_a">-->
+                    <!--                    <span class="number_notify">3</span>-->
+                    <!--                    <p>Today’s New Bookings</p>-->
+                    <!--                </a>-->
+                    <!--                <a href="" class="notify_me_a">-->
+                    <!--                    <span class="number_notify">4</span>-->
+                    <!--                    <p>Today’s New Bookings</p>-->
+                    <!--                </a>-->
+                    <!--                <a href="" class="notify_me_a">-->
+                    <!--                    <span class="number_notify">5</span>-->
+                    <!--                    <p>Today’s New Bookings</p>-->
+                    <!--                </a>-->
+                    <!--                <a href="" class="notify_me_a">-->
+                    <!--                    <span class="number_notify">6</span>-->
+                    <!--                    <p>Today’s New Bookings</p>-->
+                    <!--                </a>-->
 
-                                </div>
-                            </div>
+                    <!--            </div>-->
+                    <!--        </div>-->
 
-                        </div>
-                    </li>
+                    <!--    </div>-->
+                    <!--</li>-->
                     <!-- <li>
                         <a href="" class="nav-link nav-link-lg fullscreen-btn">
                             <i class="ph-gear"></i>
