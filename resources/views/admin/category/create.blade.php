@@ -94,7 +94,7 @@
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
-                                        <label for="floatingInputValue">Status</label>
+                                        <label for="floatingInputValue">Status*</label>
                                         <select name="status" class="form-select" aria-label="Default select example">
                                             <option selected value="">Select</option>
                                             <option value="1">Active</option>

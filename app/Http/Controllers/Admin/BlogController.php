@@ -35,8 +35,8 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'slug' => 'required|unique:blogs',
+            'title' => 'required|string|max:255',
+            'slug' => 'required|unique:blogs|max:150',
             'main_image' => 'required',
             'description' => 'required',
             'image1' => 'required',
@@ -138,8 +138,8 @@ class BlogController extends Controller
     public function blogUpdate(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'slug' => 'required',
+            'title' => 'required|string|max:255',
+            'slug' => 'required|max:150',
             'description' => 'required',
             'status' => 'required',
             'conclusion' => 'required',

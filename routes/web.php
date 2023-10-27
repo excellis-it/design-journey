@@ -33,6 +33,7 @@ Route::get('clear', function () {
 
 /* ----------------- Frontend Routes -----------------*/
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/perks', [HomeController::class, 'perks'])->name('perks');
 Route::get('/admin', [AuthController::class, 'adminLogin'])->name('admin.login');
 
 
@@ -50,6 +51,10 @@ Route::get('/pricing',[HomeController::class, 'pricing'])->name('pricing');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
+Route::get('/help-center', [HomeController::class, 'helpCenter'])->name('help-center');
+Route::get('/career', [HomeController::class, 'career'])->name('career');
+Route::get('/career-details', [HomeController::class, 'careerDetails'])->name('career.details');
+Route::get('/career-form', [HomeController::class, 'careerForm'])->name('career-form');
 Route::get('/free-illustration', [ResourcesController::class, 'freeIllustration'])->name('free-illustration');
 Route::get('/free-icon', [ResourcesController::class, 'freeIcon'])->name('free-icons');
 Route::get('/guides', [ResourcesController::class, 'guides'])->name('guides');
@@ -85,18 +90,19 @@ Route::group(['prefix' => 'admin'], function () {
             'free-icons' => FreeIconController::class,
         ]);
 
-        Route::get('/blogCategories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
-        Route::get('/createBlogCategory', [AdminBlogController::class, 'createBlogCategory'])->name('blogs.categories.create');
-        Route::post('/storeBlogCategory', [AdminBlogController::class, 'storeBlogCategory'])->name('blogs.categories.store');
-        Route::get('/editBlogCategory/{id}', [AdminBlogController::class, 'editBlogCategory'])->name('blogs.categories.edit');
-        Route::post('/updateBlogCategory', [AdminBlogController::class, 'updateBlogCategory'])->name('blogs.categories.update');
-        Route::get('/deleteBlogCategory/{id}', [AdminBlogController::class, 'deleteBlogCategory'])->name('blogs.categories.delete');
+        Route::get('/blog-categories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
+        Route::get('/blog-categories/create', [AdminBlogController::class, 'createBlogCategory'])->name('blogs.categories.create');
+        Route::post('/blog-categories/store', [AdminBlogController::class, 'storeBlogCategory'])->name('blogs.categories.store');
+        Route::get('/blog-categories/edit/{id}', [AdminBlogController::class, 'editBlogCategory'])->name('blogs.categories.edit');
+        Route::post('/blog-categories/update', [AdminBlogController::class, 'updateBlogCategory'])->name('blogs.categories.update');
+        Route::get('/blog-categories/delete/{id}', [AdminBlogController::class, 'deleteBlogCategory'])->name('blogs.categories.delete');
       
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
         Route::get('/categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
         Route::post('/categories/update', [CategoryController::class, 'updateCategory'])->name('categories.update');
         Route::post('/blogs/statusChange', [AdminBlogController::class, 'changeBlogStatus'])->name('blogs.change-status');
+
         Route::get('/blogs/delete/{id}', [AdminBlogController::class, 'deleteBlog'])->name('delete.blog');
         Route::post('/blogs/update', [AdminBlogController::class, 'blogUpdate'])->name('admin.blogs.update');
         Route::get('/plans/delete/{id}',[PlanController::class, 'deletePlan'])->name('delete.plans');
@@ -128,6 +134,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/subtypes/update',[TypeController::class, 'updateSubType'])->name('type.subtypes.update');
         Route::get('/subtypes/delete/{id}',[TypeController::class, 'deleteSubType'])->name('type.subtypes.delete');
         Route::get('/users', [UserController::class, 'userList'])->name('users.index');
+        Route::post('/users/statusChange', [UserController::class, 'changeUserStatus'])->name('user.change-status');
+        Route::get('/users/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
         Route::get('/contact-us', [UserController::class, 'contactUsList'])->name('contact.us.list');
 
         

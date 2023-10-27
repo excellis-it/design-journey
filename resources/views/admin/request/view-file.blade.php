@@ -27,22 +27,13 @@
                                 <div class="col-lg-2">
                                     <div class="file-img-box">
                                         <div class="file-img">
-                                            @if (Str::endsWith($file->file_name, '.zip') || Str::endsWith($file->file_name, '.rar') || Str::endsWith($file->file_name, '.7z'))
-                                                <a href="{{ route('download.zip-files',$file->id) }}">
-                                                    <img src="{{ asset('user_assets/img/folder.png')}}" alt="">
-                                                </a>
-                                                <div class="down-load-icon">
-                                                    <a href="{{ route('download.zip-files',$file->id) }}"><span><i class="ph ph-download-simple"></i></span></a>
-                                                </div>
-                                            @elseif(Str::endsWith($file->file_name, '.jpg') || Str::endsWith($file->file_name, '.png'))
-                                            <a href="{{ route('download.zip-files',$file->id) }}">
-                                                <img src="{{ asset('user_assets/img/file.png')}}" alt="">
+                                            <a href="{{ route('download.zip-files', $file->id) }}">
+                                                <img src="{{ asset('user_assets/img/folder.png') }}" alt="">
                                             </a>
                                             <div class="down-load-icon">
-                                                <a href="{{ route('download.zip-files',$file->id) }}"><span><i class="ph ph-download-simple"></i></span></a>
+                                                <a href="{{ route('download.zip-files', $file->id) }}"><span><i
+                                                            class="ph ph-download-simple"></i></span></a>
                                             </div>
-                                            @endif
-                                            
                                         </div>
                                     </div>
                                 </div>

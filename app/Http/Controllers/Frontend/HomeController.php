@@ -24,6 +24,13 @@ class HomeController extends Controller
         return view('frontend.home',compact('home_content','blogs'));
     }
 
+    public function perks()
+    {
+        $home_content = HomeCms::first();
+        $blogs = Blog::orderBy('id','desc')->where('status',1)->limit(3)->get();
+        return view('frontend.perks',compact('home_content','blogs'));
+    }
+
     public function about()
     {
         return view('frontend.about');
@@ -80,5 +87,25 @@ class HomeController extends Controller
     {
         $home_content = HomeCms::first(); 
         return view('frontend.faq',compact('home_content'));
-    }    
+    }  
+    
+    public function helpCenter()
+    {
+        return view('frontend.help-center');
+    }
+
+    public function career()
+    {
+        return view('frontend.career');
+    }
+
+    public function careerDetails()
+    {
+        return view('frontend.career-details');
+    }
+
+    public function careerForm()
+    {
+        return view('frontend.career-form');
+    }
 }

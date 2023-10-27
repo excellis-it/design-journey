@@ -66,9 +66,9 @@ All Request Details - {{ env('APP_NAME') }}
                         <div class="form-group-div">
                             <div class="form-group">
                                 <label for="floatingInputValue"> Upload*</label>
-                                <input type="file" name="upload_zip" class="form-control" id="floatingInputValue" value="{{ old('upload_file') }}">
-                                @if ($errors->has('upload_file'))
-                                <div class="error" style="color:red;">{{ $errors->first('upload_file') }}</div>
+                                <input type="file" name="upload_zip" class="form-control" id="floatingInputValue" value="{{ old('upload_zip') }}">
+                                @if ($errors->has('upload_zip'))
+                                <div class="error" style="color:red;">{{ $errors->first('upload_zip') }}</div>
                                 @endif
                             </div>
                         </div>

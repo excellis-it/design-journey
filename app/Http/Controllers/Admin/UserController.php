@@ -24,7 +24,7 @@ class UserController extends Controller
       
     }
 
-    public function userStatusChange(Request $request)
+    public function changeUserStatus(Request $request)
     {
         $user = User::find($request->user_id);
         $user->status = $request->status;
@@ -36,5 +36,13 @@ class UserController extends Controller
     {
         $contact_us = ContactUs::orderBy('id', 'desc')->get();
         return view('admin.contact-us.list', compact('contact_us'));
+    }
+
+    public function deleteUser($id)
+    {
+        
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back()->json(['success'=>'User delete successfully.']);
     }
 }

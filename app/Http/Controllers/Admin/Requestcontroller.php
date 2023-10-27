@@ -28,15 +28,14 @@ class Requestcontroller extends Controller
 
     public function userRequestDetails($id)
     {
-         $request_details = PresentationForm::where('id',$id)->with('Type','Subtype','User')->first();
+        $request_details = PresentationForm::where('id',$id)->with('Type','Subtype','User')->first();
         return view('admin.request.details',compact('request_details'));
     }
 
     public function requestFileUpdate(Request $request)
     {
         $request->validate([
-
-            'upload_zip' => 'required|mimes:jpg,jpeg,png,zip,rar', // Validate that it's a zip file
+            'upload_zip' => 'required', // Validate that it's a zip file
         ]);
     
         if ($request->hasFile('upload_zip')) {

@@ -76,7 +76,7 @@ Request - {{ env('APP_NAME') }} user
                                         <h2>7. UPLOAD ANY DESIGN, ASSETS OR INSPITRATION WE SHOULD FOLLOW</h2>
                                         <h3>
                                             @if($user_request->demo_design_file != '')
-                                                <a href="{{ asset($user_request->demo_design_file) }}" target="_blank">View</a>
+                                                <a href="{{ asset($user_request->demo_design_file) }}" target="_blank">View file</a>
                                             @endif
                                         </h3>
                                     </div>

@@ -13,8 +13,6 @@
                 @csrf
 
                 <input type='hidden' name='sub_type_id' value='{{ $id }}' />
-
-
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="form-group">

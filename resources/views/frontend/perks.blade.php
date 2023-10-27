@@ -2,7 +2,7 @@
 @section('meta_title')
 @endsection
 @section('title')
-    Home
+    Perks
 @endsection
 @push('styles')
 @endpush
@@ -486,7 +486,7 @@
 
 
 <!-- pricing section - start -->
-{{-- <div class="pricing-section home-pricing" id="pricing">
+<div class="pricing-section home-pricing" id="pricing">
     <div class="pricing-section-wrapper">
         <div class="container pricing-section-content">
             <!-- heading - start -->
@@ -550,7 +550,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 <!-- pricing section - end -->
 
 

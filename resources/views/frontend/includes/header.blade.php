@@ -35,6 +35,11 @@
                         <ul class="parent">
                             <li>
                                 <a href="{{ route('home') }}" class="link-underline link-underline-1">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('perks') }}" class="link-underline link-underline-1">
                                     <span>Perks</span>
                                 </a>
                             </li>

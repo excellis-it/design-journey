@@ -49,7 +49,7 @@ class RequestController extends Controller
 
     public function submitPresentation(Request $request)
     {
-       
+        
         $request->validate([
             'request_name'     => 'required',
             'design_type' => 'required',
@@ -74,13 +74,13 @@ class RequestController extends Controller
 
         if ($request->hasFile('demo_design_file')) {
             $request->validate([
-                'demo_design_file' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                'demo_design_file' => 'required',
             ]);
             
             $file= $request->file('demo_design_file');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('demo_design_file')->store('presentation', 'public');
-            $presentation->demo_design_file = asset('public/storage/'.$image_path);
+            $presentation->demo_design_file = asset('storage/'.$image_path);
         }
 
 

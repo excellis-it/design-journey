@@ -17,7 +17,7 @@
         </ul>
     </div>
     <ul class="navbar-nav navbar-right">
-        <li class="dropdown">
+        {{-- <li class="dropdown">
             <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <i class="ph-bell"></i> <span class="notification_round">10</span>
             </a>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-        </li>
+        </li> --}}
 
         <li class="dropdown">
             <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">

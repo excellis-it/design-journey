@@ -30,7 +30,7 @@
                     <div class="col-md-6">
                         <h4 class="mb-0">List</h4>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="card table_sec">
@@ -42,7 +42,7 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Status</th>
-                                
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,13 +57,19 @@
                                     <td>
                                         {{ $user->phone }}
                                     </td>
-                                    
+                                    <td>
+                                        <div class="button-switch">
+                                            <input type="checkbox" id="switch-orange" class="switch toggle-class"
+                                                data-id="{{ $user->id }}" {{ $user->status ? 'checked' : '' }} />
+                                            <label for="switch-orange" class="lbl-off"></label>
+                                            <label for="switch-orange" class="lbl-on"></label>
+                                        </div>
+                                    </td>
                                     <td>
                                         <div class="edit-1 d-flex align-items-center">
-                                            <a href=""> <span class="edit-icon"><i
-                                                        class="ph ph-pencil-simple"></i></span></a>
-                                                        <a title="Delete Category" data-route=""
-                                                            id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>           
+                                            <a title="Delete Category" data-route="{{ route('delete.user',$user->id) }}" id="delete"><span
+                                                    class="trash-icon"><i class="ph ph-trash"></i></span></a>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -77,7 +83,7 @@
 
 @push('scripts')
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-   
+
     <script>
         $(document).ready(function() {
             //Default data table
@@ -85,11 +91,11 @@
                 "aaSorting": [],
                 "columnDefs": [{
                         "orderable": false,
-                        "targets": [3]
+                        "targets": [3, 4]
                     },
                     {
                         "orderable": true,
-                        "targets": [0, 1,2]
+                        "targets": [0, 1, 2]
                     }
                 ]
             });
@@ -100,7 +106,7 @@
         $(document).on('click', '#delete', function(e) {
             swal({
                     title: "Are you sure?",
-                    text: "To delete this blog.",
+                    text: "To delete this user.",
                     type: "warning",
                     confirmButtonText: "Yes",
                     showCancelButton: true
@@ -122,16 +128,17 @@
 
     <script>
         $('.toggle-class').change(function() {
+            
             var status = $(this).prop('checked') == true ? 1 : 0;
-            var cat_id = $(this).data('id');
-
+            var user_id = $(this).data('id');
+            
             $.ajax({
                 type: "POST",
                 dataType: "json",
-                url: '{{ route('categories.change-status') }}',
+                url: '{{ route('user.change-status') }}',
                 data: {
                     'status': status,
-                    'cat_id': cat_id
+                    'user_id': user_id
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

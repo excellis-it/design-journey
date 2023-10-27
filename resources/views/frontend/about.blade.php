@@ -23,7 +23,7 @@
                     data-aos-duration="1000">
                         <div class="features-content">
                             <h2 class="c-dark lt-60">About us</h2>
-                            <p>ManyPixels is an on-demand creative service providing thousands of businesses around
+                            <p>Design-journey is an on-demand creative service providing thousands of businesses around
                                 the
                                 globe with quality, fast and affordable design.</p>
                             <p>Founded in 2018, we are now one of the leading design subscription service on the
@@ -46,7 +46,7 @@
                 <div class="col-md-5">
                     <div class="about-text">
                         <div class="features-content">
-                            <h2 class="c-dark lt-60">ManyPixels in numbers</h2>
+                            <h2 class="c-dark lt-60">Design-journey in numbers</h2>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,9 @@
 <div class="main-sidebar sidebar-style-2" tabindex="1">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html"><span class="logo-name"><img
+            <a href="{{ route('admin.dashboard') }}"><span class="logo-name"><img
                         src="{{ asset('frontend_assets/assets/images/logo.png') }}" /></span> </a>
-            <a href="index.html"><span class="logo-fm"><img
+            <a href="{{ route('admin.dashboard') }}"><span class="logo-fm"><img
                         src="{{ asset('frontend_assets/assets/images/logo.png') }}" /></span> </a>
         </div>
         <ul class="sidebar-menu ">
@@ -38,7 +38,7 @@
 
           
 
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('admin/types*') || Request::is('admin/subtypes*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-pen"></i>
                     <span>Types</span>
@@ -66,16 +66,16 @@
                 </a>
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('admin/cms*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-image"></i>
                     <span>CMS</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                    <li class="{{ Request::is('admin/home-cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('home.cms') }}">Home Cms</a>
                     </li>
-                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                    <li class="{{ Request::is('admin/about-cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('about.cms') }}">About Cms</a>
                     </li>
                     {{-- <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
@@ -84,16 +84,16 @@
                 </ul>
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('admin/blogs*') || Request::is('admin/blog-categories*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
                     <span>Blog</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="">
+                    <li class="{{ Request::is('admin/blog-categories*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('blogs.categories.list') }}">Category</a>
                     </li>
-                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                    <li class="">
                         <a class="nav-link" href="{{ route('blogs.index') }}">Manage</a>
                     </li>
                 </ul>
