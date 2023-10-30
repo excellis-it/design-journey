@@ -30,7 +30,7 @@
         @include('frontend.includes.header')
         @yield('content')
         <!-- contact section - start -->
-        <div class="contact-section " id="contact" style="{{ Request::is('blogs*') ? 'display:none' : '' }}">
+        <div class="contact-section " id="contact" style="{{ Request::is('blogs*') || Request::is('help-center*') || Request::is('career*') ? 'display:none' : '' }}">
             <div class="contact-section-wrapper">
                 <div class="container">
                     <div class="row gx-5">

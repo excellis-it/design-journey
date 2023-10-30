@@ -44,10 +44,10 @@ class PlanController extends Controller
     {
         //
         $request->validate([
-            'plan_name' => 'required',
+            'plan_name' => 'required|string|max:100',
             'plan_duration' => 'required',
             'plan_details' => 'required',
-            'plan_price' => 'required',
+            'plan_price' => 'required|numeric',
         ]);
         $plan_store = new Plan;
         $plan_store->plan_name = $request->plan_name;
@@ -109,10 +109,10 @@ class PlanController extends Controller
     {
         
         $request->validate([
-            'plan_name' => 'required',
+            'plan_name' => 'required|string|max:100',
             'plan_duration' => 'required',
             'plan_details' => 'required',
-            'plan_price' => 'required',
+            'plan_price' => 'required|numeric',
         ]);
 
         $update_plan = Plan::where('id',$request->plan_id)->first();
@@ -140,7 +140,7 @@ class PlanController extends Controller
     {
         
         $del_specification = PlanSpecfication::where('id',$id)->delete();
-        return response()->json(['message' => 'Delete specification successfully.']);
+        return redirect()->back()->with('message', 'Delete specification successfully.');
 
     }
 

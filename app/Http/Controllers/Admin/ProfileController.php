@@ -25,7 +25,6 @@ class ProfileController extends Controller
         $request->validate([
             'name'     => 'required',
             'email'    => 'required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|unique:users,email,'.Auth::user()->id,
-            'phone'    => 'required'
         ]);
 
         $data = User::find(Auth::user()->id);

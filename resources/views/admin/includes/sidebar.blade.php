@@ -1,14 +1,14 @@
 <div class="main-sidebar sidebar-style-2" tabindex="1">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html"><span class="logo-name"><img
+            <a href="{{ route('admin.dashboard') }}"><span class="logo-name"><img
                         src="{{ asset('frontend_assets/assets/images/logo.png') }}" /></span> </a>
-            <a href="index.html"><span class="logo-fm"><img
+            <a href="{{ route('admin.dashboard') }}"><span class="logo-fm"><img
                         src="{{ asset('frontend_assets/assets/images/logo.png') }}" /></span> </a>
         </div>
         <ul class="sidebar-menu ">
             <li class="menu-header"></li>
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('admin/dashboard*') ? 'active' : ' ' }}">
                 <a href="{{ route('admin.dashboard') }}">
                     <i class="ph-gauge"></i>
                     <span>Dashboard</span>
@@ -36,7 +36,9 @@
                 </a>
             </li>
 
-            <li class="dropdown">
+          
+
+            <li class="dropdown {{ Request::is('admin/types*') || Request::is('admin/subtypes*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-pen"></i>
                     <span>Types</span>
@@ -50,41 +52,48 @@
                     </li>
                 </ul>
             </li>
-            <li class="{{ Request::is('admin/solution*') ? 'active' : ' ' }}">
+            {{-- <li class="{{ Request::is('admin/solution*') ? 'active' : ' ' }}">
                 <a href="{{ route('solution.design.edit') }}">
                     <i class="ph-clipboard-text"></i>
                     <span>Solution</span>
                 </a>
+            </li> --}}
+
+            <li class="{{ Request::is('admin/requests*') ? 'active' : ' ' }}">
+                <a href="{{ route('requests.list') }}">
+                    <i class="ph-book"></i>
+                    <span>Requests</span>
+                </a>
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('admin/cms*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-image"></i>
                     <span>CMS</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                    <li class="{{ Request::is('admin/home-cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('home.cms') }}">Home Cms</a>
                     </li>
-                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                    <li class="{{ Request::is('admin/about-cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('about.cms') }}">About Cms</a>
                     </li>
-                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                    {{-- <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('solution.cms') }}">Solution Cms</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('admin/blogs*') || Request::is('admin/blog-categories*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
                     <span>Blog</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="">
+                    <li class="{{ Request::is('admin/blog-categories*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('blogs.categories.list') }}">Category</a>
                     </li>
-                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                    <li class="">
                         <a class="nav-link" href="{{ route('blogs.index') }}">Manage</a>
                     </li>
                 </ul>
@@ -95,8 +104,32 @@
                     <span>Contactus</span>
                 </a>
             </li>
+
+            <li class="dropdown {{ Request::is('admin/help-centers*') ? 'active' : ' ' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Help Center</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('help-centers.index') }}">Manage</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ Request::is('admin/screen-shots*') ? 'active' : ' ' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Screen Shot</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('help-centers.index') }}">Manage</a>
+                    </li>
+                </ul>
+            </li>
      
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
                     <span>Free illustration</span>
@@ -109,7 +142,7 @@
                         <a class="nav-link" href="{{ route('free-illustrations.images.list') }}">Image</a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
             {{-- <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">

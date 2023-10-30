@@ -44,8 +44,8 @@ class CategoryController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
+            'name' => 'required|string|max:100',
+            'slug' => 'required|string|unique:categories|max:255',
             'status' => 'required',
         ]);
 
@@ -144,8 +144,8 @@ class CategoryController extends Controller
     {
         
         $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
+            'name' => 'required|string|max:100',
+            'slug' => 'required|string|max:255',
             'status' => 'required',
         ]);
         $category = Category::find($request->id);

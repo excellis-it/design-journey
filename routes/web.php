@@ -149,6 +149,23 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('profile', [UserProfileController::class, 'index'])->name('user.profile');
         Route::post('profile/update', [UserProfileController::class, 'profileUpdate'])->name('user.profile.update');
         Route::get('logout', [UserProfileController::class, 'logout'])->name('user.logout');
+
+        Route::get('/order/new', [RequestController::class, 'createOrder'])->name('order.create');
+        Route::get('/order/{id}', [RequestController::class, 'singleOrder'])->name('order.single');
+        Route::get('/order/form/{id}', [RequestController::class, 'formOrder'])->name('order.form');
+
+        Route::get('/request/download/{id}', [RequestController::class, 'userZipDownload'])->name('user.zip-files.download');
+
+        Route::post('/presentation/store',[RequestController::class, 'submitPresentation'])->name('presentation.submit');
+        Route::get('/request/list',[RequestController::class, 'requestList'])->name('request.list');
+        Route::get('/request/deatils/{id}',[RequestController::class, 'requestDetails'])->name('request.details');
+
+        Route::resources([
+            'brand-profile' => BrandProfileController::class,
+        ]);
+
+        Route::get('/brand-profile/edit/{id}', [BrandProfileController::class, 'editBrandProfile'])->name('edit.brand-profile');
+        Route::post('/brand-profile/store', [BrandProfileController::class, 'updateBrandProfile'])->name('update.brand-profile');
     });
 });
 

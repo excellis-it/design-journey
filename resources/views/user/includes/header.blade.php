@@ -17,7 +17,7 @@
         </ul>
     </div>
     <ul class="navbar-nav navbar-right">
-        <li class="dropdown">
+        {{-- <li class="dropdown">
             <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <i class="ph-bell"></i> <span class="notification_round">10</span>
             </a>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-        </li>
+        </li> --}}
 
         <li class="dropdown">
             <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -76,18 +76,5 @@
         </li>
     </ul>
 </nav>
-<section class="section_breadcrumb d-block d-sm-flex justify-content-between">
-    <div class="">
-        <h4 class="page-title m-b-0">Dashboard</h4>
-        <!-- <h5 class="page">Hello Evano 👋🏼,</h5> -->
-    </div>
-    <div class="">
-        <ul class="breadcrumb breadcrumb-style">
-            <li class="breadcrumb-item">
-                Home
-            </li>
-            <li class="breadcrumb-item active">Dashboard</li>
-        </ul>
-    </div>
-</section>
+
 

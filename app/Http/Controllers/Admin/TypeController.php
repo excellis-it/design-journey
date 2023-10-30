@@ -42,6 +42,13 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'slug' => 'required|string|unique:types|max:255',
+            'details' => 'required',
+        ]);
+
         $type = new Type();
         $type->name = $request->name;
         $type->slug = $request->slug;
@@ -88,6 +95,12 @@ class TypeController extends Controller
 
     public function typeUpdate(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'slug' => 'required|string|max:255',
+            'details' => 'required',
+        ]);
+
         $type = Type::find($request->id);
         $type->name = $request->name;
         $type->slug = $request->slug;
@@ -157,7 +170,7 @@ class TypeController extends Controller
         $request->validate([
             'type_id' => 'required',
             'name' => 'required',
-            'slug' => 'required',
+            'slug'    =>  'required|unique:sub_types,slug',
             'details' => 'required',
         ]);
         $sub_type = new SubType();

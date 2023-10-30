@@ -58,7 +58,7 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($homeCms->banner_image) }}" alt="" width="400px"
+                                        <img src="{{ $homeCms->banner_image }}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>

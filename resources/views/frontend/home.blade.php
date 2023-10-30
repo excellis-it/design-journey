@@ -29,7 +29,7 @@
                         </h1>
                         <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65">Scale up your creative content production with a reliable and hassle-free design service.</p>
                         <div class="m-horz-auto position-relative">
-                            <div class="banerimg" style="background-image: url('{{ asset($home_content->banner_image)}}'); background-position: center center;
+                            <div class="banerimg" style="background-image: url('{{ $home_content->banner_image }}'); background-position: center center;
                             background-size: cover; background-repeat: no-repeat;">
                             </div>                                
                             <div class="background-layout">
@@ -76,7 +76,7 @@
                         <!-- screen slide - start -->
                         <div class="swiper-slide">
                             <div class="screen-slide wow flipInY" data-wow-delay="0.3s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-1.webp')}}" alt="app-screen"></a>
+                                <a href=""><img src="{{ asset('frontend_assets/images/OK.jpg')}}" alt="app-screen"></a>
                             </div>
                         </div>
                         <!-- screen slide - end -->
@@ -177,7 +177,7 @@
             <div class="row">
                 <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="button-group button-group-center">
-                        <a href="#" class="button button-red">
+                        <a href="{{ route('login') }}" class="button button-red">
                             <span>Get Started</span>
                         </a>
                     </div>
@@ -486,7 +486,7 @@
 
 
 <!-- pricing section - start -->
-<div class="pricing-section home-pricing" id="pricing">
+{{-- <div class="pricing-section home-pricing" id="pricing">
     <div class="pricing-section-wrapper">
         <div class="container pricing-section-content">
             <!-- heading - start -->
@@ -550,7 +550,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- pricing section - end -->
 
 
@@ -829,7 +829,7 @@
                     <div class="cta-section-content">
                         <h2 class="c-white">{{ $home_content->service_business_title }}</h2>
                         <div class="button-group">
-                            <a href="#" class="button button-red button-red-hover-white">
+                            <a href="{{ route('login') }}" class="button button-red button-red-hover-white">
                                 <span>Get Started</span>
                             </a>
                             <!-- <a href="#" class="button button-purple button-purple-hover-white">

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Mail\WelcomeMail;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 
@@ -85,15 +86,22 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password] )) {
             $user = User::where('email', $request->email)->first();
             
-            if ($user->hasRole('ADMIN')) {
-                return redirect()->route('admin.dashboard');
-            } else if($user->hasRole('CUSTOMER') && $user->status == 1){
+            if($user->hasRole('CUSTOMER') && $user->status == 1){
+                //user has plans then go to dashboard
+                $check_user_plan = Payment::where('user_id', $user->id)->first();
+                if($check_user_plan){
+                    Auth::login($user);
+                    return redirect()->route('user.dashboard');
+                }else{
+                    //user has no plans then go to plans page
+                    
+                    return redirect()->route('pricing');
+                }
                 
-                return redirect()->route('user.dashboard');
             } else{
                
                 Auth::logout();
-                return redirect()->back()->with('error', 'Your account is not active yet!');
+                return redirect()->back()->with('error', 'Invalid Credentials!');
             }
         } else {
             return redirect()->back()->with('error', 'Email id & password was invalid!');

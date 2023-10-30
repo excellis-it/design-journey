@@ -12,14 +12,15 @@
                     <span>Create Request</span>
                 </a>
             </li>
-            <li class="dropdown active">
-                <a href="sales-report.html">
+            <li class="dropdown {{ (request()->is('user/request*')) ? 'active' : '' }}">
+                <a href="{{ route('request.list') }}">
                     <i class="ph ph-article"></i>
                     <span>Requests</span>
                 </a>
             </li>
-            <li class="dropdown">
-                <a href="">
+
+            <li class="dropdown {{ (request()->is('user/brand-profile*')) ? 'active' : '' }}">
+                <a href="{{ route('brand-profile.index') }}">
                     <i class="ph ph-user"></i>
                     <span>Brand profiles</span>
                 </a>

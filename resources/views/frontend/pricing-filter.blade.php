@@ -9,8 +9,8 @@
             <div class="pricing-single-wrapper">
                 <h3 class="plan c-{{ $colorClass }}">{{ $plan->plan_name }}</h3>
                 <h5>{{ $plan->plan_details }}</h5>
-                <p class="price c-grey">${{ $plan->plan_price }}<sup>/mo</sup></p>
-                <a href="#" class="button button-{{ $colorClass }} button-full-width">
+                <p class="price c-grey">${{ $plan->plan_price }}<sup>/{{ substr($plan->plan_duration, 0, 2) }}</sup></p>
+                <a href="{{ route('payment.details', encrypt($plan->id)) }}" class="button button-{{ $colorClass }} button-full-width">
                     <span>GET STARTED</span>
                 </a>
                 <ul>

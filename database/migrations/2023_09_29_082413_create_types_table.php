@@ -18,7 +18,7 @@ class CreateTypesTable extends Migration
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->string('logo')->nullable();
-            $table->string('details')->nullable();
+            $table->longText('details')->nullable();
             $table->timestamps();
         });
     }

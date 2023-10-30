@@ -72,9 +72,7 @@ Profile Update - {{ env('APP_NAME') }}
                                         <label for="floatingInputValue">Phone*</label>
                                         <input type="text" name="phone" class="form-control" id="floatingInputValue"
                                             placeholder="Enter phone*" value="{{ Auth::user()->phone }}">
-                                        @if ($errors->has('phone'))
-                                            <div class="error" style="color:red;">{{ $errors->first('phone') }}</div>
-                                        @endif
+                                       
                                     </div>
                                 </div>
                             </div>

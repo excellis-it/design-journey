@@ -18,7 +18,7 @@ class aboutSeeder extends Seeder
         $about = new About;
         $about->about_image = asset('frontend_assets/assets/images/about-us.png');
         $about->title = 'About Us';
-        $about->description = 'ManyPixels is an on-demand creative service providing thousands of businesses around the globe with quality, fast and affordable design.Founded in 2018, we are now one of the leading design subscription service on the market.Our goal is to help businesses of all sizes and industries scale up their creative content production.';
+        $about->description = 'Design-journey is an on-demand creative service providing thousands of businesses around the globe with quality, fast and affordable design.Founded in 2018, we are now one of the leading design subscription service on the market.Our goal is to help businesses of all sizes and industries scale up their creative content production.';
         $about->icon1 = asset('frontend_assets/assets/images/vl-1.svg');
         $about->title1 = 'Customer first';
         $about->details1 = 'Taste can be subjective, so we’re never happy with the results unless you are.';

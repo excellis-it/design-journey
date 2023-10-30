@@ -9,8 +9,22 @@
 @section('content')
 
 <div class="main-content" style="min-height: 842px;">
+  <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
+    <div class="">
+        <h4 class="page-title m-b-0">Dashboard</h4>
+        <!-- <h5 class="page">Hello Evano 👋🏼,</h5> -->
+    </div>
+    <div class="">
+        <ul class="breadcrumb breadcrumb-style">
+            <li class="breadcrumb-item">
+                Home
+            </li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ul>
+    </div>
+</section>
 
-    <div class="orders-deliver">
+    {{-- <div class="orders-deliver">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
@@ -70,7 +84,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 @endsection

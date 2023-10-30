@@ -49,7 +49,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="link-underline">
+                                    <a href="{{ route('career') }}" class="link-underline">
                                         <span>Careers</span>
                                     </a>
                                 </li>
@@ -64,7 +64,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="link-underline">
+                                    <a href="{{ route('help-center') }}" class="link-underline">
                                         <span>Help Center</span>
                                     </a>
                                 </li>

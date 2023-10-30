@@ -20,6 +20,29 @@ class AdminController extends Controller
         }
     }
 
+    public function loginCheck(Request $request)
+    {
+        $request->validate([
+            'email'    => 'required|email|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+            'password' => 'required|min:8'
+        ]);
+        
+       
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password] )) {
+            $user = User::where('email', $request->email)->first();
+            
+            if ($user->hasRole('ADMIN')) {
+                return redirect()->route('admin.dashboard');
+            }else{
+               
+                Auth::logout();
+                return redirect()->back()->with('error', 'Email id & password was invalid!');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Email id & password was invalid!');
+        }
+    }
+
     public function store(Request $request)
     {
         $request->validate([

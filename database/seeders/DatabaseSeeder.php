@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             solutionSeeder::class,
             freeIllustrationSeeder::class,
             freeIconSeeder::class,
+            helpCenterSeeder::class,
         ]);
     }
 }

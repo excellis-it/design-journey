@@ -30,11 +30,11 @@
 
 <!-- faq section - start -->
 <div class="faq-section">
-    <div class="faq-section-wrapper">
+    <div class="faq-section-wrapper pt-0 pb-0 inner-faq">
         <div class="container">
             <!-- content - start -->
             <div class="row">
-                <div class="col-md-8 offset-md-2 col-10 offset-1">
+                <div class="col-md-12 col-12">
                     <div class="faq-section-content">
                         <!-- accordion - start -->
                         <div class="accordion accordion-1" id="accordionFAQ">
