@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\FreeIllustrationController;
 use App\Http\Controllers\Admin\FreeIconController;
 use App\Http\Controllers\Admin\HelpCenterController;
+use App\Http\Controllers\Admin\ScrenShotController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ResourcesController;
@@ -101,7 +102,10 @@ Route::group(['prefix' => 'admin'], function () {
             'free-illustrations' => FreeIllustrationController::class,
             'free-icons' => FreeIconController::class,
             'help-centers' => HelpCenterController::class,
+            'screenshot' => ScrenShotController::class,
         ]);
+        Route::get('/screenshot/delete/{id}', [AdminBlogController::class, 'deleteScreenshot'])->name('delete.screenshot');
+
 
         Route::get('/blog-categories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
         Route::get('/blog-categories/create', [AdminBlogController::class, 'createBlogCategory'])->name('blogs.categories.create');
@@ -172,7 +176,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/solution/edit', [HomeCmsController::class, 'solutionEdit'])->name('solution.design.edit');
         Route::post('/solution/update', [HomeCmsController::class, 'solutionUpdate'])->name('solution.design.update');
 
-        Route::get('screen-shots', [HomeCmsController::class, 'screenShots'])->name('screen.shots');
+        Route::post('screen-shots/update', [ScrenShotController::class, 'screenShotsUpdate'])->name('update.screenshot');
+        Route::get('screen-shots/delete/{id}', [ScrenShotController::class, 'deleteScreenShots'])->name('delete.screenshot');
+        Route::get('screen-shots/edit/{id}', [ScrenShotController::class, 'editScreenShots'])->name('edit.screenshot');
     });
 });
 

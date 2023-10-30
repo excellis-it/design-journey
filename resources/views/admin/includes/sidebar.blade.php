@@ -117,14 +117,17 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ Request::is('admin/screen-shots*') ? 'active' : ' ' }}">
+            <li class="dropdown {{ Request::is('admin/screenshot*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
                     <span>Screen Shot</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="">
-                        <a class="nav-link" href="{{ route('help-centers.index') }}">Manage</a>
+                        <a class="nav-link" href="{{ route('screenshot.index') }}">Manage</a>
+                    </li>
+                    <li class="">
+                        <a class="nav-link" href="{{ route('screenshot.create') }}">Create</a>
                     </li>
                 </ul>
             </li>
