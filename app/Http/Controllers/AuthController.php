@@ -85,15 +85,13 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password] )) {
             $user = User::where('email', $request->email)->first();
             
-            if ($user->hasRole('ADMIN')) {
-                return redirect()->route('admin.dashboard');
-            } else if($user->hasRole('CUSTOMER') && $user->status == 1){
+            if($user->hasRole('CUSTOMER') && $user->status == 1){
                 
                 return redirect()->route('user.dashboard');
             } else{
                
                 Auth::logout();
-                return redirect()->back()->with('error', 'Your account is not active yet!');
+                return redirect()->back()->with('error', 'Invalid Credentials!');
             }
         } else {
             return redirect()->back()->with('error', 'Email id & password was invalid!');

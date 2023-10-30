@@ -104,6 +104,30 @@
                     <span>Contactus</span>
                 </a>
             </li>
+
+            <li class="dropdown {{ Request::is('admin/help-centers*') ? 'active' : ' ' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Help Center</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('help-centers.index') }}">Manage</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ Request::is('admin/screen-shots*') ? 'active' : ' ' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Screen Shot</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('help-centers.index') }}">Manage</a>
+                    </li>
+                </ul>
+            </li>
      
             {{-- <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">

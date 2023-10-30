@@ -54,7 +54,7 @@ class BlogController extends Controller
         $blog->conclusion = $request->conclusion;
         if ($request->hasFile('main_image')) {
             $request->validate([
-                'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
             ]);
             
             $file= $request->file('main_image');
@@ -65,7 +65,7 @@ class BlogController extends Controller
 
         if ($request->hasFile('image1')) {
             $request->validate([
-                'image1' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                'image1' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
             ]);
             
             $file1= $request->file('image1');
@@ -76,7 +76,7 @@ class BlogController extends Controller
 
         if ($request->hasFile('image2')) {
             $request->validate([
-                'image2' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                'image2' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
             ]);
             
             $file2= $request->file('image2');
@@ -154,7 +154,7 @@ class BlogController extends Controller
         $blog->conclusion = $request->conclusion;
         if ($request->hasFile('main_image')) {
             $request->validate([
-                'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
             ]);
             
             $file= $request->file('main_image');
@@ -165,7 +165,7 @@ class BlogController extends Controller
 
         if ($request->hasFile('image1')) {
             $request->validate([
-                'image1' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                'image1' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
             ]);
             
             $file1= $request->file('image1');
@@ -176,7 +176,7 @@ class BlogController extends Controller
 
         if ($request->hasFile('image2')) {
             $request->validate([
-                'image2' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                'image2' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
             ]);
             
             $file2= $request->file('image2');

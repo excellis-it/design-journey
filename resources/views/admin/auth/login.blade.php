@@ -48,7 +48,7 @@
                         <h3 class="account-title">Login</h3>
                         <p class="account-subtitle">Access to our dashboard</p>
 
-                        <form action="{{ route('login.check') }}" method="POST">
+                        <form action="{{ route('admin.login.check') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label>Email Address</label>

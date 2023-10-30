@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\CategoryImage;
 use App\Models\Plan;
 use App\Models\PlanSpecfication;
+use App\Models\helpCenter;
 use Illuminate\Support\Facades\View;
 
 
@@ -91,7 +92,14 @@ class HomeController extends Controller
     
     public function helpCenter()
     {
-        return view('frontend.help-center');
+        $help_centers = helpCenter::orderBy('id','desc')->get(); 
+        return view('frontend.help-center',compact('help_centers'));
+    }
+
+    public function helpCenterDetails(Request $request)
+    {
+        $help_centers = helpCenter::where('id',$request->id)->first();
+        return response()->json(['view'=>(String)View::make('frontend.help-center-details')->with(compact('help_centers'))]);
     }
 
     public function career()
@@ -108,4 +116,5 @@ class HomeController extends Controller
     {
         return view('frontend.career-form');
     }
+
 }

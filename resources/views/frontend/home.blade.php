@@ -76,7 +76,7 @@
                         <!-- screen slide - start -->
                         <div class="swiper-slide">
                             <div class="screen-slide wow flipInY" data-wow-delay="0.3s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-1.webp')}}" alt="app-screen"></a>
+                                <a href=""><img src="{{ asset('frontend_assets/images/OK.jpg')}}" alt="app-screen"></a>
                             </div>
                         </div>
                         <!-- screen slide - end -->

@@ -18,11 +18,13 @@ use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\FreeIllustrationController;
 use App\Http\Controllers\Admin\FreeIconController;
+use App\Http\Controllers\Admin\HelpCenterController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ResourcesController;
 use App\Http\Controllers\Frontend\SolutionsController;
 use App\Http\Controllers\Frontend\ContactusController;
+use App\Http\Controllers\Frontend\PaymentController;
 use Illuminate\Support\Facades\Artisan;
 
 // Clear cache
@@ -52,6 +54,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
 Route::get('/help-center', [HomeController::class, 'helpCenter'])->name('help-center');
+Route::get('/help-centers/details', [HomeController::class, 'helpCenterDetails'])->name('help-centers.get-details');
 Route::get('/career', [HomeController::class, 'career'])->name('career');
 Route::get('/career-details', [HomeController::class, 'careerDetails'])->name('career.details');
 Route::get('/career-form', [HomeController::class, 'careerForm'])->name('career-form');
@@ -71,11 +74,20 @@ Route::post('/our-work/filter',[HomeController::class, 'ourWorkFilter'])->name('
 Route::post('/plan/filter',[HomeController::class, 'pricingFilter'])->name('pricing.filter');
 Route::post('contact-us/submit', [ContactusController::class, 'contactUsSubmit'])->name('contact-us.submit');
 
+//payment routes
+Route::get('/payment/{payment}',[PaymentController::class, 'payment'])->name('payment.details');
+Route::post('/payment/submit',[PaymentController::class, 'paymentSubmit'])->name('payment.submit');
+Route::get('/payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+
+
+
 /* ----------------- Admin Routes -----------------*/
 
 // Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
 Route::group(['prefix' => 'admin'], function () {
+    Route::post('/login-check', [AdminController::class, 'loginCheck'])->name('admin.login.check');
     Route::group(['middleware' => 'admin'], function () {
+
         Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
         Route::get('profile', [ProfileController::class, 'index'])->name('admin.profile');
         Route::post('profile/update', [ProfileController::class, 'profileUpdate'])->name('admin.profile.update');
@@ -88,6 +100,7 @@ Route::group(['prefix' => 'admin'], function () {
             'types' => TypeController::class,
             'free-illustrations' => FreeIllustrationController::class,
             'free-icons' => FreeIconController::class,
+            'help-centers' => HelpCenterController::class,
         ]);
 
         Route::get('/blog-categories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
@@ -138,6 +151,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/users/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
         Route::get('/contact-us', [UserController::class, 'contactUsList'])->name('contact.us.list');
 
+        Route::get('/help-centers/edit/{id}', [HelpCenterController::class, 'editHelpCenter'])->name('help-centers.edit');
+        Route::post('/help-centers/update',[HelpCenterController::class, 'updateHelpCenter'])->name('help-centers.update');
+        Route::get('/help-centers/delete/{id}',[HelpCenterController::class, 'deleteHelpCenter'])->name('help-centers.delete');
         
 
         //cms routes
@@ -155,6 +171,8 @@ Route::group(['prefix' => 'admin'], function () {
         });
         Route::get('/solution/edit', [HomeCmsController::class, 'solutionEdit'])->name('solution.design.edit');
         Route::post('/solution/update', [HomeCmsController::class, 'solutionUpdate'])->name('solution.design.update');
+
+        Route::get('screen-shots', [HomeCmsController::class, 'screenShots'])->name('screen.shots');
     });
 });
 

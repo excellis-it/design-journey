@@ -9,7 +9,7 @@
 
 @section('content')
 
-<div class="header">
+<!--<div class="header">
     <div class="header-wrapper">
         <div class="container">
             <div class="row">
@@ -17,12 +17,6 @@
                     <div class="header-content t-center">
                         <h1 class="m-horz-auto heading-width-res-full slider-wrapper">
                             <div class="d-inline-block">Hire the best</div>                                
-                            <!-- <div class="changebox d-inline-block">                                    
-                                <span class="c-red slider-text">Web</span><br>
-                                <span class="c-blue slider-text">Graphic</span><br>
-                                <span class="c-yellow slider-text">Logo</span><br>
-                                <span class="c-green slider-text">3D Graphic</span><br>
-                            </div>                              -->
                             <div class="text_type" id="text2"></div>
                           <br>                             
                           <div class="d-inline-block">Designer for any job, online.</div>
@@ -53,8 +47,6 @@
     </div>
 </div>
 
-
-<!-- screens section - start -->
 <div class="feature-section">
     <div class="feature-section-wrapper">
         <div class="container">
@@ -68,46 +60,41 @@
                 </div>
             </div>
         </div>
-        <!-- screen slider - start -->
         <div class="screen-slider position-relative">
             <div class="screen-slider-wrapper">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <!-- screen slide - start -->
+
                         <div class="swiper-slide">
                             <div class="screen-slide wow flipInY" data-wow-delay="0.3s">
                                 <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-1.webp')}}" alt="app-screen"></a>
                             </div>
                         </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
+
                         <div class="swiper-slide">
                             <div class="screen-slide wow flipInY" data-wow-delay="0.4s">
                                 <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-2.webp')}}" alt="app-screen"></a>
                             </div>
                         </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
+
                         <div class="swiper-slide">
                             <div class="screen-slide wow flipInY" data-wow-delay="0.5s">
                                 <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-3.webp')}}" alt="app-screen"></a>
                             </div>
                         </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
+
                         <div class="swiper-slide">
                             <div class="screen-slide wow flipInY" data-wow-delay="0.6s">
                                 <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-4.webp')}}" alt="app-screen"></a>
                             </div>
                         </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
+
                         <div class="swiper-slide">
                             <div class="screen-slide wow flipInY" data-wow-delay="0.7s">
                                 <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-5.webp')}}" alt="app-screen"></a>
                             </div>
                         </div>
-                        <!-- screen slide - end -->
+
                     </div>
                 </div>
             </div>
@@ -122,16 +109,15 @@
                 </div>     
             </div>
         </div>
-        <!-- screen slider - end -->
+
         
     </div>
 </div>
-<!-- screens section - end -->
 
-<!-- feature section - start -->
+
+
 <div class="feature-section" id="about">
     <div class="feature-section-wrapper">
-        <!-- heading - start -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.2s">
@@ -141,11 +127,9 @@
                 </div>
             </div>
         </div>
-        <!-- heading - end -->
-        <!-- content - start -->
+
         <div class="container">
             <div class="row gx-5 feature-section-content-row">
-                <!-- single - start -->
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="feature-section-content text-center">
                         <i class="fas fa-file-medical-alt c-yellow icon"></i>
@@ -153,8 +137,7 @@
                         <p>{{ $home_content->section1_1st_details}}</p>
                     </div>
                 </div>
-                <!-- single - end -->
-                <!-- single - start -->
+
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="feature-section-content  text-center">
                         <i class="fas fa-file-medical-alt c-red icon"></i>
@@ -162,8 +145,7 @@
                         <p>{{ $home_content->section1_2nd_details}}</p>
                     </div>
                 </div>
-                <!-- single - end -->
-                <!-- single - start -->
+
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="feature-section-content  text-center">
                         <i class="fas fa-user-md c-green icon"></i>
@@ -171,7 +153,7 @@
                         <p>{{ $home_content->section1_3rd_details}}</p>
                     </div>
                 </div>
-                <!-- single - end -->
+
                
             </div>
             <div class="row">
@@ -184,18 +166,18 @@
                 </div>
             </div>
         </div>
-        <!-- content - end -->
+
     </div>
 </div>
-<!-- feature section - end -->
 
-<!-- feature - start -->
+
+
 <div class="features features-padding-1" id="features">
     <div class="features-wrapper">
         <div class="container">
             <div class="glide">
                 <div class="row align-items-lg-center">
-                    <!-- image - start -->
+
                     <div class="col-lg-6">
                         <div class="pattern-image bg_card">
                             <div class="glide__track" data-glide-el="track">
@@ -219,9 +201,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- image - end -->
 
-                    <!-- content - start -->
                     <div class="col-lg-6">
                         <div class="glide__bullets features-content ps-5 ms-5" data-glide-el="controls[nav]">
                             <button class="glide__bullet" data-glide-dir="=0">
@@ -244,28 +224,25 @@
                             </button>
                         </div>
                     </div>
-                    <!-- content - end -->
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- feature - end -->
 
-<!-- feature - start -->
+
 <div class="features features-padding-2 position-relative">
     <div class="features-wrapper">
         <div class="container">
             <div class="row">
 
-                <!-- content - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-1 col-md-8 offset-md-2 col-10 offset-1 order-2 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="features-content">
                         <h2 class="c-dark lt-60">{{ $home_content->section3_title }}</h2>
                         <p>{{ $home_content->section3_detail }}</p>
-                        <!-- accordion - start -->
+
                         <div class="accordion" id="accordionFeature">
-                            <!-- accordion item - start -->
                             <div class="accordion-item-wrapper">
                                 <i class="fas fa-file-medical-alt icon-small c-green"></i>
                                 <div class="accordion-item">
@@ -290,8 +267,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- accordion item - end -->
-                            <!-- accordion item - start -->
+
                             <div class="accordion-item-wrapper">
                                 <i class="fas fa-comment-alt icon-small c-blue"></i>
                                 <div class="accordion-item">
@@ -316,8 +292,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- accordion item - end -->
-                            <!-- accordion item - start -->
+
                             <div class="accordion-item-wrapper">
                                 <i class="fas fa-user-nurse icon-small c-pink"></i>
                                 <div class="accordion-item">
@@ -342,8 +317,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- accordion item - end -->
-                            <!-- accordion item - start -->
+
                             <div class="accordion-item-wrapper">
                                 <i class="fas fa-bell icon-small c-purple"></i>
                                 <div class="accordion-item">
@@ -368,8 +342,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- accordion item - end -->
-                            <!-- accordion item - start -->
+
                             <div class="accordion-item-wrapper">
                                 <i class="fas fa-capsules icon-small c-yellow"></i>
                                 <div class="accordion-item">
@@ -394,18 +367,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- accordion item - end -->
+
                         </div>
-                        <!-- accordion - end -->
+
                     </div>
                 </div>
-                <!-- content - end -->
 
-                <!-- image - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
                     <div class="pattern-image pattern-image-reverse">
                         <div class="image">
-                            <!-- <img src="assets/images/feature-phone-2.png" alt="phone"> -->
+
                         </div>
                         <div class="background-layout">
                             <div class="box-1 box-image" style="background-image: url('{{ asset($home_content->section3_image)}}');">
@@ -418,7 +389,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- image - end -->
 
             </div>
         </div>
@@ -427,14 +397,12 @@
         <div class="box-1 bg-light"></div>
     </div> 
 </div>
-<!-- feature - end -->
 
-<!-- video section - start -->
+
 <div class="video-section">
     <div class="video-section-wrapper">
         <div class="container">
             <div class="row gx-5 align-items-lg-center">
-                <!-- video - start -->
                 <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="video-layout">
                         <div class="icon">
@@ -460,27 +428,19 @@
                         </div>
                     </div>
                 </div>
-                <!-- video - end -->
-                <!-- content - start -->
+
                 <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="video-section-content">
                         <h2 class="c-dark lt-60">{{ $home_content->section4_title }}</h2>
                         <p>{{ $home_content->section4_detail  }}</p>
-                        <!-- <div class="button-group">
-                            <a href="#" class="button button-purple">
-                                <span>Get Started</span>
-                            </a>
-                            <a href="#" class="button button-light">
-                                <span>Learn More</span>
-                            </a>
-                        </div> -->
+
                     </div>
                 </div>
-                <!-- content - end -->
+
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!-- video section - end -->
 
 
@@ -493,7 +453,7 @@
             <div class="row">
                 <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="heading">
-                        <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-67">A <span class="bg-gregg c-dark-blue border-rounded">design solution</span> you will love</h1>
+                        <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-67">Benefits of working with  <span class="bg-gregg c-dark-blue border-rounded">Design Journey</span> </h1>
                     </div>
                 </div>
             </div>
@@ -554,328 +514,8 @@
 <!-- pricing section - end -->
 
 
-<!-- testimonial section - start -->
-<div class="testimonial-section">
-    <div class="testimonial-section-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <!-- testimonial slider - start -->
-                    <div class="testimonial-slider">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                                <!-- testimonial slide - start -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-slide">
-                                        <!-- image - start -->
-                                        <div class="image">
-                                            <div class="image-inner">
-                                                <img src="{{ asset('frontend_assets/assets/images/testimonial-img.jpg')}}" alt="testimonial">
-                                                <div class="box-1 bg-dark-1"></div>
-                                                <div class="box-2 bg-yellow">
-                                                    <div class="box-2-1 bg-dark-1"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- image - end -->
-                                        <!-- content - start -->
-                                        <div class="content">
-                                            <p class="c-white">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-
-                                            <h3 class="c-white fw-600">Charlie GM</h3>
-                                            <h5 class="c-grey-3 lt-24">established fact</h5>
-                                        </div>
-                                        <!-- content - end -->
-                                    </div>
-                                </div>
-                                <!-- testimonial slide - end -->
-                                <!-- testimonial slide - start -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-slide">
-                                        <!-- image - start -->
-                                        <div class="image">
-                                            <div class="image-inner">
-                                                <img src="{{ asset('frontend_assets/assets/images/testimonial-img.jpg')}}" alt="testimonial">
-                                                <div class="box-1 bg-dark-1"></div>
-                                                <div class="box-2 bg-yellow">
-                                                    <div class="box-2-1 bg-dark-1"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- image - end -->
-                                        <!-- content - start -->
-                                        <div class="content">
-                                            <p class="c-white">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-
-                                            <h3 class="c-white fw-600">Charlie GM</h3>
-                                            <h5 class="c-grey-3 lt-24">established fact</h5>
-                                        </div>
-                                        <!-- content - end -->
-                                    </div>
-                                </div>
-                                <!-- testimonial slide - end -->
-                            </div>
-                        </div>
-                        <div class="slider-pagination testimonial-slider-pagination"></div>
-                    </div>
-                    <!-- testimonial slider - end -->
-                </div>
-            </div>
-        </div>
-        <div class="background-layout">
-            <div class="box-1 bg-darkk">
-                <div class="box-1-1 bg-dark-1">
-                    <div class="box-1-1-1 bg-dark-1 wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-                </div>
-            </div>
-            <div class="box-2 bg-blue">
-                <div class="box-2-1 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-            </div>
-            <div class="box-3 bg-yellow">
-                <div class="box-3-1 bg-purple wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- testimonial section - end -->
 
 
-<!-- faq section - start -->
-<div class="faq-section">
-    <div class="faq-section-wrapper">
-        <div class="container">
-            <!-- heading - start -->
-            <div class="row">
-                <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="heading">
-                        <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-67">Some frequently asked questions.</h1>
-                    </div>
-                </div>
-            </div>
-            <!-- heading - end -->
-            <!-- content - start -->
-            <div class="row">
-                <div class="col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="faq-section-content">
-                        <!-- accordion - start -->
-                        <div class="accordion accordion-1" id="accordionFAQ">
-                            <!-- accordion item - start -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faqHeadingOne">
-                                <button 
-                                class="accordion-button"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faqOne"
-                                aria-expanded="true"
-                                aria-controls="faqOne">
-                                    <h4 class="c-dark">{{ $home_content->frequently_qs1  }}</h4>
-                                </button>
-                                </h2>
-                                <div 
-                                id="faqOne"
-                                class="accordion-collapse collapse show"
-                                aria-labelledby="faqHeadingOne" data-bs-parent="#accordionFAQ">
-                                    <div class="accordion-body">
-                                        <p>{{ $home_content->frequently_ans1  }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- accordion item - end -->
-                            <!-- accordion item - start -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faqHeadingTwo">
-                                <button 
-                                class="accordion-button collapsed"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faqTwo"
-                                aria-expanded="true"
-                                aria-controls="faqTwo">
-                                    <h4 class="c-dark">{{ $home_content->frequently_qs2  }}</h4>
-                                </button>
-                                </h2>
-                                <div 
-                                id="faqTwo"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="faqHeadingTwo" data-bs-parent="#accordionFAQ">
-                                    <div class="accordion-body">
-                                        <p>{{ $home_content->frequently_ans2  }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- accordion item - end -->
-                            <!-- accordion item - start -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faqHeadingThree">
-                                <button 
-                                class="accordion-button collapsed"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faqThree"
-                                aria-expanded="true"
-                                aria-controls="faqThree">
-                                    <h4 class="c-dark">{{ $home_content->frequently_qs3  }}</h4>
-                                </button>
-                                </h2>
-                                <div 
-                                id="faqThree"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="faqHeadingThree" data-bs-parent="#accordionFAQ">
-                                    <div class="accordion-body">
-                                        <p>{{ $home_content->frequently_ans3  }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- accordion item - end -->
-                            <!-- accordion item - start -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faqHeadingFour">
-                                <button 
-                                class="accordion-button collapsed"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faqFour"
-                                aria-expanded="true"
-                                aria-controls="faqFour">
-                                    <h4 class="c-dark">{{ $home_content->frequently_qs4  }}</h4>
-                                </button>
-                                </h2>
-                                <div 
-                                id="faqFour"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="faqHeadingFour" data-bs-parent="#accordionFAQ">
-                                    <div class="accordion-body">
-                                        <p>{{ $home_content->frequently_ans4  }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- accordion item - end -->
-                        </div>
-                        <!-- accordion - end -->
-                    </div>
-                </div>
-            </div>
-            <!-- content - end -->
-        </div>
-    </div>
-</div>
-<!-- faq section - end -->
-
-
-
-
-
-<!-- blog section - start -->
-<div class="blog-section" id="blog">
-    <div class="blog-section-wrapper">
-        <div class="container">
-            <!-- heading - start -->
-            <div class="row">
-                <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="heading">
-                        <h1 class="t-center m-horz-auto c-dark heading-width-res-full heading-width-56">
-                            Read latest news from our blog.
-                        </h1>
-                    </div>
-                </div>
-            </div>
-            <!-- heading - end -->
-            <!-- blog - start -->
-            <div class="row blog-row gx-5">
-                <!-- blog single - start -->
-                @foreach($blogs as $blog)
-                <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="blog-single">
-                        <a href="{{ route('blog-details',encrypt($blog->id)) }}">
-                            <figure>
-                                <img src="{{ asset($blog->main_image)}}" alt="blog">
-                                <div class="date bg-purple">
-                                    <p class="c-white">
-                                        {{ $blog->created_at->format('d') }}
-                                        <span>{{ $blog->created_at->format('M') }}</span>
-                                    </p>
-                                </div>
-                                <div class="hover">
-                                    <div class="circle">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
-                            </figure>
-                        </a>
-                        <a href="{{ route('blog-details',encrypt($blog->id)) }}">
-                            <h3 class="c-dark">{{ $blog->title }}</h3>
-                        </a>
-                        <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>
-                    </div>
-                </div>
-                @endforeach
-                
-                
-            </div>
-            <!-- blog - end -->
-        </div>
-    </div>
-</div>
-<!-- blog section - end -->
-
-<!-- cta section - start -->
-<div class="cta-section position-relative">
-    <div class="cta-section-wrapper">
-        <div class="container">
-            <div class="row d-lg-flex align-items-lg-center">
-                <!-- content - start -->
-                <div class="col-lg-6 offset-lg-0 order-lg-1 col-md-8 offset-md-2 col-10 offset-1 order-2">
-                    <div class="cta-section-content">
-                        <h2 class="c-white">{{ $home_content->service_business_title }}</h2>
-                        <div class="button-group">
-                            <a href="{{ route('login') }}" class="button button-red button-red-hover-white">
-                                <span>Get Started</span>
-                            </a>
-                            <!-- <a href="#" class="button button-purple button-purple-hover-white">
-                                <span>Learn More</span>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- content - end -->
-                <!-- image - start -->
-                <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
-                    <div class="cta-section-image">
-                        <img src="{{ asset($home_content->service_business_image)}}" alt="phone">
-                        <!-- <div class="box-1 bg-green-rgba-8">
-                            <div class="box-2 bg-purple">
-                                <div class="box-2-1 bg-dark-1"></div>
-                            </div>
-                            <div class="box-3 bg-dark-1"></div>
-                        </div> -->
-                        <div class="box-4 bg-red-rgba-8">
-                            <div class="box-5 bg-dark-1">
-                                <div class="box-6 bg-blue">
-                                    <div class="box-7 bg-dark-1"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- image - end -->
-            </div>
-        </div>
-    </div>
-    <div class="background-layout">
-        <div class="box-1 bg-darkk">
-            <div class="box-1-1 bg-dark-1">
-                <div class="box-1-1-1 bg-dark-1 wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-            </div>
-            <div class="box-2 bg-green">
-                <div class="box-2-1 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-            </div>
-            <div class="box-3 bg-yellow">
-                <div class="box-3-1 bg-blue wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
