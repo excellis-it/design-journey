@@ -74,40 +74,13 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <!-- screen slide - start -->
+                        @foreach($screen_shots as $screen_shot)
                         <div class="swiper-slide">
                             <div class="screen-slide wow flipInY" data-wow-delay="0.3s">
-                                <a href=""><img src="{{ asset('frontend_assets/images/OK.jpg')}}" alt="app-screen"></a>
+                                <a href=""><img src="{{ asset($screen_shot->image)}}" alt="app-screen"></a>
                             </div>
                         </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
-                        <div class="swiper-slide">
-                            <div class="screen-slide wow flipInY" data-wow-delay="0.4s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-2.webp')}}" alt="app-screen"></a>
-                            </div>
-                        </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
-                        <div class="swiper-slide">
-                            <div class="screen-slide wow flipInY" data-wow-delay="0.5s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-3.webp')}}" alt="app-screen"></a>
-                            </div>
-                        </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
-                        <div class="swiper-slide">
-                            <div class="screen-slide wow flipInY" data-wow-delay="0.6s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-4.webp')}}" alt="app-screen"></a>
-                            </div>
-                        </div>
-                        <!-- screen slide - end -->
-                        <!-- screen slide - start -->
-                        <div class="swiper-slide">
-                            <div class="screen-slide wow flipInY" data-wow-delay="0.7s">
-                                <a href=""><img src="{{ asset('frontend_assets/assets/images/screens/screen-image-5.webp')}}" alt="app-screen"></a>
-                            </div>
-                        </div>
-                        <!-- screen slide - end -->
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -166,7 +139,7 @@
                 <!-- single - start -->
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="feature-section-content  text-center">
-                        <i class="fas fa-user-md c-green icon"></i>
+                        <i class="fas fa-comment c-green icon"></i>
                         <h3 class="c-dark">{{ $home_content->section1_3rd_title}}</h3>
                         <p>{{ $home_content->section1_3rd_details}}</p>
                     </div>

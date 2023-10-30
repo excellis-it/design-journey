@@ -12,6 +12,7 @@ use App\Models\CategoryImage;
 use App\Models\Plan;
 use App\Models\PlanSpecfication;
 use App\Models\helpCenter;
+use App\Models\ScreenShot;
 use Illuminate\Support\Facades\View;
 
 
@@ -22,7 +23,8 @@ class HomeController extends Controller
     {
         $home_content = HomeCms::first();
         $blogs = Blog::orderBy('id','desc')->where('status',1)->limit(3)->get();
-        return view('frontend.home',compact('home_content','blogs'));
+        $screen_shots = ScreenShot::orderBy('id','desc')->get();
+        return view('frontend.home',compact('home_content','blogs','screen_shots'));
     }
 
     public function perks()
