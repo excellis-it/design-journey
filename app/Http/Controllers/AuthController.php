@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Mail\WelcomeMail;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 
@@ -86,8 +87,17 @@ class AuthController extends Controller
             $user = User::where('email', $request->email)->first();
             
             if($user->hasRole('CUSTOMER') && $user->status == 1){
+                //user has plans then go to dashboard
+                $check_user_plan = Payment::where('user_id', $user->id)->first();
+                if($check_user_plan){
+                    Auth::login($user);
+                    return redirect()->route('user.dashboard');
+                }else{
+                    //user has no plans then go to plans page
+                    
+                    return redirect()->route('pricing');
+                }
                 
-                return redirect()->route('user.dashboard');
             } else{
                
                 Auth::logout();

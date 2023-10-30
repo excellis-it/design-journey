@@ -18,8 +18,13 @@ class PaymentController extends Controller
 
     public function payment($payment)
     {
-        $plan_id = decrypt($payment);
-        $plan_details = Plan::find($plan_id);
+        if(!Auth::check())
+        {
+            return redirect()->route('login');
+        }else{
+            $plan_id = decrypt($payment);
+            $plan_details = Plan::find($plan_id);
+        }
 
         return view('frontend.payment',compact('plan_details'));
     }
@@ -92,11 +97,13 @@ class PaymentController extends Controller
                 // payment method save
                 
                 $payment = new Payment();
-                $payment->user_id = 3;
+                $payment->user_id = Auth::user()->id;
                 $payment->plan_id = $data['plan_id'];
                 $payment->payment_id = $charge['id'];
                 $payment->amount = $data['total_amount'];
-                // $payment->payment_currency = 'USD';
+                $payment->payment_date = date('Y-m-d');
+                $expiryDate = $currentDate->addDays(30);
+                $payment->expiry_date = $expiryDate; 
                 $payment->save();
 
                 $payment_id = DB::getPdo()->lastInsertId();
