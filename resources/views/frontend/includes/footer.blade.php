@@ -73,7 +73,7 @@
                         <div class="footer-list">
                             <h6>RESOURCES</h6>
                             <ul>
-                                <!--<li>
+                                <li>
                                     <a href="{{ route('free-illustration') }}" class="link-underline">
                                         <span>Free Illustrations</span>
                                     </a>
@@ -82,7 +82,7 @@
                                     <a href="{{ route('free-icons') }}" class="link-underline">
                                         <span>Free Icons</span>
                                     </a>
-                                </li>-->
+                                </li>
                                 <li>
                                     <a href="{{ route('guides') }}" class="link-underline">
                                         <span>Guides</span>
