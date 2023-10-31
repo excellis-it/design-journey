@@ -53,7 +53,7 @@
                                                         <label>
                                                             <input type="checkbox" value="{{ $value->id }}"
                                                                 name="category"
-                                                                id="category_id" />{{ $value->category_name }}</label>
+                                                                class="category_id" />{{ $value->category_name }}</label>
                                                     </li>
                                                 @endforeach
                                             </ul>
@@ -81,7 +81,8 @@
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input type="checkbox" value="Two Color" name="style" class="style_type" />Two
+                                                        <input type="checkbox" value="Two Color" name="style"
+                                                            class="style_type" />Two
                                                         Color</label>
                                                 </li>
                                                 <li>
@@ -105,7 +106,7 @@
 
                 <div class="illustration-filter">
                     @include('frontend.resources.illustration-filter')
-                    
+
                 </div>
             </div>
 
@@ -113,9 +114,7 @@
                 <div class="row">
                     <div class="col-lg-12 mt-4 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="button-group button-group-center">
-                            <a href="#" class="button button-red">
-                                <span>View More</span>
-                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -123,3 +122,40 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        // Add an event listener for the filter and search input fields
+        $('.search_filter input, .style_type, .category_id').on('change keyup', function() {
+            // Retrieve selected checkboxes
+            var category = [];
+            var style = [];
+            $('.style_type:checked').each(function() {
+                style.push($(this).val());
+            });
+            $('input[name="category"]:checked').each(function() {
+                category.push($(this).val());
+            });
+
+            var search = $('.search_filter input').val();
+
+            // Make an AJAX request to the Laravel route
+            $.ajax({
+                url: "{{ route('illustration.filter') }}",
+                type: 'GET',
+                data: {
+                    category: category,
+                    style: style,
+                    search: search,
+                },
+                success: function(data) {
+                    // Update the illustration container with the filtered results
+                    $('.illustration-filter').html(data);
+                },
+                error: function(data) {
+                    console.log('Error:', data);
+                }
+            });
+        });
+    </script>
+@endpush

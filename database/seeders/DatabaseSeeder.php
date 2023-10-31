@@ -15,19 +15,19 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            // assignRoleSeeder::class,
-            // assignAdminSeeder::class,
-            // homeCmsSeeder::class,
-            // aboutSeeder::class,
-            // categorySeeder::class,
-            // AddPlanSeeder::class,
-            // typeSeeder::class,
-            // solutionCmsSeeder::class,
-            // solutionSeeder::class,
-            // freeIllustrationSeeder::class,
-            // freeIconSeeder::class,
-            // helpCenterSeeder::class,
-            // faqSeeder::class,
+            assignRoleSeeder::class,
+            assignAdminSeeder::class,
+            homeCmsSeeder::class,
+            aboutSeeder::class,
+            categorySeeder::class,
+            AddPlanSeeder::class,
+            typeSeeder::class,
+            solutionCmsSeeder::class,
+            solutionSeeder::class,
+            freeIllustrationSeeder::class,
+            freeIconSeeder::class,
+            helpCenterSeeder::class,
+            faqSeeder::class,
             guideSeeder::class,
         ]);
     }

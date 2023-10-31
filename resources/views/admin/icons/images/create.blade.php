@@ -8,7 +8,7 @@
 @section('content')
     <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
         <div class="">
-            <h4 class="page-title m-b-0">Create Illustration Image </h4>
+            <h4 class="page-title m-b-0">Create Illustration Image Category</h4>
             <!-- <h5 class="page">Hello Evano 👋🏼,</h5> -->
         </div>
         <div class="">
@@ -16,7 +16,7 @@
                 <li class="breadcrumb-item">
                     Home
                 </li>
-                <li class=""> >> Illustration  Image</li>
+                <li class=""> >> Illustration Category Image</li>
             </ul>
         </div>
     </section>
@@ -33,23 +33,23 @@
             <div class="card search_bar sales-report-card">
                 <div class="sales-report-card-wrap">
                     <div class="form-head">
-                        <h4> Image Information</h4>
+                        <h4>Category Image Information</h4>
                     </div>
-                    <form action="{{ route('free-illustrations.image.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('icons.image.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row justify-content-between">
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
-                                        <label for="floatingInputValue">Category *</label>
-                                        <select name="illustration_category" class="form-select" aria-label="Default select example">
+                                        <label for="floatingInputValue"> Category*</label>
+                                        <select name="icon_category" class="form-select" aria-label="Default select example">
                                             <option selected value="">Select</option>
-                                            @foreach($illustration_categories as $illustration_category)
-                                                <option value="{{ $illustration_category->id }}">{{ $illustration_category->category_name }}</option>
+                                            @foreach($icon_categories as $icon_category)
+                                                <option value="{{ $icon_category->id }}">{{ $icon_category->category_name }}</option>
                                             @endforeach
                                         </select>
-                                        @if ($errors->has('illustration_category'))
-                                            <div class="error" style="color:red;">{{ $errors->first('illustration_category') }}</div>
+                                        @if ($errors->has('icon_category'))
+                                            <div class="error" style="color:red;">{{ $errors->first('icon_category') }}</div>
                                         @endif
                                     </div>
                                 </div>

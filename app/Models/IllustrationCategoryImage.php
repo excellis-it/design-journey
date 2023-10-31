@@ -9,6 +9,10 @@ class IllustrationCategoryImage extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'illustration_category_id',
+    ];
+
     public function illustration_category()
     {
         return $this->belongsTo(IllustrationCategory::class);

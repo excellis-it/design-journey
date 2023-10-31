@@ -28,7 +28,7 @@
                     <span>Plans</span>
                 </a>
             </li>
-            
+
             <li class="{{ Request::is('admin/users*') ? 'active' : ' ' }}">
                 <a href="{{ route('users.index') }}">
                     <i class="ph-users"></i>
@@ -36,7 +36,7 @@
                 </a>
             </li>
 
-          
+
 
             <li class="dropdown {{ Request::is('admin/types*') || Request::is('admin/subtypes*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -195,13 +195,13 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li class="">
-                        <a class="nav-link" href="{{ route('free-illustrations.index') }}">Manage</a>
+                        <a class="nav-link" href="{{ route('free-illustrations.index') }}">Category</a>
                     </li>
                     <li class="">
                         <a class="nav-link" href="{{ route('free-illustrations.images.list') }}">Image</a>
                     </li>
                 </ul>
-            </li> 
+            </li>
 
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -210,14 +210,14 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li class="">
-                        <a class="nav-link" href="{{ route('free-icons.index') }}">Manage</a>
+                        <a class="nav-link" href="{{ route('icons.index') }}">Category</a>
                     </li>
                     <li class="">
-                        <a class="nav-link" href="{{ route('blogs.index') }}">Image</a>
+                        <a class="nav-link" href="{{ route('icons.images.list') }}">Image</a>
                     </li>
                 </ul>
-            </li> 
-            
+            </li>
+
         </ul>
     </aside>
 </div>

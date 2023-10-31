@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-    Illustration  Images - {{ env('APP_NAME') }}
+    All Icon Category Details - {{ env('APP_NAME') }}
 @endsection
 
 @push('styles')
@@ -9,7 +9,7 @@
 @section('content')
     <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
         <div class="">
-            <h4 class="page-title m-b-0">Illustration  List</h4>
+            <h4 class="page-title m-b-0">Icon Category List</h4>
         </div>
         <div class="">
             <ul class="breadcrumb breadcrumb-style">
@@ -29,7 +29,7 @@
                         <h4 class="mb-0">List</h4>
                     </div>
                     <div class="col-auto float-end ms-auto">
-                        <a href="{{ route('free-illustrations.image.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add  images
+                        <a href="{{ route('icons.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add category
                             </a>
                     </div>
                 </div>
@@ -39,30 +39,21 @@
                     <table class="table table-bordered" id="myTable" class="display">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th></th>
-                                <th>Type</th>
+                                <th>Category</th>
+                                <th>Slug</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($illustration_images as $illustration_image)
+                            @foreach ($icons as $icon)
                                 <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="user-img img-fluid"><img src="{{ Storage::url($illustration_image->images) }}" alt="story-img" class="rounded-circle avatar-40" height="50" width="50"></div>
-                                            <div class="ms-3">
-                                                <h5 class="mb-0">{{ $illustration_image->imgage_name }}</h5>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>{{ $illustration_image->illustration_category->category_name }}</td>
-                                    <td>{{ $illustration_image->style_type }}</td>
+                                    <td>{{ $icon->category_name }}</td>
+                                    <td>{{ $icon->category_slug }}</td>
                                     <td>
                                         <div class="edit-1 d-flex align-items-center">
-                                        {{-- <a href="{{ route('free-illustrations.image.edit', $illustration_image->illustration_category_id) }}"> <span class="edit-icon"><i
-                                                    class="ph ph-pencil-simple"></i></span></a> --}}
-                                        <a title="Delete Blog" data-route="{{ route('delete.image.free-illustrations',$illustration_image->id) }}"
+                                        <a href="{{ route('icons.edit', $icon->id) }}"> <span class="edit-icon"><i
+                                                    class="ph ph-pencil-simple"></i></span></a>
+                                        <a title="Delete Blog" data-route="{{ route('delete.icons',$icon->id) }}"
                                             id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>
                                     </td>
 
@@ -86,11 +77,11 @@
                 "aaSorting": [],
                 "columnDefs": [{
                         "orderable": false,
-                        "targets": [3]
+                        "targets": [2]
                     },
                     {
                         "orderable": true,
-                        "targets": [0, 1,2]
+                        "targets": [0, 1]
                     }
                 ]
             });
