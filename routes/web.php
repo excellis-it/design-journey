@@ -16,13 +16,10 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\FreeIllustrationController;
 use App\Http\Controllers\Admin\FreeIconController;
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\Admin\HelpCenterController;
 use App\Http\Controllers\Admin\ScrenShotController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\GuideController;
->>>>>>> alpha
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ResourcesController;
@@ -55,6 +52,11 @@ Route::get('/pricing',[HomeController::class, 'pricing'])->name('pricing');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
+Route::get('/help-center', [HomeController::class, 'helpCenter'])->name('help-center');
+Route::get('/help-centers/details', [HomeController::class, 'helpCenterDetails'])->name('help-centers.get-details');
+Route::get('/career', [HomeController::class, 'career'])->name('career');
+Route::get('/career-details/{id}', [HomeController::class, 'careerDetails'])->name('career.details');
+Route::get('/career-form', [HomeController::class, 'careerForm'])->name('career-form');
 Route::get('/free-illustration', [ResourcesController::class, 'freeIllustration'])->name('free-illustration');
 Route::get('/free-icon', [ResourcesController::class, 'freeIcon'])->name('free-icons');
 Route::get('/guides', [ResourcesController::class, 'guides'])->name('guides');
@@ -88,16 +90,13 @@ Route::group(['prefix' => 'admin'], function () {
             'types' => TypeController::class,
             'free-illustrations' => FreeIllustrationController::class,
             'free-icons' => FreeIconController::class,
-<<<<<<< HEAD
-=======
             'help-centers' => HelpCenterController::class,
             'screenshot' => ScrenShotController::class,
             'faqs' => FaqController::class,
             'guides' => GuideController::class,
             'careers' => CareerController::class,
->>>>>>> alpha
         ]);
-        Route::get('/screenshot/delete/{id}', [AdminBlogController::class, 'deleteScreenshot'])->name('delete.screenshot');
+        
 
 
     
@@ -112,7 +111,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
         Route::get('/categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
-        Route::post('/categories/update', [CategoryController::class, 'updateCategory'])->name('categories.update');
+        Route::post('/categories/update', [CategoryController::class, 'updateCategory'])->name('update.categories');
         Route::post('/blogs/statusChange', [AdminBlogController::class, 'changeBlogStatus'])->name('blogs.change-status');
         Route::get('/blogs/delete/{id}', [AdminBlogController::class, 'deleteBlog'])->name('delete.blog');
         Route::post('/blogs/update', [AdminBlogController::class, 'blogUpdate'])->name('admin.blogs.update');
@@ -142,6 +141,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/users', [UserController::class, 'userList'])->name('users.index');
         Route::get('/contact-us', [UserController::class, 'contactUsList'])->name('contact.us.list');
 
+        Route::get('/help-centers/edit/{id}', [HelpCenterController::class, 'editHelpCenter'])->name('edit.help-centers');
+        Route::post('/help-centers/update',[HelpCenterController::class, 'updateHelpCenter'])->name('update.help-centers');
+        Route::get('/help-centers/delete/{id}',[HelpCenterController::class, 'deleteHelpCenter'])->name('help-centers.delete');
+        
+
         //cms routes
         Route::group(['prefix'=>'cms'], function(){
             //home cms
@@ -157,8 +161,6 @@ Route::group(['prefix' => 'admin'], function () {
         });
         Route::get('/solution/edit', [HomeCmsController::class, 'solutionEdit'])->name('solution.design.edit');
         Route::post('/solution/update', [HomeCmsController::class, 'solutionUpdate'])->name('solution.design.update');
-<<<<<<< HEAD
-=======
 
         Route::post('screen-shots/update', [ScrenShotController::class, 'screenShotsUpdate'])->name('update.screenshot');
         Route::get('screen-shots/delete/{id}', [ScrenShotController::class, 'deleteScreenShots'])->name('delete.screenshot');
@@ -178,7 +180,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('careers/edit/{id}', [CareerController::class, 'editCareer'])->name('edit.careers');
         Route::get('careers/delete/{id}', [CareerController::class, 'deleteCareer'])->name('delete.careers');
         Route::post('careers/update', [CareerController::class, 'updateCareer'])->name('update.careers');
->>>>>>> alpha
     });
 });
 

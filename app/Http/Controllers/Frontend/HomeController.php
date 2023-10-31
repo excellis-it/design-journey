@@ -14,6 +14,7 @@ use App\Models\PlanSpecfication;
 use App\Models\helpCenter;
 use App\Models\ScreenShot;
 use App\Models\Faq;
+use App\Models\Career;
 use Illuminate\Support\Facades\View;
 
 
@@ -109,12 +110,14 @@ class HomeController extends Controller
 
     public function career()
     {
-        return view('frontend.career');
+        $careers = Career::orderBy('id','desc')->get();
+        return view('frontend.career',compact('careers'));
     }
 
-    public function careerDetails()
+    public function careerDetails($id)
     {
-        return view('frontend.career-details');
+        $career_details = Career::find($id);
+        return view('frontend.career-details',compact('career_details'));
     }
 
     public function careerForm()
