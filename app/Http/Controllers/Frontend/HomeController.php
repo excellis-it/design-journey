@@ -15,6 +15,7 @@ use App\Models\helpCenter;
 use App\Models\ScreenShot;
 use App\Models\Faq;
 use App\Models\Career;
+use App\Models\JobApply;
 use Illuminate\Support\Facades\View;
 
 
@@ -120,9 +121,46 @@ class HomeController extends Controller
         return view('frontend.career-details',compact('career_details'));
     }
 
-    public function careerForm()
+    public function careerForm($id)
     {
-        return view('frontend.career-form');
+        
+        $career_details = Career::find($id);
+        return view('frontend.career-form',compact('career_details'));
+    }
+
+    public function JobApply(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required',
+            'introduction' => 'required',
+            'experience' => 'required',
+            'country' => 'required',
+            'us_time_available' => 'required',
+            'salary' => 'required',
+        ]);
+
+        $job_apply = new JobApply();
+        $job_apply->career_id = $request->career_id;
+        $job_apply->name = $request->name;
+        $job_apply->email = $request->email;
+        $job_apply->introduction = $request->introduction;
+        $job_apply->experience = $request->experience;
+        $job_apply->country = $request->country;
+        $job_apply->us_time_available = $request->us_time_available;
+        $job_apply->salary = $request->salary;
+
+        if ($request->hasFile('resume_upload')) {
+            $file= $request->file('resume_upload');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $image_path = $request->file('resume_upload')->store('job_apply', 'public');
+            $job_apply->resume_upload = asset('storage/'.$image_path);
+        }
+
+        $job_apply->save();
+
+        return redirect()->back()->with('message','Job Applied Successfully');
+        
     }
 
 }

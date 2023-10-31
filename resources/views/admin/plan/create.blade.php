@@ -6,20 +6,7 @@
 @endpush
 
 @section('content')
-    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
-        <div class="">
-            <h4 class="page-title m-b-0">Create Plan</h4>
-            <!-- <h5 class="page">Hello Evano 👋🏼,</h5> -->
-        </div>
-        <div class="">
-            <ul class="breadcrumb breadcrumb-style">
-                <li class="breadcrumb-item">
-                    Home
-                </li>
-                <li class=""> >> Plan</li>
-            </ul>
-        </div>
-    </section>
+    
 
     <div class="main-content">
         <div class="inner_page">
@@ -92,6 +79,20 @@
                                         <input type="text" name="plan_price" class="form-control" placeholder="Enter plan price*" id="floatingInputValue" value="{{ old('plan_price') }}">
                                         @if ($errors->has('plan_price'))
                                             <div class="error" style="color:red;">{{ $errors->first('plan_price') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-between">
+                            <div class="col-md-12">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Percentage</label>
+                                        <input type="text" name="percentage" class="form-control" placeholder="Enter percentage" id="floatingInputValue" value="{{ old('percentage') }}">
+                                        @if ($errors->has('percentage'))
+                                            <div class="error" style="color:red;">{{ $errors->first('percentage') }}</div>
                                         @endif
                                     </div>
                                 </div>

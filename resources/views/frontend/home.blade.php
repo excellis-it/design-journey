@@ -632,32 +632,20 @@
                     <div class="faq-section-content">
                         <!-- accordion - start -->
                         <div class="accordion accordion-1" id="accordionFAQ">
-                            <!-- accordion item - start -->
-                            @foreach($faqs as $faq)
+                            @foreach($faqs as $key => $faq)
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="faqHeadingOne">
-                                <button 
-                                class="accordion-button"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faqOne"
-                                aria-expanded="true"
-                                aria-controls="faqOne">
-                                    <h4 class="c-dark">{{ $faq->question  }}</h4>
-                                </button>
+                                <h2 class="accordion-header" id="faqHeading{{ $key }}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq{{ $key }}" aria-expanded="false" aria-controls="faq{{ $key }}">
+                                        <h4 class="c-dark">{{ $faq->question }}</h4>
+                                    </button>
                                 </h2>
-                                <div 
-                                id="faqOne"
-                                class="accordion-collapse collapse show"
-                                aria-labelledby="faqHeadingOne" data-bs-parent="#accordionFAQ">
+                                <div id="faq{{ $key }}" class="accordion-collapse collapse" aria-labelledby="faqHeading{{ $key }}" data-bs-parent="#accordionFAQ">
                                     <div class="accordion-body">
-                                        <p>{{ $faq->answer  }}</p>
+                                        <p>{{ $faq->answer }}</p>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
-                            
-                            <!-- accordion item - end -->
                         </div>
                         <!-- accordion - end -->
                     </div>

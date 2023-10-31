@@ -48,12 +48,14 @@ class PlanController extends Controller
             'plan_duration' => 'required',
             'plan_details' => 'required',
             'plan_price' => 'required|numeric',
+
         ]);
         $plan_store = new Plan;
         $plan_store->plan_name = $request->plan_name;
         $plan_store->plan_duration = $request->plan_duration;
         $plan_store->plan_details = $request->plan_details;
         $plan_store->plan_price = $request->plan_price;
+        $plan_store->percentage = $request->percentage;
         $plan_store->save();
 
         if ($request->specification) {
@@ -119,6 +121,7 @@ class PlanController extends Controller
         $update_plan->plan_name = $request->plan_name;
         $update_plan->plan_duration = $request->plan_duration;
         $update_plan->plan_details = $request->plan_details;
+        $update_plan->percentage = $request->percentage;
         $update_plan->plan_price = $request->plan_price;
         $update_plan->update();
 

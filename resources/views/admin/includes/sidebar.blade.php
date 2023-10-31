@@ -129,6 +129,18 @@
                 </ul>
             </li>
 
+            <li class="dropdown {{ Request::is('admin/case-studies*') ? 'active' : ' ' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Case Studies</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('case-studies.index') }}">Manage</a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="dropdown {{ Request::is('admin/guides*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
@@ -166,6 +178,14 @@
                         <a class="nav-link" href="{{ route('screenshot.create') }}">Create</a>
                     </li> --}}
                 </ul>
+            </li>
+
+            <li class="{{ Request::is('admin/job-apply*') ? 'active' : ' ' }}">
+                <a href="{{ route('job-apply.list') }}" class="menu-toggle nav-link ">
+                    <i class="ph-wallet"></i>
+                    <span>Job Application</span>
+                </a>
+                
             </li>
      
             <li class="dropdown">

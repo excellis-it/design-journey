@@ -4943,7 +4943,7 @@ body.loaded .preloader {
    .btn-blue:hover .btn{
        background: #1663c7!important;; 
    }
-   /  /
+  
    .job-form .apply-btn{
        margin-right: 20px;
    }
@@ -4995,3 +4995,21 @@ body.loaded .preloader {
        transition: ease-in all 0.3s;
        border: none;
    }
+
+
+   
+   .job-form .btn-up{
+      background: var(--color-blue);
+      text-align: center;
+    padding: 15px 40px;
+    border-radius: 5px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #fff;
+    transition: ease-in all 0.3s;
+    cursor: pointer;
+   }
+
+.btn-up:hover {
+    background: #1663c7!important;
+}

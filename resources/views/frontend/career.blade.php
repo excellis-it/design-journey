@@ -18,13 +18,13 @@ Home
                     <div class="header-content t-center">
                         <h1 class="m-horz-auto heading-width-res-full heading-width-83"><span class="c-red">Come Work</span> With Us</h1>
                         <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65">We're looking for great people to join our growing team.</p>
-                        <div class="col-lg-12 wow">
+                        {{-- <div class="col-lg-12 wow">
                             <div class="button-group button-group-center">
                                 <a href="#" class="button button-red">
                                     <span>View Openings</span>
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

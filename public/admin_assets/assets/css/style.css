@@ -11959,6 +11959,13 @@ a.dt-button {
     font-size: 14px;
     color: #000;
 }
+.career-details{
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #000;
+    font-weight: 600;
+    margin-right: 10px;
+}
 
 .product-info h2 {
     font-size: 28px;
@@ -12082,3 +12089,4 @@ a.dt-button {
     text-decoration: none !important;
     color: #000 !important;
 }
+
