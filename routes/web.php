@@ -109,7 +109,7 @@ Route::group(['prefix' => 'admin'], function () {
             'faqs' => FaqController::class,
             'guides' => GuideController::class,
             'careers' => CareerController::class,
-        ]);
+        ]); 
         
 
 
