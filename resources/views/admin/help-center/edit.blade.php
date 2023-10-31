@@ -21,7 +21,7 @@
                     <div class="form-head">
                         <h4>Help Center Information</h4>
                     </div>
-                    <form action="{{ route('help-centers.update') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('update.help-centers') }}" method="post" enctype="multipart/form-data">
                         @csrf
 
                         <input type="hidden" name="id" value="{{ $help_center->id }}">
