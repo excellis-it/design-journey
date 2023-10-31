@@ -49,36 +49,14 @@
                                         </a>
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            @foreach ($icon_categories as $value)
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" value="Vejle"
-                                                        name="city" />Seasonal</label>
+                                                    <input type="checkbox" value="{{ $value->id }}"
+                                                        name="category"
+                                                        class="category_id" />{{ $value->category_name }}</label>
                                             </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" value="Vejle"
-                                                        name="city" />Marketing</label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" value="Vejle" name="city" />Business
-                                                    coach</label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" value="Vejle"
-                                                        name="city" />Holidays</label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" value="Vejle" name="city" />Hygiene and
-                                                    health</label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" value="Vejle" name="city" />Hygiene and
-                                                    health</label>
-                                            </li>
+                                        @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -94,28 +72,29 @@
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" value="Vejle"
-                                                        name="city" />Outline</label>
+                                                    <input type="checkbox" value="Outline" class="style_type"
+                                                        name="style" />Outline</label>
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" value="Vejle"
-                                                        name="city" />flatline</label>
+                                                    <input type="checkbox" value="flatline" class="style_type"
+                                                        name="style" />flatline</label>
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" value="Vejle" name="city" />Two
+                                                    <input type="checkbox" value="Two Color" name="style"
+                                                        class="style_type" />Two
                                                     Color</label>
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" value="Vejle"
-                                                        name="city" />Isometric</label>
+                                                    <input type="checkbox" value="Isometric" class="style_type"
+                                                        name="style" />Isometric</label>
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" value="Vejle"
-                                                        name="city" />Monochromatic</label>
+                                                    <input type="checkbox" value="Monochromatic" class="style_type"
+                                                        name="style" />Monochromatic</label>
                                             </li>
                                         </ul>
                                     </div>
@@ -125,87 +104,14 @@
                     </div>
                 </div>
             </div>
+            <div class="icon-filter">
+                @include('frontend.resources.icon-filter')
 
-            <div class="row">
-                <div class="col-lg-2 col-md-3">
-                    <div class="fre_icons">
-                        <a href="javascript:void(0)" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <span><img src="{{ asset('frontend_assets/assets/images/free_ill/worm.png')}}" alt="" /></span>
-                            <a href="" class="click-btn text-center">Worm</a>
-                            <div class="download_icon">
-                                <a href=""> <img src="{{ asset('frontend_assets/assets/images/download.png')}}" alt="" /><a>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-               
-                <div class="col-lg-2 col-md-3">
-                    <div class="fre_icons">
-                        <a href="javascript:void(0)" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <span><img src="{{ asset('frontend_assets/assets/images/free_ill/binary-code.png')}}" alt="" /></span>
-                            <a href="" class="click-btn text-center">Binary Code</a>
-                            <div class="download_icon">
-                                <a href=""> <img src="{{ asset('frontend_assets/assets/images/download.png')}}" alt="" /><a>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3">
-                    <div class="fre_icons">
-                        <a href="javascript:void(0)" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <span><img src="{{ asset('frontend_assets/assets/images/free_ill/worm.png')}}" alt="" /></span>
-                            <a href="" class="click-btn text-center">Worm</a>
-                            <div class="download_icon">
-                                <a href=""> <img src="{{ asset('frontend_assets/assets/images/download.png')}}" alt="" /><a>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-              
-                <div class="col-lg-2 col-md-3">
-                    <div class="fre_icons">
-                        <a href="javascript:void(0)" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <span><img src="{{ asset('frontend_assets/assets/images/free_ill/customer-service.png')}}" alt="" /></span>
-                            <a href="" class="click-btn text-center">Customer Service</a>
-                            <div class="download_icon">
-                                <a href=""> <img src="{{ asset('frontend_assets/assets/images/download.png')}}" alt="" /><a>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3">
-                    <div class="fre_icons">
-                        <a href="javascript:void(0)" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <span><img src="{{ asset('frontend_assets/assets/images/free_ill/translator.png')}}" alt="" /></span>
-                            <a href="" class="click-btn text-center">Translator</a>
-                            <div class="download_icon">
-                                <a href=""> <img src="{{ asset('frontend_assets/assets/images/download.png')}}" alt="" /><a>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 ">
-                    <div class="fre_icons">
-                        <a href="javascript:void(0)" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <span><img src="{{ asset('frontend_assets/assets/images/free_ill/binary-code.png')}}" alt="" /></span>
-                            <a href="" class="click-btn text-center">Binary Code</a>
-                            <div class="download_icon">
-                                <a href=""> <img src="{{ asset('frontend_assets/assets/images/download.png')}}" alt="" /><a>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-               
             </div>
+
         </div>
 
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
                 <div class="col-lg-12 mt-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="button-group button-group-center">
@@ -215,9 +121,46 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 
 
 @endsection
+
+@push('scripts')
+    <script>
+        // Add an event listener for the filter and search input fields
+        $('.search_filter input, .style_type, .category_id').on('change keyup', function() {
+            // Retrieve selected checkboxes
+            var category = [];
+            var style = [];
+            $('.style_type:checked').each(function() {
+                style.push($(this).val());
+            });
+            $('input[name="category"]:checked').each(function() {
+                category.push($(this).val());
+            });
+
+            var search = $('.search_filter input').val();
+
+            // Make an AJAX request to the Laravel route
+            $.ajax({
+                url: "{{ route('icon.filter') }}",
+                type: 'GET',
+                data: {
+                    category: category,
+                    style: style,
+                    search: search,
+                },
+                success: function(data) {
+                    // Update the icon container with the filtered results
+                    $('.icon-filter').html(data);
+                },
+                error: function(data) {
+                    console.log('Error:', data);
+                }
+            });
+        });
+    </script>
+@endpush

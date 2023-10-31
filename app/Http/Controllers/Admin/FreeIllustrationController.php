@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\IllustrationCategory;
 use App\Models\IllustrationCategoryImage;
+use App\Traits\ImageTrait;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 class FreeIllustrationController extends Controller
 {
+    use ImageTrait;
     /**
      * Display a listing of the resource.
      *
@@ -128,7 +130,8 @@ class FreeIllustrationController extends Controller
 
     public function illustrationImages()
     {
-        $illustration_images = IllustrationCategoryImage::orderBy('id', 'desc')->with('illustration_category')->get()->unique('illustration_category_id','style_type');
+        $illustration_images = IllustrationCategoryImage::orderBy('id', 'desc')->get();
+        // dd( $illustration_images);
         return view('admin.illustrations.images.index', compact('illustration_images'));
     }
 
@@ -140,25 +143,25 @@ class FreeIllustrationController extends Controller
 
     public function storeIllustrationImage(Request $request)
     {
-        
+        // return $request;
         $request->validate([
             'illustration_category' => 'required',
             'style_type' => 'required',
         ]);
-        
+
         if ($request->hasFile('image')) {
             $validator = Validator::make($request->all(), [
                 'image' => 'required',
                 'image.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf|max:2048'
             ]);
             foreach ($request->file('image') as $key => $image) {
-                
-                $name = $image->getClientOriginalName();
-                $image_path = $image->store('illustrations', 'public');
                 $illustration_image = new IllustrationCategoryImage();
                 $illustration_image->illustration_category_id = $request->illustration_category;
                 $illustration_image->style_type = $request->style_type;
-                $illustration_image->images = asset('storage/' . $image_path);
+                // $data->profile_picture = $this->imageUpload($request->file('profile_picture'), 'patient');
+                $illustration_image->images = $this->imageUpload($request->file('image')[$key], 'illustration')['filePath'];
+                // dd($illustration_image->images['filePath']);
+                $illustration_image->imgage_name = $request->image_name[$key];
                 $illustration_image->save();
             }
         }
@@ -168,7 +171,7 @@ class FreeIllustrationController extends Controller
 
     public function editIllustrationImage($id)
     {
-        
+
         $illustration_image = IllustrationCategoryImage::where('illustration_category_id',$id)->get();
         $illustration_categories = IllustrationCategory::orderBy('id', 'desc')->get();
         return view('admin.illustrations.images.edit', compact('illustration_image','illustration_categories'));
@@ -177,8 +180,8 @@ class FreeIllustrationController extends Controller
 
     public function deleteIllustrationImage($id)
     {
-        $illustration_image = IllustrationCategoryImage::where('illustration_category_id',$id)->delete();
-       
+        $illustration_image = IllustrationCategoryImage::where('id',$id)->delete();
+
         return redirect()->route('free-illustrations.images.list')->with('error', 'Free Illustration Image Deleted Successfully');
     }
 
@@ -195,5 +198,5 @@ class FreeIllustrationController extends Controller
 
         return redirect()->route('free-illustrations.index')->with('message', 'Free Illustration Category Updated Successfully');
     }
-   
+
 }

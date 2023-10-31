@@ -63,6 +63,11 @@ Route::get('/free-illustration', [ResourcesController::class, 'freeIllustration'
 Route::get('/free-icon', [ResourcesController::class, 'freeIcon'])->name('free-icons');
 Route::get('/guides', [ResourcesController::class, 'guides'])->name('guides');
 Route::get('/case-studies', [ResourcesController::class, 'casestudies'])->name('case-studies');
+Route::get('/illustration-filter', [ResourcesController::class, 'filter'])->name('illustration.filter');
+Route::get('/icon-filter', [ResourcesController::class, 'iconFilter'])->name('icon.filter');
+Route::get('/download-illustration/{id}', [ResourcesController::class, 'downloadIllustration'])->name('download.illustration');
+Route::get('/download-icon/{id}', [ResourcesController::class, 'downloadIcon'])->name('download.icon');
+
 Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
 //solutions routes
 Route::get('/social-media-design', [SolutionsController::class, 'socialMediaDesign'])->name('social.media.design');
@@ -100,14 +105,14 @@ Route::group(['prefix' => 'admin'], function () {
             'plans' => PlanController::class,
             'types' => TypeController::class,
             'free-illustrations' => FreeIllustrationController::class,
-            'free-icons' => FreeIconController::class,
+            'icons' => FreeIconController::class,
             'help-centers' => HelpCenterController::class,
             'screenshot' => ScrenShotController::class,
             'faqs' => FaqController::class,
             'guides' => GuideController::class,
             'careers' => CareerController::class,
-        ]); 
-        
+        ]);
+
 
 
         Route::get('/blog-categories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
@@ -145,6 +150,17 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/free-illustrations-images/edit/{id}',[FreeIllustrationController::class, 'editIllustrationImage'])->name('free-illustrations.image.edit');
         Route::get('/free-illustrations-images/delete/{id}',[FreeIllustrationController::class, 'deleteIllustrationImage'])->name('delete.image.free-illustrations');
         Route::post('/free-illustrations-images/updateImage',[FreeIllustrationController::class, 'updateIllustrationImage'])->name('free-illustrations.image.update');
+
+        // icons
+        Route::get('/icons/delete/{id}',[FreeIconController::class, 'deleteIcon'])->name('delete.icons');
+        Route::post('/icons/update',[FreeIconController::class, 'updateIcon'])->name('update.icons');
+        Route::get('/icons-images',[FreeIconController::class, 'iconImages'])->name('icons.images.list');
+        Route::get('/icons-images/create',[FreeIconController::class, 'createIconImage'])->name('icons.image.create');
+        Route::post('/icons-images/store',[FreeIconController::class, 'storeIconImage'])->name('icons.image.store');
+        Route::get('/icons-images/edit/{id}',[FreeIconController::class, 'editIconImage'])->name('icons.image.edit');
+        Route::get('/icons-images/delete/{id}',[FreeIconController::class, 'deleteIconImage'])->name('delete.image.icons');
+        Route::post('/icons-images/updateImage',[FreeIconController::class, 'updateIconImage'])->name('icons.image.update');
+
 
         //subtype
         Route::get('/subtypes',[TypeController::class, 'subTypeList'])->name('type.subtypes.list');
