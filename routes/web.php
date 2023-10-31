@@ -103,7 +103,10 @@ Route::group(['prefix' => 'admin'], function () {
             'free-icons' => FreeIconController::class,
             'help-centers' => HelpCenterController::class,
             'screenshot' => ScrenShotController::class,
-        ]);
+            'faqs' => FaqController::class,
+            'guides' => GuideController::class,
+            'careers' => CareerController::class,
+        ]); 
         
 
 
