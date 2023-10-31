@@ -91,6 +91,7 @@ Route::post('/payment/submit',[PaymentController::class, 'paymentSubmit'])->name
 Route::get('/payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
 
 Route::post('/job-apply',[HomeController::class, 'JobApply'])->name('submit.job-apply');
+Route::get('/services',[HomeController::class, 'services'])->name('services');
 
 
 
@@ -189,6 +190,7 @@ Route::group(['prefix' => 'admin'], function () {
         //job apply
         Route::get('/job-apply', [JobApplyController::class, 'jobApplyList'])->name('job-apply.list');
         Route::get('/job-apply/details/{id}', [JobApplyController::class, 'jobApplyDetails'])->name('job-apply.details');
+        Route::get('careers/download-resume/{id}', [JobApplyController::class, 'downloadResume'])->name('download.resume');
         
 
         //cms routes
@@ -225,6 +227,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('careers/edit/{id}', [CareerController::class, 'editCareer'])->name('edit.careers');
         Route::get('careers/delete/{id}', [CareerController::class, 'deleteCareer'])->name('delete.careers');
         Route::post('careers/update', [CareerController::class, 'updateCareer'])->name('update.careers');
+
+        //upload resume
+        
     });
 });
 
@@ -253,7 +258,6 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('/brand-profile/edit/{id}', [BrandProfileController::class, 'editBrandProfile'])->name('edit.brand-profile');
         Route::post('/brand-profile/store', [BrandProfileController::class, 'updateBrandProfile'])->name('update.brand-profile');
 
-        //review
 
 
     });

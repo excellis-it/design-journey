@@ -96,6 +96,15 @@
             </div>
         </div>
         <!-- screen slider - end -->
+        <div class="row">
+            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="button-group button-group-center">
+                    <a href="{{ route('login') }}" class="button button-red">
+                        <span>Get Started</span>
+                    </a>
+                </div>
+            </div>
+        </div>
         
     </div>
 </div>
@@ -147,15 +156,7 @@
                 <!-- single - end -->
                
             </div>
-            <div class="row">
-                <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="button-group button-group-center">
-                        <a href="{{ route('login') }}" class="button button-red">
-                            <span>Get Started</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <!-- content - end -->
     </div>

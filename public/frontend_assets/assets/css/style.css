@@ -3,12 +3,12 @@
     --color-dark-1: #353555;
     --color-dark-2: #333353;
     --color-yellow: #fbc119;
-    --color-red: #e1392d;
+    --color-red: #b6175a;
     --color-red-rgba-8: rgba(255, 55, 89, 1);
     --color-green: #279947;
     --color-green-rgba-8: rgba(33, 235, 138, 1);
     --color-pink: #ed50e8;
-    --color-blue: #1a73e8;
+    --color-blue: #3780cd;
     --color-blue-rgba-8: rgba(53, 204, 255, 1);
     --color-purple: #7e57ff;
     --color-grey: #5b5b71;
@@ -376,18 +376,18 @@ body {
     height: auto;
     position: relative;
   }
-
+  
   .glide__slide img {
     width: 100%;
     height: 400px;
     -o-object-fit: cover;
        object-fit: cover;
   }
-
+  
   .glide__bullets {
     display: block;
   }
-
+  
   .glide__bullet {
     position: relative;
     display: block;
@@ -417,7 +417,7 @@ body {
     transition: transform 5s;
     left: 0;
   }
-
+  
   .glide__bullet--active:before {
     opacity: 1;
     transform: translateY(0);
@@ -481,27 +481,27 @@ body {
     position: relative;
     background-color: #fff;
     border-radius: 15px;
-
+    
     margin-bottom: 64px;
 }
 .border-b{
     border: 1px solid #dadce0;
 }
 .bg-blues{
-    background-color: #0099f6 !important;
+    background-color: #0099f6 !important;    
 }
 .bg-blues-dark{
-    background-color: #174ea6 !important;
+    background-color: #174ea6 !important;    
 }
 .c-dark-blue{
-    color: #174ea6 !important;
+    color: #174ea6 !important; 
 }
 .bg-gregg{
-    background-color: #e8f0fe !important;
+    background-color: #e8f0fe !important;    
 }
 
 .bg-green-rgba{
-    background: rgb(40 235 138 / 30%);
+    background: rgb(33 235 138 / 20%);
 }
 .c-green-dark{
     color: #158951;
@@ -522,11 +522,11 @@ body {
 .banerimg{
     height: 60vh;
   width: 90%;
-  margin: auto;
+  margin: auto;  
 }
 .border-rounded{
     border-radius: 50px;
-    padding: 0 40px;
+    padding: 10px 30px;
 }
 
 
@@ -4253,6 +4253,10 @@ body.loaded .preloader {
     font-weight: 600;
 }
 
+.filters ul li.active span{
+    color:#fff;
+}
+
 .filters ul li span {
     position: relative;
 
@@ -4424,9 +4428,9 @@ body.loaded .preloader {
 }
 
 .fre_icons a span img {
-    width: 200px;
-    height: 150px;
-    margin: 0 auto 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .fre_icons a {
@@ -4471,7 +4475,7 @@ body.loaded .preloader {
     top: 10px;
     right: 10px;
     transform: translate(-10px, 10px);
-    width: 30px;
+    width: 30px;   
     height: 30px;
     opacity: 0;
 }
@@ -4548,7 +4552,7 @@ body.loaded .preloader {
     margin-bottom: 30px;
 }
 .case-studies-img-div:hover .case-studies-text a h3{
-  color: #35ccff;
+  color: #35ccff; 
 }
 /* guide */
 .guide-img img{
@@ -4566,18 +4570,18 @@ body.loaded .preloader {
     overflow: hidden;
     overflow-y: auto;
   }
-
+  
   .login-page-wrap {
     height: 100vh;
     padding: 100px 10px;
   }
-
+  
   .login-left {}
-
+  
   .login-text {
     text-align: center;
   }
-
+  
   .login-text h3 {
     color: var(--white-color);
     font-size: 18px;
@@ -4585,33 +4589,33 @@ body.loaded .preloader {
     line-height: 52px;
     text-transform: uppercase;
   }
-
+  
   .login-text p {
     color: var(--white-color);
     font-size: 20px;
     font-weight: 400;
     line-height: 52px;
   }
-
+  
   .login-logo {
     text-align: center;
     width: 250px;
     height: 70px;
     margin: 0 auto 30px;
   }
-
+  
   .login-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
-
+  
   .login-form .form-group label {
     color: var(--white-color);
     font-size: 16px;
     font-weight: 600;
   }
-
+  
   .login-form .form-group input {
     border: 1px solid rgb(0 0 0 / 50%);
     /* background: #4375F4; */
@@ -4625,7 +4629,7 @@ body.loaded .preloader {
     color: rgb(0 0 0 / 50%);
     font-size: 14px;
   }
-
+  
   .login-form .form-group input::placeholder {
     color: rgb(0 0 0 / 50%);
     font-size: 14px;
@@ -4647,8 +4651,8 @@ body.loaded .preloader {
   }
   .login-form .form-group label{
     font-size: 16px;
-    font-weight: 600;
-    margin-left: 10px;
+    font-weight: 600; 
+    margin-left: 10px;  
   }
   .reg-btn{
     color: #fff;
@@ -4679,7 +4683,7 @@ body.loaded .preloader {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-
+  
   }
   .login-img img{
     width: 100%;
@@ -4741,103 +4745,109 @@ body.loaded .preloader {
       align-items:center;
   }
    .new-menu-cls li {
-
+   
        padding-left:10px;
    }
-
+   
    .inner-faq .accordion-item{
        width:100%;
-
+       
    }
 
+@media (max-width: 425px) {
+    .navigation-logo a img {
+        width: 100px;
+    }
+}
 
-   /* 27-10-2023 /
+
+ /* 27-10-2023 /
    / Help-Center */
    .help-list .accordion-header .accordion-button {
        font-size: 20px !important;
        line-height: 24px;
    }
-
+   
    .help-list .accordion-body ul {
        padding: 20px 20px;
    }
-
+   
    .help-list .accordion-body ul li {
        list-style: none;
        padding-bottom: 20px;
    }
-
+   
    .help-list .accordion-body ul li a {
        font-size: 18px !important;
        line-height: 20px;
        list-style: none;
        color: #000;
    }
-
+   
    .help-list .accordion-body ul li:hover a {
        color: #0099f6;
    }
-
+   
    .help-list .accordion-item {
        border-top: none !important;
    }
-
+   
    .most-vs {
        padding: 30px 0px;
    }
-
+   
    /* .most-vs h2{
      font-size: 30px;
    } */
    .most-vs p {
        font-size: 16px;
    }
-
+   
    .most-vs ul {
        padding: 20px 0px;
    }
-
+   
    .most-vs ul li {
        list-style: none;
        padding-bottom: 35px;
    }
-
+   
    .most-vs li a {
        font-size: 18px !important;
        line-height: 20px;
        list-style: none;
        color: #000;
    }
-
+   
    .most-vs ul li:hover a {
        color: #0099f6;
    }
-
+   
    .help-bnr {
        margin: 0px 0px 30px;
    }
-
+   
    /  /
    .career-sec {
        margin: 30px 0px;
    }
-
+   
    .opening-box h3 {
        font-weight: 400;
        font-size: 20px;
    }
-
+   
    .remote a h4 {
        font-weight: 400;
        font-size: 14px;
        margin-right: 20px;
        color: #000;
    }
-
+   
    .remote a h4 span {
        padding-right: 10px;
    }
-
+   
    .app-btn .btn {
        font-size: 14px;
        background: #ccc;
@@ -4846,28 +4856,28 @@ body.loaded .preloader {
        border-radius: 5px;
        transition: ease-in all 0.3s;
    }
-
+   
    .opening-box-div:hover .app-btn .btn {
        background: #1a73e8;
        transition: ease-in all 0.3s;
    }
-
-
+   
+   
    .opening-box-div:hover {
        border: 1px solid #ced4da;
        background: rgb(204 204 204 / 14%);
        transition: ease-in all 0.3s;
    }
-
+   
    .opening-box-div {
        transition: ease-in all 0.3s;
        padding: 20px;
        border-radius: 10px;
        border: 1px solid transparent;
        margin: 30px 0px;
-
+   
    }
-
+   
    / career-details  /
    .job-openings {
        padding: 50px 0px;
@@ -4882,45 +4892,45 @@ body.loaded .preloader {
        line-height: 20px;
        color: #000;
    }
-
+   
    .job-openings-breadcrumb ul.breadcrumb li+li:before {
        padding: 8px;
        color: black;
        content: "/\f054";
    }
-
+   
    .abt-job h3 {
        font-size: 20px;
        color: #000;
        font-weight: 700;
        margin: 20px 0px;
    }
-
+   
    .abt-job p {
        font-size: 16px;
        color: #000;
        font-weight: 400;
    }
-
+   
    .abt-job-wrap {
        margin-top: 30px;
    }
-
+   
    .abt-job ul {
        margin: 0;
        padding-left: 15px;
    }
-
+   
    .abt-job ul li {
        padding-bottom: 20px;
        font-size: 16px;
    }
-
+   
    .apply-btn {
        text-align: center;
        margin-bottom: 30px;
    }
-
+   
    .apply-btn .btn {
        background: #666666;
        text-align: center;
@@ -4931,21 +4941,21 @@ body.loaded .preloader {
        color: #fff;
        transition: ease-in all 0.3s;
    }
-
+   
    .apply-btn:hover .btn {
        background: #1a73e8;
        transition: ease-in all 0.3s;
-
+   
    }
    .btn-blue .btn{
-       background: #1a73e8!important;;
+       background: #1a73e8!important;; 
    }
    .btn-blue:hover .btn{
-       background: #1663c7!important;;
+       background: #1663c7!important;; 
    }
-  
+   
    .job-form .apply-btn{
-       margin-right: 20px;
+       margin-right: 10px;
    }
    .job-form{
        background: rgb(204 204 204 / 14%);
@@ -4995,21 +5005,99 @@ body.loaded .preloader {
        transition: ease-in all 0.3s;
        border: none;
    }
+  /*31-10-2023 serv-sec*/
+  .serv-sec{
+     padding: 15rem 0 0rem 0;
+  }
+  .serv-list-head h4{
+    font-size: 16px;
+    line-height: 20px;
+
+  }
+  .serv-list-head {
+    border-bottom: 6px solid #e0e0e0;
+    margin: 15px 15px 0px 15px;
+    padding-bottom: 5px;
+}
+.serv-list-1{
+    border: 6px solid #e0e0e0;
+    padding: 15px 15px 30px 15px;
+    border-radius: 30px;
+}
+.disc-1-div{
+   text-align: center; 
+    margin: 20px 0px;
+}  
+.disc-1{
+    position: absolute;
+    top: -8%;
+    left: 50%;
+    transform: rotate(345deg);  
+}
+.disc-1 h4{
+    font-size: 12px;
+    font-weight: 600;
+     color: #e1392d;
+}
+.disc-1 img{
+    width: 25px;
+    height: 25px;   
+}
+.Pricing_sec{
+    position: relative;
+}
+.disc-2{
+     position: absolute;
+    right: 22%;
+    top: -3%;
+    transform: rotate(21deg);
+}
+.disc-2 img{
+    width: 25px;
+    height: 25px;   
+}
+.disc-2 h4{
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a73e8;
+}
 
 
-   
-   .job-form .btn-up{
-      background: var(--color-blue);
-      text-align: center;
-    padding: 15px 40px;
-    border-radius: 5px;
-    margin: 0 auto;
-    font-size: 14px;
-    color: #fff;
-    transition: ease-in all 0.3s;
-    cursor: pointer;
+
+/*Responsive*/
+
+@media (max-width:768px) {
+  .disc-1 {
+    top: -5%;
+  }
+  .disc-2 {
+    right: 6%;
+    top: -1%;
    }
+}
+@media (max-width:767px) {
+  .disc-1, .disc-2{
+      display: none;
+  } 
+}
+
+.job-form .btn-up{
+    background: var(--color-blue);
+    text-align: center;
+  padding: 15px 40px;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #fff;
+  transition: ease-in all 0.3s;
+  cursor: pointer;
+ }
 
 .btn-up:hover {
-    background: #1663c7!important;
+  background: #1663c7!important;
 }
+  
+  
+  
+  
+  

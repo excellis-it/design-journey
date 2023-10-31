@@ -33,6 +33,17 @@
         <div class="feature-section-wrapper pt-0">
             <div class="container">
                 <div class="Pricing_sec">
+                    <div class="disc-1-div">
+                        <div class="disc-1">
+                            
+                             <h4>Save {{ $quarterly_percent->percentage }}%</h4>
+                             <img src="{{asset('frontend_assets/assets/images/arrow1.png')}}">
+                        </div>
+                        <div class="disc-2">
+                             <h4>Save {{ $yearly_percent->percentage }}%</h4>
+                             <img src="{{asset('frontend_assets/assets/images/arrow2.png')}}">
+                        </div>
+                      </div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active duration" id="monthly" data-bs-toggle="tab" data-bs-target="#monthly"

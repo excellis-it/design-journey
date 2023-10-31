@@ -43,7 +43,7 @@
                                     <span>Perks</span>
                                 </a>
                             </li>
-                            <li class="has-child">
+                            {{-- <li class="has-child">
                                 <a href="#" class="link-underline link-underline-1">
                                     <span>Features</span>
                                 </a>
@@ -71,7 +71,13 @@
                                         </li>
                                     </ul>
                                 </div>
+                            </li> --}}
+                            <li>
+                                <a href="{{ route('services') }}" class="link-underline link-underline-1">
+                                    <span>Services</span>
+                                </a>
                             </li>
+
                             <li>
                                 <a href="{{ route('our.work') }}" class="link-underline link-underline-1">
                                     <span>Our Work</span>

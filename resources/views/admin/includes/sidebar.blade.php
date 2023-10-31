@@ -187,6 +187,14 @@
                 </a>
                 
             </li>
+
+            <li class="{{ Request::is('admin/testimonial*') ? 'active' : ' ' }}">
+                <a href="{{ route('testimonial.list') }}" class="menu-toggle nav-link ">
+                    <i class="ph-wallet"></i>
+                    <span>Testimonial</span>
+                </a>
+                
+            </li>
      
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown">

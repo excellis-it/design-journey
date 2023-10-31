@@ -60,7 +60,7 @@
                     </ul>
                 </div>
                 <div class="job-form">
-                    <form action="{{ route('submit.job-apply') }}" method="post">
+                    <form action="{{ route('submit.job-apply') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="career_id" value="{{ $career_details->id }}">
                         <div class="d-flex justify-content-center align-items-center">

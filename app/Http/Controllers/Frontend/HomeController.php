@@ -80,8 +80,11 @@ class HomeController extends Controller
 
     public function pricing()
     {
+       
+        $yearly_percent = Plan::where('plan_duration','yearly')->first();
+        $quarterly_percent = Plan::where('plan_duration','quarterly')->first();
         $plans = Plan::orderBy('id','asc')->where('plan_duration','monthly')->with('Specification')->take(3)->get();
-        return view('frontend.pricing',compact('plans'));
+        return view('frontend.pricing',compact('plans','quarterly_percent','yearly_percent'));
     }
 
     public function pricingFilter(Request $request)
@@ -128,6 +131,12 @@ class HomeController extends Controller
         return view('frontend.career-form',compact('career_details'));
     }
 
+    public function services()
+    {
+        $categories = Category::orderBy('id','asc')->where('status',1)->get();
+        return view('frontend.services',compact('categories'));
+    }
+
     public function JobApply(Request $request)
     {
         $request->validate([
@@ -138,6 +147,7 @@ class HomeController extends Controller
             'country' => 'required',
             'us_time_available' => 'required',
             'salary' => 'required',
+            
         ]);
 
         $job_apply = new JobApply();

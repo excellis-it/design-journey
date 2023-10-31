@@ -25,12 +25,7 @@
                     <span>Brand profiles</span>
                 </a>
             </li>
-            <li class="dropdown {{ (request()->is('user/reviews*')) ? 'active' : '' }}">
-                <a href="{{ route('reviews.index') }}">
-                    <i class="ph ph-user"></i>
-                    <span>Review</span>
-                </a>
-            </li>
+           
             <li class="dropdown">
                 <a href="">
                     <i class="ph ph-users"></i>
