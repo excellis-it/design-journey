@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\FreeIllustrationController;
 use App\Http\Controllers\Admin\FreeIconController;
 use App\Http\Controllers\Admin\HelpCenterController;
 use App\Http\Controllers\Admin\ScrenShotController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\GuideController;
 use App\Http\Controllers\Admin\CaseStudiesController;
@@ -120,6 +121,7 @@ Route::group(['prefix' => 'admin'], function () {
             'guides' => GuideController::class,
             'careers' => CareerController::class,
             'case-studies' => CaseStudiesController::class,
+            'testimonial' => TestimonialController::class,
         ]);
         
 

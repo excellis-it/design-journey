@@ -189,7 +189,7 @@
             </li>
 
             <li class="{{ Request::is('admin/testimonial*') ? 'active' : ' ' }}">
-                <a href="{{ route('testimonial.list') }}" class="menu-toggle nav-link ">
+                <a href="{{ route('testimonial.index') }}" class="menu-toggle nav-link ">
                     <i class="ph-wallet"></i>
                     <span>Testimonial</span>
                 </a>

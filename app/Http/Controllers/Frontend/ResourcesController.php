@@ -9,6 +9,7 @@ use App\Models\IllustrationCategoryImage;
 use App\Models\Guide;
 use App\Models\IconCategory;
 use App\Models\IconCategoryImage;
+use App\Models\CaseStudy;
 use Illuminate\Support\Facades\Storage;
 
 class ResourcesController extends Controller
@@ -60,7 +61,7 @@ class ResourcesController extends Controller
 
         if ($illustration->images) {
             // Construct the full file path on the server
-            $filePath = public_path('storage/' . $illustration->images);
+            $filePath = public_path('public/storage/' . $illustration->images);
 
 
             if (file_exists($filePath)) {
@@ -137,6 +138,7 @@ class ResourcesController extends Controller
 
     public function casestudies()
     {
-        return view('frontend.resources.case-studies');
+        $case_studies = CaseStudy::orderBy('id','desc')->get();
+        return view('frontend.resources.case-studies')->with(compact('case_studies'));
     }
 }

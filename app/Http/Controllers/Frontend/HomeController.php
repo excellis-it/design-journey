@@ -11,11 +11,13 @@ use App\Models\Category;
 use App\Models\CategoryImage;
 use App\Models\Plan;
 use App\Models\PlanSpecfication;
-use App\Models\helpCenter;
+use App\Models\HelpCenter;
 use App\Models\ScreenShot;
 use App\Models\Faq;
 use App\Models\Career;
 use App\Models\JobApply;
+use App\Models\Specification;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\View;
 
 
@@ -28,7 +30,8 @@ class HomeController extends Controller
         $faqs = Faq::orderBy('id','desc')->get();
         $blogs = Blog::orderBy('id','desc')->where('status',1)->limit(3)->get();
         $screen_shots = ScreenShot::orderBy('id','desc')->get();
-        return view('frontend.home',compact('home_content','blogs','screen_shots','faqs'));
+        $testimonials = Testimonial::orderBy('id','desc')->get();
+        return view('frontend.home',compact('home_content','blogs','screen_shots','faqs','testimonials'));
     }
 
     public function perks()

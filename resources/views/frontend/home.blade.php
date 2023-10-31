@@ -539,12 +539,13 @@
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 <!-- testimonial slide - start -->
+                                @foreach($testimonials as $testimonial)
                                 <div class="swiper-slide">
                                     <div class="testimonial-slide">
                                         <!-- image - start -->
                                         <div class="image">
                                             <div class="image-inner">
-                                                <img src="{{ asset('frontend_assets/assets/images/testimonial-img.jpg')}}" alt="testimonial">
+                                                <img src="{{ asset($testimonial->image) }}" alt="testimonial">
                                                 <div class="box-1 bg-dark-1"></div>
                                                 <div class="box-2 bg-yellow">
                                                     <div class="box-2-1 bg-dark-1"></div>
@@ -554,40 +555,18 @@
                                         <!-- image - end -->
                                         <!-- content - start -->
                                         <div class="content">
-                                            <p class="c-white">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                                            <p class="c-white">{{ $testimonial->message }}</p>
 
-                                            <h3 class="c-white fw-600">Charlie GM</h3>
-                                            <h5 class="c-grey-3 lt-24">established fact</h5>
+                                            <h3 class="c-white fw-600">{{ $testimonial->name }}</h3>
+                                    
+
+                                            <h5 class="c-grey-3 lt-24">{{ $testimonial->created_at->format('d-M-y') }}</h5>
                                         </div>
                                         <!-- content - end -->
                                     </div>
                                 </div>
-                                <!-- testimonial slide - end -->
-                                <!-- testimonial slide - start -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-slide">
-                                        <!-- image - start -->
-                                        <div class="image">
-                                            <div class="image-inner">
-                                                <img src="{{ asset('frontend_assets/assets/images/testimonial-img.jpg')}}" alt="testimonial">
-                                                <div class="box-1 bg-dark-1"></div>
-                                                <div class="box-2 bg-yellow">
-                                                    <div class="box-2-1 bg-dark-1"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- image - end -->
-                                        <!-- content - start -->
-                                        <div class="content">
-                                            <p class="c-white">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-
-                                            <h3 class="c-white fw-600">Charlie GM</h3>
-                                            <h5 class="c-grey-3 lt-24">established fact</h5>
-                                        </div>
-                                        <!-- content - end -->
-                                    </div>
-                                </div>
-                                <!-- testimonial slide - end -->
+                                @endforeach
+                                
                             </div>
                         </div>
                         <div class="slider-pagination testimonial-slider-pagination"></div>
