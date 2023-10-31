@@ -16,10 +16,13 @@ use App\Http\Controllers\Admin\HomeCmsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\FreeIllustrationController;
 use App\Http\Controllers\Admin\FreeIconController;
 use App\Http\Controllers\Admin\HelpCenterController;
 use App\Http\Controllers\Admin\ScrenShotController;
+use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\GuideController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ResourcesController;
@@ -103,6 +106,9 @@ Route::group(['prefix' => 'admin'], function () {
             'free-icons' => FreeIconController::class,
             'help-centers' => HelpCenterController::class,
             'screenshot' => ScrenShotController::class,
+            'faqs' => FaqController::class,
+            'guides' => GuideController::class,
+            'careers' => CareerController::class,
         ]);
         Route::get('/screenshot/delete/{id}', [AdminBlogController::class, 'deleteScreenshot'])->name('delete.screenshot');
 
@@ -179,6 +185,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('screen-shots/update', [ScrenShotController::class, 'screenShotsUpdate'])->name('update.screenshot');
         Route::get('screen-shots/delete/{id}', [ScrenShotController::class, 'deleteScreenShots'])->name('delete.screenshot');
         Route::get('screen-shots/edit/{id}', [ScrenShotController::class, 'editScreenShots'])->name('edit.screenshot');
+
+        //faq route
+        Route::get('faqs/edit/{id}', [FaqController::class, 'editFaq'])->name('edit.faqs');
+        Route::get('faqs/delete/{id}', [FaqController::class, 'deleteFaq'])->name('delete.faqs');
+        Route::post('faqs/update', [FaqController::class, 'updateFaq'])->name('update.faqs');
+
+        //guide routes
+        Route::get('guides/edit/{id}', [GuideController::class, 'editGuide'])->name('edit.guides');
+        Route::get('guides/delete/{id}', [GuideController::class, 'deleteGuide'])->name('delete.guides');
+        Route::post('guides/update', [GuideController::class, 'updateGuide'])->name('update.guides');
+
+        //career routes
+        Route::get('careers/edit/{id}', [CareerController::class, 'editCareer'])->name('edit.careers');
+        Route::get('careers/delete/{id}', [CareerController::class, 'deleteCareer'])->name('delete.careers');
+        Route::post('careers/update', [CareerController::class, 'updateCareer'])->name('update.careers');
     });
 });
 

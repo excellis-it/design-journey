@@ -13,6 +13,7 @@ use App\Models\Plan;
 use App\Models\PlanSpecfication;
 use App\Models\helpCenter;
 use App\Models\ScreenShot;
+use App\Models\Faq;
 use Illuminate\Support\Facades\View;
 
 
@@ -22,9 +23,10 @@ class HomeController extends Controller
     public function home()
     {
         $home_content = HomeCms::first();
+        $faqs = Faq::orderBy('id','desc')->get();
         $blogs = Blog::orderBy('id','desc')->where('status',1)->limit(3)->get();
         $screen_shots = ScreenShot::orderBy('id','desc')->get();
-        return view('frontend.home',compact('home_content','blogs','screen_shots'));
+        return view('frontend.home',compact('home_content','blogs','screen_shots','faqs'));
     }
 
     public function perks()
@@ -88,8 +90,9 @@ class HomeController extends Controller
     
     public function faq()
     {
+        $faqs = Faq::orderBy('id','desc')->get();
         $home_content = HomeCms::first(); 
-        return view('frontend.faq',compact('home_content'));
+        return view('frontend.faq',compact('home_content','faqs'));
     }  
     
     public function helpCenter()

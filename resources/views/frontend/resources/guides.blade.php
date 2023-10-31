@@ -56,84 +56,22 @@
     <div class="container">
         <div class="case-study-div">
             <div class="row">
+                @foreach($guides as $guide)
                 <div class="col-xl-4 col-md-6">
                     <div class="case-studies-img-div">
                         <div class="case-studies-img guide-img">
-                            <a href=""><img src="{{ asset('frontend_assets/assets/images/guide-1.jpg')}}" alt=""></a>
+                            <a href=""><img src="{{ asset($guide->image) }}" alt=""></a>
                             <div class="case-studies-text">
-                                <a href="">
-                                    <h3>Beauty & Wellness Small Business Design Guide
+                                
+                                    <h3>{{ $guide->title }}
                                     </h3>
-                                </a>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="case-studies-img-div">
-                        <div class="case-studies-img guide-img">
-                            <a href=""><img src="{{ asset('frontend_assets/assets/images/guide-2.jpg')}}" alt=""></a>
-                            <div class="case-studies-text">
-                                <a href="">
-                                    <h3>Social Media Guide
-                                    </h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="case-studies-img-div">
-                        <div class="case-studies-img guide-img">
-                            <a href=""><img src="{{ asset('frontend_assets/assets/images/guide-3.jpg')}}" alt=""></a>
-                            <div class="case-studies-text">
-                                <a href="">
-                                    <h3>How to Track the Progress of Your Designer's Work
-                                    </h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="case-studies-img-div">
-                        <div class="case-studies-img guide-img">
-                            <a href=""><img src="{{ asset('frontend_assets/assets/images/guide-4.jpg')}}" alt=""></a>
-                            <div class="case-studies-text">
-                                <a href="">
-                                    <h3>How To Prepare Your Business for the Holiday Season
-                                    </h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="case-studies-img-div">
-                        <div class="case-studies-img guide-img">
-                            <a href=""><img src="{{ asset('frontend_assets/assets/images/guide-5.jpg')}}" alt=""></a>
-                            <div class="case-studies-text">
-                                <a href="">
-                                    <h3>Digital Ads Inspiration and Guidelines for 2021
-                                    </h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="case-studies-img-div">
-                        <div class="case-studies-img guide-img">
-                            <a href=""><img src="{{ asset('frontend_assets/assets/images/guide-6.jpg')}}" alt=""></a>
-                            <div class="case-studies-text">
-                                <a href="">
-                                    <h3>How to Reach New Customers by Using Informal Communication
-                                    </h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
                 <div class="col-lg-12 mt-4 wow fadeInUp animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                     <div class="button-group button-group-center">
                         <a href="#" class="button button-red">

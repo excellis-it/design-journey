@@ -8,7 +8,7 @@
                             <a href="#">
                                 <img src="{{ asset('frontend_assets/assets/images/logo.png')}}" alt="footer-logo">
                             </a>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <p>&nbsp;</p>
                             <ul class="social">
                                 <li>
                                     <a class="button button-purple" href="#">
@@ -73,7 +73,7 @@
                         <div class="footer-list">
                             <h6>RESOURCES</h6>
                             <ul>
-                                <li>
+                                <!--<li>
                                     <a href="{{ route('free-illustration') }}" class="link-underline">
                                         <span>Free Illustrations</span>
                                     </a>
@@ -82,7 +82,7 @@
                                     <a href="{{ route('free-icons') }}" class="link-underline">
                                         <span>Free Icons</span>
                                     </a>
-                                </li>
+                                </li>-->
                                 <li>
                                     <a href="{{ route('guides') }}" class="link-underline">
                                         <span>Guides</span>

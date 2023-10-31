@@ -101,8 +101,20 @@
             <li class="{{ Request::is('admin/contact-us*') ? 'active' : ' ' }}">
                 <a href="{{ route('contact.us.list') }}">
                     <i class="ph-clipboard-text"></i>
-                    <span>Contactus</span>
+                    <span>Contact Us</span>
                 </a>
+            </li>
+
+            <li class="dropdown {{ Request::is('admin/faq*') ? 'active' : ' ' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Faq</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('faqs.index') }}">Manage</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="dropdown {{ Request::is('admin/help-centers*') ? 'active' : ' ' }}">
@@ -117,6 +129,30 @@
                 </ul>
             </li>
 
+            <li class="dropdown {{ Request::is('admin/guides*') ? 'active' : ' ' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Guide</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('guides.index') }}">Manage</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ Request::is('admin/careers*') ? 'active' : ' ' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph-wallet"></i>
+                    <span>Career</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('careers.index') }}">Manage</a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="dropdown {{ Request::is('admin/screenshot*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
@@ -126,9 +162,9 @@
                     <li class="">
                         <a class="nav-link" href="{{ route('screenshot.index') }}">Manage</a>
                     </li>
-                    <li class="">
+                    {{-- <li class="">
                         <a class="nav-link" href="{{ route('screenshot.create') }}">Create</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
      

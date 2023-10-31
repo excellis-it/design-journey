@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-    All Screenshot Details - {{ env('APP_NAME') }}
+    Guide - {{ env('APP_NAME') }}
 @endsection
 
 
@@ -9,19 +9,7 @@
 @endpush
 
 @section('content')
-    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
-        <div class="">
-            <h4 class="page-title m-b-0">Screenshot List</h4>
-        </div>
-        <div class="">
-            <ul class="breadcrumb breadcrumb-style">
-                <li class="breadcrumb-item">
-                    Home
-                </li>
-                <li class="breadcrumb-item active">Dashboard</li>
-            </ul>
-        </div>
-    </section>
+    
     <div class="main-content" style="min-height: 842px;">
 
         <div class="inner_page">
@@ -31,10 +19,9 @@
                         <h4 class="mb-0">List</h4>
                     </div>
                     <div class="col-auto float-end ms-auto">
-                        <a href="{{ route('screenshot.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
-                            Screen Shot</a>
+                        <a href="{{ route('guides.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a
+                            Guide</a>
                     </div>
-
                 </div>
             </div>
             <div class="card table_sec">
@@ -42,26 +29,21 @@
                     <table class="table table-bordered" id="myTable" class="display">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Screenshot</th>
-                                <th>Action</th>
+                                <th>Title</th>
+                                
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($screenshots as $key=>$screenshot)
+                            @foreach ($guides as $guide)
                                 <tr>
-                                    <td>
-                                        {{$key +1 }}
-                                    </td>
-                                    <td>
-                                        <img src="{{ asset($screenshot->image) }}" style="width:100px;height:100px;">
-                                    </td>
+                                    <td>{{ $guide->title }}</td>
+                                                          
                                     <td>
                                         <div class="edit-1 d-flex align-items-center">
-                                            <a title="Delete Screenshot" href="{{ route('edit.screenshot',$screenshot->id) }}" id="edit"><span class="edit-icon"><i class="ph ph-pencil-simple"></i></span></a>
-                                            <a title="Delete Screenshot" data-route="{{ route('delete.screenshot',$screenshot->id) }}" id="delete"><span
-                                                    class="trash-icon"><i class="ph ph-trash"></i></span></a>
-                                        </div>
+                                            <a href="{{ route('edit.guides', $guide->id) }}"> <span class="edit-icon"><i class="ph ph-pencil-simple"></i></span></a>
+                                            <a title="Delete Plan" data-route="{{ route('delete.guides',$guide->id) }}" id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>
+                                        </div>           
                                     </td>
                                 </tr>
                             @endforeach
@@ -75,7 +57,7 @@
 
 @push('scripts')
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-
+   
     <script>
         $(document).ready(function() {
             //Default data table
@@ -83,11 +65,11 @@
                 "aaSorting": [],
                 "columnDefs": [{
                         "orderable": false,
-                        "targets": [2]
+                        "targets": [1]
                     },
                     {
                         "orderable": true,
-                        "targets": [0, 1]
+                        "targets": [0]
                     }
                 ]
             });
@@ -98,7 +80,7 @@
         $(document).on('click', '#delete', function(e) {
             swal({
                     title: "Are you sure?",
-                    text: "To delete this screenshot.",
+                    text: "To delete this guide.",
                     type: "warning",
                     confirmButtonText: "Yes",
                     showCancelButton: true

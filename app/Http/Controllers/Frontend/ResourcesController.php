@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\IllustrationCategory;
 use App\Models\IllustrationCategoryImage;
+use App\Models\Guide;
 
 class ResourcesController extends Controller
 {
@@ -25,7 +26,8 @@ class ResourcesController extends Controller
 
     public function guides()
     {
-        return view('frontend.resources.guides');
+        $guides = Guide::orderBy('id', 'desc')->get();
+        return view('frontend.resources.guides',compact('guides'));
     }
 
     public function casestudies()
