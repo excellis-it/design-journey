@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppScreenShotsTable extends Migration
+class CreateScreenShotsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateAppScreenShotsTable extends Migration
      */
     public function up()
     {
-        Schema::create('app_screen_shots', function (Blueprint $table) {
+        Schema::create('screen_shots', function (Blueprint $table) {
             $table->id();
-            $table->string('screenshot_image')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateAppScreenShotsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_screen_shots');
+        Schema::dropIfExists('screen_shots');
     }
 }

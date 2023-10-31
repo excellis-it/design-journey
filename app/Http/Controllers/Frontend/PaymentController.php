@@ -11,6 +11,7 @@ use Stripe;
 use Auth;
 use Session;
 use DB;
+use Carbon\Carbon;
 
 class PaymentController extends Controller
 {
@@ -18,15 +19,19 @@ class PaymentController extends Controller
 
     public function payment($payment)
     {
-        if(!Auth::check())
-        {
-            return redirect()->route('login');
-        }else{
+        //checking auth and role customer 
+        
+
+
+        if (Auth::check() && Auth::user()->hasRole('CUSTOMER')) {
             $plan_id = decrypt($payment);
             $plan_details = Plan::find($plan_id);
+            return view('frontend.payment',compact('plan_details'));
+        } else {
+            return redirect()->route('login');
         }
 
-        return view('frontend.payment',compact('plan_details'));
+        
     }
 
     public function paymentSubmit(Request $request)
@@ -101,7 +106,9 @@ class PaymentController extends Controller
                 $payment->plan_id = $data['plan_id'];
                 $payment->payment_id = $charge['id'];
                 $payment->amount = $data['total_amount'];
-                $payment->payment_date = date('Y-m-d');
+                
+                $currentDate = Carbon::now();
+                $payment->payment_date = $currentDate;
                 $expiryDate = $currentDate->addDays(30);
                 $payment->expiry_date = $expiryDate; 
                 $payment->save();
@@ -116,9 +123,9 @@ class PaymentController extends Controller
     public function paymentSuccess()
     {
         if (Session::has('order_id')) {
-            return view('frontend.thanks');
+            return redirect()->route('user.dashboard');
         } else {
-            return redirect()->route('cart');
+            return redirect()->route('pricing');
         }
     }
 }

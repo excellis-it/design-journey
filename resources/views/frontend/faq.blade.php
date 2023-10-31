@@ -39,96 +39,25 @@
                         <!-- accordion - start -->
                         <div class="accordion accordion-1" id="accordionFAQ">
                             <!-- accordion item - start -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faqHeadingOne">
-                                <button 
-                                class="accordion-button"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faqOne"
-                                aria-expanded="true"
-                                aria-controls="faqOne">
-                                    <h4 class="c-dark">{{ $home_content->frequently_qs1  }}</h4>
-                                </button>
-                                </h2>
-                                <div 
-                                id="faqOne"
-                                class="accordion-collapse collapse show"
-                                aria-labelledby="faqHeadingOne" data-bs-parent="#accordionFAQ">
-                                    <div class="accordion-body">
-                                        <p>{{ $home_content->frequently_ans1  }}</p>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <!-- accordion item - end -->
                             <!-- accordion item - start -->
+                            @foreach ($faqs as $key => $faq)
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="faqHeadingTwo">
-                                <button 
-                                class="accordion-button collapsed"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faqTwo"
-                                aria-expanded="true"
-                                aria-controls="faqTwo">
-                                    <h4 class="c-dark">{{ $home_content->frequently_qs2  }}</h4>
-                                </button>
+                                <h2 class="accordion-header" id="faqHeading{{ $key }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq{{ $key }}" aria-expanded="true" aria-controls="faq{{ $key }}">
+                                        <h4 class="c-dark">{{ $faq->question }}</h4>
+                                    </button>
                                 </h2>
-                                <div 
-                                id="faqTwo"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="faqHeadingTwo" data-bs-parent="#accordionFAQ">
+                                <div id="faq{{ $key }}" class="accordion-collapse collapse" aria-labelledby="faqHeading{{ $key }}" data-bs-parent="#accordionFAQ">
                                     <div class="accordion-body">
-                                        <p>{{ $home_content->frequently_ans2  }}</p>
+                                        <p>{{ $faq->answer }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- accordion item - end -->
-                            <!-- accordion item - start -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faqHeadingThree">
-                                <button 
-                                class="accordion-button collapsed"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faqThree"
-                                aria-expanded="true"
-                                aria-controls="faqThree">
-                                    <h4 class="c-dark">{{ $home_content->frequently_qs3  }}</h4>
-                                </button>
-                                </h2>
-                                <div 
-                                id="faqThree"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="faqHeadingThree" data-bs-parent="#accordionFAQ">
-                                    <div class="accordion-body">
-                                        <p>{{ $home_content->frequently_ans3  }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- accordion item - end -->
-                            <!-- accordion item - start -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="faqHeadingFour">
-                                <button 
-                                class="accordion-button collapsed"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faqFour"
-                                aria-expanded="true"
-                                aria-controls="faqFour">
-                                    <h4 class="c-dark">{{ $home_content->frequently_qs4  }}</h4>
-                                </button>
-                                </h2>
-                                <div 
-                                id="faqFour"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="faqHeadingFour" data-bs-parent="#accordionFAQ">
-                                    <div class="accordion-body">
-                                        <p>{{ $home_content->frequently_ans4  }}</p>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
+                        
+                            
                             <!-- accordion item - end -->
                         </div>
                         <!-- accordion - end -->

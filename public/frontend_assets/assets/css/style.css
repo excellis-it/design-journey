@@ -501,7 +501,7 @@ body {
 }
 
 .bg-green-rgba{
-    background: rgb(33 235 138 / 20%);
+    background: rgb(40 235 138 / 30%);
 }
 .c-green-dark{
     color: #158951;
@@ -526,7 +526,7 @@ body {
 }
 .border-rounded{
     border-radius: 50px;
-    padding: 0 30px;
+    padding: 0 40px;
 }
 
 
