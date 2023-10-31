@@ -16,22 +16,20 @@ Career Details
             <div class="row">
                 <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="header-content t-center">
-                        <h1 class="m-horz-auto heading-width-res-full heading-width-83"><span class="c-red">Account Executive</span>(Remote)</h1>
-                        <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci earum, dolorem distinctio .</p>
+                        <h1 class="m-horz-auto heading-width-res-full heading-width-83"><span class="c-red">{{ $career_details->career_name }}</span></h1>
+                        <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65">{!! $career_details->details !!}</p>
                         <div class="opening-box mb-5">
                             <div class="remote d-flex align-items-center justify-content-center">
                                 <a href="">
-                                    <h4><span><i class="fas fa-map-marker-alt"></i></span>Worldwide</h4>
+                                    <h4><span><i class="fas fa-map-marker-alt"></i></span>{{ $career_details->location }}</h4>
                                 </a>
                                 <a href="">
-                                    <h4><span><i class="fas fa-wifi"></i></span>Remote OK</h4>
+                                    <h4><span><i class="fas fa-wifi"></i></span>{{ $career_details->work_type }}</h4>
                                 </a>
                                 <a href="">
-                                    <h4><span><i class="fas fa-building"></i></span>Full-Time</h4>
+                                    <h4><span><i class="fas fa-building"></i></span>{{ $career_details->work_type }}</h4>
                                 </a>
-                                <a href="">
-                                    <h4><span><i class="fas fa-building"></i></span>Sales</h4>
-                                </a>
+                                
                             </div>
                         </div>
                         <div class="col-lg-12 wow">

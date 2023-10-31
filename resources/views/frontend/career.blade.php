@@ -36,58 +36,25 @@ Home
     <div class="container">
         <div class="career-sec-wrap">
             <h2 class="c-dark lt-60 text-center">Our Openings</h2>
-
+            @foreach($careers as $career)
             <div class="opening-box-div d-flex justify-content-between align-items-center">
                 <div class="opening-box">
-                    <h3>Account Executive (Remote)</h3>
+                    <h3>{{ $career->career_name }} </h3>
                     <div class="remote d-flex align-items-center">
                         <a href="">
-                            <h4><span><i class="fas fa-wifi"></i></span>Remote Worldwide</h4>
+                            <h4><span><i class="fas fa-wifi"></i></span>{{ $career->work_type }} {{ $career->location }}</h4>
                         </a>
                         <a href="">
-                            <h4><span><i class="fas fa-building"></i></span>Full Time</h4>
+                            <h4><span><i class="fas fa-building"></i></span>{{ $career->job_type }}</h4>
                         </a>
-                        <a href="">
-                            <h4><span><i class="fas fa-building"></i></span>Sales</h4>
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="app-btn">
-                   <a href="{{route('career.details')}}" class="btn">Apply</a>    
+                   <a href="{{route('career.details',$career->id)}}" class="btn">Apply</a>    
                 </div>
             </div>
-            <div class="opening-box-div d-flex justify-content-between align-items-center">
-                <div class="opening-box">
-                    <h3>Account Executive (Remote)</h3>
-                    <div class="remote d-flex align-items-center">
-                        <a href="">
-                            <h4><span><i class="fas fa-wifi"></i></span>Remote Worldwide</h4>
-                        </a>
-                        <a href="">
-                            <h4><span><i class="fas fa-building"></i></span>Full Time</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="app-btn">
-                   <a href="{{route('career.details')}}" class="btn">Apply</a>    
-                </div>
-            </div>
-            <div class="opening-box-div d-flex justify-content-between align-items-center">
-                <div class="opening-box">
-                    <h3>Account Executive (Remote)</h3>
-                    <div class="remote d-flex align-items-center">
-                        <a href="">
-                            <h4><span><i class="fas fa-wifi"></i></span>Remote Worldwide</h4>
-                        </a>
-                        <a href="">
-                            <h4><span><i class="fas fa-building"></i></span>Full Time</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="app-btn">
-                   <a href="{{route('career.details')}}" class="btn">Apply</a>    
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

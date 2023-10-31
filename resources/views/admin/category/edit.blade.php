@@ -35,7 +35,7 @@
                     <div class="form-head">
                         <h4>Category Information</h4>
                     </div>
-                    <form action="{{ route('categories.update',$category->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('update.categories',$category->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row justify-content-between">
                             <input type="hidden" name="id" value="{{ $category->id }}">

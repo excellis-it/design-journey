@@ -60,7 +60,7 @@ Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
 Route::get('/help-center', [HomeController::class, 'helpCenter'])->name('help-center');
 Route::get('/help-centers/details', [HomeController::class, 'helpCenterDetails'])->name('help-centers.get-details');
 Route::get('/career', [HomeController::class, 'career'])->name('career');
-Route::get('/career-details', [HomeController::class, 'careerDetails'])->name('career.details');
+Route::get('/career-details/{id}', [HomeController::class, 'careerDetails'])->name('career.details');
 Route::get('/career-form', [HomeController::class, 'careerForm'])->name('career-form');
 Route::get('/free-illustration', [ResourcesController::class, 'freeIllustration'])->name('free-illustration');
 Route::get('/free-icon', [ResourcesController::class, 'freeIcon'])->name('free-icons');
@@ -110,7 +110,7 @@ Route::group(['prefix' => 'admin'], function () {
             'guides' => GuideController::class,
             'careers' => CareerController::class,
         ]);
-        Route::get('/screenshot/delete/{id}', [AdminBlogController::class, 'deleteScreenshot'])->name('delete.screenshot');
+        
 
 
         Route::get('/blog-categories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
@@ -123,7 +123,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
         Route::get('/categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
-        Route::post('/categories/update', [CategoryController::class, 'updateCategory'])->name('categories.update');
+        Route::post('/categories/update', [CategoryController::class, 'updateCategory'])->name('update.categories');
         Route::post('/blogs/statusChange', [AdminBlogController::class, 'changeBlogStatus'])->name('blogs.change-status');
 
         Route::get('/blogs/delete/{id}', [AdminBlogController::class, 'deleteBlog'])->name('delete.blog');
@@ -161,8 +161,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/users/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
         Route::get('/contact-us', [UserController::class, 'contactUsList'])->name('contact.us.list');
 
-        Route::get('/help-centers/edit/{id}', [HelpCenterController::class, 'editHelpCenter'])->name('help-centers.edit');
-        Route::post('/help-centers/update',[HelpCenterController::class, 'updateHelpCenter'])->name('help-centers.update');
+        Route::get('/help-centers/edit/{id}', [HelpCenterController::class, 'editHelpCenter'])->name('edit.help-centers');
+        Route::post('/help-centers/update',[HelpCenterController::class, 'updateHelpCenter'])->name('update.help-centers');
         Route::get('/help-centers/delete/{id}',[HelpCenterController::class, 'deleteHelpCenter'])->name('help-centers.delete');
         
 
