@@ -16,13 +16,10 @@ use App\Http\Controllers\Admin\HomeCmsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\TypeController;
-use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\FreeIllustrationController;
 use App\Http\Controllers\Admin\FreeIconController;
 use App\Http\Controllers\Admin\HelpCenterController;
 use App\Http\Controllers\Admin\ScrenShotController;
-use App\Http\Controllers\Admin\FaqController;
-use App\Http\Controllers\Admin\GuideController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ResourcesController;
@@ -60,7 +57,7 @@ Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
 Route::get('/help-center', [HomeController::class, 'helpCenter'])->name('help-center');
 Route::get('/help-centers/details', [HomeController::class, 'helpCenterDetails'])->name('help-centers.get-details');
 Route::get('/career', [HomeController::class, 'career'])->name('career');
-Route::get('/career-details/{id}', [HomeController::class, 'careerDetails'])->name('career.details');
+Route::get('/career-details', [HomeController::class, 'careerDetails'])->name('career.details');
 Route::get('/career-form', [HomeController::class, 'careerForm'])->name('career-form');
 Route::get('/free-illustration', [ResourcesController::class, 'freeIllustration'])->name('free-illustration');
 Route::get('/free-icon', [ResourcesController::class, 'freeIcon'])->name('free-icons');
@@ -95,7 +92,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
         Route::get('profile', [ProfileController::class, 'index'])->name('admin.profile');
         Route::post('profile/update', [ProfileController::class, 'profileUpdate'])->name('admin.profile.update');
-        Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout'); 
+        Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
 
         Route::resources([
             'blogs' => AdminBlogController::class,
@@ -119,7 +116,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/blog-categories/edit/{id}', [AdminBlogController::class, 'editBlogCategory'])->name('blogs.categories.edit');
         Route::post('/blog-categories/update', [AdminBlogController::class, 'updateBlogCategory'])->name('blogs.categories.update');
         Route::get('/blog-categories/delete/{id}', [AdminBlogController::class, 'deleteBlogCategory'])->name('blogs.categories.delete');
-      
+
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
         Route::get('/categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
@@ -161,10 +158,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/users/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
         Route::get('/contact-us', [UserController::class, 'contactUsList'])->name('contact.us.list');
 
-        Route::get('/help-centers/edit/{id}', [HelpCenterController::class, 'editHelpCenter'])->name('edit.help-centers');
-        Route::post('/help-centers/update',[HelpCenterController::class, 'updateHelpCenter'])->name('update.help-centers');
+        Route::get('/help-centers/edit/{id}', [HelpCenterController::class, 'editHelpCenter'])->name('help-centers.edit');
+        Route::post('/help-centers/update',[HelpCenterController::class, 'updateHelpCenter'])->name('help-centers.update');
         Route::get('/help-centers/delete/{id}',[HelpCenterController::class, 'deleteHelpCenter'])->name('help-centers.delete');
-        
+
 
         //cms routes
         Route::group(['prefix'=>'cms'], function(){
@@ -185,21 +182,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('screen-shots/update', [ScrenShotController::class, 'screenShotsUpdate'])->name('update.screenshot');
         Route::get('screen-shots/delete/{id}', [ScrenShotController::class, 'deleteScreenShots'])->name('delete.screenshot');
         Route::get('screen-shots/edit/{id}', [ScrenShotController::class, 'editScreenShots'])->name('edit.screenshot');
-
-        //faq route
-        Route::get('faqs/edit/{id}', [FaqController::class, 'editFaq'])->name('edit.faqs');
-        Route::get('faqs/delete/{id}', [FaqController::class, 'deleteFaq'])->name('delete.faqs');
-        Route::post('faqs/update', [FaqController::class, 'updateFaq'])->name('update.faqs');
-
-        //guide routes
-        Route::get('guides/edit/{id}', [GuideController::class, 'editGuide'])->name('edit.guides');
-        Route::get('guides/delete/{id}', [GuideController::class, 'deleteGuide'])->name('delete.guides');
-        Route::post('guides/update', [GuideController::class, 'updateGuide'])->name('update.guides');
-
-        //career routes
-        Route::get('careers/edit/{id}', [CareerController::class, 'editCareer'])->name('edit.careers');
-        Route::get('careers/delete/{id}', [CareerController::class, 'deleteCareer'])->name('delete.careers');
-        Route::post('careers/update', [CareerController::class, 'updateCareer'])->name('update.careers');
     });
 });
 
@@ -227,6 +209,8 @@ Route::group(['prefix' => 'user'], function () {
 
         Route::get('/brand-profile/edit/{id}', [BrandProfileController::class, 'editBrandProfile'])->name('edit.brand-profile');
         Route::post('/brand-profile/store', [BrandProfileController::class, 'updateBrandProfile'])->name('update.brand-profile');
+
+        Route::get('/my-plan',[UserProfileController::class,'myPlans'])->name('my-plan.list');
 
     });
 });
