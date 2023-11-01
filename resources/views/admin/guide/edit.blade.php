@@ -61,7 +61,7 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue"> Image*</label>
                                         <input type="file" name="image" class="form-control">
-                                        <img src="{{ asset($guide->image) }}" width="300px" height="250px" alt="">
+                                        <img src="{{Storage::url($guide->image)}}" width="300px" height="250px" alt="">
                                         @if ($errors->has('image'))
                                             <div class="error" style="color:red;">{{ $errors->first('image') }}</div>
                                         @endif
@@ -69,6 +69,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        
                         <div class="row justify-content-between">
                             <div class="col-md-12">
                                 <div class="form-group-div">

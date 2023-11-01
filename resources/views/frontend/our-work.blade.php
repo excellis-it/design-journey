@@ -46,13 +46,13 @@
                 <div class="filters-content">
                     <div id="category_filter">@include('frontend.our-work-filter')</div>
                     <div class="row">
-                        <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="button-group button-group-center">
-                                <a href="#" class="button button-red">
-                                    <span>VIEW MORE</span>
-                                </a>
-                            </div>
-                        </div>
+                        <!--<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.4s">-->
+                        <!--    <div class="button-group button-group-center">-->
+                        <!--        <a href="#" class="button button-red">-->
+                        <!--            <span>VIEW MORE</span>-->
+                        <!--        </a>-->
+                        <!--    </div>-->
+                        <!--</div>-->
                     </div>
                 </div>
                 <!-- content - end -->

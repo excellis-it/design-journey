@@ -29,8 +29,8 @@
                         </h1>
                         <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65">Scale up your creative content production with a reliable and hassle-free design service.</p>
                         <div class="m-horz-auto position-relative">
-                            <div class="banerimg" style="background-image: url('{{ $home_content->banner_image }}'); background-position: center center;
-                            background-size: cover; background-repeat: no-repeat;">
+                            <div class="banerimg" style="background-image: url('{{Storage::url($home_content->banner_image)}}'); background-position: center center;
+                            background-size: cover; background-repeat: no-repeat;">  
                             </div>                                
                             <div class="background-layout">
                                 <div class="box-1 bg-blue">
@@ -77,8 +77,8 @@
                         @foreach($screen_shots as $screen_shot)
                         <div class="swiper-slide">
                             <div class="screen-slide wow flipInY" data-wow-delay="0.3s">
-                                <a href=""><img src="{{ asset($screen_shot->image)}}" alt="app-screen"></a>
-                            </div>
+                                <a href=""><img src="{{Storage::url($screen_shot->image)}}" alt="app-screen"></a>
+                            </div>  
                         </div>
                         @endforeach
                     </div>
@@ -176,18 +176,18 @@
                                 <ul class="glide__slides">
                                 <li class="glide__slide">
                                     <img
-                                    src="{{ asset($home_content->section2_1st_image)}}"
+                                    src="{{Storage::url($home_content->section2_1st_image)}}"
                                     />
+                                </li>  
+                                <li class="glide__slide">
+                                    <img
+                                    src="{{Storage::url($home_content->section2_2nd_image)}}"
+                                    />  
                                 </li>
                                 <li class="glide__slide">
                                     <img
-                                    src="{{ asset($home_content->section2_2nd_image)}}"
-                                    />
-                                </li>
-                                <li class="glide__slide">
-                                    <img
-                                    src="{{ asset($home_content->section2_3rd_image)}}"
-                                    />
+                                    src="{{Storage::url($home_content->section2_3rd_image)}}"
+                                    />  
                                 </li>
                                 </ul>
                             </div>
@@ -382,7 +382,7 @@
                             <!-- <img src="assets/images/feature-phone-2.png" alt="phone"> -->
                         </div>
                         <div class="background-layout">
-                            <div class="box-1 box-image" style="background-image: url('{{ asset($home_content->section3_image)}}');">
+                            <div class="box-1 box-image" style="background-image: url('{{Storage::url($home_content->section3_image)}}');">  
                                 <div class="box-1-1 bg-purple wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                                 <div class="box-1-2 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                             </div>
@@ -415,19 +415,19 @@
                             <a href="{{ $home_content->section4_video_link }}" class="glightbox">
                                 <i class="fas fa-play c-red"></i>
                             </a>
-                            <div class="box-1" style="background-image: url('{{ asset($home_content->section4_image1) }}');"></div>
-                            <div class="box-2" style="background-image: url('{{ asset($home_content->section4_image2)}}');">
+                            <div class="box-1" style="background-image: url('{{Storage::url($home_content->section4_image1)}}');"></div> 
+                            <div class="box-2" style="background-image: url('{{Storage::url($home_content->section4_image2)}}');">
                                 <div class="box-8 bg-blue wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                                 <div class="box-9 bg-yellow">
                                     <div class="box-10 bg-grey-5 wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                                 </div>
                             </div>
-                            <div class="box-3" style="background-image: url('{{ asset($home_content->section4_image3)}}');">
+                            <div class="box-3" style="background-image: url('{{Storage::url($home_content->section4_image3)}}');"> 
                                 <div class="box-7 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite">
                                     <div class="box-11 bg-grey-5"></div>
                                 </div>
                             </div>
-                            <div class="box-4" style="background-image: url('{{ asset($home_content->section4_image4)}}');">
+                            <div class="box-4" style="background-image: url('{{Storage::url($home_content->section4_image4)}}');"> 
                                 <div class="box-5 bg-green wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                                 <div class="box-6 bg-grey-5 wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                             </div>
@@ -545,7 +545,7 @@
                                         <!-- image - start -->
                                         <div class="image">
                                             <div class="image-inner">
-                                                <img src="{{ asset($testimonial->image) }}" alt="testimonial">
+                                                <img src="{{Storage::url($testimonial->image)}}" alt="testimonial">  
                                                 <div class="box-1 bg-dark-1"></div>
                                                 <div class="box-2 bg-yellow">
                                                     <div class="box-2-1 bg-dark-1"></div>
@@ -664,7 +664,7 @@
                     <div class="blog-single">
                         <a href="{{ route('blog-details',encrypt($blog->id)) }}">
                             <figure>
-                                <img src="{{ asset($blog->main_image)}}" alt="blog">
+                                <img src="{{Storage::url($blog->main_image)}}" alt="blog"> 
                                 <div class="date bg-purple">
                                     <p class="c-white">
                                         {{ $blog->created_at->format('d') }}
@@ -717,7 +717,7 @@
                 <!-- image - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
                     <div class="cta-section-image">
-                        <img src="{{ asset($home_content->service_business_image)}}" alt="phone">
+                        <img src="{{Storage::url($home_content->service_business_image)}}" alt="phone"> 
                         <!-- <div class="box-1 bg-green-rgba-8">
                             <div class="box-2 bg-purple">
                                 <div class="box-2-1 bg-dark-1"></div>

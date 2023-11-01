@@ -53,8 +53,8 @@ class GuideController extends Controller
         if ($request->hasFile('image')) {
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $image_path = $request->file('image')->store('guide', 'public');
-            $guide_store->image = asset('storage/'.$image_path);
+            $image_path = $request->file('image')->store('guides', 'public');
+            $guide_store->image = $image_path;
         }
         $guide_store->save();
 
@@ -91,8 +91,8 @@ class GuideController extends Controller
         if ($request->hasFile('image')) {
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $image_path = $request->file('image')->store('guide', 'public');
-            $update_guide->image = asset('storage/'.$image_path);
+            $image_path = $request->file('image')->store('guides', 'public');
+            $update_guide->image = $image_path;
         }
         $update_guide->update();
 

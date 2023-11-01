@@ -96,6 +96,8 @@ Route::get('/services',[HomeController::class, 'services'])->name('services');
 
 
 
+
+
 /* ----------------- Admin Routes -----------------*/
 
 // Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
@@ -124,7 +126,7 @@ Route::group(['prefix' => 'admin'], function () {
             'testimonial' => TestimonialController::class,
         ]);
         
-
+         Route::get('/testimonial/delete/{id}', [TestimonialController::class, 'deleteTestimonial'])->name('delete.testimonials');
 
         Route::get('/blog-categories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
         Route::get('/blog-categories/create', [AdminBlogController::class, 'createBlogCategory'])->name('blogs.categories.create');

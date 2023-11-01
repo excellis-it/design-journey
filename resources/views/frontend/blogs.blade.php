@@ -61,7 +61,7 @@
                     <div class="blog-single">
                         <a href="{{ route('blog-details',encrypt($blog->id)) }}">
                             <figure>
-                                <img src="{{ asset($blog->main_image) }}" alt="blog">
+                                <img src="{{Storage::url($blog->main_image)}}" alt="blog">  
                                 <div class="date bg-purple">
                                     <p class="c-white">
                                         {{ $blog->created_at->format('d') }}
@@ -142,7 +142,7 @@
                 <!-- image - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
                     <div class="cta-section-image">
-                        <img src="{{ asset($home_content->service_business_image) }}" alt="phone">
+                        <img src="{{Storage::url($home_content->service_business_image)}}" alt="phone"> 
                         <!-- <div class="box-1 bg-green-rgba-8">
                             <div class="box-2 bg-purple">
                                 <div class="box-2-1 bg-dark-1"></div>

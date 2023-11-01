@@ -478,7 +478,7 @@
                                 Check out our open positions.</h2>
                         </div>
                         <div class="text-center mt-5">
-                            <a href="#" class="button button-blue">
+                            <a href="{{route('career')}}" class="button button-blue">
                                 <span>VIEW OPENINGS</span>
                             </a>
                         </div>

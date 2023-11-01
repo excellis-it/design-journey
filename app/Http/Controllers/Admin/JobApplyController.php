@@ -29,7 +29,7 @@ class JobApplyController extends Controller
 
         if ($file) {
             // Construct the full file path on the server
-            $filePath = public_path('storage/'.$file->resume_upload);
+            $filePath = public_path($file->resume_upload);
             
 
             if (file_exists($filePath)) {

@@ -18,6 +18,7 @@ use App\Models\Career;
 use App\Models\JobApply;
 use App\Models\Specification;
 use App\Models\Testimonial;
+
 use Illuminate\Support\Facades\View;
 
 
@@ -167,7 +168,7 @@ class HomeController extends Controller
             $file= $request->file('resume_upload');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('resume_upload')->store('job_apply', 'public');
-            $job_apply->resume_upload = asset('storage/'.$image_path);
+            $job_apply->resume_upload = $image_path;
         }
 
         $job_apply->save();

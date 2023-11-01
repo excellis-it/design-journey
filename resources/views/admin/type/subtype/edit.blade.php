@@ -86,7 +86,7 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue"> Icon</label>
                                         <input type="file" name="icon" class="form-control">
-                                        <img src="{{ asset($sub_type->icon) }}" alt="" width="50px" height="50px">
+                                        <img src="{{Storage::url($sub_type->icon)}}" alt="" width="50px" height="50px">
                                         @if ($errors->has('icon'))
                                             <div class="error" style="color:red;">{{ $errors->first('icon') }}</div>
                                         @endif
@@ -94,6 +94,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        
                             
                         <div class="row justify-content-between">
                             

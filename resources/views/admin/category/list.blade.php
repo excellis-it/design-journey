@@ -9,19 +9,7 @@
 @endpush
 
 @section('content')
-    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
-        <div class="">
-            <h4 class="page-title m-b-0">Category List</h4>
-        </div>
-        <div class="">
-            <ul class="breadcrumb breadcrumb-style">
-                <li class="breadcrumb-item">
-                    Home
-                </li>
-                <li class="breadcrumb-item active">Dashboard</li>
-            </ul>
-        </div>
-    </section>
+ 
     <div class="main-content" style="min-height: 842px;">
 
         <div class="inner_page">
@@ -65,7 +53,8 @@
                                             <a href="{{ route('categories.edit', $category->id) }}"> <span class="edit-icon"><i
                                                         class="ph ph-pencil-simple"></i></span></a>
                                                         <a title="Delete Category" data-route="{{ route('delete.category',$category->id) }}"
-                                                            id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>           
+                                                            id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>  
+                                                            </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -102,7 +91,7 @@
         $(document).on('click', '#delete', function(e) {
             swal({
                     title: "Are you sure?",
-                    text: "To delete this blog.",
+                    text: "To delete this category.",
                     type: "warning",
                     confirmButtonText: "Yes",
                     showCancelButton: true

@@ -62,7 +62,7 @@ class TypeController extends Controller
             $file= $request->file('icon');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('icon')->store('type', 'public');
-            $type->logo = asset('storage/'.$image_path);
+            $type->logo = $image_path;
         }
 
         $type->save();
@@ -114,7 +114,7 @@ class TypeController extends Controller
             $file= $request->file('icon');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('icon')->store('type', 'public');
-            $type->logo = asset('storage/'.$image_path);
+            $type->logo = $image_path;
         }
 
         $type->save();
@@ -186,7 +186,7 @@ class TypeController extends Controller
             $file= $request->file('icon');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('icon')->store('subtype', 'public');
-            $sub_type->icon = asset('storage/'.$image_path);
+            $sub_type->icon = $image_path;
         }
         $sub_type->save();
 
@@ -221,7 +221,7 @@ class TypeController extends Controller
             $file= $request->file('icon');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('icon')->store('subtype', 'public');
-            $sub_type->icon = asset('storage/'.$image_path);
+            $sub_type->icon = $image_path;
         }
         $sub_type->update();
 

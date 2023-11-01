@@ -61,7 +61,7 @@ class CategoryController extends Controller
                 $image_path = $image->store('categories', 'public');
                 $category_image = new CategoryImage();
                 $category_image->category_id = $category->id;
-                $category_image->image = asset('storage/'.$image_path);
+                $category_image->image = $image_path;
                 $category_image->save();
             }
         }
@@ -160,7 +160,7 @@ class CategoryController extends Controller
                 $image_path = $image->store('categories', 'public');
                 $category_image = new CategoryImage();
                 $category_image->category_id = $category->id;
-                $category_image->image = asset('storage/'.$image_path);
+                $category_image->image = $image_path;
                 $category_image->save();
             }
         }

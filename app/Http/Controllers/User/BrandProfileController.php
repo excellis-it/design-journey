@@ -70,7 +70,7 @@ class BrandProfileController extends Controller
             $file= $request->file('logo_file');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('logo_file')->store('brand', 'public');
-            $brand_profile->brand_logo = asset('public/storage/'.$image_path);
+            $brand_profile->brand_logo = $image_path;
         }
 
         if ($request->hasFile('brand_guide_file')) {
@@ -81,7 +81,7 @@ class BrandProfileController extends Controller
             $file1= $request->file('brand_guide_file');
             $filename1= date('YmdHi').$file1->getClientOriginalName();
             $image_path1 = $request->file('brand_guide_file')->store('brand', 'public');
-            $brand_profile->brand_guide = asset('public/storage/'.$image_path1);
+            $brand_profile->brand_guide = $image_path1;
         }
 
         if ($request->hasFile('font_file')) {
@@ -92,7 +92,7 @@ class BrandProfileController extends Controller
             $file2= $request->file('font_file');
             $filename2= date('YmdHi').$file2->getClientOriginalName();
             $image_path2 = $request->file('font_file')->store('brand', 'public');
-            $brand_profile->font = asset('public/storage/'.$image_path2);
+            $brand_profile->font = $image_path2;
         }
 
         if ($request->hasFile('extra_assets_file')) {
@@ -103,7 +103,7 @@ class BrandProfileController extends Controller
             $file3= $request->file('extra_assets_file');
             $filename3= date('YmdHi').$file3->getClientOriginalName();
             $image_path3 = $request->file('font_file')->store('brand', 'public');
-            $brand_profile->extra_asset = asset('public/storage/'.$image_path3);
+            $brand_profile->extra_asset = $image_path3;
         }
 
         $brand_profile->update();

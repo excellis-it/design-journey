@@ -6,21 +6,6 @@
 @endpush
 
 @section('content')
-    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
-        <div class="">
-            <h4 class="page-title m-b-0">Edit Home Cms</h4>
-            <!-- <h5 class="page">Hello Evano 👋🏼,</h5> -->
-        </div>
-        <div class="">
-            <ul class="breadcrumb breadcrumb-style">
-                <li class="breadcrumb-item">
-                    Home /
-                </li>
-                <li class=""> Home Cms</li>
-            </ul>
-        </div>
-    </section>
-
     <div class="main-content">
         <div class="inner_page">
             <div class="card-title">
@@ -32,11 +17,14 @@
             </div>
             <div class="card search_bar sales-report-card">
                 <div class="sales-report-card-wrap">
-                    <div class="form-head">
-                        <h4>Home Cms Information</h4>
-                    </div>
+                    
                     <form action="{{ route('home.cms.update') }}" method="post" enctype="multipart/form-data">
                         @csrf
+
+                        <label for="inputEnterYourName" class="col-form-label">
+                            <h3>Hero Section:</h3>
+                        </label>
+                        <hr>
                      
                         <div class="row justify-content-between">
                             <input type="hidden" name="home_cms_id" value="{{ $homeCms->id }}">
@@ -58,12 +46,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ $homeCms->banner_image }}" alt="" width="400px"
+                                        <img src="{{Storage::url($homeCms->banner_image)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <label for="inputEnterYourName" class="col-form-label">
                             <h3>Section 1:</h3>
@@ -181,12 +171,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($homeCms->section2_1st_image) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($homeCms->section2_1st_image)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">
@@ -236,12 +228,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($homeCms->section2_2nd_image) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($homeCms->section2_2nd_image)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">
@@ -291,12 +285,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($homeCms->section2_3rd_image) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($homeCms->section2_3rd_image)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">
@@ -380,12 +376,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($homeCms->section3_image) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($homeCms->section2_3rd_image)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">
@@ -589,7 +587,7 @@
                                         <label for="floatingInputValue">Section 4 Image1*</label>
                                         <input type="file" name="section4_image1" class="form-control"
                                             id="floatingInputValue">
-                                        <img src="{{ asset($homeCms->section4_image1) }}" alt="" width="200px"
+                                        <img src="{{Storage::url($homeCms->section4_image1)}}" alt="" width="200px"
                                             height="150px">
                                         @if ($errors->has('section4_image1'))
                                             <div class="error" style="color:red;">
@@ -598,13 +596,15 @@
                                     </div>
                                 </div>
                             </div>
+
+                            
                             <div class="col-md-3">
                                 <div class="form-group-div">
                                     <div class="form-group">
                                         <label for="floatingInputValue">Section 4 Image2*</label>
                                         <input type="file" name="section4_image2" class="form-control"
                                             id="floatingInputValue">
-                                        <img src="{{ asset($homeCms->section4_image2) }}" alt="" width="200px"
+                                        <img src="{{Storage::url($homeCms->section4_image2)}}" alt="" width="200px"
                                             height="150px">
                                         @if ($errors->has('section4_image2'))
                                             <div class="error" style="color:red;">
@@ -612,20 +612,20 @@
                                         @endif
                                     </div>
                                 </div>
-                            </div>
+                            </div>              
                             <div class="col-md-3">
                                 <div class="form-group-div">
                                     <div class="form-group">
                                         <label for="floatingInputValue">Section 4 Image3*</label>
                                         <input type="file" name="section4_image3" class="form-control"
                                             id="floatingInputValue">
-                                        <img src="{{ asset($homeCms->section4_image3) }}" alt="" width="200px"
+                                        <img src="{{Storage::url($homeCms->section4_image3)}}" alt="" width="200px"
                                             height="150px">
                                         @if ($errors->has('section4_image3'))
                                             <div class="error" style="color:red;">
                                                 {{ $errors->first('section4_image3') }}</div>
                                         @endif
-                                    </div>
+                                    </div>      
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -634,13 +634,13 @@
                                         <label for="floatingInputValue">Section 4 Image4*</label>
                                         <input type="file" name="section4_image4" class="form-control"
                                             id="floatingInputValue">
-                                        <img src="{{ asset($homeCms->section4_image4) }}" alt="" width="200px"
+                                        <img src="{{Storage::url($homeCms->section4_image4)}}" alt="" width="200px"
                                             height="150px">
                                         @if ($errors->has('section4_image4'))
                                             <div class="error" style="color:red;">
                                                 {{ $errors->first('section4_image4') }}</div>
                                         @endif
-                                    </div>
+                                    </div>  
                                 </div>
                             </div>
                         </div>
@@ -763,123 +763,6 @@
                             </div>
                         </div>
 
-                        <label for="inputEnterYourName" class="col-form-label">
-                            <h3>Faq Section:</h3>
-                        </label>
-                        <hr>
-                    
-
-                        <div class="row justify-content-between">
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Question 1*</label>
-                                        <input type="text" name="frequently_qs1" class="form-control"
-                                            id="floatingInputValue" value="{{ $homeCms->frequently_qs1 }}">
-                                        @if ($errors->has('frequently_qs1'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('frequently_qs1') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Answer 1*</label>
-                                        <textarea name="frequently_ans1" class="form-control" id="floatingInputValue">{{ $homeCms->frequently_ans1 }}</textarea>
-                                        @if ($errors->has('frequently_ans1'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('frequently_ans1') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-between">
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Question 2*</label>
-                                        <input type="text" name="frequently_qs2" class="form-control"
-                                            id="floatingInputValue" value="{{ $homeCms->frequently_qs2 }}">
-                                        @if ($errors->has('frequently_qs2'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('frequently_qs2') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Answer 2*</label>
-                                        <textarea name="frequently_ans2" class="form-control" id="floatingInputValue">{{ $homeCms->frequently_ans2 }}</textarea>
-                                        @if ($errors->has('frequently_ans2'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('frequently_ans2') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-between">
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Question 3*</label>
-                                        <input type="text" name="frequently_qs3" class="form-control"
-                                            id="floatingInputValue" value="{{ $homeCms->frequently_qs3 }}">
-                                        @if ($errors->has('frequently_qs3'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('frequently_qs3') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Answer 3*</label>
-                                        <textarea name="frequently_ans3" class="form-control" id="floatingInputValue">{{ $homeCms->frequently_ans3 }}</textarea>
-                                        @if ($errors->has('frequently_ans3'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('frequently_ans3') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-between">
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Question 4*</label>
-                                        <input type="text" name="frequently_qs4" class="form-control"
-                                            id="floatingInputValue" value="{{ $homeCms->frequently_qs4 }}">
-                                        @if ($errors->has('frequently_qs4'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('frequently_qs4') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Answer 4*</label>
-                                        <textarea name="frequently_ans4" class="form-control" id="floatingInputValue">{{ $homeCms->frequently_ans4 }}</textarea>
-                                        @if ($errors->has('frequently_ans4'))
-                                            <div class="error" style="color:red;">
-                                                {{ $errors->first('frequently_ans4') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <label for="inputEnterYourName" class="col-form-label">
                             <h3>End Section:</h3>
@@ -906,7 +789,7 @@
                                         <label for="floatingInputValue">Image*</label>
                                         <input type="file" name="service_business_image" class="form-control"
                                             id="floatingInputValue">
-                                        <img src="{{ asset($homeCms->service_business_image) }}" alt="" width="200px"
+                                        <img src="{{Storage::url($homeCms->service_business_image)}}" alt="" width="200px"
                                             height="150px">
                                         @if ($errors->has('service_business_image'))
                                             <div class="error" style="color:red;">
@@ -916,6 +799,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-xl-12">

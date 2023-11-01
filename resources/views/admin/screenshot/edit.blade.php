@@ -32,7 +32,7 @@
                                         <label for="floatingInputValue">Image*</label>
                                         <input type="file" name="image" class="form-control" id="floatingInputValue"
                                             placeholder="Enter image*" value="{{ old('image') }}">
-                                            <img src="{{ $screenshots->image }}" >
+                                            <img src="{{Storage::url($screenshots->image)}}" >
                                         @if ($errors->has('image'))
                                             <div class="error" style="color:red;">{{ $errors->first('image') }}</div>
                                         @endif
@@ -40,6 +40,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             

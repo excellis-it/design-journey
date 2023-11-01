@@ -54,8 +54,10 @@
                                         {{$key +1 }}
                                     </td>
                                     <td>
-                                        <img src="{{ asset($screenshot->image) }}" style="width:100px;height:100px;">
+                                        <img src="{{Storage::url($screenshot->image)}}" style="width:100px;height:100px;">
                                     </td>
+
+                                    
                                     <td>
                                         <div class="edit-1 d-flex align-items-center">
                                             <a title="Delete Screenshot" href="{{ route('edit.screenshot',$screenshot->id) }}" id="edit"><span class="edit-icon"><i class="ph ph-pencil-simple"></i></span></a>

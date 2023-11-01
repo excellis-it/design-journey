@@ -6,21 +6,6 @@
 @endpush
 
 @section('content')
-    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
-        <div class="">
-            <h4 class="page-title m-b-0">Create Blog Category</h4>
-            <!-- <h5 class="page">Hello Evano 👋🏼,</h5> -->
-        </div>
-        <div class="">
-            <ul class="breadcrumb breadcrumb-style">
-                <li class="breadcrumb-item">
-                    Home
-                </li>
-                <li class=""> >>  Blog Categroy</li>
-            </ul>
-        </div>
-    </section>
-
     <div class="main-content">
         <div class="inner_page">
             <div class="card-title">

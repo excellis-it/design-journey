@@ -30,9 +30,9 @@
                         <thead>
                             <tr>
                                 <th>Title</th>
-                                <th>Video Link</th>
+                                <th>Image</th>
                                 <th>Description</th>
-                                <th>Actions</th>
+                                <!--<th>Actions</th>-->
                             </tr>
                         </thead>
                         <tbody>
@@ -41,17 +41,15 @@
                                     <td>
                                         {{ $case_study->title }}
                                     </td>
-                                    <td>
-                                        {{ $case_study->video_link }}
-                                    </td>
+                                    <td><img src="{{Storage::url($case_study->main_image)}}" style="hight:200px;width:100px;"></td>
                                     <td>{{ $case_study->description }}</td>
-                                    <td>
-                                        <div class="edit-1 d-flex align-items-center">
-                                            <a href="{{ route('case-studies.edit', $case_study->id) }}"> <span class="edit-icon"><i
-                                                        class="ph ph-pencil-simple"></i></span></a>
-                                                        <a title="Delete Case study" data-route="{{ route('delete.case-studies',$case_study->id) }}"
-                                                            id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>           
-                                    </td>
+                                    <!--<td>-->
+                                    <!--    <div class="edit-1 d-flex align-items-center">-->
+                                    <!--        <a href=""> <span class="edit-icon"><i-->
+                                    <!--                    class="ph ph-pencil-simple"></i></span></a>-->
+                                    <!--                    <a title="Delete Case study" data-route=""-->
+                                    <!--                        id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a>           -->
+                                    <!--</td>-->
                                 </tr>
                             @endforeach
                         </tbody>

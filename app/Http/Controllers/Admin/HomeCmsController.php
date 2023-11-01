@@ -60,14 +60,7 @@ class HomeCmsController extends Controller
             'section5_detail3' => 'required',
             'section5_title4' => 'required',
             'section5_detail4' => 'required',
-            'frequently_qs1' => 'required',
-            'frequently_ans1' => 'required',
-            'frequently_qs2' => 'required',
-            'frequently_ans2' => 'required',
-            'frequently_qs3' => 'required',
-            'frequently_ans3' => 'required',
-            'frequently_qs4' => 'required',
-            'frequently_ans4' => 'required',
+            
             'service_business_title' => 'required',
 
         ]);
@@ -120,7 +113,7 @@ class HomeCmsController extends Controller
             $banner_image= $request->file('banner_image');
             $bannerfile= date('YmdHi').$banner_image->getClientOriginalName();
             $banner_image_path = $request->file('banner_image')->store('home', 'public');
-            $update_homeCms->banner_image = asset('storage/'.$banner_image_path);
+            $update_homeCms->banner_image = $banner_image_path;
         }
 
         if ($request->hasFile('section2_1st_image')) {
@@ -131,7 +124,7 @@ class HomeCmsController extends Controller
             $section2_file= $request->file('section2_1st_image');
             $filename2= date('YmdHi').$section2_file->getClientOriginalName();
             $section2_image_path = $request->file('section2_1st_image')->store('home', 'public');
-            $update_homeCms->section2_1st_image = asset('storage/'.$section2_image_path);
+            $update_homeCms->section2_1st_image = $section2_image_path;
         }
 
         if ($request->hasFile('section2_2nd_image')) {
@@ -142,7 +135,7 @@ class HomeCmsController extends Controller
             $section2_file2= $request->file('section2_2nd_image');
             $filename3= date('YmdHi').$section2_file2->getClientOriginalName();
             $section2_image2_path = $request->file('section2_2nd_image')->store('home', 'public');
-            $update_homeCms->section2_2nd_image = asset('storage/'.$section2_image2_path);
+            $update_homeCms->section2_2nd_image = $section2_image2_path;
         }
 
         if ($request->hasFile('section2_3rd_image')) {
@@ -153,7 +146,7 @@ class HomeCmsController extends Controller
             $section2_file3= $request->file('section2_3rd_image');
             $filename4= date('YmdHi').$section2_file3->getClientOriginalName();
             $section2_image3_path = $request->file('section2_3rd_image')->store('home', 'public');
-            $update_homeCms->section2_3rd_image = asset('storage/'.$section2_image3_path);
+            $update_homeCms->section2_3rd_image = $section2_image3_path;
         }
 
         if ($request->hasFile('section3_image')) {
@@ -164,7 +157,7 @@ class HomeCmsController extends Controller
             $section3_file= $request->file('section3_image');
             $filename5= date('YmdHi').$section3_file->getClientOriginalName();
             $section3_image_path = $request->file('section3_image')->store('home', 'public');
-            $update_homeCms->section3_image = asset('storage/'.$section3_image_path);
+            $update_homeCms->section3_image = $section3_image_path;
         }
 
         if ($request->hasFile('section4_image1')) {
@@ -175,7 +168,7 @@ class HomeCmsController extends Controller
             $section4_file= $request->file('section4_image1');
             $filename6= date('YmdHi').$section4_file->getClientOriginalName();
             $section4_image_path = $request->file('section4_image1')->store('home', 'public');
-            $update_homeCms->section4_image1 = asset('storage/'.$section4_image_path);
+            $update_homeCms->section4_image1 = $section4_image_path;
         }
 
         if ($request->hasFile('section4_image2')) {
@@ -186,7 +179,7 @@ class HomeCmsController extends Controller
             $section4_file2= $request->file('section4_image2');
             $filename7= date('YmdHi').$section4_file2->getClientOriginalName();
             $section4_image2_path = $request->file('section4_image2')->store('home', 'public');
-            $update_homeCms->section4_image2 = asset('storage/'.$section4_image2_path);
+            $update_homeCms->section4_image2 = $section4_image2_path;
         }
 
         if ($request->hasFile('section4_image3')) {
@@ -197,7 +190,7 @@ class HomeCmsController extends Controller
             $section4_file3= $request->file('section4_image3');
             $filename7= date('YmdHi').$section4_file3->getClientOriginalName();
             $section4_image3_path = $request->file('section4_image3')->store('home', 'public');
-            $update_homeCms->section4_image3 = asset('storage/'.$section4_image3_path);
+            $update_homeCms->section4_image3 = $section4_image3_path;
         }
 
         if ($request->hasFile('section4_image4')) {
@@ -208,7 +201,7 @@ class HomeCmsController extends Controller
             $section4_file4= $request->file('section4_image4');
             $filename8= date('YmdHi').$section4_file4->getClientOriginalName();
             $section4_image4_path = $request->file('section4_image4')->store('home', 'public');
-            $update_homeCms->section4_image4 = asset('storage/'.$section4_image4_path);
+            $update_homeCms->section4_image4 = $section4_image4_path;
         }
 
         if ($request->hasFile('service_business_image')) {
@@ -219,7 +212,7 @@ class HomeCmsController extends Controller
             $service_business_file= $request->file('service_business_image');
             $filename9= date('YmdHi').$service_business_file->getClientOriginalName();
             $end_section_image = $request->file('service_business_image')->store('home', 'public');
-            $update_homeCms->service_business_image = asset('storage/'.$end_section_image);
+            $update_homeCms->service_business_image = $end_section_image;
         }
 
         
@@ -266,7 +259,7 @@ class HomeCmsController extends Controller
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('image')->store('about', 'public');
-            $update_about->about_image = asset('storage/'.$image_path);
+            $update_about->about_image = $image_path;
         }
         if ($request->hasFile('icon1')) {
             $request->validate([
@@ -276,7 +269,7 @@ class HomeCmsController extends Controller
             $file1= $request->file('icon1');
             $filename1= date('YmdHi').$file1->getClientOriginalName();
             $image_path1 = $request->file('icon1')->store('about', 'public');
-            $update_about->icon1 = asset('storage/'.$image_path1);
+            $update_about->icon1 = $image_path1;
         }
         $update_about->title1 = $request->title1;
         $update_about->details1 = $request->details1;
@@ -288,7 +281,7 @@ class HomeCmsController extends Controller
             $file2= $request->file('icon2');
             $filename2= date('YmdHi').$file2->getClientOriginalName();
             $image_path2 = $request->file('icon2')->store('about', 'public');
-            $update_about->icon2 = asset('storage/'.$image_path2);
+            $update_about->icon2 = $image_path2;
         }
         $update_about->title2 = $request->title2;
         $update_about->details2 = $request->details2;
@@ -300,7 +293,7 @@ class HomeCmsController extends Controller
             $file3= $request->file('icon3');
             $filename3= date('YmdHi').$file3->getClientOriginalName();
             $image_path3 = $request->file('icon3')->store('about', 'public');
-            $update_about->icon3 = asset('storage/'.$image_path3);
+            $update_about->icon3 = $image_path3;
 
         }
         $update_about->title3 = $request->title3;
@@ -313,7 +306,7 @@ class HomeCmsController extends Controller
             $file4= $request->file('icon4');
             $filename4= date('YmdHi').$file4->getClientOriginalName();
             $image_path4 = $request->file('icon4')->store('about', 'public');
-            $update_about->icon4 = asset('storage/'.$image_path4);
+            $update_about->icon4 = $image_path4;
         }
         $update_about->title4 = $request->title4;
         $update_about->details4 = $request->details4;
@@ -325,7 +318,7 @@ class HomeCmsController extends Controller
             $file5= $request->file('icon5');
             $filename5= date('YmdHi').$file5->getClientOriginalName();
             $image_path5 = $request->file('icon5')->store('about', 'public');
-            $update_about->icon5 = asset('storage/'.$image_path5);
+            $update_about->icon5 = $image_path5;
         }
         $update_about->title5 = $request->title5;
         $update_about->details5 = $request->details5;
@@ -337,7 +330,7 @@ class HomeCmsController extends Controller
             $file6= $request->file('icon6');
             $filename6= date('YmdHi').$file6->getClientOriginalName();
             $image_path6 = $request->file('icon6')->store('about', 'public');
-            $update_about->icon6 = asset('storage/'.$image_path6);
+            $update_about->icon6 = $image_path6;
         }
         $update_about->title6 = $request->title6;
         $update_about->details6 = $request->details6;
@@ -372,7 +365,7 @@ class HomeCmsController extends Controller
             $file= $request->file('section1_image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('section1_image')->store('solution', 'public');
-            $update_soluition_cms->section1_image = asset('storage/'.$image_path);
+            $update_soluition_cms->section1_image = $image_path;
         }
         $update_soluition_cms->section2_title = $request->section2_title;
         $update_soluition_cms->section2_content = $request->section2_content;
@@ -384,7 +377,7 @@ class HomeCmsController extends Controller
             $file2= $request->file('section2_image');
             $filename2= date('YmdHi').$file2->getClientOriginalName();
             $image_path2 = $request->file('section2_image')->store('solution', 'public');
-            $update_soluition_cms->section2_image = asset('storage/'.$image_path2);
+            $update_soluition_cms->section2_image = $image_path2;
         }
         $update_soluition_cms->update();
 

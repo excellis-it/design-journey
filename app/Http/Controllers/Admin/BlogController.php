@@ -60,7 +60,7 @@ class BlogController extends Controller
             $file= $request->file('main_image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('main_image')->store('blogs', 'public');
-            $blog->main_image = asset('storage/'.$image_path);
+            $blog->main_image = $image_path;
         }
 
         if ($request->hasFile('image1')) {
@@ -71,7 +71,7 @@ class BlogController extends Controller
             $file1= $request->file('image1');
             $filename1= date('YmdHi').$file1->getClientOriginalName();
             $image1_path = $request->file('image1')->store('blogs', 'public');
-            $blog->image1 = asset('storage/'.$image1_path);
+            $blog->image1 = $image1_path;
         }
 
         if ($request->hasFile('image2')) {
@@ -82,7 +82,7 @@ class BlogController extends Controller
             $file2= $request->file('image2');
             $filename2= date('YmdHi').$file2->getClientOriginalName();
             $image2_path = $request->file('image2')->store('blogs', 'public');
-            $blog->image2 = asset('storage/'.$image2_path);
+            $blog->image2 = $image2_path;
         }
         $blog->status = $request->status;
         $blog->save();
@@ -160,7 +160,7 @@ class BlogController extends Controller
             $file= $request->file('main_image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('main_image')->store('blogs', 'public');
-            $blog->main_image = asset('storage/'.$image_path);
+            $blog->main_image = $image_path;
         }
 
         if ($request->hasFile('image1')) {
@@ -171,7 +171,7 @@ class BlogController extends Controller
             $file1= $request->file('image1');
             $filename1= date('YmdHi').$file1->getClientOriginalName();
             $image1_path = $request->file('image1')->store('blogs', 'public');
-            $blog->image1 = asset('storage/'.$image1_path);
+            $blog->image1 = $image1_path;
         }
 
         if ($request->hasFile('image2')) {
@@ -182,8 +182,9 @@ class BlogController extends Controller
             $file2= $request->file('image2');
             $filename2= date('YmdHi').$file2->getClientOriginalName();
             $image2_path = $request->file('image2')->store('blogs', 'public');
-            $blog->image2 = asset('storage/'.$image2_path);
+            $blog->image2 = $image2_path;
         }
+
         $blog->status = $request->status;
         $blog->update();
 

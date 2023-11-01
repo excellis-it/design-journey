@@ -56,13 +56,13 @@
                                         <div class="blog-single">
                                             <a href="">
                                                 <figure>
-                                                    <img src="{{ asset($solution_image->image) }}" alt="blog">
+                                                    <img src="{{Storage::url($solution_image->image)}}" alt="blog">
                                                     <div class="hover">
                                                         <div class="circle">
                                                             <i class="fas fa-plus"></i>
                                                         </div>
                                                     </div>
-                                                </figure>
+                                                </figure>                                             
                                             </a>
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@
                                 <!-- <img src="assets/images/feature-phone-1.png" alt="phone"> -->
                             </div>
                             <div class="background-layout">
-                                <div class="box-1 box-image" style="background-image: url('{{ asset($solutionCms->section1_image) }}');">
+                                <div class="box-1 box-image" style="background-image: url('{{Storage::url($solutionCms->section1_image)}}');">
                                     <div class="box-1-1 bg-purple wow bounce" data-wow-iteration="infinite"></div>
                                     <div class="box-1-2 bg-red wow pulse" data-wow-iteration="infinite"></div>
                                 </div>
@@ -174,6 +174,8 @@
                             </div>
                         </div>
                     </div>
+
+                    
                     <!-- image - end -->
 
                     <!-- content - start -->
@@ -233,7 +235,7 @@
                                 <!-- <img src="assets/images/feature-phone-2.png" alt="phone"> -->
                             </div>
                             <div class="background-layout">
-                                <div class="box-1 box-image" style="background-image: url('{{ asset($solutionCms->section2_image) }}');">
+                                <div class="box-1 box-image" style="background-image: url('{{Storage::url($solutionCms->section2_image)}}');">
                                     <div class="box-1-1 bg-purple wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                                     <div class="box-1-2 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                                 </div>
@@ -244,7 +246,7 @@
                         </div>
                     </div>
                     <!-- image - end -->
-
+                    
                 </div>
             </div>
         </div>
@@ -672,7 +674,7 @@
                     <!-- image - start -->
                     <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
                         <div class="cta-section-image">
-                            <img src="{{ asset($home_content->service_business_image) }}" alt="phone">
+                            <img src="{{Storage::url($home_content->service_business_image)}}" alt="phone">  
                             <!-- <div class="box-1 bg-green-rgba-8">
                                     <div class="box-2 bg-purple">
                                         <div class="box-2-1 bg-dark-1"></div>

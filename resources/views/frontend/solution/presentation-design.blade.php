@@ -57,14 +57,14 @@
                                         <div class="blog-single">
                                             <a href="">
                                                 <figure>
-                                                    <img src="{{ asset($solution_image->image) }}" alt="blog">
+                                                    <img src="{{Storage::url($solution_image->image)}}" alt="blog">
                                                     <div class="hover">
                                                         <div class="circle">
                                                             <i class="fas fa-plus"></i>
                                                         </div>
                                                     </div>
                                                 </figure>
-                                            </a>
+                                            </a>  
                                         </div>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@
                             </div>
                             <div class="background-layout">
                                 <div class="box-1 box-image"
-                                    style="background-image: url('{{ asset($solutionCms->section1_image) }}');">
+                                    style="background-image: url('{{Storage::url($solutionCms->section1_image)}}');">
                                     <div class="box-1-1 bg-purple wow bounce" data-wow-iteration="infinite"></div>
                                     <div class="box-1-2 bg-red wow pulse" data-wow-iteration="infinite"></div>
                                 </div>
@@ -178,6 +178,8 @@
                             </div>
                         </div>
                     </div>
+
+                    
                     <!-- image - end -->
 
                     <!-- content - start -->
@@ -233,7 +235,7 @@
                             </div>
                             <div class="background-layout">
                                 <div class="box-1 box-image"
-                                    style="background-image: url('{{ asset($solutionCms->section2_image) }}');">
+                                    style="background-image: url('{{Storage::url($solutionCms->section2_image)}}');">
                                     <div class="box-1-1 bg-purple wow pulse" data-wow-delay="0.7s"
                                         data-wow-iteration="infinite"></div>
                                     <div class="box-1-2 bg-red wow pulse" data-wow-delay="0.7s"
@@ -243,7 +245,7 @@
                                     <div class="box-2-1 bg-yellow wow pulse" data-wow-delay="0.7s"
                                         data-wow-iteration="infinite"></div>
                                 </div>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                     <!-- image - end -->

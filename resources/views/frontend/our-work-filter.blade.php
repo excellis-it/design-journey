@@ -5,8 +5,8 @@
         <div class="feature-section-content text-center">
             <a href="">
                 <figure>
-                    <img src="{{ asset($category_image->image) }}"
-                        alt="" >
+                    <img src="{{Storage::url($category_image->image)}}"
+                        alt="" >  
                 </figure>
             </a>
         </div>

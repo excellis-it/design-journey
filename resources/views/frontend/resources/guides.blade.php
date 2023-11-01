@@ -60,7 +60,7 @@
                 <div class="col-xl-4 col-md-6">
                     <div class="case-studies-img-div">
                         <div class="case-studies-img guide-img">
-                            <a href=""><img src="{{ asset($guide->image) }}" alt=""></a>
+                            <a href=""><img src="{{Storage::url($guide->image)}}" alt=""></a>
                             <div class="case-studies-text">
                                 
                                     <h3>{{ $guide->title }}
@@ -71,6 +71,8 @@
                     </div>
                 </div>
                 @endforeach
+
+                
                 
                 <div class="col-lg-12 mt-4 wow fadeInUp animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                     <div class="button-group button-group-center">

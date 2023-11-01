@@ -56,7 +56,7 @@
                 <!-- blog detail thumbnail - start -->
                 <div class="blog-detail-thumbnail-wrapper col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="blog-detail-thumbnail">
-                        <img src="{{ asset($blog_details->main_image) }}" alt="blog-detail-thumbnail">
+                        <img src="{{Storage::url($blog_details->main_image)}}" alt="blog-detail-thumbnail">  
                         <div class="background-layout">
                             <div class="box-1 bg-red">
                                 <div class="box-2 bg-blue"></div>
@@ -124,10 +124,10 @@
         </div>
         <div class="blog-detail-image">
             <div class="image">
-                <img src="{{ asset($blog_details->image1) }}" alt="blog-content">
+                <img src="{{Storage::url($blog_details->image1)}}" alt="blog-content">  
             </div>
             <div class="image">
-                <img src="{{ asset($blog_details->image2) }}" alt="blog-content">
+                <img src="{{Storage::url($blog_details->image2)}}" alt="blog-content"> 
             </div>    
         </div>
         <!-- blog detail content - end -->
@@ -173,7 +173,7 @@
                                             <div class="blog-single">
                                                 <a href="blog-single.html">
                                                     <figure>
-                                                        <img src="{{ $similer_blog->main_image }}" alt="blog">
+                                                        <img src="{{Storage::url($similer_blog->main_image)}}" alt="blog">
                                                         <div class="date bg-purple">
                                                             <p class="c-white">
                                                                 {{ $similer_blog->created_at->format('d') }}

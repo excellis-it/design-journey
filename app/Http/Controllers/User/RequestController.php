@@ -80,7 +80,7 @@ class RequestController extends Controller
             $file= $request->file('demo_design_file');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('demo_design_file')->store('presentation', 'public');
-            $presentation->demo_design_file = asset('storage/'.$image_path);
+            $presentation->demo_design_file = $image_path;
         }
 
 
@@ -96,7 +96,7 @@ class RequestController extends Controller
 
         if ($file) {
             // Construct the full file path on the server
-            $filePath = public_path('storage/'.$file->file_name);
+            $filePath = public_path('public/storage/'.$file->file_name);
             
 
             if (file_exists($filePath)) {

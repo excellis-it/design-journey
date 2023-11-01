@@ -73,13 +73,15 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue"> Icon*</label>
                                         <input type="file" name="icon" class="form-control">
-                                        <img src="{{ asset($type_detail->logo) }}" width="100px" height="100px" alt="icon">
+                                        <img src="{{Storage::url($type_detail->logo)}}" width="100px" height="100px" alt="icon">
                                         @if ($errors->has('icon'))
                                             <div class="error" style="color:red;">{{ $errors->first('icon') }}</div>
                                         @endif
                                     </div>
                                 </div>
                             </div>
+
+                            
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">

@@ -24,7 +24,7 @@ All Job Application Details - {{ env('APP_NAME') }}
                         <p class="description"><span class="career-details">Country:</span> {{ $job_apply_detail->country }}</p>
                         <p class="description"><span class="career-details">US EST time availability:</span> {{ $job_apply_detail->us_time_available }}</p>
                         <p class="description"><span class="career-details">Expected salary:</span> ${{ $job_apply_detail->salary }}</p>
-                        <p class="description"><span class="career-details">Resume:</span> <a href="{{ route('download.resume',$job_apply_detail->id) }}" target="_blank">View Resume</a></p>
+                        <!--<p class="description"><span class="career-details">Resume:</span> <a href="{{ route('download.resume',$job_apply_detail->id) }}" target="_blank">View Resume</a></p>-->
                     </div>
                 </div>
                 

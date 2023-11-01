@@ -49,7 +49,7 @@
                 <div class="col-md-6">
                     <div class="case-studies-right">
                         <div class="case-studies-img">
-                            <img src="{{ asset($case_studies[0]['main_image'] ?? '') }}" alt="">
+                            <img src="{{Storage::url($case_studies[0]['main_image'] ?? '')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="col-md-6">
                     <div class="case-studies-img-div">
                         <div class="case-studies-img">
-                            <a href=""><img src="{{ asset($case_study->main_image)}}" alt=""></a>
+                            <a href=""><img src="{{Storage::url($case_study->main_image)}}" alt=""></a>
                             <div class="case-studies-text">
                                 <a href=""><h3>{{$case_study->title}}</h3></a>
                             </div>
@@ -77,6 +77,8 @@
                     </div>
                 </div>
             @endforeach
+
+            
 
             </div>
         </div>

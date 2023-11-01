@@ -69,7 +69,7 @@ class Requestcontroller extends Controller
 
         if ($file) {
             // Construct the full file path on the server
-            $filePath = public_path('storage/'.$file->file_name);
+            $filePath = public_path('public/storage/'.$file->file_name);
             
 
             if (file_exists($filePath)) {

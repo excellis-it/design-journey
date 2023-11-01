@@ -53,10 +53,17 @@ class TestimonialController extends Controller
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('image')->store('testimonial', 'public');
-            $testimonial->image = asset('storage/'.$image_path);
+            $testimonial->image = $image_path;
             $testimonial->save();
 
             return redirect()->route('testimonial.index')->with('message', 'Testimonial added successfully');
+    }
+    
+    public function deleteTestimonial($id)
+    {
+        
+        Testimonial::findOrFail($id)->delete();
+        return back()->with('error', 'Testimonial has been deleted!');
     }
 
     /**

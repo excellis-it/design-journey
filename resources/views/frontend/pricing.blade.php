@@ -36,11 +36,11 @@
                     <div class="disc-1-div">
                         <div class="disc-1">
                             
-                             <h4>Save {{ $quarterly_percent->percentage }}%</h4>
+                             <h4>Save {{ $quarterly_percent->percentage ?: "''" }}%</h4>
                              <img src="{{asset('frontend_assets/assets/images/arrow1.png')}}">
                         </div>
                         <div class="disc-2">
-                             <h4>Save {{ $yearly_percent->percentage }}%</h4>
+                             <h4>Save {{ $yearly_percent->percentage ?: "''"}}%</h4>
                              <img src="{{asset('frontend_assets/assets/images/arrow2.png')}}">
                         </div>
                       </div>

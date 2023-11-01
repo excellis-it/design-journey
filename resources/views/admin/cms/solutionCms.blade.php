@@ -87,12 +87,14 @@
                                 </div>
                             </div>
 
+                            
+
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($solutionCms->section1_image) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($solutionCms->section1_image)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
@@ -153,12 +155,13 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($solutionCms->section2_image) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($solutionCms->section2_image)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                       
 
 
                         <div class="row justify-content-between">

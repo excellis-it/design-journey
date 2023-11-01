@@ -41,7 +41,7 @@ class ProfileController extends Controller
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('image')->store('users', 'public');
-            $data->image = asset('storage/'.$image_path);
+            $data->image = $image_path;
         }
         if($request->password){
             $data->password = bcrypt($request->password);

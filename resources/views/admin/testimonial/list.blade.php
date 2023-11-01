@@ -34,7 +34,7 @@
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Message</th>
-                                
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,9 +45,17 @@
                                     </td>
                                     <td>{{ $testimonial->name }}</td>
                                     <td>
-                                        <img src="{{ asset($testimonial->image) }}" style="width:100px;height:100px;">
+                                        <img src="{{Storage::url($testimonial->image)}}" style="width:100px;height:100px;">
                                     </td>
-                                    <td>{!! $testimonial->message !!}
+
+                                    
+                                    <td>{!! $testimonial->message !!}</td>
+                                    <td>
+                                        <div class="edit-1 d-flex align-items-center">
+                                        <a title="Delete testimonial" data-route="{{ route('delete.testimonials',$testimonial->id) }}"
+                                                            id="delete"><span class="trash-icon"><i class="ph ph-trash"></i></span></a> 
+                                                            </div>
+                                    </td>
                                     
                                 </tr>
                             @endforeach
@@ -84,7 +92,7 @@
         $(document).on('click', '#delete', function(e) {
             swal({
                     title: "Are you sure?",
-                    text: "To delete this screenshot.",
+                    text: "To delete this testimonial.",
                     type: "warning",
                     confirmButtonText: "Yes",
                     showCancelButton: true

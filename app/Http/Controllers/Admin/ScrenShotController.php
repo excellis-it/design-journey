@@ -45,7 +45,7 @@ class ScrenShotController extends Controller
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $image_path = $request->file('image')->store('screenshot', 'public');
-            $type->image = asset('storage/'.$image_path);
+            $type->image = $image_path;
             $type->save();
             return redirect()->route('screenshot.index')->with('message', 'Screenshot added successfully');
             
@@ -69,7 +69,7 @@ class ScrenShotController extends Controller
             $file2= $request->file('image');
             $filename2= date('YmdHi').$file2->getClientOriginalName();
             $image_path2 = $request->file('image')->store('screenshot', 'public');
-            $update_screenshot->image = asset('storage/'.$image_path2);
+            $update_screenshot->image = $image_path2;
         }
         $update_screenshot->update();
 

@@ -6,20 +6,7 @@
 @endpush
 
 @section('content')
-    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
-        <div class="">
-            <h4 class="page-title m-b-0">Edit About Cms</h4>
-            <!-- <h5 class="page">Hello Evano 👋🏼,</h5> -->
-        </div>
-        <div class="">
-            <ul class="breadcrumb breadcrumb-style">
-                <li class="breadcrumb-item">
-                    Home
-                </li>
-                <li class=""> >> About Cms</li>
-            </ul>
-        </div>
-    </section>
+
 
     <div class="main-content">
         <div class="inner_page">
@@ -88,8 +75,9 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($about->about_image) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($about->about_image)}}" alt="" width="400px"
                                             height="180px">
+
                                     </div>
                                 </div>
                             </div>
@@ -117,12 +105,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($about->icon1) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($about->icon1)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">
@@ -173,12 +163,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($about->icon2) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($about->icon2)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">
@@ -229,12 +221,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($about->icon3) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($about->icon3)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">
@@ -285,12 +279,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($about->icon4) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($about->icon4)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">
@@ -341,12 +337,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($about->icon5) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($about->icon5)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">
@@ -397,12 +395,14 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{ asset($about->icon6) }}" alt="" width="400px"
+                                        <img src="{{Storage::url($about->icon6)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">

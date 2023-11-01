@@ -6,20 +6,7 @@
 @endpush
 
 @section('content')
-    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
-        <div class="">
-            <h4 class="page-title m-b-0">Edit Category</h4>
-            <!-- <h5 class="page">Hello Evano 👋🏼,</h5> -->
-        </div>
-        <div class="">
-            <ul class="breadcrumb breadcrumb-style">
-                <li class="breadcrumb-item">
-                    Home
-                </li>
-                <li class=""> >>  Category</li>
-            </ul>
-        </div>
-    </section>
+
 
     <div class="main-content">
         <div class="inner_page">
@@ -93,12 +80,14 @@
                         <div class="row justify-content-between">                         
                             @foreach ($category->categoryImages as $category_image) 
                             <div class="image-area m-4" id="{{$category_image['id']}}">   
-                                <img src="{{ asset($category_image['image']) }}"  alt="" height="150px" width="200px;">                            
+                                <img src="{{Storage::url($category_image['image'])}}
+                                "  alt="" height="150px" width="200px;">                            
                                 <a class="remove-image" href="javascript:void(0);" data-id="{{$category_image['id']}}" style="display: inline;">&#215;</a>
                             </div>        
                             @endforeach                         
                         </div>
 
+                        
                         <div class="row justify-content-between">
                             <div class="col-md-6">
                                 <div class="form-group-div">

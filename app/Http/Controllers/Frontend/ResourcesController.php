@@ -61,7 +61,7 @@ class ResourcesController extends Controller
 
         if ($illustration->images) {
             // Construct the full file path on the server
-            $filePath = public_path('public/storage/' . $illustration->images);
+            $filePath = public_path('storage/' . $illustration->images);
 
 
             if (file_exists($filePath)) {
