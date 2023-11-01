@@ -17,10 +17,11 @@ class AddPlanSeeder extends Seeder
     {
         $plans = [
             [
-                'plan_name' => 'Advance',
+                'plan_name' => 'Essentials',
                 'plan_details' => 'Create all of your everyday designs.',
-                'plan_price' => '549',
+                'plan_price' => '1998',
                 'plan_duration' => 'monthly',
+                'percentage' => '',
                 'specification' => [
                     [
                         'specification_name' => '1 Daily Output',
@@ -34,10 +35,11 @@ class AddPlanSeeder extends Seeder
                 ],
             ],
             [
-                'plan_name' => 'Business',
+                'plan_name' => 'Accelerator',
                 'plan_details' => 'Get double the output everyday.',
-                'plan_price' => '899',
+                'plan_price' => '3597',
                 'plan_duration' => 'monthly',
+                'percentage' => '',
                 'specification' => [
                     [
                         'specification_name' => '2 Daily Output',
@@ -55,10 +57,11 @@ class AddPlanSeeder extends Seeder
                 ],
             ],
             [
-                'plan_name' => 'Designated Designer',
+                'plan_name' => 'Elite',
                 'plan_details' => 'Collaborate in real time with your designer.',
-                'plan_price' => '1,199',
+                'plan_price' => '4998',
                 'plan_duration' => 'monthly',
+                'percentage' => '',
                 'specification' => [
                     [
                         'specification_name' => 'Designated Designer',
@@ -78,6 +81,114 @@ class AddPlanSeeder extends Seeder
                    
                 ],
             ],
+            [
+                'plan_name' => 'Essentials',
+                'plan_details' => 'Create all of your everyday designs.',
+                'plan_price' => '5095',
+                'plan_duration' => 'quarterly',
+                'percentage' => '15',
+                'specification' => [
+                    [
+                        'specification_name' => '1 Daily Output',
+                    ],
+                    [
+                        'specification_name' => '1-2 Days Delivery',
+                    ],
+                    [
+                        'specification_name' => 'All Design Services',
+                    ],  
+                ],
+            ],
+            [
+                'plan_name' => 'Accelerator',
+                'plan_details' => 'Create all of your everyday designs.',
+                'plan_price' => '9172',
+                'plan_duration' => 'quarterly',
+                'percentage' => '15',
+                'specification' => [
+                    [
+                        'specification_name' => '1 Daily Output',
+                    ],
+                    [
+                        'specification_name' => '1-2 Days Delivery',
+                    ],
+                    [
+                        'specification_name' => 'All Design Services',
+                    ],  
+                ],
+            ],
+            [
+                'plan_name' => 'Elite',
+                'plan_details' => 'Create all of your everyday designs.',
+                'plan_price' => '12745',
+                'plan_duration' => 'quarterly',
+                'percentage' => '15',
+                'specification' => [
+                    [
+                        'specification_name' => '1 Daily Output',
+                    ],
+                    [
+                        'specification_name' => '1-2 Days Delivery',
+                    ],
+                    [
+                        'specification_name' => 'All Design Services',
+                    ],  
+                ],
+            ],
+            [
+                'plan_name' => 'Essentials',
+                'plan_details' => 'Create all of your everyday designs.',
+                'plan_price' => '19180',
+                'plan_duration' => 'yearly',
+                'percentage' => '20',
+                'specification' => [
+                    [
+                        'specification_name' => '1 Daily Output',
+                    ],
+                    [
+                        'specification_name' => '1-2 Days Delivery',
+                    ],
+                    [
+                        'specification_name' => 'All Design Services',
+                    ],  
+                ],
+            ],
+            [
+                'plan_name' => 'Accelerator',
+                'plan_details' => 'Create all of your everyday designs.',
+                'plan_price' => '34531',
+                'plan_duration' => 'yearly',
+                'percentage' => '20',
+                'specification' => [
+                    [
+                        'specification_name' => '1 Daily Output',
+                    ],
+                    [
+                        'specification_name' => '1-2 Days Delivery',
+                    ],
+                    [
+                        'specification_name' => 'All Design Services',
+                    ],  
+                ],
+            ],
+            [
+                'plan_name' => 'Elite',
+                'plan_details' => 'Create all of your everyday designs.',
+                'plan_price' => '47980',
+                'plan_duration' => 'yearly',
+                'percentage' => '20',
+                'specification' => [
+                    [
+                        'specification_name' => '1 Daily Output',
+                    ],
+                    [
+                        'specification_name' => '1-2 Days Delivery',
+                    ],
+                    [
+                        'specification_name' => 'All Design Services',
+                    ],  
+                ],
+            ],
         ];
 
         foreach ($plans as $plan) {
@@ -86,6 +197,7 @@ class AddPlanSeeder extends Seeder
             $planModel->plan_details = $plan['plan_details'];
             $planModel->plan_price = $plan['plan_price'];
             $planModel->plan_duration = $plan['plan_duration'];
+            $planModel->percentage = $plan['percentage'];
             $planModel->save();
 
             foreach ($plan['specification'] as $specification) {

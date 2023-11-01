@@ -60,7 +60,6 @@ class HomeCmsController extends Controller
             'section5_detail3' => 'required',
             'section5_title4' => 'required',
             'section5_detail4' => 'required',
-            
             'service_business_title' => 'required',
 
         ]);
@@ -94,14 +93,6 @@ class HomeCmsController extends Controller
         $update_homeCms->section5_detail3 = $request->section5_detail3;
         $update_homeCms->section5_title4 = $request->section5_title4;
         $update_homeCms->section5_detail4 = $request->section5_detail4;
-        $update_homeCms->frequently_qs1 = $request->frequently_qs1;
-        $update_homeCms->frequently_ans1 = $request->frequently_ans1;
-        $update_homeCms->frequently_qs2 = $request->frequently_qs2;
-        $update_homeCms->frequently_ans2 = $request->frequently_ans2;
-        $update_homeCms->frequently_qs3 = $request->frequently_qs3;
-        $update_homeCms->frequently_ans3 = $request->frequently_ans3;
-        $update_homeCms->frequently_qs4 = $request->frequently_qs4;
-        $update_homeCms->frequently_ans4 = $request->frequently_ans4;
         $update_homeCms->service_business_title = $request->service_business_title;
 
 
@@ -246,11 +237,15 @@ class HomeCmsController extends Controller
             'details5' => 'required',
             'title6' => 'required',
             'details6' => 'required',
+            'customer_serve' => 'required',
+            'design_hours_work' => 'required',
         ]);
         
         $update_about = About::find($request->about_cms_id);
         $update_about->title = $request->title;
         $update_about->description = $request->description;
+        $update_about->customer_serve = $request->customer_serve;
+        $update_about->design_hours_work = $request->design_hours_work;
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',

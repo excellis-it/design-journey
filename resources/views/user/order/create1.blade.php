@@ -15,7 +15,7 @@
                <a href="{{ route('order.form',$sub_type->id) }}">
                 <div class="order-box">
                     <div class="order-img">
-                        <img src="{{ asset($sub_type->icon)}}" alt="">
+                        <img src="{{Storage::url($sub_type->icon)}}" alt="">  
                     </div>
                     <div class="order-text">
                       <h3>{{ $sub_type->name }}</h3>

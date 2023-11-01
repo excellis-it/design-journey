@@ -19,7 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::all();
+        $categories = Category::orderBy('id','desc')->get();
         return view('admin.category.list', compact('categories'));
     }
 
@@ -110,13 +110,13 @@ class CategoryController extends Controller
     {
         $category_image = CategoryImage::find($id);
         $category_image->delete();
-        return redirect()->back()->with('message', 'Category image deleted successfully.');
+        return response()->json(['message'=>'Image has been deleted.']);
     }
 
     public function deleteCategory($id)
     {
         Category::findOrFail($id)->delete();
-        return back()->with('error', 'Category has been deleted!');
+        return back()->with('error', 'Category deleted successfully.');
     }
 
     /**

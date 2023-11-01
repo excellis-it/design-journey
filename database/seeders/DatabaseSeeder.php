@@ -29,6 +29,9 @@ class DatabaseSeeder extends Seeder
             helpCenterSeeder::class,
             faqSeeder::class,
             guideSeeder::class,
+            termConditionSeeder::class,
+            privacySeeder::class,
+            contactSeeder::class,
         ]);
     }
 }

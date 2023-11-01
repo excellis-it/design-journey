@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\GuideController;
 use App\Http\Controllers\Admin\CaseStudiesController;
 use App\Http\Controllers\Admin\JobApplyController;
+use App\Http\Controllers\Admin\OurTeamController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ResourcesController;
@@ -73,6 +74,10 @@ Route::get('/illustration-filter', [ResourcesController::class, 'filter'])->name
 Route::get('/icon-filter', [ResourcesController::class, 'iconFilter'])->name('icon.filter');
 Route::get('/download-illustration/{id}', [ResourcesController::class, 'downloadIllustration'])->name('download.illustration');
 Route::get('/download-icon/{id}', [ResourcesController::class, 'downloadIcon'])->name('download.icon');
+
+Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
+Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
+
 
 Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
 //solutions routes
@@ -124,9 +129,13 @@ Route::group(['prefix' => 'admin'], function () {
             'careers' => CareerController::class,
             'case-studies' => CaseStudiesController::class,
             'testimonial' => TestimonialController::class,
+            'our-teams'=> OurTeamController::class,
         ]);
         
-         Route::get('/testimonial/delete/{id}', [TestimonialController::class, 'deleteTestimonial'])->name('delete.testimonials');
+        Route::get('/testimonial/delete/{id}', [TestimonialController::class, 'deleteTestimonial'])->name('delete.testimonials');
+        //our-teams routes
+        Route::get('/our-teams/delete/{id}', [OurTeamController::class, 'deleteOurTeam'])->name('delete.our-teams');
+        Route::post('/our-teams/update', [OurTeamController::class, 'updateOurTeam'])->name('update.our-teams');
 
         Route::get('/blog-categories', [AdminBlogController::class, 'blogCategoryList'])->name('blogs.categories.list');
         Route::get('/blog-categories/create', [AdminBlogController::class, 'createBlogCategory'])->name('blogs.categories.create');
@@ -262,7 +271,9 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('/brand-profile/edit/{id}', [BrandProfileController::class, 'editBrandProfile'])->name('edit.brand-profile');
         Route::post('/brand-profile/store', [BrandProfileController::class, 'updateBrandProfile'])->name('update.brand-profile');
 
-
+        //my plan
+        Route::get('/my-plan',[DashboardController::class, 'myPlan'])->name('my-plan.list');
+        Route::get('/my-plan/details/{id}',[DashboardController::class, 'myPlanDetails'])->name('my-plan.details');
 
     });
 });

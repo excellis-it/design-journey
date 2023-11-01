@@ -99,8 +99,10 @@ Profile Update - {{ env('APP_NAME') }}
                                         
                                         @if(Auth::user()->image)
                                         <label for="floatingInputValue">Preview</label>
-                                        <img src="{{ asset(Auth::user()->image) }}" alt="" class="img-fluid" id="previewImg" style="width: 100px; height: 100px;">
+                                        <img src="{{Storage::url(Auth::user()->image)}}" alt="" class="img-fluid" id="previewImg" style="width: 100px; height: 100px;">
                                         @endif
+
+                                        
                                     </div>
                                 </div>
                             </div>

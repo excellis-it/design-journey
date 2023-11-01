@@ -60,14 +60,6 @@ class homeCmsSeeder extends Seeder
         $homeCms->section5_detail3 = 'Work with battle-tested professionals only.';
         $homeCms->section5_title4 = 'Flexible & Scalable';
         $homeCms->section5_detail4 = 'No contracts. Scale up or down as you go.';
-        $homeCms->frequently_qs1 = 'Read necessary information before visits';
-        $homeCms->frequently_ans1 = 'Prepare questions that the patient should answer when registering for an online consultation. We will send them to him before the visit in the form of a survey to which he will also be able to attach his research results.';
-        $homeCms->frequently_qs2 = 'Automatic SMS reminders';
-        $homeCms->frequently_ans2 = 'Prepare questions that the patient should answer when registering for an online consultation. We will send them to him before the visit in the form of a survey to which he will also be able to attach his research results.';
-        $homeCms->frequently_qs3 = 'A unique link for each patient';
-        $homeCms->frequently_ans3 = 'Prepare questions that the patient should answer when registering for an online consultation. We will send them to him before the visit in the form of a survey to which he will also be able to attach his research results.';
-        $homeCms->frequently_qs4 = 'Informing you about new possibilities';
-        $homeCms->frequently_ans4 = 'Prepare questions that the patient should answer when registering for an online consultation. We will send them to him before the visit in the form of a survey to which he will also be able to attach his research results.';
         $homeCms->service_business_title = 'Serving Businesses of Every Size with Digital and Print Designs';
         $homeCms->service_business_image = 'images/cta-phone.png';
         $homeCms->save();

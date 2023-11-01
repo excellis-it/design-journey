@@ -2574,7 +2574,7 @@ h6 .badge {
 }
 
 .navbar .nav-link:hover {
-    color: #fff;
+    color: #000;
 }
 
 .navbar .nav-link.disabled {

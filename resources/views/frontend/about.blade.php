@@ -22,15 +22,8 @@
                     <div class="about-text"  data-aos="fade-up"
                     data-aos-duration="1000">
                         <div class="features-content">
-                            <h2 class="c-dark lt-60">About us</h2>
-                            <p>Design-journey is an on-demand creative service providing thousands of businesses around
-                                the
-                                globe with quality, fast and affordable design.</p>
-                            <p>Founded in 2018, we are now one of the leading design subscription service on the
-                                market.
-                            </p>
-                            <p>Our goal is to help businesses of all sizes and industries scale up their creative
-                                content production.</p>
+                            <h2 class="c-dark lt-60">{{ $about_content->title }}</h2>
+                            <p>{{ $about_content->description }}</p>
                         </div>
                     </div>
                 </div>

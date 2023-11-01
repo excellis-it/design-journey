@@ -192,11 +192,18 @@
                 <a href="{{ route('testimonial.index') }}" class="menu-toggle nav-link ">
                     <i class="ph-wallet"></i>
                     <span>Testimonial</span>
+                </a>   
+            </li>
+
+            <li class="{{ Request::is('admin/our-teams*') ? 'active' : ' ' }}">
+                <a href="{{ route('our-teams.index') }}" class="menu-toggle nav-link ">
+                    <i class="ph-wallet"></i>
+                    <span>Our Teams</span>
                 </a>
                 
             </li>
      
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('admin/free-illustrations*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
                     <span>Free illustration</span>
@@ -211,7 +218,7 @@
                 </ul>
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('admin/icons*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph-wallet"></i>
                     <span>Free Icon</span>
@@ -225,7 +232,6 @@
                     </li>
                 </ul>
             </li>
-
         </ul>
     </aside>
 </div>

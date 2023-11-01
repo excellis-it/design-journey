@@ -376,14 +376,12 @@
                                     <div class="form-group">
                                         <label for="floatingInputValue">Preview</label>
                                         <br>
-                                        <img src="{{Storage::url($homeCms->section2_3rd_image)}}" alt="" width="400px"
+                                        <img src="{{Storage::url($homeCms->section3_image)}}" alt="" width="400px"
                                             height="180px">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        
 
                         <div class="row justify-content-between">
                             <div class="col-md-6">

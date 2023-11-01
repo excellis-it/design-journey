@@ -91,7 +91,7 @@ class AuthController extends Controller
                 $check_user_plan = Payment::where('user_id', $user->id)->first();
                 if($check_user_plan){
                     Auth::login($user);
-                    return redirect()->route('user.dashboard');
+                    return redirect()->route('my-plan.list');
                 }else{
                     //user has no plans then go to plans page
                     
@@ -101,7 +101,7 @@ class AuthController extends Controller
             } else{
                
                 Auth::logout();
-                return redirect()->back()->with('error', 'Invalid Credentials!');
+                return redirect()->back()->with('error', 'Your account is deactivate!');
             }
         } else {
             return redirect()->back()->with('error', 'Email id & password was invalid!');

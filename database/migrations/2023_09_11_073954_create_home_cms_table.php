@@ -59,14 +59,6 @@ class CreateHomeCmsTable extends Migration
             $table->longText('section5_detail3')->nullable();
             $table->string('section5_title4')->nullable();
             $table->longText('section5_detail4')->nullable();
-            $table->string('frequently_qs1')->nullable();
-            $table->longText('frequently_ans1')->nullable();
-            $table->string('frequently_qs2')->nullable();
-            $table->longText('frequently_ans2')->nullable();
-            $table->string('frequently_qs3')->nullable();
-            $table->longText('frequently_ans3')->nullable();
-            $table->string('frequently_qs4')->nullable();
-            $table->longText('frequently_ans4')->nullable();
             $table->string('service_business_title')->nullable();
             $table->string('service_business_image')->nullable();
             $table->timestamps();

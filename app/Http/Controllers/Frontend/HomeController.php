@@ -8,16 +8,20 @@ use App\Models\User;
 use App\Models\HomeCms;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\About;
 use App\Models\CategoryImage;
 use App\Models\Plan;
 use App\Models\PlanSpecfication;
 use App\Models\HelpCenter;
 use App\Models\ScreenShot;
 use App\Models\Faq;
+use App\Models\OurTeam;
 use App\Models\Career;
 use App\Models\JobApply;
 use App\Models\Specification;
 use App\Models\Testimonial;
+use App\Models\PrivacyPolicy;
+use App\Models\TermCondition;
 
 use Illuminate\Support\Facades\View;
 
@@ -44,7 +48,9 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('frontend.about');
+        $about_content = About::first();
+        $our_teams = OurTeam::orderBy('id','desc')->get();
+        return view('frontend.about',compact('about_content','our_teams'));
     }
 
     public function blogs()
@@ -173,8 +179,19 @@ class HomeController extends Controller
 
         $job_apply->save();
 
-        return redirect()->back()->with('message','Job Applied Successfully');
-        
+        return redirect()->back()->with('message','Job Applied Successfully');  
+    }
+
+    public function privacy()
+    {
+        $privacy = PrivacyPolicy::first();
+        return view('frontend.privacy',compact('privacy'));
+    }
+
+    public function terms()
+    {
+        $terms = TermCondition::first();
+        return view('frontend.term',compact('terms'));
     }
 
 }

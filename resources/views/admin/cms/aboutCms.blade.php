@@ -83,6 +83,39 @@
                             </div>
                         </div>
 
+                        <label for="inputEnterYourName" class="col-form-label"><h3>Design-journey in numbers:</h3></label>   
+                        <hr>
+
+                        <div class="row justify-content-between">
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue"> Customer Serve*</label>
+                                        <input type="text" name="customer_serve" class="form-control"
+                                            id="floatingInputValue" placeholder="Enter customer*"
+                                            value="{{ $about->customer_serve }}">
+                                        @if ($errors->has('customer_serve'))
+                                            <div class="error" style="color:red;">{{ $errors->first('customer_serve') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Design Hours Worked *</label>
+                                        <input type="text" name="design_hours_work" value="{{ $about->design_hours_work }}" class="form-control" id="floatingInputValue">
+                                        @if ($errors->has('design_hours_work'))
+                                            <div class="error" style="color:red;">
+                                                {{ $errors->first('design_hours_work') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <label for="inputEnterYourName" class="col-form-label"><h3>Section 1:</h3></label>   
                         <hr> 
 

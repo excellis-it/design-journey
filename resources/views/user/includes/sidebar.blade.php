@@ -14,15 +14,22 @@
             </li>
             <li class="dropdown {{ (request()->is('user/request*')) ? 'active' : '' }}">
                 <a href="{{ route('request.list') }}">
-                    <i class="ph ph-article"></i>
+                    <i class="ph ph-list"></i>
                     <span>Requests</span>
                 </a>
             </li>
 
             <li class="dropdown {{ (request()->is('user/brand-profile*')) ? 'active' : '' }}">
                 <a href="{{ route('brand-profile.index') }}">
-                    <i class="ph ph-user"></i>
+                    <i class="ph ph-stack"></i>
                     <span>Brand profiles</span>
+                </a>
+            </li>
+
+            <li class="dropdown {{ (request()->is('user/my-plan*')) ? 'active' : '' }}">
+                <a href="{{ route('my-plan.list') }}">
+                    <i class="ph ph-bookmarks"></i>
+                    <span>My Plan</span>
                 </a>
             </li>
            

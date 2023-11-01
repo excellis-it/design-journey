@@ -68,6 +68,11 @@
                                         <span>Help Center</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('help-center') }}" class="link-underline">
+                                        <span>Privacy Policy</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div class="footer-list">
@@ -96,6 +101,11 @@
                                 <li>
                                     <a href="{{ route('case-studies') }}" class="link-underline">
                                         <span>Case Studies</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('term-condition') }}" class="link-underline">
+                                        <span>Term & Condition</span>
                                     </a>
                                 </li>
                             </ul>

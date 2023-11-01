@@ -32,34 +32,42 @@
                                         <th scope="col">Handle</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($user_requests as $request)
+                                @if($user_requests->count() == 0)
+                                    <tbody>
                                         <tr>
-                                            <td class="table-check"><span><i class="ph ph-check"></i></span></td>
-                                            <td>{{ $request->request_name }}</td>
-                                            <td>{{ $request->SubType->name }}</td>
-                                            <td>{{ $request->created_at->format('F j, g:i A') }}
-                                            </td>
-                                            
-                                            <td class="deliver">{{ $request->status }}</td>
-                                           
-                                            <td class="edit text-center">
-                                                <div>
-                                                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
-                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                       
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('request.details', $request->id) }}">View</a>
-                                                       
-                                                    </div>
-                                                </div>
-                                            </td>
-
+                                            <td colspan="5" class="text-center">No request found</td>
                                         </tr>
-                                    @endforeach
-                                </tbody>
+                                    </tbody>
+                                @else
+                                    <tbody>
+                                        @foreach ($user_requests as $request)
+                                            <tr>
+                                                <td class="table-check"><span><i class="ph ph-check"></i></span></td>
+                                                <td>{{ $request->request_name }}</td>
+                                                <td>{{ $request->SubType->name }}</td>
+                                                <td>{{ $request->created_at->format('F j, g:i A') }}
+                                                </td>
+                                                
+                                                <td class="deliver">{{ $request->status }}</td>
+                                            
+                                                <td class="edit text-center">
+                                                    <div>
+                                                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('request.details', $request->id) }}">View</a>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                @endif    
                             </table>
                         </div>
                     </div>
@@ -78,34 +86,43 @@
                                         <th scope="col">Handle</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($request_delivers as $delivery)
+                                @if($request_delivers->count() == 0)
+                                    <tbody>
                                         <tr>
-                                            <td class="table-check"><span><i class="ph ph-check"></i></span></td>
-                                            <td>{{ $delivery->request_name }}</td>
-                                            <td>{{ $delivery->SubType->name }}</td>
-                                            <td>{{ $delivery->created_at->format('F j, g:i A') }}
-                                            </td>
-                                            
-                                            <td class="deliver">{{ $delivery->status }}</td>
-                                           
-                                            <td class="edit text-center">
-                                                <div>
-                                                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
-                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                       
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('request.details', $request->id) }}">View</a>
-                                                       
-                                                    </div>
-                                                </div>
-                                            </td>
-
+                                            <td colspan="5" class="text-center">No request found</td>
                                         </tr>
-                                    @endforeach
-                                </tbody>
+                                    </tbody>
+                                @else
+                                    <tbody>
+                                        @foreach ($request_delivers as $delivery)
+                                            <tr>
+                                                <td class="table-check"><span><i class="ph ph-check"></i></span></td>
+                                                <td>{{ $delivery->request_name }}</td>
+                                                <td>{{ $delivery->SubType->name }}</td>
+                                                <td>{{ $delivery->created_at->format('F j, g:i A') }}
+                                                </td>
+                                                
+                                                <td class="deliver">{{ $delivery->status }}</td>
+                                            
+                                                <td class="edit text-center">
+                                                    <div>
+                                                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('request.details', $request->id) }}">View</a>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+
+                                @endif    
                             </table>
                         </div>
                     </div>

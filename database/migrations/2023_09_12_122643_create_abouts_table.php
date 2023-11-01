@@ -18,6 +18,8 @@ class CreateAboutsTable extends Migration
             $table->string('about_image')->nullable();
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
+            $table->string('customer_serve')->nullable();
+            $table->string('design_hours_work')->nullable();
             $table->string('icon1')->nullable();
             $table->string('title1')->nullable();
             $table->longText('details1')->nullable();

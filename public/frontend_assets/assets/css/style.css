@@ -4575,8 +4575,7 @@ body.loaded .preloader {
     height: 100vh;
     padding: 100px 10px;
   }
-  
-  .login-left {}
+
   
   .login-text {
     text-align: center;
@@ -4826,8 +4825,7 @@ body.loaded .preloader {
    .help-bnr {
        margin: 0px 0px 30px;
    }
-   
-   /  /
+
    .career-sec {
        margin: 30px 0px;
    }
@@ -4877,8 +4875,7 @@ body.loaded .preloader {
        margin: 30px 0px;
    
    }
-   
-   / career-details  /
+
    .job-openings {
        padding: 50px 0px;
    }
@@ -5030,7 +5027,7 @@ body.loaded .preloader {
 }  
 .disc-1{
     position: absolute;
-    top: -8%;
+    top: -9%;
     left: 50%;
     transform: rotate(345deg);  
 }
@@ -5062,6 +5059,10 @@ body.loaded .preloader {
     color: #1a73e8;
 }
 
+.get-started-button{
+    margin-top: 8%;
+
+}
 
 
 /*Responsive*/
@@ -5076,10 +5077,6 @@ body.loaded .preloader {
    }
 }
 @media (max-width:767px) {
-  .disc-1, .disc-2{
-      display: none;
-  } 
-}
 
 .job-form .btn-up{
     background: var(--color-blue);
@@ -5096,8 +5093,34 @@ body.loaded .preloader {
 .btn-up:hover {
   background: #1663c7!important;
 }
-  
-  
+.Pricing_sec .nav-item {
+    padding: 8px 10px;
+}
+.Pricing_sec .nav-item .nav-link{
+   font-size: 14px;
+}
+.disc-1 {
+    top: -50px;
+}
+.disc-2 {
+    right: 40px;
+    top: 58px;
+}  
+.disc-1 img {
+    width: 20px;
+    height: 20px;
+} 
+.disc-2 img {
+    width: 20px;
+    height: 20px;
+} 
+.disc-1 h4 {
+    font-size: 10px;
+}
+.disc-2 h4 {
+    font-size: 10px;
+}
+}
   
   
   

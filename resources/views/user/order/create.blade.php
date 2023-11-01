@@ -15,7 +15,7 @@
                <a href="{{ route('order.single',$type->id) }}">
                 <div class="order-box">
                     <div class="order-img">
-                        <img src="{{ asset($type->logo)}}" alt="">
+                        <img src="{{Storage::url($type->logo)}}" alt="">  
                     </div>
                     <div class="order-text">
                       <h3>{{ $type->name }}</h3>
