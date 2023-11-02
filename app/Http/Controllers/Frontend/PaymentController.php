@@ -106,11 +106,20 @@ class PaymentController extends Controller
                 $payment->plan_id = $data['plan_id'];
                 $payment->payment_id = $charge['id'];
                 $payment->amount = $data['total_amount'];
+
+                $plan_duration = Plan::where('id',$data['plan_id'])->first();
                 
-                $currentDate = Carbon::now();
-                $payment->payment_date = $currentDate;
-                $expiryDate = $currentDate->addDays(30);
-                $payment->expiry_date = $expiryDate; 
+                $current = date('Y-m-d');
+                
+                $payment->payment_date = $current;
+                if($plan_duration->plan_duration == 'monthly'){
+                    $expiry_date = date('Y-m-d', strtotime('+' . 1 . 'months'));  
+                }else if($plan_duration->plan_duration == 'yearly'){
+                    $expiry_date = date('Y-m-d', strtotime('+' . 12 . 'months'));  
+                }else{
+                    $expiry_date = date('Y-m-d', strtotime('+' . 3 . 'months'));  
+                }
+                $payment->expiry_date = $expiry_date; 
                 $payment->save();
 
                 $payment_id = DB::getPdo()->lastInsertId();
@@ -123,7 +132,7 @@ class PaymentController extends Controller
     public function paymentSuccess()
     {
         if (Session::has('order_id')) {
-            return redirect()->route('user.dashboard');
+            return redirect()->route('my-plan.list')->with('message','Payment Successfull');
         } else {
             return redirect()->route('pricing');
         }

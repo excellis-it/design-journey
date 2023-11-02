@@ -8,6 +8,8 @@ use App\Models\HomeCms;
 use App\Models\SolutionCms;
 use App\Models\Solution;
 use App\Models\About;
+use App\Models\PrivacyPolicy;
+use App\Models\TermCondition;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -430,5 +432,43 @@ class HomeCmsController extends Controller
         $update_solution->update();
 
         return back()->with('message','Solution updated successfully');
+    }
+
+    public function privacyEdit()
+    {
+        $privacy = PrivacyPolicy::first();
+        return view('admin.cms.privacy',compact('privacy'));
+    }
+
+    public function privacyUpdate(Request $request)
+    {
+        $request->validate([
+            'description' => 'required',
+        ]);
+
+        $update_privacy = PrivacyPolicy::find($request->id);
+        $update_privacy->description = $request->description;
+        $update_privacy->update();
+
+        return back()->with('message','Privacy Policy updated successfully');
+    }
+
+    public function termsEdit()
+    {
+        $terms = TermCondition::first();
+        return view('admin.cms.terms',compact('terms'));
+    }
+
+    public function termsUpdate(Request $request)
+    {
+        $request->validate([
+            'description' => 'required',
+        ]);
+
+        $update_terms = TermCondition::find($request->id);
+        $update_terms->description = $request->description;
+        $update_terms->update();
+
+        return back()->with('message','Terms & Condition updated successfully');
     }
 }

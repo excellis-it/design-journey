@@ -219,6 +219,14 @@ Route::group(['prefix' => 'admin'], function () {
             Route::post('/solutionCms/update', [HomeCmsController::class, 'solutionCmsUpdate'])->name('solution.cms.update');
 
         });
+
+        //privacy , term condition
+        Route::get('cms/privacy/edit', [HomeCmsController::class, 'privacyEdit'])->name('edit.privacy-policy');
+        Route::post('cms/privacy/update', [HomeCmsController::class, 'privacyUpdate'])->name('update.privacy-policy');
+        Route::get('cms/terms/edit', [HomeCmsController::class, 'termsEdit'])->name('edit.term-condition');
+        Route::post('cms/terms/update', [HomeCmsController::class, 'termsUpdate'])->name('update.term-condition');
+
+
         Route::get('/solution/edit', [HomeCmsController::class, 'solutionEdit'])->name('solution.design.edit');
         Route::post('/solution/update', [HomeCmsController::class, 'solutionUpdate'])->name('solution.design.update');
 
@@ -241,7 +249,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('careers/delete/{id}', [CareerController::class, 'deleteCareer'])->name('delete.careers');
         Route::post('careers/update', [CareerController::class, 'updateCareer'])->name('update.careers');
 
-        //upload resume
+        //privacy 
         
     });
 });

@@ -536,6 +536,7 @@
 
 
 <!-- testimonial section - start -->
+@if(count($testimonials) != 0)
 <div class="testimonial-section">
     <div class="testimonial-section-wrapper">
         <div class="container">
@@ -597,6 +598,8 @@
         </div>
     </div>
 </div>
+@endif
+
 <!-- testimonial section - end -->
 
 
@@ -644,11 +647,8 @@
 </div>
 <!-- faq section - end -->
 
-
-
-
-
 <!-- blog section - start -->
+@if(count($blogs) != 0)
 <div class="blog-section" id="blog">
     <div class="blog-section-wrapper">
         <div class="container">
@@ -664,6 +664,7 @@
             </div>
             <!-- heading - end -->
             <!-- blog - start -->
+            
             <div class="row blog-row gx-5">
                 <!-- blog single - start -->
                 @foreach($blogs as $blog)
@@ -699,6 +700,7 @@
         </div>
     </div>
 </div>
+@endif
 <!-- blog section - end -->
 
 <!-- cta section - start -->

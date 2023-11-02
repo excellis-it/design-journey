@@ -191,7 +191,7 @@
                 <div class="col-xl-4">
                     <div class="team-box">
                         <div class="team-box-img">
-                            <img src="{{Storage::url($our_team->image)}}}" alt="">
+                            <img src="{{Storage::url($our_team->image)}}" alt="">
                             <div class="team-box-img-text">
                                 <div class="heading-2">
                                     <h3>{{ $our_team->name }}</h3>
