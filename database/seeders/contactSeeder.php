@@ -16,8 +16,8 @@ class contactSeeder extends Seeder
     {
         //
         ContactUsCms::create([
-            'text' => 'Contact Us',
-            'image' => 'contact-us.jpg',
+            'text' => 'Join today and get 20% off your plan.',
+            'image' => 'contact_us/contact.jpg',
         ]);
 
         

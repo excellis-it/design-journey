@@ -29,6 +29,7 @@
 <!-- header - end -->
 <!-- case studies -->
 
+@if($case_studies->count() > 0)
 <section class="case-studies">
     <div class="container">
         <div class="case-studies-wrap">
@@ -84,5 +85,23 @@
         </div>
     </div>
 </section>
+@else 
+<section class="case-studies">
+    <div class="container">
+        <div class="case-studies-wrap">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="case-studies-left">
+                        <div class="header-content">
+                            <h3>No Case Studies Found..</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endif
+
 
 @endsection

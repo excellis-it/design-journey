@@ -17,7 +17,7 @@
                         <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                             <div class="header-content t-center">
                                 <h1 class="m-horz-auto heading-width-res-full heading-width-83">Privacy Policy</h1>
-                                <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65"></p>
+                                <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65">{{ $privacy->description }}</p>
                             </div>
                         </div>
                     </div>
@@ -26,4 +26,4 @@
         </div>
         <!-- header - end -->
 
-@endforeach
+@endsection

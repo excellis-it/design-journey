@@ -48,11 +48,11 @@
                         <div class="counter_js">
                             <ul id="counter">
                                 <li>
-                                    <span class="count" data-count="900">3,000+</span>
+                                    <span class="count" data-count="900">{{ $about_content->customer_serve }}</span>
                                     <span>customers served</span>
                                 </li>
                                 <li>
-                                    <span class="count" data-count="1200">1.7+ mil
+                                    <span class="count" data-count="1200">{{ $about_content->design_hours_work }}
                                     </span>
                                     <span>design hours worked</span>
                                 </li>
@@ -88,13 +88,12 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="value-box">
                             <div class="value-box-img">
-                                <img src="{{ asset('frontend_assets/assets/images/vl-1.svg')}}" alt="">
+                                <img src="{{Storage::url($about_content->icon1)}}" alt="">
                             </div>
                             <div class="value-box-text">
                                 <div class="heading-2">
-                                    <h3>Customer first</h3>
-                                    <p>Taste can be subjective, so we’re never happy with the results unless you
-                                        are.</p>
+                                    <h3>{{ $about_content->title1 }}</h3>
+                                    <p>{{ $about_content->details1 }}</p>
                                 </div>
                             </div>
                         </div>
@@ -102,12 +101,12 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="value-box">
                             <div class="value-box-img">
-                                <img src="{{ asset('frontend_assets/assets/images/vl-2.svg')}}" alt="">
+                                <img src="{{Storage::url($about_content->icon2)}}" alt="">
                             </div>
                             <div class="value-box-text">
                                 <div class="heading-2">
-                                    <h3>Urgency and focus</h3>
-                                    <p>We produce high-quality results fast, and always work to deliver our best.
+                                    <h3>{{ $about_content->title2 }}</h3>
+                                    <p>{{ $about_content->details2 }}
                                     </p>
                                 </div>
                             </div>
@@ -116,12 +115,13 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="value-box">
                             <div class="value-box-img">
-                                <img src="{{ asset('frontend_assets/assets/images/vl-3.svg')}}" alt="">
+                                <img src="{{Storage::url($about_content->icon3)}}" alt="">
                             </div>
                             <div class="value-box-text">
                                 <div class="heading-2">
-                                    <h3>Lead the way</h3>
-                                    <p>We don’t settle for the status quo and strive to innovate relentlessly.</p>
+                                    <h3>{{ $about_content->title3 }}</h3>
+                                    <p>{{ $about_content->details3 }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -129,12 +129,13 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="value-box">
                             <div class="value-box-img">
-                                <img src="{{ asset('frontend_assets/assets/images/vl-4.svg')}}" alt="">
+                                <img src="{{Storage::url($about_content->icon4)}}" alt="">
                             </div>
                             <div class="value-box-text">
                                 <div class="heading-2">
-                                    <h3>Great design is not a luxury</h3>
-                                    <p>Proving every day that design can be high-quality, fast and affordable.</p>
+                                    <h3>{{ $about_content->title4 }}</h3>
+                                    <p>{{ $about_content->details4 }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -142,12 +143,13 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="value-box">
                             <div class="value-box-img">
-                                <img src="{{ asset('frontend_assets/assets/images/vl-5.svg')}}" alt="">
+                                <img src="{{Storage::url($about_content->icon5)}}" alt="">
                             </div>
                             <div class="value-box-text">
                                 <div class="heading-2">
-                                    <h3>Work as a team...</h3>
-                                    <p>Great results can only be achieved by great teamwork.</p>
+                                    <h3>{{ $about_content->title5 }}</h3>
+                                    <p>{{ $about_content->details5 }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -155,16 +157,18 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="value-box">
                             <div class="value-box-img">
-                                <img src="{{ asset('frontend_assets/assets/images/vl-6.svg')}}" alt="">
+                                <img src="{{Storage::url($about_content->icon6)}}" alt="">
                             </div>
                             <div class="value-box-text">
                                 <div class="heading-2">
-                                    <h3>...and celebrate together</h3>
-                                    <p>We win as a team and make sure our successes don’t go unoticed.</p>
+                                    <h3>{{ $about_content->title6 }}</h3>
+                                    <p>{{ $about_content->details6 }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -183,279 +187,22 @@
         </div>
         <div class="team-box-wrap">
             <div class="row">
+                @foreach($our_teams as $our_team) 
                 <div class="col-xl-4">
                     <div class="team-box">
                         <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-1.jpg')}}" alt="">
+                            <img src="{{Storage::url($our_team->image)}}}" alt="">
                             <div class="team-box-img-text">
                                 <div class="heading-2">
-                                    <h3>Customer first</h3>
-                                    <h4>CEO</h4>
+                                    <h3>{{ $our_team->name }}</h3>
+                                    <h4>{{ $our_team->designation }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-2.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Maria Marselina</h3>
-                                    <h4>Project Manager</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-3.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Kevin Justal</h3>
-                                    <h4>Software Developer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-4.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Teddy Martadinata</h3>
-                                    <h4>Graphic & Web Designer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-1.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Customer first</h3>
-                                    <h4>CEO</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-2.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Maria Marselina</h3>
-                                    <h4>Project Manager</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-3.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Kevin Justal</h3>
-                                    <h4>Software Developer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-4.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Teddy Martadinata</h3>
-                                    <h4>Graphic & Web Designer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-1.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Customer first</h3>
-                                    <h4>CEO</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-2.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Maria Marselina</h3>
-                                    <h4>Project Manager</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-3.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Kevin Justal</h3>
-                                    <h4>Software Developer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-4.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Teddy Martadinata</h3>
-                                    <h4>Graphic & Web Designer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-1.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Customer first</h3>
-                                    <h4>CEO</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-2.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Maria Marselina</h3>
-                                    <h4>Project Manager</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-3.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Kevin Justal</h3>
-                                    <h4>Software Developer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-4.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Teddy Martadinata</h3>
-                                    <h4>Graphic & Web Designer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-1.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Customer first</h3>
-                                    <h4>CEO</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-2.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Maria Marselina</h3>
-                                    <h4>Project Manager</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-3.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Kevin Justal</h3>
-                                    <h4>Software Developer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-4.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Teddy Martadinata</h3>
-                                    <h4>Graphic & Web Designer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="team-box">
-                        <div class="team-box-img">
-                            <img src="{{ asset('frontend_assets/assets/images/team-3.jpg')}}" alt="">
-                            <div class="team-box-img-text">
-                                <div class="heading-2">
-                                    <h3>Kevin Justal</h3>
-                                    <h4>Software Developer</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
             </div>
         </div>
     </div>

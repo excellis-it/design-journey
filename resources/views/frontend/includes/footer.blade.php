@@ -69,7 +69,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('help-center') }}" class="link-underline">
+                                    <a href="{{ route('privacy') }}" class="link-underline">
                                         <span>Privacy Policy</span>
                                     </a>
                                 </li>
@@ -104,7 +104,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('term-condition') }}" class="link-underline">
+                                    <a href="{{ route('terms') }}" class="link-underline">
                                         <span>Term & Condition</span>
                                     </a>
                                 </li>

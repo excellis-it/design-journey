@@ -26,4 +26,4 @@
         </div>
         <!-- header - end -->
 
-@endforeach
+@endsection
