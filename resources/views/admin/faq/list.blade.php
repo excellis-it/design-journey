@@ -14,7 +14,7 @@
             <div class="card-title">
                 <div class="row justify-content-between">
                     <div class="col-md-6">
-                        <h4 class="mb-0">List</h4>
+                        <h4 class="mb-0">Faq List</h4>
                     </div>
                     <div class="col-auto float-end ms-auto">
                         <a href="{{ route('faqs.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a

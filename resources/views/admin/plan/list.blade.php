@@ -9,26 +9,14 @@
 @endpush
 
 @section('content')
-    <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
-        <div class="">
-            <h4 class="page-title m-b-0">Plan List</h4>
-        </div>
-        <div class="">
-            <ul class="breadcrumb breadcrumb-style">
-                <li class="breadcrumb-item">
-                    Home
-                </li>
-                <li class="breadcrumb-item active">Dashboard</li>
-            </ul>
-        </div>
-    </section>
+    
     <div class="main-content" style="min-height: 842px;">
 
         <div class="inner_page">
             <div class="card-title">
                 <div class="row justify-content-between">
                     <div class="col-md-6">
-                        <h4 class="mb-0">List</h4>
+                        <h4 class="mb-0">Plan List</h4>
                     </div>
                     <div class="col-auto float-end ms-auto">
                         <a href="{{ route('plans.create') }}" class="btn add-btn"><i class="ph ph-plus"></i> Add a

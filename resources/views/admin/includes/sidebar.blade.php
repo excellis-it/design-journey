@@ -15,6 +15,25 @@
                 </a>
             </li>
 
+            <li class="menu-header">User Management</li>
+
+            <li class="{{ Request::is('admin/users*') ? 'active' : ' ' }}">
+                <a href="{{ route('users.index') }}">
+                    <i class="ph-users"></i>
+                    <span>Customers</span>
+                </a>
+            </li>
+
+            <li class="menu-header">Request Management </li>
+
+            <li class="{{ Request::is('admin/requests*') ? 'active' : ' ' }}">
+                <a href="{{ route('requests.list') }}">
+                    <i class="ph ph-archive-box"></i>
+                    <span>Requests</span>
+                </a>
+            </li>
+            
+            <li class="menu-header">Business Management </li>
             <li class="{{ Request::is('admin/categories*') ? 'active' : ' ' }}">
                 <a href="{{ route('categories.index') }}">
                     <i class="ph ph-list"></i>
@@ -29,12 +48,7 @@
                 </a>
             </li>
 
-            <li class="{{ Request::is('admin/users*') ? 'active' : ' ' }}">
-                <a href="{{ route('users.index') }}">
-                    <i class="ph-users"></i>
-                    <span>Customers</span>
-                </a>
-            </li>
+            
 
             <li class="dropdown {{ Request::is('admin/types*') || Request::is('admin/subtypes*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -57,12 +71,9 @@
                 </a>
             </li> --}}
 
-            <li class="{{ Request::is('admin/requests*') ? 'active' : ' ' }}">
-                <a href="{{ route('requests.list') }}">
-                    <i class="ph ph-archive-box"></i>
-                    <span>Requests</span>
-                </a>
-            </li>
+            
+
+            <li class="menu-header">Cms Management</li>
 
             <li class="dropdown {{ Request::is('admin/cms*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -108,12 +119,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="{{ Request::is('admin/contact-us*') ? 'active' : ' ' }}">
-                <a href="{{ route('contact.us.list') }}">
-                    <i class="ph ph-chat-text"></i>
-                    <span>Contact Us</span>
-                </a>
-            </li>
+            
 
             <li class="dropdown {{ Request::is('admin/faq*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -163,6 +169,13 @@
                 </ul>
             </li>
 
+            <li class="{{ Request::is('admin/contact-us*') ? 'active' : ' ' }}">
+                <a href="{{ route('contact.us.list') }}">
+                    <i class="ph ph-chat-text"></i>
+                    <span>Contact Us</span>
+                </a>
+            </li>
+
             <li class="dropdown {{ Request::is('admin/careers*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph ph-suitcase-simple"></i>
@@ -190,14 +203,7 @@
                 </ul>
             </li>
 
-            <li class="{{ Request::is('admin/job-apply*') ? 'active' : ' ' }}">
-                <a href="{{ route('job-apply.list') }}" class="menu-toggle nav-link ">
-                    
-                    <i class="ph ph-list-dashes"></i>
-                    <span>Job Application</span>
-                </a>
-                
-            </li>
+            
 
             <li class="{{ Request::is('admin/testimonial*') ? 'active' : ' ' }}">
                 <a href="{{ route('testimonial.index') }}" class="menu-toggle nav-link ">
@@ -211,8 +217,19 @@
                     <i class="ph ph-users-four"></i>
                     <span>Our Teams</span>
                 </a>
+            </li>
+
+            <li class="menu-header">Career Management </li>
+            <li class="{{ Request::is('admin/job-apply*') ? 'active' : ' ' }}">
+                <a href="{{ route('job-apply.list') }}" class="menu-toggle nav-link ">
+                    
+                    <i class="ph ph-list-dashes"></i>
+                    <span>Job Application</span>
+                </a>
                 
             </li>
+
+            <li class="menu-header">Media Management </li>
      
             <li class="dropdown {{ Request::is('admin/free-illustrations*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">

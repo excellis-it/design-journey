@@ -118,8 +118,9 @@ class HomeController extends Controller
 
     public function helpCenterDetails(Request $request)
     {
-        $help_centers = helpCenter::where('id',$request->id)->first();
-        return response()->json(['view'=>(String)View::make('frontend.help-center-details')->with(compact('help_centers'))]);
+        
+        $help_centers = helpCenter::where('id',$request->helpCenterId)->first();
+        return response()->json(['view' => (string)View::make('frontend.help-center-details')->with(compact('help_centers'))]);
     }
 
     public function career()
