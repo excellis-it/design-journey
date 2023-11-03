@@ -218,13 +218,21 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/solution-cms', [HomeCmsController::class, 'solutionCms'])->name('solution.cms');
             Route::post('/solutionCms/update', [HomeCmsController::class, 'solutionCmsUpdate'])->name('solution.cms.update');
 
+            Route::get('/contact-cms',[HomeCmsController::class, 'contactCms'])->name('contact.cms');
+            Route::post('/contact-cms/update',[HomeCmsController::class, 'contactCmsUpdate'])->name('update-contact-us');
+
+            Route::get('/email-us',[HomeCmsController::class, 'addEmail'])->name('email.add');
+            Route::post('/email-us/update',[HomeCmsController::class, 'updateEmail'])->name('update-email-us');
+
+            Route::get('privacy/edit', [HomeCmsController::class, 'privacyEdit'])->name('edit.privacy-policy');
+            Route::post('privacy/update', [HomeCmsController::class, 'privacyUpdate'])->name('update.privacy-policy');
+            Route::get('terms/edit', [HomeCmsController::class, 'termsEdit'])->name('edit.term-condition');
+            Route::post('terms/update', [HomeCmsController::class, 'termsUpdate'])->name('update.term-condition');
+
         });
 
         //privacy , term condition
-        Route::get('cms/privacy/edit', [HomeCmsController::class, 'privacyEdit'])->name('edit.privacy-policy');
-        Route::post('cms/privacy/update', [HomeCmsController::class, 'privacyUpdate'])->name('update.privacy-policy');
-        Route::get('cms/terms/edit', [HomeCmsController::class, 'termsEdit'])->name('edit.term-condition');
-        Route::post('cms/terms/update', [HomeCmsController::class, 'termsUpdate'])->name('update.term-condition');
+        
 
 
         Route::get('/solution/edit', [HomeCmsController::class, 'solutionEdit'])->name('solution.design.edit');

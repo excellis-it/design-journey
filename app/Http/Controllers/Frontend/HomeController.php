@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function home()
     {
         $home_content = HomeCms::first();
-        $faqs = Faq::orderBy('id','desc')->get();
+        $faqs = Faq::orderBy('id','desc')->limit(5)->get();
         $blogs = Blog::orderBy('id','desc')->where('status',1)->limit(3)->get();
         $screen_shots = ScreenShot::orderBy('id','desc')->get();
         $testimonials = Testimonial::orderBy('id','desc')->get();

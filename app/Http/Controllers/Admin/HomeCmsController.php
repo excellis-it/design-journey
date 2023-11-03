@@ -10,6 +10,8 @@ use App\Models\Solution;
 use App\Models\About;
 use App\Models\PrivacyPolicy;
 use App\Models\TermCondition;
+use App\Models\ContactUsCms;
+use App\Models\EmailUs;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -434,6 +436,36 @@ class HomeCmsController extends Controller
         return back()->with('message','Solution updated successfully');
     }
 
+    public function contactCms()
+    {
+        $contact_us = ContactUsCms::first();
+        return view('admin.cms.contact-cms')->with(compact('contact_us'));
+    }
+
+    public function contactCmsUpdate(Request $request)
+    {
+        $request->validate([
+            'text' => 'required',
+        ]);
+
+        $update_contact_cms = ContactUsCms::find($request->contact_cms_id);
+        $update_contact_cms->text = $request->text;
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
+            ]);
+            
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $image_path = $request->file('image')->store('contact_us', 'public');
+            $update_contact_cms->image = $image_path;
+        }
+
+        $update_contact_cms->update();
+
+        return back()->with('message','Contact Us Cms updated successfully');
+    }
+
     public function privacyEdit()
     {
         $privacy = PrivacyPolicy::first();
@@ -470,5 +502,24 @@ class HomeCmsController extends Controller
         $update_terms->update();
 
         return back()->with('message','Terms & Condition updated successfully');
+    }
+
+    public function addEmail()
+    {
+        $email_us = EmailUs::first();
+        return view('admin.cms.email-us',compact('email_us'));
+    }
+
+    public function updateEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+        ]);
+
+        $update_email = EmailUs::find($request->email_us_id);
+        $update_email->email = $request->email;
+        $update_email->update();
+
+        return back()->with('message','Email Us updated successfully');
     }
 }

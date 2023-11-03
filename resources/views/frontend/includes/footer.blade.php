@@ -1,3 +1,9 @@
+@php 
+$email_us = \App\Models\EmailUs::first();
+@endphp
+
+
+
 <footer class="footer position-relative">
     <div class="footer-wrapper">
         <div class="container">
@@ -115,7 +121,7 @@
                             <ul>
                                 <li>
                                     <a href="#" class="link-underline">
-                                        <span>demo@gmail.com</span>
+                                        <span>{{ $email_us->email }}</span>
                                     </a>
                                 </li>
                             </ul>

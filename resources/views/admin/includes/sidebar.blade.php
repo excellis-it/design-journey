@@ -36,8 +36,6 @@
                 </a>
             </li>
 
-
-
             <li class="dropdown {{ Request::is('admin/types*') || Request::is('admin/subtypes*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph ph-squares-four"></i>
@@ -78,11 +76,17 @@
                     <li class="{{ Request::is('admin/about-cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('about.cms') }}">About Cms</a>
                     </li>
+                    <li class="{{ Request::is('admin/contact-cms*') ? 'mm-active' : '' }}">
+                        <a class="nav-link" href="{{ route('contact.cms') }}">Contact Cms</a>
+                    </li>
                     <li class="{{ Request::is('admin/privacy-policy*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('edit.privacy-policy') }}">Privacy Policy</a>
                     </li>
                     <li class="{{ Request::is('admin/term-condition*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('edit.term-condition') }}">Term & Condition</a>
+                    </li>
+                    <li class="{{ Request::is('admin/add-email*') ? 'mm-active' : '' }}">
+                        <a class="nav-link" href="{{ route('email.add') }}">Add Email</a>
                     </li>
                     {{-- <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('solution.cms') }}">Solution Cms</a>

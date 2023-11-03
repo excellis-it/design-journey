@@ -27,6 +27,12 @@
 </head>
 <body>
     <main>
+
+        @php 
+            $contact_us = App\Models\ContactUsCms::first();
+        @endphp
+
+
         @include('frontend.includes.header')
         @yield('content')
         <!-- contact section - start -->
@@ -84,11 +90,10 @@
                             <div class="cta position-relative mt-lg-0 mt-5">
                                 <div class="cta-wrapper bg-light">
                                     <div class="heading">
-                                        <h3 class="ls-1 t-center m-horz-auto heading-width-76">Join today and get 20%
-                                            off your plan.</h3>
+                                        <h3 class="ls-1 t-center m-horz-auto heading-width-76">{{ $contact_us->text }}</h3>
                                     </div>
                                     <div class="image"
-                                        style="background-image: url('{{ asset('frontend_assets/assets/images/cta-image.jpg') }}');">
+                                        style="background-image: url('{{ Storage::url($contact_us->image) }}');">
                                         <!-- <img src="" alt="cta"> -->
                                     </div>
                                     <a href="#" class="button button-blue">

@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             termConditionSeeder::class,
             privacySeeder::class,
             contactSeeder::class,
+            emailUsSeeder::class,
         ]);
     }
 }
