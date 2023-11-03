@@ -43,8 +43,9 @@ class RequestController extends Controller
 
     public function formOrder($id)
     {
+        $sub_type = SubType::where('id',$id)->first();
         $brands = BrandProfile::where('user_id',Auth::user()->id)->orderBy('id','desc')->get();
-        return view('user.order.form',compact('id','brands'));
+        return view('user.order.form',compact('id','brands','sub_type'));
     }
 
     public function submitPresentation(Request $request)

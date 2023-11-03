@@ -100,7 +100,7 @@
                                     <div class="get-start">
                                         <div class="most-vs">
                                             <h2 class="c-dark lt-60">{{ $help_center->title }}</h2>
-                                            <p>{{ $help_center->details }}</p>
+                                            <p>{!! $help_center->details !!}</p>
                                         </div>
                                     </div>
                                 </div>

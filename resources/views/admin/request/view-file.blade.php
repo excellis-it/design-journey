@@ -28,7 +28,7 @@
                                     <div class="file-img-box">
                                         <div class="file-img">
                                             <a href="{{ route('download.zip-files', $file->id) }}">
-                                                <img src="{{ asset('user_assets/img/folder.png') }}" alt="">
+                                                <img src="{{ asset('admin_assets/assets/img/files.png') }}" alt="">
                                             </a>
                                             <div class="down-load-icon">
                                                 <a href="{{ route('download.zip-files', $file->id) }}"><span><i
@@ -51,7 +51,7 @@
                         <div class="col-lg-2">
                             <div class="file-img-box">
                                 <div class="file-img"><a href="">
-                                        <img src="http://127.0.0.1:8000/user_assets/img/file.png" alt="">
+                                        <img src="{{ asset('admin_assets/assets/img/files.png') }}" alt="">
                                     </a>
                                     <div class="down-load-icon">
                                         <a href=""><span><i class="ph ph-download-simple"></i></span></a>
@@ -72,7 +72,7 @@
                         <div class="col-lg-2">
                             <div class="file-img-box">
                                 <div class="file-img"><a href="">
-                                        <img src="http://127.0.0.1:8000/user_assets/img/folder.png" alt="">
+                                        <img src="{{ asset('admin_assets/assets/img/files.png') }}" alt="">
                                     </a>
                                     <div class="down-load-icon">
                                         <a href=""><span><i class="ph ph-download-simple"></i></span></a>

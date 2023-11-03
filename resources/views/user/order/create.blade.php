@@ -15,7 +15,9 @@
                <a href="{{ route('order.single',$type->id) }}">
                 <div class="order-box">
                     <div class="order-img">
-                        <img src="{{Storage::url($type->logo)}}" alt="">  
+                        @if($type->logo != null)
+                        <img src="{{Storage::url($type->logo)}}" alt=""> 
+                        @endif 
                     </div>
                     <div class="order-text">
                       <h3>{{ $type->name }}</h3>
