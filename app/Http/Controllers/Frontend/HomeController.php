@@ -22,6 +22,8 @@ use App\Models\Specification;
 use App\Models\Testimonial;
 use App\Models\PrivacyPolicy;
 use App\Models\TermCondition;
+use App\Models\BlogComment;
+use Auth;
 
 use Illuminate\Support\Facades\View;
 
@@ -63,9 +65,36 @@ class HomeController extends Controller
     public function blogDetails($id)
     { 
         $blog_id = decrypt($id);
+        $blog_comments = BlogComment::where('blog_id',$blog_id)->get();
         $blog_details = Blog::find($blog_id);
+        $home_content = HomeCms::first();
         $similer_blogs = Blog::where('blog_cat_id',$blog_details->blog_cat_id)->where('status',1)->get();
-        return view('frontend.blog-details',compact('blog_details','similer_blogs'));
+        return view('frontend.blog-details',compact('blog_details','similer_blogs','home_content','blog_comments'));
+    }
+
+    public function blogComment(Request $request)
+    {
+        $request->validate([
+            'user_name' => 'required|max:255',
+            'user_email' => 'required',
+            'user_comment' => 'required',
+        ]);
+        $blog_comments = new BlogComment();
+        $blog_comments->blog_id = $request->blog_id;
+        $blog_comments->name = $request->user_name;
+        $blog_comments->email = $request->user_email;
+        $check_user = Auth::user()->id;
+        $user_exists = User::where('id',$check_user)->first();
+        if($user_exists->hasRole('CUSTOMER') && Auth::user()->image != null){
+            $user_image = Auth::user()->image;
+        }else{
+            $user_image = null;
+        }
+        $blog_comments->image = $user_image;
+        $blog_comments->comments = $request->user_comment;
+        $blog_comments->save();
+
+        return redirect()->back()->with('message','Comment Added Successfully');
     }
 
     public function ourWork()

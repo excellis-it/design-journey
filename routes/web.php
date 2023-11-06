@@ -33,6 +33,7 @@ use App\Http\Controllers\Frontend\ResourcesController;
 use App\Http\Controllers\Frontend\SolutionsController;
 use App\Http\Controllers\Frontend\ContactusController;
 use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\SocialLoginController;
 use Illuminate\Support\Facades\Artisan;
 
 // Clear cache
@@ -80,6 +81,7 @@ Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
 
 
 Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
+Route::post('/blog-comment',[HomeController::class, 'blogComment'])->name('blog.comment.submit');
 //solutions routes
 Route::get('/social-media-design', [SolutionsController::class, 'socialMediaDesign'])->name('social.media.design');
 Route::get('/website-design', [SolutionsController::class, 'websiteDesign'])->name('website.design');
@@ -99,7 +101,9 @@ Route::get('/payment-success', [PaymentController::class, 'paymentSuccess'])->na
 Route::post('/job-apply',[HomeController::class, 'JobApply'])->name('submit.job-apply');
 Route::get('/services',[HomeController::class, 'services'])->name('services');
 
-
+// social login
+Route::get('/login/{provider}', [SocialLoginController::class, 'redirectToProvider'])->name('social.login');
+Route::get('/login/callback/{provider}', [SocialLoginController::class, 'handleProviderCallback']);
 
 
 

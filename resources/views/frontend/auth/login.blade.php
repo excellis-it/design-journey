@@ -108,6 +108,14 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        
+                                        <div class="social_bnr">
+                                            <ul>
+                                                <li><a href="{{ route('social.login', ['provider' => 'google']) }}"><i class="fab fa-google"></i></a></li>
+                                                <li><a href="{{ route('social.login', ['provider' => 'facebook']) }}"><i class="fab fa-facebook-f"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        
                                     </div>
                                 </form>
                             </div>

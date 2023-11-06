@@ -5,6 +5,7 @@
     Blogs
 @endsection
 @push('styles')
+
 @endpush
 
 @section('content')
@@ -233,7 +234,7 @@
                         comments heading - start
                         -->
                         <div class="comments-heading">
-                            <h3 class="c-dark f-w-700">4 replies</h3>
+                            <h3 class="c-dark f-w-700">{{ count($blog_comments) }} comments</h3>
                         </div>
                         <!--
                         comments heading - end
@@ -241,119 +242,68 @@
                         <!--
                         single comment - start
                         -->
+                        @foreach($blog_comments as $blogs_comment)
                         <div class="comments-single has-reply">
                             <div class="comments-single-wrapper">
                                 <div class="comments-single-image">
-                                    <img src="{{ asset('frontend_assets/assets/images/team-1.jpg') }}" alt="comment">
+                                    @if($blogs_comment->image =='')
+                                    <img src="{{ asset('frontend_assets/assets/images/icon.png') }}" alt="comment">
+                                    @else
+                                    <img src="{{ Storage::url($blogs_comment->image) }}" alt="comment">
+                                    @endif
                                 </div>
                                 <div class="comments-single-content">
-                                    <h5>Randy Garcia</h5>
-                                    <p class="date">Dec 17, 2020</p>
-                                    <p class="comment">Be that lesser upon creepeth rule divide. Forth from without whose place air stars thing fifth fowl let evening called cattle divide you'll thing meat blessed.</p>
+                                    <h5>{{ $blogs_comment->name }}</h5>
+                                    <p class="date">{{ $blogs_comment->created_at->format('d-m-y') }}</p>
+                                    <p class="comment">{{ $blogs_comment->comments }}</p>
                                     <a href="#" class="button reply-button">
-                                        <span>Reply</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="comments-single">
-                                <div class="comments-single-wrapper">
-                                    <div class="comments-single-image">
-                                        <img src="{{ asset('frontend_assets/assets/images/team-2.jpg')}}" alt="comment">
-                                    </div>
-                                    <div class="comments-single-content">
-                                        <h5>Emily Pope</h5>
-                                        <p class="date">Dec 17, 2020</p>
-                                        <p class="comment">Isn't fill. Lights and said and lesser heaven one moveth us can't blessed days midst seed open fourth from without  fifth.</p>
-                                        <a href="#" class="button reply-button">
-                                            <span>Reply</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--
-                        single comment - end
-                        -->
-                        <!--
-                        single comment - start
-                        -->
-                        <div class="comments-single"> 
-                            <div class="comments-single-wrapper">
-                                <div class="comments-single-image">
-                                    <img src="{{ asset('frontend_assets/assets/images/team-3.jpg')}}" alt="comment">
-                                </div>
-                                <div class="comments-single-content">
-                                    <h5>Sam Reeves</h5>
-                                    <p class="date">Dec 17, 2020</p>
-                                    <p class="comment">Set after saw very were void set together seasons from also saw green reated thing you'll first deep morning appear earth may and divide seas.</p>
-                                    <a href="#" class="button reply-button">
-                                        <span>Reply</span>
+                                        <span>comment</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <!--
-                        single comment - end
-                        -->
-                        <!--
-                        single comment - start
-                        -->
-                        <div class="comments-single">
-                            <div class="comments-single-wrapper">
-                                <div class="comments-single-image">
-                                    <img src="{{ asset('frontend_assets/assets/images/team-4.jpg')}}" alt="comment">
-                                </div>
-                                <div class="comments-single-content">
-                                    <h5>Laura Evans</h5>
-                                    <p class="date">Dec 17, 2020</p>
-                                    <p class="comment">Meat he dry fifth seas be seasons winged itself. Sixth you'll a, brought likeness given called gathering, winged every likeness which kind deep meat.</p>
-                                    <a href="#" class="button reply-button">
-                                        <span>Reply</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--
-                        single comment - end
-                        -->
+                        @endforeach
+                     
                     </div>
                 </div>
             </div>
             <!-- comments list - end -->
             <!-- comments form - start -->
+            
+            @if(Auth::check() && Auth::user()->hasRole('CUSTOMER'))
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="comments-form">
                         <div class="comments-form-wrapper">
                             <!-- comments form heading - start -->
                             <div class="comments-form-heading">
-                                <h3>Write a reply</h3>
+                                <h3>Write a comment</h3>
                             </div>
                             <!-- comments form heading - end -->
                             <!-- comments form - start -->
-                            <form>
+                            <form action="{{ route('blog.comment.submit') }}" method="post" id="comment-form">
+                                @csrf
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-floating">
-                                            <input class="input form-control" id="name-field" type="text" placeholder="Name *">
-                                            <label for="name-field">Name *</label>
+                                    
+                                        <div class="col-lg-6">
+                                            <div class="form-floating">
+                                                
+                                                <input class="input form-control" name="user_name"  type="text" placeholder="Name *" >
+                                                <label for="name-field">Name *</label>
+                                            </div>
+                                            <div class="form-floating">
+                                                <input class="input form-control" name="user_email"  type="email" placeholder="Email *">
+                                                <label for >Email *</label>
+                                            </div>
                                         </div>
-                                        <div class="form-floating">
-                                            <input class="input form-control" id="email-field" type="email" placeholder="Email *">
-                                            <label for="email-field">Email *</label>
+                                        <input type="hidden" name="blog_id" value="{{ $blog_details->id }}">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating textarea-form">
+                                                <textarea class="input textarea form-control" id="comment-field" name="user_comment" placeholder="Write reply *"></textarea>
+                                                <label for="comment-field">Write comment *</label>
+                                            </div>
                                         </div>
-                                        <div class="form-floating">
-                                            <input class="input form-control" id="website-field" type="text" placeholder="Website">
-                                            <label for="website-field">Website</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-floating textarea-form">
-                                            <textarea class="input textarea form-control" id="comment-field" placeholder="Write reply *"></textarea>
-                                            <label for="comment-field">Write reply *</label>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col">
@@ -372,6 +322,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             <!-- comments form - end -->
         </div>
     </div>
@@ -386,9 +337,9 @@
                 <!-- content - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-1 col-md-8 offset-md-2 col-10 offset-1 order-2">
                     <div class="cta-section-content">
-                        <h2 class="c-white">Serving Businesses of Every Size with Digital and Print Designs</h2>
+                        <h2 class="c-white">{{ $home_content->service_business_title }}</h2>
                         <div class="button-group">
-                            <a href="#" class="button button-red button-red-hover-white">
+                            <a href="{{ route('login') }}" class="button button-red button-red-hover-white">
                                 <span>Get Started</span>
                             </a>
                             <!-- <a href="#" class="button button-purple button-purple-hover-white">
@@ -401,7 +352,7 @@
                 <!-- image - start -->
                 <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
                     <div class="cta-section-image">
-                        <img src="assets/images/cta-phone.png" alt="phone">
+                        <img src="{{Storage::url($home_content->service_business_image)}}" alt="phone">
                         <!-- <div class="box-1 bg-green-rgba-8">
                             <div class="box-2 bg-purple">
                                 <div class="box-2-1 bg-dark-1"></div>
@@ -439,3 +390,39 @@
 
 
 @endsection
+
+@push('scripts')
+{{-- comment form validation --}}
+
+<script>
+$(document).ready(function() {
+    $('#comment-form').validate({
+        rules: {
+            user_name: "required",
+            user_email: {
+                required: true,
+                email: true
+            },
+            user_comment: {
+                required: true,
+            }
+        },
+        messages: {
+            user_name: "Name is required",
+            user_email: {
+                required: "Email is required",
+                email: "Please enter a valid email address"
+            },
+            user_comment: {
+                required: "Comment is required",
+            
+            }
+        },
+        submitHandler: function(form) {
+            // You can perform additional actions or AJAX submission here
+            form.submit();
+        }
+    });
+});
+</script>
+@endpush

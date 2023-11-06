@@ -783,6 +783,23 @@ body {
     transform: translateY(-10%) scale(0.85);
 }
 
+.form-floating label.error{
+    position: absolute;
+    padding: 0;
+    font-size: 13px;
+    color: #ff0000;
+    bottom: -24px;
+    top: auto;
+}
+.form-floating>.form-control:focus~label.error, .form-floating>.form-control:not(:placeholder-shown)~label.error{
+    top: auto;
+    -webkit-transform: translateY(0%) scale(0.85);
+    transform: translateY(0%) scale(0.85);
+}
+
+
+
+
 .checkbox {
     position: relative;
 }
@@ -5103,8 +5120,8 @@ body.loaded .preloader {
     top: -50px;
 }
 .disc-2 {
-    right: 40px;
-    top: 58px;
+    right: 23px;
+    top: -49px;
 }  
 .disc-1 img {
     width: 20px;
@@ -5121,6 +5138,40 @@ body.loaded .preloader {
     font-size: 10px;
 }
 }
-  
+
+/* social site login page */
+
+.social_bnr{
+    width: 100%;
+  }
+  .social_bnr ul{
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .social_bnr ul li {
+    margin-right: 5px;
+  }
+  .social_bnr ul li a {
+    background: rgb(0 0 0 / 20%);
+    color: var(--text-color);
+    padding: 14px;
+    display: inline-block;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 0;
+  }
+  @media (max-width:375px) {
+      .Pricing_sec .nav-item {
+        padding: 4px 4px;
+    }
+    .Pricing_sec .nav-item .nav-link {
+        font-size: 12px;
+    }
+  }
   
   

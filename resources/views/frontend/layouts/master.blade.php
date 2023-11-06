@@ -46,7 +46,7 @@
                                 <div class="contact-form-wrapper bg-light">
                                     <h3 class="ls-1 t-center m-horz-auto heading-width-res-full heading-width-92">Want
                                         to learn more? Get in touch.</h3>
-                                    <form action="{{ route('contact-us.submit') }}" method="post" >
+                                    <form action="{{ route('contact-us.submit') }}" method="post" id="contact-form">
                                         @csrf
                                         <div class="form-floating">
                                             <input type="text" class="form-control" id="nameField" name="full_name"
@@ -54,7 +54,7 @@
                                             <label for="nameField">Full name</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="emailField" name="email"
+                                            <input type="email" class="form-control" id="emailField" name="email_address"
                                                 placeholder="Email address">
                                             <label for="emailField">Email address</label>
                                         </div>
@@ -73,11 +73,13 @@
                                         <label for="practitionerCheck">I'm a Practitioner</label>
                                     </div>
                                 </div> -->
+                                    <div class="form-floating">
                                         <div class="form-submit mt-3">
                                             <button type="submit" class="button button-full-width button-red">
                                                 <span>Submit</span>
                                             </button>
                                         </div>
+                                    </div>
                                     </form>
                                 </div>
                                 <div class="box-small box-top-left bg-red wow pulse" data-wow-delay="0.4s"
@@ -126,6 +128,7 @@
     <script src="{{ asset('frontend_assets/assets/js/main.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 
     <script>
        var words = ["Web", "Graphic", "Logo", "3D Graphic"]
@@ -211,6 +214,38 @@ function step(){
             }
             toastr.warning("{{ session('warning') }}");
         @endif
+    </script>
+
+<script>
+    $(document).ready(function() {
+        $('#contact-form').validate({
+            rules: {
+                full_name: "required",
+                email_address: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    required: true,
+                }
+            },
+            messages: {
+                full_name: "Full name is required",
+                email_address: {
+                    required: "Email is required",
+                    email: "Please enter a valid email address"
+                },
+                message: {
+                    required: "Message is required",
+                
+                }
+            },
+            submitHandler: function(form) {
+                // You can perform additional actions or AJAX submission here
+                form.submit();
+            }
+        });
+    });
     </script>
     @stack('scripts')
 </body>

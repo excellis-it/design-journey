@@ -17,7 +17,7 @@ $email_us = \App\Models\EmailUs::first();
                             <p>&nbsp;</p>
                             <ul class="social">
                                 <li>
-                                    <a class="button button-purple" href="#">
+                                    <a class="button button-blue" href="#">
                                         <span>
                                             <i class="fab fa-facebook-f"></i>
                                         </span>
