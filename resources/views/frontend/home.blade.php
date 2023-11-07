@@ -48,13 +48,9 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
-            
         </div>
-        
     </div>
-    
 </div>
 <div class="get-started-button">
     <div class="row">
@@ -760,9 +756,5 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 @endsection

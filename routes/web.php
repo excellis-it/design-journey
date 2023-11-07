@@ -48,6 +48,7 @@ Route::get('/perks', [HomeController::class, 'perks'])->name('perks');
 Route::get('/admin', [AuthController::class, 'adminLogin'])->name('admin.login');
 
 
+
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register'])->name('register');

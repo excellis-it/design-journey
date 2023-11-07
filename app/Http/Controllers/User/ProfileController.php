@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
     //
+    public function userLogin()
+    {
+         if (Auth::check() && Auth::user()->hasRole('CUSTOMER')) {
+            return redirect()->route('user.dashboard');
+        } else {
+            return redirect()->route('login');
+        }
+    }
 
     public function index()
     {

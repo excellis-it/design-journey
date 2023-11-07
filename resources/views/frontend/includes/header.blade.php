@@ -136,9 +136,21 @@
                                 </div>
                             </li> --}}
                             <li>
+                                
+                                @if(Auth::check() && Auth::user()->hasRole('CUSTOMER'))
+                                <a href="{{ route('user.dashboard') }}" class="link-underline link-underline-1">
+                                    <span>Dashboard</span>
+                                </a>
+                                @elseif(Auth::check() && Auth::user()->hasRole('ADMIN'))
+                                <a href="{{ route('admin.dashboard') }}" class="link-underline link-underline-1">
+                                    <span>Dashboard</span>
+                                </a>
+                                @else
                                 <a href="{{ route('login') }}" class="link-underline link-underline-1">
                                     <span>Sign In</span>
                                 </a>
+                                @endif
+                                
                             </li>
                             
                         </ul>

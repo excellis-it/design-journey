@@ -21,9 +21,15 @@ class PaymentController extends Controller
     {
         //checking auth and role customer 
         
-
-
+    
         if (Auth::check() && Auth::user()->hasRole('CUSTOMER')) {
+            //get user last payment deatils
+            $last_payment = Payment::where('user_id',Auth::user()->id)->orderBy('id','desc')->first();
+            //check today date is greater than expiry date
+            if($last_payment->expiry_date > date('Y-m-d')){
+                return redirect()->route('my-plan.list')->with('message','You have already subscribed to a plan.');
+            }
+             
             $plan_id = decrypt($payment);
             $plan_details = Plan::find($plan_id);
             return view('frontend.payment',compact('plan_details'));
@@ -76,28 +82,7 @@ class PaymentController extends Controller
                 $order_number = mt_rand(100000000, 999999999);
                 if ($charge['status'] == 'succeeded') {
                     // token will be deducted from seller account
-                    
-                    // save order
-                    
-                    // $order = new Order();
-                    // $order->user_id = Auth::user()->id;
-                    // $order->order_number = $order_number;
-                    // $order->shipping_name = $data['shipping_name'];
-                    // $order->shipping_phone = $data['shipping_phone'];
-                    // $order->shipping_address = $data['shipping_address'];
-                    // $order->shipping_state = $data['shipping_state'];
-                    // $order->shipping_country = $data['shipping_country'];
-                    // $order->shipping_zipcode = $data['shipping_zipcode'];
-                    // $order->billing_address = $data['billing_address'];
-                    // $order->billing_state = $data['billing_state'];
-                    // $order->billing_country = $data['billing_country'];
-                    // $order->billing_zipcode = $data['billing_zipcode'];
-                    // $order->payment_method = $data['payment_method'];
-                    // $order->grand_total = $data['total_amount'];
-                    // $order->order_status = 'Order Confirmed';
-                    // $order->save();
-
-                    
+                     
                 }
                 // payment method save
                 

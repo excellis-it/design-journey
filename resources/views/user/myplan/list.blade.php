@@ -23,6 +23,7 @@
                                         <th scope="col">Plan Date</th>
                                         <th scope="col">Expiry Date</th>
                                         <th scope="col">Plan Price</th>
+                                        <th scoope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -35,7 +36,11 @@
                                             <td>{{ date('d-m-Y', strtotime($my_plan->payment_date)) }}</td>
                                             <td>{{ date('d-m-Y', strtotime($my_plan->expiry_date)) }}</td>
                                             <td>${{ $my_plan->amount }}</td>
-
+                                            <td>@if($my_plan->expiry_date > date('Y-m-d'))
+                                                <span class="badge badge-success">Running</span>
+                                                @else
+                                                <span class="badge badge-danger">Expired</span>
+                                                @endif
                                             <td class="edit text-center">
                                                 <div>
                                                     <button type="button" class="btn dropdown-toggle dropdown-toggle-split"

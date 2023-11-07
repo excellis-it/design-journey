@@ -70,8 +70,12 @@ class AuthController extends Controller
     
     public function login()
     { 
-        
-        return view('frontend.auth.login');
+        if (Auth::check() && Auth::user()->hasRole('CUSTOMER')) {
+            return redirect()->route('user.dashboard');
+        } else {
+            return view('frontend.auth.login');
+        }
+        // return view('frontend.auth.login');
     }
     
     public function loginCheck(Request $request)
