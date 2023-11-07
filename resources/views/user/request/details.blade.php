@@ -97,7 +97,7 @@ Request - {{ env('APP_NAME') }} user
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                              @if(isset($request_files) && count($request_files) > 0)
                             <div class="file-img-div">
-                                <div class="file-head">
+                                {{-- <div class="file-head">
                                     <h3>Folder</h3>
                                 </div>
                                 <div class="row">
@@ -117,13 +117,13 @@ Request - {{ env('APP_NAME') }} user
                                     </div>
                                     @endif
                                    @endforeach 
-                                </div>
+                                </div> --}}
                                 <div class="file-head">
                                     <h3>File</h3>
                                 </div>
                                 <div class="row">
                                     @foreach($request_files as $file)
-                                    @if(Str::endsWith($file->file_name, '.jpg') || Str::endsWith($file->file_name, '.png'))
+                                    
                                     <div class="col-lg-2 col-md-4">
                                         <a href="{{ route('user.zip-files.download',$file->id) }}">
                                             <div class="file-img-box">
@@ -136,7 +136,7 @@ Request - {{ env('APP_NAME') }} user
                                             </div>
                                         </a>
                                     </div>
-                                    @endif
+                                    
                                     @endforeach
                                    
                                 </div>
