@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\GuideController;
 use App\Http\Controllers\Admin\CaseStudiesController;
 use App\Http\Controllers\Admin\JobApplyController;
 use App\Http\Controllers\Admin\OurTeamController;
+use App\Http\Controllers\Admin\ExtensionImageController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ResourcesController;
@@ -135,7 +136,10 @@ Route::group(['prefix' => 'admin'], function () {
             'case-studies' => CaseStudiesController::class,
             'testimonial' => TestimonialController::class,
             'our-teams'=> OurTeamController::class,
+            'extension-images' => ExtensionImageController::class,
         ]);
+
+        Route::get('/extension-images/delete/{id}', [ExtensionImageController::class, 'deleteExtensionImage'])->name('delete.extension-images');
         
         Route::get('/testimonial/delete/{id}', [TestimonialController::class, 'deleteTestimonial'])->name('delete.testimonials');
         //our-teams routes
@@ -148,7 +152,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/blog-categories/edit/{id}', [AdminBlogController::class, 'editBlogCategory'])->name('blogs.categories.edit');
         Route::post('/blog-categories/update', [AdminBlogController::class, 'updateBlogCategory'])->name('blogs.categories.update');
         Route::get('/blog-categories/delete/{id}', [AdminBlogController::class, 'deleteBlogCategory'])->name('blogs.categories.delete');
-      
+
         Route::post('/categories/statusChange', [CategoryController::class, 'changeCategoryStatus'])->name('categories.change-status');
         Route::get('/categories/deleteImage/{id}', [CategoryController::class, 'deleteCategoryImage'])->name('categories.deleteImage');
         Route::get('/categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
@@ -187,7 +191,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/icons-images/edit/{id}',[FreeIconController::class, 'editIconImage'])->name('icons.image.edit');
         Route::get('/icons-images/delete/{id}',[FreeIconController::class, 'deleteIconImage'])->name('delete.image.icons');
         Route::post('/icons-images/updateImage',[FreeIconController::class, 'updateIconImage'])->name('icons.image.update');
-
 
         //subtype
         Route::get('/subtypes',[TypeController::class, 'subTypeList'])->name('type.subtypes.list');
@@ -238,8 +241,6 @@ Route::group(['prefix' => 'admin'], function () {
 
         //privacy , term condition
         
-
-
         Route::get('/solution/edit', [HomeCmsController::class, 'solutionEdit'])->name('solution.design.edit');
         Route::post('/solution/update', [HomeCmsController::class, 'solutionUpdate'])->name('solution.design.update');
 

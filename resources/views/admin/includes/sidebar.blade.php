@@ -71,6 +71,18 @@
                 </a>
             </li> --}}
 
+            <li class="dropdown {{ Request::is('admin/extension-images*') ? 'active' : ' ' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i class="ph ph-image"></i>
+                    <span>Extension Icon</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="{{ route('extension-images.index') }}">Manage</a>
+                    </li>
+                </ul>
+            </li>
+
             
 
             <li class="menu-header">Cms Management</li>
