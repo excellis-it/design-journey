@@ -93,12 +93,14 @@ Route::get('/presentation-design',[SolutionsController::class, 'presentationDesi
 Route::get('/our-work', [HomeController::class, 'ourWork'])->name('our.work');
 Route::post('/our-work/filter',[HomeController::class, 'ourWorkFilter'])->name('our-work.filter');
 Route::post('/plan/filter',[HomeController::class, 'pricingFilter'])->name('pricing.filter');
+Route::post('/plan-checking',[HomeController::class, 'planChecking'])->name('plan.checking');
 Route::post('contact-us/submit', [ContactusController::class, 'contactUsSubmit'])->name('contact-us.submit');
 
 //payment routes
 Route::get('/payment/{payment}',[PaymentController::class, 'payment'])->name('payment.details');
 Route::post('/payment/submit',[PaymentController::class, 'paymentSubmit'])->name('payment.submit');
 Route::get('/payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+
 
 Route::post('/job-apply',[HomeController::class, 'JobApply'])->name('submit.job-apply');
 Route::get('/services',[HomeController::class, 'services'])->name('services');
@@ -138,7 +140,7 @@ Route::group(['prefix' => 'admin'], function () {
             'our-teams'=> OurTeamController::class,
             'extension-images' => ExtensionImageController::class,
         ]);
-
+        Route::post('/extension-images/update', [ExtensionImageController::class, 'updateExtensionImage'])->name('update.extension-images');
         Route::get('/extension-images/delete/{id}', [ExtensionImageController::class, 'deleteExtensionImage'])->name('delete.extension-images');
         
         Route::get('/testimonial/delete/{id}', [TestimonialController::class, 'deleteTestimonial'])->name('delete.testimonials');
@@ -296,6 +298,8 @@ Route::group(['prefix' => 'user'], function () {
         //my plan
         Route::get('/my-plan',[DashboardController::class, 'myPlan'])->name('my-plan.list');
         Route::get('/my-plan/details/{id}',[DashboardController::class, 'myPlanDetails'])->name('my-plan.details');
+        Route::get('/my-plan/cancel/{id}',[DashboardController::class, 'myPlanCancel'])->name('cancel.my-plan');
+        Route::get('/my-plan/change/{id}',[DashboardController::class, 'myPlanChange'])->name('change.my-plan');
 
     });
 });

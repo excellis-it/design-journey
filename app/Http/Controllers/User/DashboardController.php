@@ -26,4 +26,18 @@ class DashboardController extends Controller
         $plan_details = Payment::where('id', $id)->with('plan.Specification')->first();
         return view('user.myplan.details',compact('plan_details'));
     }
+
+    public function myPlanCancel($id)
+    {
+        $cancel_plan = Payment::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        $cancel_plan->subscription_status = 'Cancelled';
+        $cancel_plan->update();
+
+        return back()->with('message','Your plan has been cancelled successfully.');
+    }
+
+    public function myPlanChange()
+    {
+        return redirect()->route('change.pricing');
+    }
 }

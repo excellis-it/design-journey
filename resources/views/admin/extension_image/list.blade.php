@@ -50,7 +50,7 @@
                                     </td>
                                     <td>
                                         <div class="edit-1 d-flex align-items-center">
-                                            <a title="Delete Extension" data-route="{{ route('extension-images.edit',$extension_image->id) }}" ><span
+                                            <a href="{{ route('extension-images.edit',$extension_image->id) }}" ><span
                                                 class="edit-icon"><i class="ph ph-pencil-simple"></i></span></a>
                                             <a title="Delete Extension" data-route="{{ route('delete.extension-images',$extension_image->id) }}" id="delete"><span
                                                     class="trash-icon"><i class="ph ph-trash"></i></span></a>
@@ -91,7 +91,7 @@
         $(document).on('click', '#delete', function(e) {
             swal({
                     title: "Are you sure?",
-                    text: "To delete this user.",
+                    text: "To delete this extension",
                     type: "warning",
                     confirmButtonText: "Yes",
                     showCancelButton: true

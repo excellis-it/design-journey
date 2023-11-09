@@ -42,7 +42,8 @@ All Request Details - {{ env('APP_NAME') }}
                         <p class="description">Request Name : {{ $request_details->request_name }}</p>
                         <p class="description">Design Type : {{ $request_details->design_type }}</p>
                         <p class="description">No of Pages : {{ $request_details->pages_number }}</p>
-                        <p class="description">{{ $request_details->brand_name }}</p>
+                        <p class="description">Brand Name : {{ $request_details->brand_name }}</p>
+                        <p class="description">File : <a href="{{Storage::url($request_details->demo_design_file)}}" target="_blank">View file</a></p>
                     </div>
                 </div>
             </div>

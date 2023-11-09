@@ -36,11 +36,7 @@
                                             <td>{{ date('d-m-Y', strtotime($my_plan->payment_date)) }}</td>
                                             <td>{{ date('d-m-Y', strtotime($my_plan->expiry_date)) }}</td>
                                             <td>${{ $my_plan->amount }}</td>
-                                            <td>@if($my_plan->expiry_date > date('Y-m-d'))
-                                                <span class="badge badge-success">Running</span>
-                                                @else
-                                                <span class="badge badge-danger">Expired</span>
-                                                @endif
+                                            <td><span class="badge badge-success">{{ $my_plan->subscription_status }}</span></td> 
                                             <td class="edit text-center">
                                                 <div>
                                                     <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
@@ -49,8 +45,9 @@
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item"
-                                                            href="{{ route('my-plan.details', $my_plan->id) }}">View</a>
-
+                                                            href="{{ route('my-plan.details', $my_plan->id) }}">View Plan</a>
+                                                        <a class="dropdown-item"data-route="{{ route('change.my-plan',$my_plan->id) }}" id="change_plan">Change Plan</a>
+                                                        <a class="dropdown-item" data-route="{{ route('cancel.my-plan',$my_plan->id) }}" id="cancel_plan">Cancel Plan</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -72,4 +69,50 @@
 
 
 @push('scripts')
+
+<script>
+    $(document).on('click', '#cancel_plan', function(e) {
+        swal({
+                title: "Are you sure?",
+                text: "To cancel this plan",
+                type: "warning",
+                confirmButtonText: "Yes",
+                showCancelButton: true
+            })
+        .then((result) => {
+            if (result.value) {
+                window.location = $(this).data('route');
+            } else if (result.dismiss === 'cancel') {
+                swal(
+                    'Cancelled',
+                    'Your stay here :)',
+                    'error'
+                )
+            }
+        })
+    });
+
+    $(document).on('click', '#change_plan', function(e) {
+        swal({
+                title: "Are you sure?",
+                text: "To change this plan , your previous active plan will be deactivate",
+                type: "warning",
+                confirmButtonText: "Yes",
+                showCancelButton: true
+            })
+        .then((result) => {
+            if (result.value) {
+                window.location = $(this).data('route');
+            } else if (result.dismiss === 'cancel') {
+                swal(
+                    'Cancelled',
+                    'Your stay here :)',
+                    'error'
+                )
+            }
+        })
+    });
+</script>
+
+
 @endpush

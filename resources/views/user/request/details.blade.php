@@ -128,7 +128,18 @@ Request - {{ env('APP_NAME') }} user
                                         <a href="{{ route('user.zip-files.download',$file->id) }}">
                                             <div class="file-img-box">
                                                 <div class="file-img">
-                                                    <img src="{{ asset('user_assets/img/file.png')}}" alt="">
+
+                                                    @php
+                                                        $file_ext = pathinfo($file->file_name, PATHINFO_EXTENSION);
+                                                        $extension_image = App\Models\ExtensionImage::where('extension', $file_ext)->first();
+                                                    @endphp
+                                                    @if($extension_image)
+                                                    <img src="{{ Storage::url($extension_image->image) }}" alt="">
+                                                    @else 
+                                                    <img src="{{ asset('admin_assets/assets/img/logo.png') }}" alt="">
+                                                    @endif
+
+                                                    {{-- <img src="{{ asset('user_assets/img/file.png')}}" alt=""> --}}
                                                     <div class="down-load-icon">
                                                         <a href="{{ route('user.zip-files.download',$file->id) }}"><span><i class="fa-solid fa-arrow-down"></i></span></a>
                                                     </div>

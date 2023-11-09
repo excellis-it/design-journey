@@ -20,7 +20,7 @@
             <div class="card search_bar sales-report-card">
                 <div class="sales-report-card-wrap">
                     <div class="form-head">
-                        <h4>Extension Image Information</h4>
+                        <h4>Extension Information</h4>
                     </div>
                     <form action="{{ route('extension-images.store') }}" method="post" enctype="multipart/form-data">
                         @csrf

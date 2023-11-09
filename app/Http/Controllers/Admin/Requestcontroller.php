@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PresentationForm;
 use App\Models\SubType;
 use App\Models\UploadFile;
+use App\Models\ExtensionImage;
 use Auth;
 
 class Requestcontroller extends Controller
@@ -58,8 +59,9 @@ class Requestcontroller extends Controller
 
     public function viewRequestFile($id)
     {
+        $extensions = ExtensionImage::orderBy('id','desc')->get();
         $files = UploadFile::where('request_id',$id)->get();
-        return view('admin.request.view-file',compact('files'));
+        return view('admin.request.view-file',compact('files','extensions'));
     }
 
     public function downloadRequestFile($id)

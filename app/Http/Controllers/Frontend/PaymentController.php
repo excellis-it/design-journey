@@ -20,8 +20,8 @@ class PaymentController extends Controller
     public function payment($payment)
     {
         //checking auth and role customer 
+        return "ok";
         
-    
         if (Auth::check() && Auth::user()->hasRole('CUSTOMER')) {
             //get user last payment deatils
             $last_payment = Payment::where('user_id',Auth::user()->id)->orderBy('id','desc')->first();
@@ -37,7 +37,6 @@ class PaymentController extends Controller
             return redirect()->route('login');
         }
 
-        
     }
 
     public function paymentSubmit(Request $request)
@@ -109,6 +108,9 @@ class PaymentController extends Controller
 
                 $payment_id = DB::getPdo()->lastInsertId();
                 Session::put('order_id', $payment_id);
+
+                // deactive previous active plan where expiry date is greater than today date
+              return  $get_active_plan = Payment::where('user_id',Auth::user()->id)->where('subscription_status','Active')->where('expiry_date','>',date('Y-m-d'))->first();
                 
                 return redirect()->route('payment.success')->with('success', 'Order has been placed successfully');
             

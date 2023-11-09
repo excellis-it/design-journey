@@ -74,7 +74,7 @@
             <li class="dropdown {{ Request::is('admin/extension-images*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph ph-image"></i>
-                    <span>Extension Icon</span>
+                    <span>Extension Image</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="">
