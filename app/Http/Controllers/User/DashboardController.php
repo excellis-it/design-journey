@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use Auth;
+use Session;
 
 class DashboardController extends Controller
 {
@@ -38,6 +39,8 @@ class DashboardController extends Controller
 
     public function myPlanChange()
     {
-        return redirect()->route('change.pricing');
+
+        Session::put('change-plan', 'ok');
+        return redirect()->route('pricing');
     }
 }

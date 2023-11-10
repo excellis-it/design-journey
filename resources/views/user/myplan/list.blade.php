@@ -46,7 +46,9 @@
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item"
                                                             href="{{ route('my-plan.details', $my_plan->id) }}">View Plan</a>
+                                                        @if($my_plan->subscription_status == 'Active')    
                                                         <a class="dropdown-item"data-route="{{ route('change.my-plan',$my_plan->id) }}" id="change_plan">Change Plan</a>
+                                                        @endif
                                                         <a class="dropdown-item" data-route="{{ route('cancel.my-plan',$my_plan->id) }}" id="cancel_plan">Cancel Plan</a>
                                                     </div>
                                                 </div>

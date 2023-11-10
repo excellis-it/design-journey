@@ -19,19 +19,19 @@ class PaymentController extends Controller
 
     public function payment($payment)
     {
-        //checking auth and role customer 
-        return "ok";
+        
         
         if (Auth::check() && Auth::user()->hasRole('CUSTOMER')) {
             //get user last payment deatils
-            $last_payment = Payment::where('user_id',Auth::user()->id)->orderBy('id','desc')->first();
-            //check today date is greater than expiry date
-            if($last_payment->expiry_date > date('Y-m-d')){
-                return redirect()->route('my-plan.list')->with('message','You have already subscribed to a plan.');
-            }
+            // $last_payment = Payment::where('user_id',Auth::user()->id)->orderBy('id','desc')->first();
+            // //check today date is greater than expiry date
+            // if($last_payment->expiry_date > date('Y-m-d')){
+            //     return redirect()->route('my-plan.list')->with('message','You have already subscribed to a plan.');
+            // }
              
             $plan_id = decrypt($payment);
             $plan_details = Plan::find($plan_id);
+            Session::forget('change-plan');
             return view('frontend.payment',compact('plan_details'));
         } else {
             return redirect()->route('login');
@@ -110,7 +110,7 @@ class PaymentController extends Controller
                 Session::put('order_id', $payment_id);
 
                 // deactive previous active plan where expiry date is greater than today date
-              return  $get_active_plan = Payment::where('user_id',Auth::user()->id)->where('subscription_status','Active')->where('expiry_date','>',date('Y-m-d'))->first();
+                $get_active_plan = Payment::where('user_id',Auth::user()->id)->where('subscription_status','Active')->where('expiry_date','>',date('Y-m-d'))->first();
                 
                 return redirect()->route('payment.success')->with('success', 'Order has been placed successfully');
             

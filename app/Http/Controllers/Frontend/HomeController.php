@@ -23,7 +23,9 @@ use App\Models\Testimonial;
 use App\Models\PrivacyPolicy;
 use App\Models\TermCondition;
 use App\Models\BlogComment;
+use App\Models\Payment;
 use Auth;
+use Session;
 
 use Illuminate\Support\Facades\View;
 
@@ -119,22 +121,17 @@ class HomeController extends Controller
 
     public function pricing()
     {
-       
+        $user_plan_count = Payment::where('user_id', Auth::user()->id)->where('subscription_status', 'Active')->count();
         $yearly_percent = Plan::where('plan_duration','yearly')->first();
         $quarterly_percent = Plan::where('plan_duration','quarterly')->first();
         $plans = Plan::orderBy('id','asc')->where('plan_duration','monthly')->with('Specification')->take(3)->get();
-        return view('frontend.pricing',compact('plans','quarterly_percent','yearly_percent'));
+        return view('frontend.pricing',compact('plans','quarterly_percent','yearly_percent','user_plan_count'));
     }
 
     public function pricingFilter(Request $request)
     {
         $plans = Plan::orderBy('id','asc')->where('plan_duration',$request->duration)->with('Specification')->take(3)->get();
         return response()->json(['view'=>(String)View::make('frontend.pricing-filter')->with(compact('plans'))]);
-    }
-
-    public function planChecking(Request $request)
-    {
-        return "ok";
     }
     
     public function faq()

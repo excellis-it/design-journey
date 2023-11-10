@@ -26,7 +26,6 @@
 </div>
 <!-- header - end -->
 
-
 <!-- faq section - start -->
 <div class="faq-section">
 <div class="faq-section-wrapper pt-0 pb-0 inner-faq">
