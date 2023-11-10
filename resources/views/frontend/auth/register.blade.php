@@ -59,7 +59,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1" class="form-label">
                                                     First name</label>
-                                                <input type="text" class="form-control"  name="first_name" id="exampleFormControlInput1"
+                                                <input type="text" class="form-control"  name="first_name" value="{{ old('first_name') }}" id="exampleFormControlInput1"
                                                     placeholder="Enter Your First name" >
                                                     @if($errors->has('first_name'))
                                                     <div class="error" style="color:red;">{{ $errors->first('first_name') }}</div>
@@ -71,7 +71,7 @@
                                             <div class="form-group">
                                                 <label for="txtPassword">Last name</label>
                                                 <div class="ps-div position-relative">
-                                                    <input type="text" id="txtPassword" name="last_name" class="form-control"
+                                                    <input type="text" id="txtPassword" value="{{ old('last_name') }}" name="last_name" class="form-control"
                                                         name="txtPassword" placeholder="Enter your Last name">
                                                         @if($errors->has('last_name'))
                                                         <div class="error" style="color:red;">{{ $errors->first('last_name') }}</div>
@@ -83,7 +83,7 @@
                                             <div class="form-group">
                                                 <label for="txtPassword">Email</label>
                                                 <div class="ps-div position-relative">
-                                                    <input type="text" id="txtPassword" name="email" class="form-control"
+                                                    <input type="text" id="txtPassword" value="{{ old('email') }}" name="email" class="form-control"
                                                         placeholder="Enter your Email">
                                                         @if($errors->has('email'))
                                                         <div class="error" style="color:red;">{{ $errors->first('email') }}</div>

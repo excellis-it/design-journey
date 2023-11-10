@@ -121,17 +121,33 @@ class HomeController extends Controller
 
     public function pricing()
     {
-        $user_plan_count = Payment::where('user_id', Auth::user()->id)->where('subscription_status', 'Active')->count();
+        if(Auth::check()){
+            $user_plan_count = Payment::where('user_id', Auth::user()->id)->where('subscription_status', 'Active')->count();
+        }
         $yearly_percent = Plan::where('plan_duration','yearly')->first();
         $quarterly_percent = Plan::where('plan_duration','quarterly')->first();
         $plans = Plan::orderBy('id','asc')->where('plan_duration','monthly')->with('Specification')->take(3)->get();
-        return view('frontend.pricing',compact('plans','quarterly_percent','yearly_percent','user_plan_count'));
+        if(Auth::check()) {
+            return view('frontend.pricing',compact('plans','quarterly_percent','yearly_percent','user_plan_count'));
+        } else {
+            return view('frontend.pricing',compact('plans','quarterly_percent','yearly_percent'));
+        }
+        // return view('frontend.pricing',compact('plans','quarterly_percent','yearly_percent','user_plan_count'));
+        
     }
 
     public function pricingFilter(Request $request)
     {
+        if(Auth::check()){
+            $user_plan_count = Payment::where('user_id', Auth::user()->id)->where('subscription_status', 'Active')->count();
+        }
         $plans = Plan::orderBy('id','asc')->where('plan_duration',$request->duration)->with('Specification')->take(3)->get();
-        return response()->json(['view'=>(String)View::make('frontend.pricing-filter')->with(compact('plans'))]);
+        if(Auth::check()) {
+            return response()->json(['view'=>(String)View::make('frontend.pricing-filter')->with(compact('plans','user_plan_count'))]);
+        } else {
+            return response()->json(['view'=>(String)View::make('frontend.pricing-filter')->with(compact('plans'))]);
+        } 
+            
     }
     
     public function faq()
