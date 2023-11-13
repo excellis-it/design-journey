@@ -56,6 +56,7 @@ class ForgotPasswordController extends Controller
 
     public function changePassword(Request $request)
     {
+        
         $request->validate([
             'password' => 'required|min:8',
             'confirm_password' => 'required|min:8|same:password'

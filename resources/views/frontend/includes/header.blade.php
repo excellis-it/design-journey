@@ -105,6 +105,8 @@ use App\Helpers\Pricing;
 
                             </li> 
 
+                            
+
                             {{-- <li class="has-child">
                                 <a href="" class="link-underline link-underline-1">
                                     <span>Resources</span>
@@ -145,6 +147,10 @@ use App\Helpers\Pricing;
                                     @if(Pricing::SubscriptionCheck() == true)
                                     <a href="{{ route('user.dashboard') }}" class="link-underline link-underline-1">
                                         <span>Dashboard</span>
+                                    </a>
+                                    @else
+                                    <a href="{{ route('logout') }}" class="link-underline link-underline-1">
+                                        <span>Logout</span>
                                     </a>
                                     @endif
                                 @elseif(Auth::check() && Auth::user()->hasRole('ADMIN'))

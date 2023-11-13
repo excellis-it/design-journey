@@ -57,8 +57,11 @@
 
         <li class="dropdown">
             <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                @if(Auth::user()->image != null )
+                <img alt="image" src="{{ Storage::url(Auth::user()->image) }}" class="user-img-radious-style" /> {{ Auth::user()->name }}
+                @else 
                 <img alt="image" src="{{ asset('user_assets/img/profile.png') }}" class="user-img-radious-style" /> {{ Auth::user()->name }}
-
+                @endif
                 
 
                 <!---<span class="d-sm-none d-lg-inline-block"><i class="ph-caret-down"></i></span>---->
