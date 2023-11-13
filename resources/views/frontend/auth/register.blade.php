@@ -120,12 +120,7 @@
                                                
                                                 <button class="reg-btn" type="submit">Register</button>
                                             </div>
-                                            <div class="forgot-ps text-right d-flex justify-content-between align-items-center">
-                                              
-                                                <div class="forgot-pass">
-                                                    <a href="">Forgot Password?</a>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                         <div class="col-lg-12 text-center">
                                             <div class="join-div">

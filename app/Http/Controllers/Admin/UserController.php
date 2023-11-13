@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\ContactUs;
-
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -20,8 +20,13 @@ class UserController extends Controller
     {
         $users = User::orderBy('id', 'desc')->role('CUSTOMER')->get();
         return view('admin.customer.list', compact('users'));
-
       
+    }
+
+    public function userPlanDetails($id)
+    {
+        $plan_details = Payment::where('user_id', $id)->orderBy('id', 'desc')->with('plan')->get();
+        return view('admin.customer.plan-list', compact('plan_details'));
     }
 
     public function changeUserStatus(Request $request)

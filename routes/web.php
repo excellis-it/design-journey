@@ -169,7 +169,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/types/delete/{id}',[TypeController::class, 'deleteType'])->name('delete.types');
         Route::post('/types/update', [TypeController::class, 'typeUpdate'])->name('update.type');
         Route::get('/requests/list',[AdminRequestController::class, 'requestList'])->name('requests.list');
-        Route::post('/requests/change-status', [AdminRequestController::class, 'changeRequestStatus'])->name('change.request.status');
+        Route::post('/requests/change-status', [AdminRequestController::class, 'changeRequestStatus'])->name('change.request-status');
         Route::get('/requests/details/{id}',[AdminRequestController::class, 'userRequestDetails'])->name('admin.request-details');
         Route::post('/requests/update', [AdminRequestController::class, 'requestFileUpdate'])->name('request.file-upload');
         Route::get('/requests/file/{id}',[AdminRequestController::class, 'viewRequestFile'])->name('request-files.view');
@@ -202,6 +202,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/subtypes/update',[TypeController::class, 'updateSubType'])->name('type.subtypes.update');
         Route::get('/subtypes/delete/{id}',[TypeController::class, 'deleteSubType'])->name('type.subtypes.delete');
         Route::get('/users', [UserController::class, 'userList'])->name('users.index');
+        Route::get('/users/plan-details/{id}',[UserController::class,'userPlanDetails'])->name('user.plan-details');
         Route::post('/users/statusChange', [UserController::class, 'changeUserStatus'])->name('user.change-status');
         Route::get('/users/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
         Route::get('/contact-us', [UserController::class, 'contactUsList'])->name('contact.us.list');

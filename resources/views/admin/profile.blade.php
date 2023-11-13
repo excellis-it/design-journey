@@ -57,7 +57,7 @@ Profile Update - {{ env('APP_NAME') }}
                                     <div class="form-group">
                                         <label for="floatingInputValue">Email*</label>
                                         <input type="text" name="email" class="form-control" id="floatingInputValue"
-                                            placeholder="Enter email*" value="{{ Auth::user()->email }}">
+                                            placeholder="Enter email*" value="{{old('email', Auth::user()->email)}}">
                                         @if ($errors->has('email'))
                                             <div class="error" style="color:red;">{{ $errors->first('email') }}</div>
                                         @endif
@@ -69,9 +69,9 @@ Profile Update - {{ env('APP_NAME') }}
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
-                                        <label for="floatingInputValue">Phone*</label>
+                                        <label for="floatingInputValue">Phone</label>
                                         <input type="text" name="phone" class="form-control" id="floatingInputValue"
-                                            placeholder="Enter phone*" value="{{ Auth::user()->phone }}">
+                                            placeholder="Enter phone" value="{{ Auth::user()->phone }}">
                                        
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@ Profile Update - {{ env('APP_NAME') }}
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
-                                        <label for="floatingInputValue">Password*</label>
+                                        <label for="floatingInputValue">Password</label>
                                         <input type="password" name="password" placeholder="Enter password"  class="form-control" id="floatingInputValue" >                                     
                                     </div>
                                 </div>

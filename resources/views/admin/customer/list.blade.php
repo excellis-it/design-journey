@@ -29,6 +29,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Plan Details</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -44,6 +45,11 @@
                                     </td>
                                     <td>
                                         {{ $user->phone }}
+                                    </td>
+                                    <td>
+                                        <div class="edit-1 d-flex align-items-center">
+                                            <a href="{{ route('user.plan-details',$user->id) }}" ><span class="edit-icon"><i class="ph ph-eye"></i></span></a>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="button-switch">

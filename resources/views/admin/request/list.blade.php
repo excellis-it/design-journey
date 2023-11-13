@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-    All Category Details - {{ env('APP_NAME') }}
+    All Request List - {{ env('APP_NAME') }}
 @endsection
 
 
@@ -42,7 +42,7 @@
                                     <td>{{ $request->Type->name }}</td>
                                     <td>{{ $request->created_at->format('F j, g:i A') }}</td>
                                     <td>
-                                        <select name="status" class="form-control change-status" data-id="{{ $request->id }}">
+                                        <select name="status" class="form-control request-status" data-id="{{ $request->id }}">
                                             <option value="Pending" {{ $request->status == 'Pending' ? 'selected' : '' }}>
                                                 Pending</option>
                                             <option value="Accept" {{ $request->status == 'Accept' ? 'selected' : '' }}>
@@ -98,10 +98,9 @@
 
     <script>
         $(document).ready(function() {
-            $('.change-status').on('change', function() {
-                
-                var status = $('.change-status').val();
-                var id = $('.change-status').data('id');
+            $('.request-status').on('change', function() {
+                var status = $('.request-status').val();
+                var id = $('.request-status').data('id');
 
                 // Show a confirmation SweetAlert
                 Swal.fire({
@@ -116,11 +115,13 @@
                         // User confirmed, proceed with the AJAX request
                         $.ajax({
                             type: "POST",
-                            url: "{{ route('change.request.status') }}",
+                            url: "{{ route('change.request-status') }}",
                             data: {
                                 status: status,
-                                id: id,
-                                _token: "{{ csrf_token() }}"
+                                id: id,   
+                            },
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function(response) {
                                 // Handle the response from the server

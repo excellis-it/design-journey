@@ -97,7 +97,7 @@
                                                     </div>
                                                 </div> --}}
                                                 <div class="forgot-pass">
-                                                    <a href="{{ route('forget.password') }}">Forgot Password?</a>
+                                                    <a href="{{ route('forget.password.show') }}">Forgot Password?</a>
                                                 </div>
                                             </div>
                                         </div>

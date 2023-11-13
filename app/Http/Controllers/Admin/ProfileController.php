@@ -23,7 +23,7 @@ class ProfileController extends Controller
     {
         
         $request->validate([
-            'name'     => 'required',
+            'name'     => 'required|regex:/^[a-zA-Z ]+$/',
             'email'    => 'required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|unique:users,email,'.Auth::user()->id,
         ]);
 
@@ -33,7 +33,7 @@ class ProfileController extends Controller
         $data->phone = $request->phone;
         if($request->password)
         {
-            $data->password = Hash::make($request->password);;
+            $data->password = Hash::make($request->password);
         }
         $data->save();
         return redirect()->back()->with('message', 'Profile updated successfully.');

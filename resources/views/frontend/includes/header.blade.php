@@ -1,3 +1,7 @@
+@php
+use App\Helpers\Pricing;
+@endphp 
+
     <!-- preloader - start -->
     <!--<div class="preloader">
         <div class='sk-folding-cube'>
@@ -138,9 +142,11 @@
                             <li>
                                 
                                 @if(Auth::check() && Auth::user()->hasRole('CUSTOMER'))
-                                <a href="{{ route('user.dashboard') }}" class="link-underline link-underline-1">
-                                    <span>Dashboard</span>
-                                </a>
+                                    @if(Pricing::SubscriptionCheck() == true)
+                                    <a href="{{ route('user.dashboard') }}" class="link-underline link-underline-1">
+                                        <span>Dashboard</span>
+                                    </a>
+                                    @endif
                                 @elseif(Auth::check() && Auth::user()->hasRole('ADMIN'))
                                 <a href="{{ route('admin.dashboard') }}" class="link-underline link-underline-1">
                                     <span>Dashboard</span>

@@ -34,8 +34,8 @@
                                             <td>{{ $my_plan->plan->plan_name }}</td>
                                             <td>{{ $my_plan->plan->plan_duration }}</td>
                                             <td>{{ date('d-m-Y', strtotime($my_plan->payment_date)) }}</td>
-                                            <td>{{ date('d-m-Y', strtotime($my_plan->expiry_date)) }}</td>
-                                            <td>${{ $my_plan->amount }}</td>
+                                            <td>{{ date('d-m-Y', strtotime($my_plan->expiry_date)) }}</td>                                         
+                                            <td>${{ number_format($my_plan->amount) }}</td>
                                             <td><span class="badge badge-success">{{ $my_plan->subscription_status }}</span></td> 
                                             <td class="edit text-center">
                                                 <div>

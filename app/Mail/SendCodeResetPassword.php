@@ -30,6 +30,6 @@ class SendCodeResetPassword extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.SendCodeResetPassword')->with('details', $this->details);
+        return $this->markdown('frontend.mail.SendCodeResetPassword')->with('details', $this->details);
     }
 }

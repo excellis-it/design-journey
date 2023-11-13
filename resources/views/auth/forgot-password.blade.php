@@ -48,7 +48,7 @@
                             <p>You can reset your password here.</p>
                             <div class="panel-body">
 
-                                <form id="register-form" action="{{ route('admin.forget.password') }}" role="form"
+                                <form id="register-form" action="{{ route('forget.password') }}" role="form"
                                     autocomplete="off" class="form" method="post">
                                     @csrf
                                     <div class="form-group">
@@ -64,7 +64,7 @@
                                         @endif
                                     </div>
                                     <div class="form-group">
-                                        <input name="recover-submit" style="background: linear-gradient(to right, #10acff 0%, #1f1f1f 100%); border:white;" class="btn btn-lg btn-primary btn-block"
+                                        <input name="recover-submit" style="background: #3780cd;border:white;" class="btn btn-lg btn-primary btn-block"
                                             value="Reset Password" type="submit">
                                     </div>
                                 </form>

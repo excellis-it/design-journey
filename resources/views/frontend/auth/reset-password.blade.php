@@ -1,103 +1,152 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
+    <!-- meta tags -->
     <meta charset="UTF-8">
-    <title>{{ env('APP_NAME') }} | Forgot Password</title>
-    <link rel="stylesheet" href="{{ asset('frontend_assets/auth/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- title tag -->
+    <title>Design Journey</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/bootstrap.min.css') }}">
+    <!-- <link rel="stylesheet" href="assets/css/glightbox.min.css"> -->
+    <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/overlay-scrollbars.min.css"> -->
+    <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 </head>
 
 <body>
 
-    <div class="container">
-        <input type="checkbox" id="flip">
-        <div class="cover">
-            <div class="front">
-                <img src="{{ asset('frontend_assets/images/frontImg.jpg') }}" alt="">
-                <div class="text">
-                    <div class="login_logo">
-                        <a href="{{ url('/') }}"><img src="{{ asset('frontend_assets/img/logo3.png') }}"
-                                alt="">
-                        </a>
+    <section class="login-page">
+        <div class="container">
+            <div class="login-page-wrap">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-6 order-lg-1 order-2">
+                        <div class="login-left">
+                            <div class="login-logo">
+                                <a href="{{ route('home') }}"> <img
+                                        src="{{ asset('frontend_assets/assets/images/logo.png') }}" alt=""></a>
+                            </div>
+                            <div class="login-text">
+                                <h3>Forgot Password</h3>
+                            </div>
+                            <div class="login-form">
+                                <form action="{{ route('change.password') }}" method="post">
+                                    @csrf
+
+                                    <input type="hidden" name="id" value="{{ $user->id }}">
+                                    <input type="hidden" name="token" value="{{ $token }}">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1" class="form-label">
+                                                    New Password</label>
+                                                <input type="password" class="form-control" name="password"
+                                                    value="{{ old('password') }}" id="exampleFormControlInput1"
+                                                    placeholder="Enter Your Password">
+                                                @if ($errors->has('password'))
+                                                    <div class="error" style="color:red;">
+                                                        {{ $errors->first('password') }}</div>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="txtPassword">Confirm Password</label>
+                                                <div class="ps-div position-relative">
+                                                    <input type="password" id="txtPassword"
+                                                        value="{{ old('confirm_password') }}" name="confirm_password"
+                                                        class="form-control"
+                                                        placeholder="Enter Confirm Password">
+                                                    @if ($errors->has('confirm_password'))
+                                                        <div class="error" style="color:red;">
+                                                            {{ $errors->first('confirm_password') }}</div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <div class="reg-btn-div">
+                                                <button class="reg-btn" type="submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <!--<h2 class="text-head">BPM PRO</h2>-->
-                    <span class="text-1">Quality Service At An</span>
-                    <span class="text-2"> Affordable Price</span>
+                    <div class="col-lg-4 order-lg-2 order-1">
+                        <div class="login-img">
+                            <img src="{{ asset('frontend_assets/assets/images/login-bg.png') }}" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="forms">
-            <div class="form-content">
-                <div class="login-form">
-                    <div class="title">Forgot Password</div>
-                    <form action="{{ route('change.password') }}" method="post">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $id }}">
-                        <div class="input-box">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" name="password" placeholder="Enter password">
-                        </div>
-                        @if ($errors->has('password'))
-                            <div class="error" style="color:red;">{{ $errors->first('password') }}</div>
-                        @endif
+    </section>
+    <!-- scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
 
-                        <div class="input-box">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" name="confirm_password" placeholder="Enter confirm password">
-                        </div>
-                        @if ($errors->has('confirm_password'))
-                            <div class="error" style="color:red;">{{ $errors->first('confirm_password') }}</div>
-                        @endif
-                        <div class="button input-box">
-                            <input type="submit" class="submit" value="Change Password">
-                        </div>
-                        <div class="text sign-up-text">Don't have an account? <a href="{{ route('register') }}"
-                                class="sign">Signup now</a></div>
-                </div>
-                </form>
-            </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('frontend_assets/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- <script src="assets/js/glightbox.min.js"></script> -->
+    <!-- <script src="assets/js/overlay-scrollbars.min.js"></script> -->
+    <script src="{{ asset('frontend_assets/assets/js/swiper-bundle.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="{{ asset('frontend_assets/assets/js/main.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        @if (Session::has('message'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('message') }}");
+        @endif
 
-        </div>
-    </div>
-    </div>
+        @if (Session::has('error'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('error') }}");
+        @endif
+
+        @if (Session::has('info'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('info') }}");
+        @endif
+
+        @if (Session::has('warning'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.warning("{{ session('warning') }}");
+        @endif
+    </script>
+
 </body>
 
 </html>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script>
-    @if (Session::has('message'))
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true
-        }
-        toastr.success("{{ session('message') }}");
-    @endif
-
-    @if (Session::has('error'))
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true
-        }
-        toastr.error("{{ session('error') }}");
-    @endif
-
-    @if (Session::has('info'))
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true
-        }
-        toastr.info("{{ session('info') }}");
-    @endif
-
-    @if (Session::has('warning'))
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true
-        }
-        toastr.warning("{{ session('warning') }}");
-    @endif
-</script>

@@ -17,9 +17,9 @@ class ForgotPasswordController extends Controller
         return view('auth.forgot-password');
     }
 
-
     public function forgetPassword(Request $request)
     {
+        
         $request->validate([
             'email' => 'required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|exists:users,email',
         ]);
@@ -45,30 +45,21 @@ class ForgotPasswordController extends Controller
 
     public function resetPassword($id, $token)
     {
-        // return "dfs";
+       
         $user = User::findOrFail(base64_decode($id));
         $resetPassword = PasswordReset::where('email', $user->email)->first();
         $newTime =  date('h:i A', strtotime( $resetPassword->created_at->addHour()));
         
-        if ($newTime > date('h:i A')) {
-             
-            $id = $id;
-            return view('auth.reset-password')->with(compact('id'));
-        } else {           
-            abort(404);
-        }
-
+        return view('frontend.auth.reset-password', compact('user', 'token'));
         
     }
 
     public function changePassword(Request $request)
     {
-        
         $request->validate([
             'password' => 'required|min:8',
             'confirm_password' => 'required|min:8|same:password'
         ]);
-        // return $request->all();
         try {
             if ($request->id != '') {
                 $id = base64_decode($request->id);

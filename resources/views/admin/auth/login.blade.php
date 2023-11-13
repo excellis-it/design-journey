@@ -10,7 +10,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Login - {{ env('APP_NAME') }} Admin Panel</title>
+    <title>{{ env('APP_NAME') }} Admin Panel</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin_assets/img/favicon.png') }}">
 
@@ -52,8 +52,8 @@
                             @csrf
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input type="email" class="form-control" name="email" id="inputEmailAddress"
-                                    placeholder="Email Address">
+                                <input type="text" class="form-control" name="email" id="inputEmailAddress"
+                                    placeholder="Email Address" value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                     <div class="error" style="color:red;">{{ $errors->first('email') }}</div>
                                 @endif
@@ -81,9 +81,9 @@
                             <div class="form-group text-center">
                                 <button class="btn btn-primary account-btn" type="submit">Login</button>
                             </div>
-                            <div class="account-footer">
+                            {{-- <div class="account-footer">
                                 <p><a href="">Forgot Password?</a></p>
-                            </div>
+                            </div> --}}
                         </form>
 
                     </div>
