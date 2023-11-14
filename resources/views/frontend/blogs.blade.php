@@ -59,7 +59,7 @@
                 @foreach($blogs as $blog)
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="blog-single">
-                        <a href="{{ route('blog-details',encrypt($blog->id)) }}">
+                        <a href="{{ route('blog-details',$blog->slug) }}">
                             <figure>
                                 <img src="{{Storage::url($blog->main_image)}}" alt="blog">  
                                 <div class="date bg-purple">
@@ -76,7 +76,7 @@
                                 </div>
                             </figure>
                         </a>
-                        <a href="{{ route('blog-details',encrypt($blog->id)) }}">
+                        <a href="{{ route('blog-details',$blog->slug) }}">
                             <h3 class="c-dark">{{ $blog->title }}</h3>
                         </a>
                         <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>

@@ -5,424 +5,437 @@
     Blogs
 @endsection
 @push('styles')
-
 @endpush
 
 @section('content')
-
-<div class="page-header">
-    <div class="page-header-wrapper">
-        <div class="container page-header-content">
-            <div class="row align-items-lg-end">
-                <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <h1 class="c-dark">Our Blog</h1>
-                </div>
-                <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <ul>
-                        <li>
-                            <a href="index.html" class="link-underline link-underline-1">
-                                <span>Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <span>
-                                <i class="fas fa-angle-right"></i>
-                            </span>
-                        </li>
-                        <li>
-                            <a href="blog.html" class="link-underline link-underline-1">
-                                <span>Blog</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="background-layout">
-            <div class="box-1 bg-grey-5"></div>
-            <div class="box-2 bg-yellow">
-                <div class="box-3 bg-purple"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- page header - end -->
-
-<!-- blog detail - start -->
-<div class="blog-detail">
-    <div class="blog-detail-wrapper">
-        <!-- blog detail content - start -->
-        <div class="container">
-            <div class="row">
-                <!-- blog detail thumbnail - start -->
-                <div class="blog-detail-thumbnail-wrapper col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-detail-thumbnail">
-                        <img src="{{Storage::url($blog_details->main_image)}}" alt="blog-detail-thumbnail">  
-                        <div class="background-layout">
-                            <div class="box-1 bg-red">
-                                <div class="box-2 bg-blue"></div>
-                            </div>
-                        </div>
+    <div class="page-header">
+        <div class="page-header-wrapper">
+            <div class="container page-header-content">
+                <div class="row align-items-lg-end">
+                    <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                        <h1 class="c-dark">Our Blog</h1>
+                    </div>
+                    <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="link-underline link-underline-1">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <span>
+                                    <i class="fas fa-angle-right"></i>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="blog.html" class="link-underline link-underline-1">
+                                    <span>Blog</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <!-- blog detail thumbnail - end -->
-                <!-- content - start -->
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-10 offset-1">
-                        <div class="blog-detail-header">
-                            <h1 class="c-dark">{{ $blog_details->title }}</h1>
-                            <div class="detail c-grey">
-                                11 comments
-                                <span>·</span>
-                                3 min read
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="social">
-                            <ul>
-                                <li>
-                                    <a class="button button-purple" href="#">
-                                        <span>
-                                            <i class="fab fa-facebook-f"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="button button-blue" href="#">
-                                        <span>
-                                            <i class="fab fa-twitter"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="button button-green" href="#">
-                                        <span>
-                                            <i class="fab fa-linkedin-in"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="button button-red" href="#">
-                                        <span>
-                                            <i class="fab fa-youtube"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                        <div class="blog-detail-content">
-                            <p>{!! $blog_details->description !!}</p>
-                        </div>
-                    </div>  
-                </div>
-                <!-- content - end -->
             </div>
-        </div>
-        <div class="blog-detail-image">
-            <div class="image">
-                <img src="{{Storage::url($blog_details->image1)}}" alt="blog-content">  
-            </div>
-            <div class="image">
-                <img src="{{Storage::url($blog_details->image2)}}" alt="blog-content"> 
-            </div>    
-        </div>
-        <!-- blog detail content - end -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="blog-detail-content">
-                        
-                        <h3 class="c-dark">Conclusion</h3>
-                        <p>{{ $blog_details->conclusion }}</p>
-                    </div>
+            <div class="background-layout">
+                <div class="box-1 bg-grey-5"></div>
+                <div class="box-2 bg-yellow">
+                    <div class="box-3 bg-purple"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- blog detail - end -->
+    <!-- page header - end -->
 
-<!-- related posts - start -->
-<div class="related-posts">
-    <div class="related-posts-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="related-posts-content">
-                        <h2 class="c-white">Similar Posts</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container related-posts-slider-container">
-            <div class="row">
-                <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="related-posts-content">
-                        <!-- related posts slider - start -->
-                        <div class="related-posts-slider">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <!-- related posts slide - start -->
-                                    @foreach($similer_blogs as $similer_blog)
-                                    <div class="swiper-slide">
-                                        <div class="related-posts-slide">
-                                            <div class="blog-single">
-                                                <a href="blog-single.html">
-                                                    <figure>
-                                                        <img src="{{Storage::url($similer_blog->main_image)}}" alt="blog">
-                                                        <div class="date bg-purple">
-                                                            <p class="c-white">
-                                                                {{ $similer_blog->created_at->format('d') }}
-                                                                <span>{{ $similer_blog->created_at->format('M') }}</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="hover">
-                                                            <div class="circle">
-                                                                <i class="fas fa-plus"></i>
-                                                            </div>
-                                                        </div>
-                                                    </figure>
-                                                </a>
-                                                <a href="blog-single.html">
-                                                    <h3 class="c-white">{{ $similer_blog->title }}</h3>
-                                                </a>
-                                                <h5 class="c-grey-4 fw-500">11 comments <span>·</span> 3 min read</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
+    <!-- blog detail - start -->
+    <div class="blog-detail">
+        <div class="blog-detail-wrapper">
+            <!-- blog detail content - start -->
+            <div class="container">
+                <div class="row">
+                    <!-- blog detail thumbnail - start -->
+                    <div class="blog-detail-thumbnail-wrapper col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                        <div class="blog-detail-thumbnail">
+                            <img src="{{ Storage::url($blog_details->main_image) }}" alt="blog-detail-thumbnail">
+                            <div class="background-layout">
+                                <div class="box-1 bg-red">
+                                    <div class="box-2 bg-blue"></div>
                                 </div>
                             </div>
-                            <div class="slider-pagination related-posts-slider-pagination"></div>
                         </div>
-                        <!-- related posts slider - end -->
                     </div>
+                    <!-- blog detail thumbnail - end -->
+                    <!-- content - start -->
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-10 offset-1">
+                            <div class="blog-detail-header">
+                                <h1 class="c-dark">{{ $blog_details->title }}</h1>
+                                <div class="detail c-grey">
+                                    11 comments
+                                    <span>·</span>
+                                    3 min read
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="social">
+                                <ul>
+                                    <li>
+                                        <a class="button button-purple" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank">
+                                            <span>
+                                                <i class="fab fa-facebook-f"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button button-blue" href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode('Check out this blog post: ' . $blog_details->title) }}" target="_blank">
+                                            <span>
+                                                <i class="fab fa-twitter"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button button-green" href="https://www.linkedin.com/shareArticle?url={{ urlencode(url()->current()) }}&title={{ urlencode($blog_details->title) }}" target="_blank">
+                                            <span>
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    {{-- <li>
+                                        <a class="button button-red" href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank">
+                                            <span>
+                                                <i class="fab fa-youtube"></i>
+                                            </span>
+                                        </a>
+                                    </li> --}}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                            <div class="blog-detail-content">
+                                <p>{!! $blog_details->description !!}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content - end -->
+                </div>
+            </div>
+            <div class="blog-detail-image">
+                <div class="image">
+                    <img src="{{ Storage::url($blog_details->image1) }}" alt="blog-content">
+                </div>
+                <div class="image">
+                    <img src="{{ Storage::url($blog_details->image2) }}" alt="blog-content">
+                </div>
+            </div>
+            <!-- blog detail content - end -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-10 offset-1">
+                        <div class="blog-detail-content">
+
+                            <h3 class="c-dark">Conclusion</h3>
+                            <p>{{ $blog_details->conclusion }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- blog detail - end -->
+
+    <!-- related posts - start -->
+    <div class="related-posts">
+        <div class="related-posts-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                        <div class="related-posts-content">
+                            <h2 class="c-white">Similar Posts</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container related-posts-slider-container">
+                <div class="row">
+                    <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                        <div class="related-posts-content">
+                            <!-- related posts slider - start -->
+                            <div class="related-posts-slider">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <!-- related posts slide - start -->
+                                        @foreach ($similer_blogs as $similer_blog)
+                                            <div class="swiper-slide">
+                                                <div class="related-posts-slide">
+                                                    <div class="blog-single">
+                                                        <a href="{{ route('blog-details', $similer_blog->slug) }}">
+                                                            <figure>
+                                                                <img src="{{ Storage::url($similer_blog->main_image) }}"
+                                                                    alt="blog">
+                                                                <div class="date bg-purple">
+                                                                    <p class="c-white">
+                                                                        {{ $similer_blog->created_at->format('d') }}
+                                                                        <span>{{ $similer_blog->created_at->format('M') }}</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="hover">
+                                                                    <div class="circle">
+                                                                        <i class="fas fa-plus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </figure>
+                                                        </a>
+                                                        <a href="{{ route('blog-details', $similer_blog->slug) }}">
+                                                            <h3 class="c-white">{{ $similer_blog->title }}</h3>
+                                                        </a>
+                                                        <h5 class="c-grey-4 fw-500">11 comments <span>·</span> 3 min read
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="slider-pagination related-posts-slider-pagination"></div>
+                            </div>
+                            <!-- related posts slider - end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="background-layout">
+                <div class="box-1 bg-darkk">
+                    <div class="box-1-1 bg-dark-1">
+                        <div class="box-1-1-1 bg-dark-1"></div>
+                    </div>
+                </div>
+                <div class="box-2 bg-blue">
+                    <div class="box-2-1 bg-red"></div>
+                </div>
+                <div class="box-3 bg-yellow">
+                    <div class="box-3-1 bg-purple"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- related posts - end -->
+
+    <!-- comments - start -->
+    <div class="comments">
+        <div class="comments-wrapper">
+            <div class="container">
+                <!-- comments list - start -->
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-10 offset-1">
+                        <div class="comments-list">
+                            <!--
+                                comments heading - start
+                                -->
+                            <div class="comments-heading">
+                                <h3 class="c-dark f-w-700">{{ count($blog_comments) }} comments</h3>
+                            </div>
+                            <!--
+                                comments heading - end
+                                -->
+                            <!--
+                                single comment - start
+                                -->
+                            @foreach ($blog_comments as $blogs_comment)
+                                <div class="comments-single has-reply">
+                                    <div class="comments-single-wrapper">
+                                        <div class="comments-single-image">
+                                            @if ($blogs_comment->image == '')
+                                                <img src="{{ asset('frontend_assets/assets/images/icon.png') }}"
+                                                    alt="comment">
+                                            @else
+                                                <img src="{{ Storage::url($blogs_comment->image) }}" alt="comment">
+                                            @endif
+                                        </div>
+                                        <div class="comments-single-content">
+                                            <h5>{{ $blogs_comment->name }}</h5>
+                                            <p class="date">{{ $blogs_comment->created_at->format('d-m-y') }}</p>
+                                            <p class="comment">{{ $blogs_comment->comments }}</p>
+                                            <a href="#" class="button reply-button">
+                                                <span>comment</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            {{ $blog_comments->links() }}
+                        </div>
+                    </div>
+                </div>
+                <!-- comments list - end -->
+                <!-- comments form - start -->
+
+                @if (Auth::check() && Auth::user()->hasRole('CUSTOMER'))
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-10 offset-1">
+                            <div class="comments-form">
+                                <div class="comments-form-wrapper">
+                                    <!-- comments form heading - start -->
+                                    <div class="comments-form-heading">
+                                        <h3>Write a comment</h3>
+                                    </div>
+                                    <!-- comments form heading - end -->
+                                    <!-- comments form - start -->
+                                    <form action="{{ route('blog.comment.submit') }}" method="post" id="comment-form">
+                                        @csrf
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-floating">
+
+                                                    <input class="input form-control" name="user_name"
+                                                        value="{{ Auth::user()->name }}" type="text"
+                                                        placeholder="Name *">
+                                                    <label for="name-field">Name *</label>
+                                                </div>
+                                                <div class="form-floating">
+                                                    <input class="input form-control" name="user_email" type="email"
+                                                        placeholder="Email *" value="{{ Auth::user()->email }}">
+                                                    <label for>Email *</label>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="blog_id" value="{{ $blog_details->id }}">
+                                            <div class="col-lg-6">
+                                                <div class="form-floating textarea-form">
+                                                    <textarea class="input textarea form-control" id="comment-field" name="user_comment" placeholder="Write reply *"></textarea>
+                                                    <label for="comment-field">Write comment *</label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <button type="submit" class="button button-red">
+                                                    <span class="button-inner">
+                                                        <span class="button-content">
+                                                            <span class="text">Submit</span>
+                                                        </span>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- comments form - end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                <!-- comments form - end -->
+            </div>
+        </div>
+    </div>
+    <!-- comments - end -->
+
+    <!-- cta section - start -->
+    <div class="cta-section position-relative">
+        <div class="cta-section-wrapper">
+            <div class="container">
+                <div class="row d-lg-flex align-items-lg-center">
+                    <!-- content - start -->
+                    <div class="col-lg-6 offset-lg-0 order-lg-1 col-md-8 offset-md-2 col-10 offset-1 order-2">
+                        <div class="cta-section-content">
+                            <h2 class="c-white">{{ $home_content->service_business_title }}</h2>
+                            <div class="button-group">
+                                <a href="{{ route('login') }}" class="button button-red button-red-hover-white">
+                                    <span>Get Started</span>
+                                </a>
+                                <!-- <a href="#" class="button button-purple button-purple-hover-white">
+                                        <span>Learn More</span>
+                                    </a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content - end -->
+                    <!-- image - start -->
+                    <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
+                        <div class="cta-section-image">
+                            <img src="{{ Storage::url($home_content->service_business_image) }}" alt="phone">
+                            <!-- <div class="box-1 bg-green-rgba-8">
+                                    <div class="box-2 bg-purple">
+                                        <div class="box-2-1 bg-dark-1"></div>
+                                    </div>
+                                    <div class="box-3 bg-dark-1"></div>
+                                </div> -->
+                            <div class="box-4 bg-red-rgba-8">
+                                <div class="box-5 bg-dark-1">
+                                    <div class="box-6 bg-blue">
+                                        <div class="box-7 bg-dark-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- image - end -->
                 </div>
             </div>
         </div>
         <div class="background-layout">
             <div class="box-1 bg-darkk">
                 <div class="box-1-1 bg-dark-1">
-                    <div class="box-1-1-1 bg-dark-1"></div>
+                    <div class="box-1-1-1 bg-dark-1 wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
                 </div>
-            </div>
-            <div class="box-2 bg-blue">
-                <div class="box-2-1 bg-red"></div>
-            </div>
-            <div class="box-3 bg-yellow">
-                <div class="box-3-1 bg-purple"></div>
+                <div class="box-2 bg-green">
+                    <div class="box-2-1 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
+                </div>
+                <div class="box-3 bg-yellow">
+                    <div class="box-3-1 bg-blue wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- related posts - end -->
-
-<!-- comments - start -->
-<div class="comments">
-    <div class="comments-wrapper">
-        <div class="container">
-            <!-- comments list - start -->
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="comments-list">
-                        <!--
-                        comments heading - start
-                        -->
-                        <div class="comments-heading">
-                            <h3 class="c-dark f-w-700">{{ count($blog_comments) }} comments</h3>
-                        </div>
-                        <!--
-                        comments heading - end
-                        -->
-                        <!--
-                        single comment - start
-                        -->
-                        @foreach($blog_comments as $blogs_comment)
-                        <div class="comments-single has-reply">
-                            <div class="comments-single-wrapper">
-                                <div class="comments-single-image">
-                                    @if($blogs_comment->image =='')
-                                    <img src="{{ asset('frontend_assets/assets/images/icon.png') }}" alt="comment">
-                                    @else
-                                    <img src="{{ Storage::url($blogs_comment->image) }}" alt="comment">
-                                    @endif
-                                </div>
-                                <div class="comments-single-content">
-                                    <h5>{{ $blogs_comment->name }}</h5>
-                                    <p class="date">{{ $blogs_comment->created_at->format('d-m-y') }}</p>
-                                    <p class="comment">{{ $blogs_comment->comments }}</p>
-                                    <a href="#" class="button reply-button">
-                                        <span>comment</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                     
-                    </div>
-                </div>
-            </div>
-            <!-- comments list - end -->
-            <!-- comments form - start -->
-            
-            @if(Auth::check() && Auth::user()->hasRole('CUSTOMER'))
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-10 offset-1">
-                    <div class="comments-form">
-                        <div class="comments-form-wrapper">
-                            <!-- comments form heading - start -->
-                            <div class="comments-form-heading">
-                                <h3>Write a comment</h3>
-                            </div>
-                            <!-- comments form heading - end -->
-                            <!-- comments form - start -->
-                            <form action="{{ route('blog.comment.submit') }}" method="post" id="comment-form">
-                                @csrf
-                                <div class="row">
-                                    
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                
-                                                <input class="input form-control" name="user_name"  type="text" placeholder="Name *" >
-                                                <label for="name-field">Name *</label>
-                                            </div>
-                                            <div class="form-floating">
-                                                <input class="input form-control" name="user_email"  type="email" placeholder="Email *">
-                                                <label for >Email *</label>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="blog_id" value="{{ $blog_details->id }}">
-                                        <div class="col-lg-6">
-                                            <div class="form-floating textarea-form">
-                                                <textarea class="input textarea form-control" id="comment-field" name="user_comment" placeholder="Write reply *"></textarea>
-                                                <label for="comment-field">Write comment *</label>
-                                            </div>
-                                        </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <button type="submit" class="button button-red">
-                                            <span class="button-inner">
-                                                <span class="button-content">
-                                                    <span class="text">Submit</span>
-                                                </span>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- comments form - end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-            <!-- comments form - end -->
-        </div>
-    </div>
-</div>
-<!-- comments - end -->
-
-<!-- cta section - start -->
-<div class="cta-section position-relative">
-    <div class="cta-section-wrapper">
-        <div class="container">
-            <div class="row d-lg-flex align-items-lg-center">
-                <!-- content - start -->
-                <div class="col-lg-6 offset-lg-0 order-lg-1 col-md-8 offset-md-2 col-10 offset-1 order-2">
-                    <div class="cta-section-content">
-                        <h2 class="c-white">{{ $home_content->service_business_title }}</h2>
-                        <div class="button-group">
-                            <a href="{{ route('login') }}" class="button button-red button-red-hover-white">
-                                <span>Get Started</span>
-                            </a>
-                            <!-- <a href="#" class="button button-purple button-purple-hover-white">
-                                <span>Learn More</span>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- content - end -->
-                <!-- image - start -->
-                <div class="col-lg-6 offset-lg-0 order-lg-2 col-md-8 offset-md-2 col-10 offset-1 order-1">
-                    <div class="cta-section-image">
-                        <img src="{{Storage::url($home_content->service_business_image)}}" alt="phone">
-                        <!-- <div class="box-1 bg-green-rgba-8">
-                            <div class="box-2 bg-purple">
-                                <div class="box-2-1 bg-dark-1"></div>
-                            </div>
-                            <div class="box-3 bg-dark-1"></div>
-                        </div> -->
-                        <div class="box-4 bg-red-rgba-8">
-                            <div class="box-5 bg-dark-1">
-                                <div class="box-6 bg-blue">
-                                    <div class="box-7 bg-dark-1"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- image - end -->
-            </div>
-        </div>
-    </div>
-    <div class="background-layout">
-        <div class="box-1 bg-darkk">
-            <div class="box-1-1 bg-dark-1">
-                <div class="box-1-1-1 bg-dark-1 wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-            </div>
-            <div class="box-2 bg-green">
-                <div class="box-2-1 bg-red wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-            </div>
-            <div class="box-3 bg-yellow">
-                <div class="box-3-1 bg-blue wow pulse" data-wow-delay="0.7s" data-wow-iteration="infinite"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- cta section - end -->
-
-
+    <!-- cta section - end -->
 @endsection
 
 @push('scripts')
-{{-- comment form validation --}}
+    {{-- comment form validation --}}
 
-<script>
-$(document).ready(function() {
-    $('#comment-form').validate({
-        rules: {
-            user_name: "required",
-            user_email: {
-                required: true,
-                email: true
-            },
-            user_comment: {
-                required: true,
-            }
-        },
-        messages: {
-            user_name: "Name is required",
-            user_email: {
-                required: "Email is required",
-                email: "Please enter a valid email address"
-            },
-            user_comment: {
-                required: "Comment is required",
-            
-            }
-        },
-        submitHandler: function(form) {
-            // You can perform additional actions or AJAX submission here
-            form.submit();
-        }
-    });
-});
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#comment-form').validate({
+                rules: {
+                    user_name: "required",
+                    user_email: {
+                        required: true,
+                        email: true
+                    },
+                    user_comment: {
+                        required: true,
+                    }
+                },
+                messages: {
+                    user_name: "Name is required",
+                    user_email: {
+                        required: "Email is required",
+                        email: "Please enter a valid email address"
+                    },
+                    user_comment: {
+                        required: "Comment is required",
+
+                    }
+                },
+                submitHandler: function(form) {
+                    // You can perform additional actions or AJAX submission here
+                    form.submit();
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Facebook sharing
+            $('.share-facebook').on('click', function(e) {
+                e.preventDefault();
+                shareOnFacebook();
+            });
+        });
+    </script>
 @endpush

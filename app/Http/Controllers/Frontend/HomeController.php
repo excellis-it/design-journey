@@ -64,11 +64,10 @@ class HomeController extends Controller
         return view('frontend.blogs',compact('blogs','home_content'));
     }
 
-    public function blogDetails($id)
+    public function blogDetails($slug)
     { 
-        $blog_id = decrypt($id);
-        $blog_comments = BlogComment::where('blog_id',$blog_id)->get();
-        $blog_details = Blog::find($blog_id);
+        $blog_details = Blog::where('slug',$slug)->first();
+        $blog_comments = BlogComment::where('blog_id',$blog_details->id)->paginate(10);
         $home_content = HomeCms::first();
         $similer_blogs = Blog::where('blog_cat_id',$blog_details->blog_cat_id)->where('status',1)->get();
         return view('frontend.blog-details',compact('blog_details','similer_blogs','home_content','blog_comments'));

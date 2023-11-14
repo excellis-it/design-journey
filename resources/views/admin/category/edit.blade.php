@@ -58,7 +58,7 @@
                                 <div class="col-md-6 ">
                                     <div class="form-group-div">
                                         <div class="form-group">
-                                            <label for="floatingInputValue"> Image*</label>
+                                            <label for="floatingInputValue"> Image</label>
                                             <input type="file" name="image[]" class="form-control">
                                             @if ($errors->has('image'))
                                                 <div class="error" style="color:red;">{{ $errors->first('image') }}</div>

@@ -82,7 +82,7 @@ Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
 
 
-Route::get('/blog/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
+Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog-details');
 Route::post('/blog-comment',[HomeController::class, 'blogComment'])->name('blog.comment.submit');
 //solutions routes
 Route::get('/social-media-design', [SolutionsController::class, 'socialMediaDesign'])->name('social.media.design');
