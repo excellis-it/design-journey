@@ -3,6 +3,24 @@
 Brand Create - {{ env('APP_NAME') }}
 @endsection
 @push('styles')
+<style>
+    .dots-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dots-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 18px; /* Adjust the font size as needed */
+}
+
+.dropdown-menu {
+    min-width: 0; /* Allow the menu to shrink to fit content */
+}
+    </style>
 @endpush
 
 @section('content')
@@ -33,8 +51,19 @@ Brand Create - {{ env('APP_NAME') }}
                                     <h3>{{ substr($brand->brand_name, 0, 2) }}</h3>
                                     <h4>{{ $brand->brand_name }}</h4>
                                 </div>
-                                <div class="create-brand-box create-brand-box-dot">
+                                {{-- <div class="create-brand-box create-brand-box-dot">
                                     <h4><a href="{{ route('edit.brand-profile',$brand->id) }}"><i class="ph ph-dots-three"></i></a></h4>
+                                </div> --}}
+
+                                <div class="dots-container">
+                                    <button type="button" class="btn dots-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        &#8230; <!-- Unicode character for horizontal ellipsis -->
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="{{ route('edit.brand-profile',$brand->id) }}">Edit</a>
+                                        <a title="Delete Category" class="dropdown-item" data-route="{{ route('delete.brand-profile',$brand->id) }}" id="delete">Delete</a>
+                                       
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -44,6 +73,9 @@ Brand Create - {{ env('APP_NAME') }}
             </div>
         </section>
     </div>
+
+
+    
 
     <!-- Modal -->
     <div class="modal modal-create fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -79,10 +111,31 @@ Brand Create - {{ env('APP_NAME') }}
     </div>
 </div>
 
-    @endsection
+@endsection
 
-    @push('scripts')
-   
-    
-    
-    @endpush
+@push('scripts')
+
+<script>
+    $(document).on('click', '#delete', function(e) {
+        swal({
+                title: "Are you sure?",
+                text: "To delete this brand.",
+                type: "warning",
+                confirmButtonText: "Yes",
+                showCancelButton: true
+            })
+            .then((result) => {
+                if (result.value) {
+                    window.location = $(this).data('route');
+                } else if (result.dismiss === 'cancel') {
+                    swal(
+                        'Cancelled',
+                        'Your stay here :)',
+                        'error'
+                    )
+                }
+            })
+    });
+</script>
+
+@endpush

@@ -1,8 +1,8 @@
 <div class="main-sidebar sidebar-style-2" tabindex="1">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="#"><span class="logo-name"><img src="{{ asset('user_assets/img/logo.png')}}" /></span> </a>
-            <a href="#"><span class="logo-fm"><img src="{{ asset('user_assets/img/logo.png')}}" /></span> </a>
+            <a href="{{ route('home') }}"><span class="logo-name"><img src="{{ asset('user_assets/img/logo.png')}}" /></span> </a>
+            
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header"></li>

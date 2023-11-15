@@ -11,6 +11,7 @@ use App\Models\About;
 use App\Models\PrivacyPolicy;
 use App\Models\TermCondition;
 use App\Models\ContactUsCms;
+use App\Models\FooterCms;
 use App\Models\EmailUs;
 use Illuminate\Support\Facades\Validator;
 
@@ -521,5 +522,11 @@ class HomeCmsController extends Controller
         $update_email->update();
 
         return back()->with('message','Email Us updated successfully');
+    }
+
+    public function footerCms()
+    {
+        $footer_cms = FooterCms::orderBy('id','desc')->get();
+        return view('admin.cms.footerCms',compact('footer_cms'));
     }
 }

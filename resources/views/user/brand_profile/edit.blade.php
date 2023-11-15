@@ -28,15 +28,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-6">
-
                                     <div class="brand-up">
-
                                         <div class="form-group">
                                             <label>
                                                 <div class="up-file">
                                                     <div class="container-color-div">
                                                         <div class="container-color">
-                                                            <input type="color" name="color" id="color-picker" />
+                                                            <input type="color" name="color" id="color-picker" value="{{ $brand_profile->brand_colour }}" />
                                                             <span id="value"></span>
                                                         </div>
                                                     </div>
@@ -47,9 +45,7 @@
                                                 </div>
                                             </label>
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -61,7 +57,6 @@
                                 <div class="col-lg-4 col-md-6">
                                     <a href="">
                                         <div class="brand-up">
-
                                             <div class="form-group">
                                                 <label>
                                                     <div class="up-file">
@@ -76,9 +71,19 @@
                                                     </div>
                                                 </label>
                                             </div>
-
                                         </div>
                                     </a>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <div class="up-file border-0" > 
+                                            @if($brand_profile->brand_logo != '')                                         
+                                            <a href="{{ Storage::url($brand_profile->brand_logo) }}" target="_blank" class="btn btn-primary">View file</a>
+                                            @else
+                                            <p>No file uploaded</p>
+                                            @endif
+                                        </div>                                
+                                    </div>     
                                 </div>
                             </div>
                         </div>
@@ -88,9 +93,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-6">
-
                                     <div class="brand-up">
-
                                         <div class="form-group">
                                             <label>
                                                 <div class="up-file">
@@ -105,9 +108,18 @@
                                                 </div>
                                             </label>
                                         </div>
-
                                     </div>
-
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <div class="up-file border-0" > 
+                                            @if($brand_profile->brand_guide != '')                                         
+                                            <a href="{{ Storage::url($brand_profile->brand_guide) }}" target="_blank" class="btn btn-primary">View file</a>
+                                            @else
+                                            <p>No file uploaded</p>
+                                            @endif
+                                        </div>                                
+                                    </div>     
                                 </div>
                             </div>
                         </div>
@@ -117,9 +129,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-6">
-
                                     <div class="brand-up">
-
                                         <div class="form-group">
                                             <label>
                                                 <div class="up-file">
@@ -134,9 +144,18 @@
                                                 </div>
                                             </label>
                                         </div>
-
                                     </div>
-
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <div class="up-file border-0" > 
+                                            @if($brand_profile->font != '')                                         
+                                            <a href="{{ Storage::url($brand_profile->font) }}" target="_blank" class="btn btn-primary">View file</a>
+                                            @else
+                                            <p>No file uploaded</p>
+                                            @endif
+                                        </div>                                
+                                    </div>     
                                 </div>
                             </div>
                         </div>
@@ -157,9 +176,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-6">
-
                                     <div class="brand-up">
-
                                         <div class="form-group">
                                             <label>
                                                 <div class="up-file">
@@ -168,15 +185,23 @@
                                                                 class="ph ph-file-plus"></i></span></div>
                                                     <div class="btn-up">
                                                         <span class="up-icon"><i class="ph ph-arrow-fat-line-up"></i></span>
-                                                        Upload new
-                                                        font
+                                                        Upload Extra Assets
                                                     </div>
                                                 </div>
                                             </label>
                                         </div>
-
                                     </div>
-
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <div class="up-file border-0" > 
+                                            @if($brand_profile->extra_asset != '')                                         
+                                            <a href="{{ Storage::url($brand_profile->extra_asset) }}" target="_blank" class="btn btn-primary">View file</a>
+                                            @else
+                                            <p>No file uploaded</p>
+                                            @endif
+                                        </div>                                
+                                    </div>     
                                 </div>
                             </div>
                         </div>

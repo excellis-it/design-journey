@@ -102,7 +102,7 @@ class BrandProfileController extends Controller
             
             $file3= $request->file('extra_assets_file');
             $filename3= date('YmdHi').$file3->getClientOriginalName();
-            $image_path3 = $request->file('font_file')->store('brand', 'public');
+            $image_path3 = $request->file('extra_assets_file')->store('brand', 'public');
             $brand_profile->extra_asset = $image_path3;
         }
 
@@ -130,8 +130,16 @@ class BrandProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
+
+    public function deleteBrandProfile($id)
+    {
+        $delete_brand = BrandProfile::where('id',$id)->where('user_id',Auth::user()->id)->delete();
+        return redirect()->back()->with('message', 'Brand Profile deleted successfully.');
+    }
+
+   
 
     /**
      * Update the specified resource in storage.

@@ -13,6 +13,7 @@ use App\Http\Controllers\User\ProfileController as UserProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\HomeCmsController;
+use App\Http\Controllers\admin\FooterCmsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\TypeController;
@@ -240,6 +241,12 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('terms/edit', [HomeCmsController::class, 'termsEdit'])->name('edit.term-condition');
             Route::post('terms/update', [HomeCmsController::class, 'termsUpdate'])->name('update.term-condition');
 
+            Route::resources([
+                'footer-cms' => FooterCmsController::class,
+            ]);
+
+            Route::get('/footer-cms/delete/{id}', [FooterCmsController::class, 'deleteFooterCms'])->name('delete.footer-cms');
+
         });
 
         //privacy , term condition
@@ -294,7 +301,8 @@ Route::group(['prefix' => 'user'], function () {
         ]);
 
         Route::get('/brand-profile/edit/{id}', [BrandProfileController::class, 'editBrandProfile'])->name('edit.brand-profile');
-        Route::post('/brand-profile/store', [BrandProfileController::class, 'updateBrandProfile'])->name('update.brand-profile');
+        Route::post('/brand-profile/update', [BrandProfileController::class, 'updateBrandProfile'])->name('update.brand-profile');
+        Route::get('/brand-profile/delete/{id}', [BrandProfileController::class, 'deleteBrandProfile'])->name('delete.brand-profile');
 
         //my plan
         Route::get('/my-plan',[DashboardController::class, 'myPlan'])->name('my-plan.list');

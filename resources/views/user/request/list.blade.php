@@ -95,7 +95,7 @@
                                 @else
                                     <tbody>
                                         @foreach ($request_delivers as $delivery)
-                                            <tr>
+                                            <tr  data-route="{{ route('request.details', $request->id) }}">
                                                 <td class="table-check"><span><i class="ph ph-check"></i></span></td>
                                                 <td>{{ $delivery->request_name }}</td>
                                                 <td>{{ $delivery->SubType->name }}</td>
@@ -104,7 +104,7 @@
                                                 
                                                 <td class="deliver">{{ $delivery->status }}</td>
                                             
-                                                <td class="edit text-center">
+                                                <td class="edit text-center" >
                                                     <div>
                                                         <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
                                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -136,4 +136,19 @@
 
 
 @push('scripts')
+<script>
+    $(document).ready(function () {
+        // Attach click event to table row
+        $('tbody tr').on('click', function () {
+            // Get the route from the data-route attribute
+            var route = $(this).data('route');
+            
+            // Check if a route is specified
+            if (route) {
+                // Redirect to the specified route
+                window.location.href = route;
+            }
+        });
+    });
+    </script>
 @endpush

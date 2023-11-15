@@ -111,12 +111,17 @@
                     <li class="{{ Request::is('admin/add-email*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('email.add') }}">Add Email</a>
                     </li>
+
+                    <li class="{{ Request::is('admin/footer-cms*') ? 'mm-active' : '' }}">
+                        <a class="nav-link" href="{{ route('footer-cms.index') }}">Footer Cms</a>
+                    </li>
                     {{-- <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('solution.cms') }}">Solution Cms</a>
                     </li> --}}
                 </ul>
             </li>
 
+            
             <li class="dropdown {{ Request::is('admin/blogs*') || Request::is('admin/blog-categories*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph ph-note-pencil"></i>
@@ -180,6 +185,8 @@
                     </li>
                 </ul>
             </li>
+
+            
 
             <li class="{{ Request::is('admin/contact-us*') ? 'active' : ' ' }}">
                 <a href="{{ route('contact.us.list') }}">

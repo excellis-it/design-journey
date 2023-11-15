@@ -1,18 +1,17 @@
 @extends('user.layouts.master')
 @section('title')
-    Blog Create - {{ env('APP_NAME') }}
+    Order - {{ env('APP_NAME') }}
 @endsection
 @push('styles')
 @endpush
 
 @section('content')
     <div class="main-content" style="min-height: 842px;">
-        
-        <div class="order-heading">
+        <div class="order-heading text-left">
             <h3>{{ $sub_type->name }}</h3>
             <p>{{ $sub_type->details }}</p>
-        </div>
-
+        </div> 
+        
         <div class="order-form">
             <form action="{{ route('presentation.submit') }}" method="post" enctype="multipart/form-data">
                 @csrf

@@ -7155,6 +7155,7 @@ a:hover {
     border-radius: 10px;
 }
 
+
 /* .up-file .form-group{
   margin-bottom: 0px !important;
 } */
@@ -7726,6 +7727,8 @@ h1 {
 .extra-para p{
     color: #000;  
 }
+
+
 
 @media (max-width: 767px) {
     .code {
