@@ -137,7 +137,6 @@
                 </ul>
             </li>
             
-
             <li class="dropdown {{ Request::is('admin/faq*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph ph-question"></i>

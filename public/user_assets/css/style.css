@@ -1753,8 +1753,8 @@ h6 .badge {
     text-align: center;
     width: 15px;
     font-size: 15px;
-    float: left;
-    margin-right: 10px;
+    /*float: left;*/
+    margin-right: 0px;
 }
 
 .btn {
@@ -4433,7 +4433,7 @@ body.layout-3 .breadcrumb-style {
 .main-content {
     padding-left: 280px;
     padding-right: 30px;
-    padding-top: 130px;
+    padding-top: 50px;
     width: 100%;
     position: relative;
 }
@@ -7085,6 +7085,7 @@ a:hover {
     font-size: 14px;
     font-weight: 400;
     color: #6d6565;
+    min-height: 150px;
 }
 
 .order-div {
@@ -7154,7 +7155,6 @@ a:hover {
     border: 1px solid #ddd;
     border-radius: 10px;
 }
-
 
 /* .up-file .form-group{
   margin-bottom: 0px !important;
@@ -7346,7 +7346,7 @@ h1 {
 
 .edit .dropdown-menu {
     position: absolute !important;
-    top: 14% !important;
+    top: 0% !important;
 }
 
 /* Details */
@@ -7727,6 +7727,10 @@ h1 {
 .extra-para p{
     color: #000;  
 }
+/* 16-11-2023 */
+
+
+
 
 
 

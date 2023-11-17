@@ -246,6 +246,7 @@ Route::group(['prefix' => 'admin'], function () {
             ]);
 
             Route::get('/footer-cms/delete/{id}', [FooterCmsController::class, 'deleteFooterCms'])->name('delete.footer-cms');
+            Route::post('/footer-cms/update', [FooterCmsController::class, 'updateFooterCms'])->name('update.footer-cms');
 
         });
 

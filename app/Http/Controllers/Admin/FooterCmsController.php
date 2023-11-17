@@ -39,7 +39,18 @@ class FooterCmsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'social_icon' => 'required',
+            'social_link' => 'required',
+        ]);
+
+        $footer_cms = new FooterCms();
+        $footer_cms->social_icon = $request->social_icon;
+        $footer_cms->social_link = $request->social_link;
+        $footer_cms->save();
+
+        return redirect()->route('footer-cms.index')->with('message','Social link add successfully');
+
     }
 
     /**
@@ -61,7 +72,8 @@ class FooterCmsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $footer_cms = FooterCms::find($id);
+        return view('admin.cms.footer_cms.edit',compact('footer_cms'));
     }
 
     /**
@@ -76,11 +88,26 @@ class FooterCmsController extends Controller
         //
     }
 
+    public function updateFooterCms(Request $request)
+    {
+        $request->validate([
+            'social_icon' => 'required',
+            'social_link' => 'required',
+        ]);
+
+        $footer_cms = FooterCms::find($request->id);
+        $footer_cms->social_icon = $request->social_icon;
+        $footer_cms->social_link = $request->social_link;
+        $footer_cms->save();
+
+        return redirect()->route('footer-cms.index')->with('message','Social link update successfully');
+    }
+
     public function deleteFooterCms($id)
     {
         $footer_cms = FooterCms::find($id);
         $footer_cms->delete();
-        return redirect()->route('footer_cms.index')->with('success','Xóa thành công');
+        return redirect()->route('footer-cms.index')->with('message','Social link delete successfully');
     }
 
     /**

@@ -1,8 +1,7 @@
 @php 
 $email_us = \App\Models\EmailUs::first();
+use App\Helpers\Pricing;
 @endphp
-
-
 
 <footer class="footer position-relative">
     <div class="footer-wrapper">
@@ -16,14 +15,20 @@ $email_us = \App\Models\EmailUs::first();
                             </a>
                             <p>&nbsp;</p>
                             <ul class="social">
+                                @php
+                                $socials = \App\Models\FooterCms::all();
+                                @endphp
+
+                                @foreach($socials  as $social)
                                 <li>
-                                    <a class="button button-blue" href="#">
+                                    <a class="button button-blue" href="{{ $social->social_link }}" target="_blank" >
                                         <span>
-                                            <i class=""></i>
+                                            <i class="{{ $social->social_icon }}"></i>
                                         </span>
                                     </a>
                                 </li>
-                                <li>
+                                @endforeach
+                                {{-- <li>
                                     <a class="button button-blue" href="#">
                                         <span>
                                             <i class="fab fa-twitter"></i>
@@ -43,7 +48,7 @@ $email_us = \App\Models\EmailUs::first();
                                             <i class="fab fa-youtube"></i>
                                         </span>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                         <div class="footer-list">
@@ -120,7 +125,7 @@ $email_us = \App\Models\EmailUs::first();
                             <h6>EMAIL US</h6>
                             <ul>
                                 <li>
-                                    <a href="#" class="link-underline">
+                                    <a href="mailto:{{ $email_us->email}}" class="link-underline">
                                         <span>{{ $email_us->email }}</span>
                                     </a>
                                 </li>

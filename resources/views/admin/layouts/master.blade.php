@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/custom.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin_assets/assets/css/morris.css') }}">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" type="text/css"

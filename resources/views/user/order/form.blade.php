@@ -7,12 +7,11 @@
 
 @section('content')
     <div class="main-content" style="min-height: 842px;">
-        <div class="order-heading text-left">
-            <h3>{{ $sub_type->name }}</h3>
-            <p>{{ $sub_type->details }}</p>
-        </div> 
-        
         <div class="order-form">
+            <div class="order-heading text-left">
+              <h3>{{ $sub_type->name }}</h3>
+              <p>{{ $sub_type->details }}</p>
+           </div> 
             <form action="{{ route('presentation.submit') }}" method="post" enctype="multipart/form-data">
                 @csrf
 

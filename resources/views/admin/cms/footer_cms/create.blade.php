@@ -6,8 +6,6 @@
 @endpush
 
 @section('content')
-
-
     <div class="main-content">
         <div class="inner_page">
             <div class="card-title">
@@ -25,75 +23,36 @@
                     <form action="{{ route('footer-cms.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row justify-content-between">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group-div">
                                     <div class="form-group">
-                                        <label for="floatingInputValue"> Name*</label>
-                                        <input type="text" name="name" class="form-control" id="floatingInputValue"
-                                            placeholder="Enter name*" value="{{ old('name') }}">
-                                        @if ($errors->has('name'))
-                                            <div class="error" style="color:red;">{{ $errors->first('name') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Slug*</label>
-                                        <input type="text" name="slug" class="form-control" id="floatingInputValue"
-                                            placeholder="Enter slug*" value="{{ old('slug') }}">
-                                        @if ($errors->has('slug'))
-                                            <div class="error" style="color:red;">{{ $errors->first('slug') }}</div>
+                                        <label for="floatingInputValue"> Social Icon*</label>
+                                        <input type="text" name="social_icon" class="form-control" id="floatingInputValue"
+                                            placeholder="Enter icon (fas fa-user)*" value="{{ old('social_icon') }}">
+                                        @if ($errors->has('social_icon'))
+                                            <div class="error" style="color:red;">{{ $errors->first('social_icon') }}</div>
                                         @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="add-more-image">
-                            <div class="row justify-content-between">
-                                <div class="col-md-6 ">
-                                    <div class="form-group-div">
-                                        <div class="form-group">
-                                            <label for="floatingInputValue"> Image</label>
-                                            <input type="file" name="image[]" class="form-control">
-                                            @if ($errors->has('image'))
-                                                <div class="error" style="color:red;">{{ $errors->first('image') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-6">
-                                    <div class="form-group-div">
-                                        <div class="form-group">
-                                            <a class="btn btn-primary add-image">Add Image</a>
-                                        </div>
+                        <div class="row justify-content-between">
+                            <div class="col-md-12">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Social Link*</label>
+                                        <input type="text" name="social_link" class="form-control" id="floatingInputValue"
+                                            placeholder="Enter Link*" value="{{ old('social_link') }}">
+                                        @if ($errors->has('social_link'))
+                                            <div class="error" style="color:red;">{{ $errors->first('social_link') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
 
                         <div class="row justify-content-between">
-                            <div class="col-md-6">
-                                <div class="form-group-div">
-                                    <div class="form-group">
-                                        <label for="floatingInputValue">Status*</label>
-                                        <select name="status" class="form-select" aria-label="Default select example">
-                                            <option selected value="">Select</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Deactive</option>
-                                        </select>
-                                        @if ($errors->has('status'))
-                                            <div class="error" style="color:red;">{{ $errors->first('status') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="col-xl-12">
                                 <div class="btn-1">
                                     <button type="submit">Create</button>
@@ -108,34 +67,5 @@
 @endsection
 
 @push('scripts')
-    <script>
-        // add more functionality for milestone
-        $(document).ready(function() {
-            $('.add-image').click(function() {
-                
-                var html = '';
-                html += '<div class="row">';
-                html += '<div class="col-md-6">';
-                html += '<div class="form-group-div">';
-                html += '<div class="form-group">';
-                html += '<label for="floatingInputValue"> Image*</label>';
-                html += '<input type="file" name="image[]" class="form-control">';
-                html += '</div>';
-                html += '</div>';
-                html += '</div>';
-                html += '<div class="col-md-6">';
-                html += '<div class="form-group-div">';
-                html += '<div class="form-group">';
-                html += '<a class="btn btn-danger remove">Remove</a>';
-                html += '</div>';
-                html += '</div>';
-                html += '</div>';
-                html += '</div>';
-                $('.add-more-image').append(html);
-            });
-            $(document).on('click', '.remove', function() {
-                $(this).closest('.row').remove();
-            });
-        });
-    </script>
+    
 @endpush

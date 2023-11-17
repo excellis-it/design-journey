@@ -3194,6 +3194,7 @@ width:100%;
 .navigation-menu .parent>li {
     list-style: none;
     position: relative;
+    margin-right: 35px;
 }
 
 .navigation-menu .parent>li>a:not(.button) {
@@ -3208,7 +3209,8 @@ width:100%;
 }
 
 .navigation-menu .parent>li+li {
-    margin-left: 4.5rem;
+    /*margin-left: 4.5rem;*/
+    margin-left: 0 !important;
 }
 
 .navigation-menu .parent>li::after {
@@ -3283,7 +3285,7 @@ width:100%;
     justify-content: space-between;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
+    align-items: end;
     padding: 0 30px 0 40px;
     margin: 21px 0 24px 0;
 }

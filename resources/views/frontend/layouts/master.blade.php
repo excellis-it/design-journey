@@ -98,7 +98,7 @@
                                         style="background-image: url('{{ Storage::url($contact_us->image) }}');">
                                         <!-- <img src="" alt="cta"> -->
                                     </div>
-                                    <a href="#" class="button button-blue">
+                                    <a href="{{ route('pricing') }}" class="button button-blue">
                                         <span>Learn more</span>
                                     </a>
                                 </div>
