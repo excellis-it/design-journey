@@ -28,6 +28,88 @@
                      
                         <div class="row justify-content-between">
                             <input type="hidden" name="home_cms_id" value="{{ $homeCms->id }}">
+
+                            <div class="col-md-12">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Main Content1*</label>
+                                        <input type="text" name="main_title1" class="form-control"
+                                            id="floatingInputValue" value="{{ $homeCms->main_title1 }}">
+                                        @if ($errors->has('main_title1'))
+                                            <div class="error" style="color:red;">
+                                                {{ $errors->first('main_title1') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="add-more-content">
+                            <div class="row justify-content-between">
+                                <div class="col-md-6">
+                                    <div class="form-group-div">
+                                        <div class="form-group">
+                                            <label for="floatingInputValue">Main Content2*</label>
+                                            <input type="text" name="main_title2[]" class="form-control"
+                                                id="floatingInputValue" placeholder="Enter content">
+                                            @if ($errors->has('main_title2'))
+                                                <div class="error" style="color:red;">
+                                                    {{ $errors->first('main_title2') }}</div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group-div">
+                                        <div class="form-group">
+                                            <a class="btn btn-primary add-content">Add content</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-between">
+                            
+
+                            <div class="image-area m-4" id="">   
+                                <input type="text" name="main_title2[]" class="form-control" id="floatingInputValue" placeholder="Enter content" value="">                        
+                                <a class="remove-image" href="javascript:void(0);" style="display: inline;">&#215;</a>
+                            </div>                          
+                        </div>
+
+                        <div class="row justify-content-between">
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Main Content3*</label>
+                                        <input type="text" name="main_title3" class="form-control"
+                                            id="floatingInputValue" value="{{ $homeCms->main_title3 }}">
+                                        @if ($errors->has('main_title3'))
+                                            <div class="error" style="color:red;">
+                                                {{ $errors->first('main_title3') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Banner Sub-title*</label>
+                                        <input type="text" name="banner_sub_title" class="form-control"
+                                            id="floatingInputValue" value="{{ $homeCms->banner_sub_title }}">
+                                        @if ($errors->has('banner_sub_title'))
+                                            <div class="error" style="color:red;">
+                                                {{ $errors->first('banner_sub_title') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-between">
                             <div class="col-md-6 ">
                                 <div class="form-group-div">
                                     <div class="form-group">
@@ -54,7 +136,6 @@
                         </div>
 
                         
-
                         <label for="inputEnterYourName" class="col-form-label">
                             <h3>Section 1:</h3>
                         </label>
@@ -817,5 +898,36 @@
 @endsection
 
 @push('scripts')
+
+<script>
+    // add more functionality for milestone
+    $(document).ready(function() {
+        $('.add-content').click(function() {
+            
+            var html = '';
+            html += '<div class="row">';
+            html += '<div class="col-md-6">';
+            html += '<div class="form-group-div">';
+            html += '<div class="form-group">';
+            html += '<label for="floatingInputValue"> Design*</label>';
+            html += '<input type="test" name="main_title2[]" class="form-control" placeholder="Enter content">';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '<div class="col-md-6">';
+            html += '<div class="form-group-div">';
+            html += '<div class="form-group">';
+            html += '<a class="btn btn-danger remove">Remove</a>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            $('.add-more-content').append(html);
+        });
+        $(document).on('click', '.remove', function() {
+            $(this).closest('.row').remove();
+        });
+    });
+</script>
    
 @endpush

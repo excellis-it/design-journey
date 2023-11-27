@@ -16,7 +16,7 @@
                 <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="header-content t-center">
                         <h1 class="m-horz-auto heading-width-res-full slider-wrapper">
-                            <div class="d-inline-block">Hire the best</div>                                
+                            <div class="d-inline-block">{{ $home_content->main_title1 }}</div>                                
                             <!-- <div class="changebox d-inline-block">                                    
                                 <span class="c-red slider-text">Web</span><br>
                                 <span class="c-blue slider-text">Graphic</span><br>
@@ -25,9 +25,9 @@
                             </div>                              -->
                             <div class="text_type" id="text2"></div>
                           <br>                             
-                          <div class="d-inline-block">Designer for any job, online.</div>
+                          <div class="d-inline-block">{{ $home_content->main_title3 }}</div>
                         </h1>
-                        <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65">Scale up your creative content production with a reliable and hassle-free design service.</p>
+                        <p class="paragraph-big m-horz-auto heading-width-res-full heading-width-65">{{$home_content->banner_sub_title }}</p>
                         <div class="m-horz-auto position-relative">
                             <div class="banerimg" style="background-image: url('{{Storage::url($home_content->banner_image)}}'); background-position: center center;
                             background-size: cover; background-repeat: no-repeat;">  
@@ -133,7 +133,7 @@
                 <!-- single - start -->
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="feature-section-content text-center">
-                        <i class="fas fa-file-medical-alt c-yellow icon"></i>
+                        <i class="fas fa-file-upload c-yellow icon"></i>
                         <h3 class="c-dark">{{ $home_content->section1_1st_title}}</h3>
                         <p>{{ $home_content->section1_1st_details}}</p>
                     </div>
@@ -151,7 +151,7 @@
                 <!-- single - start -->
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="feature-section-content  text-center">
-                        <i class="fas fa-comment c-green icon"></i>
+                        <i class="fa fa-comments c-green icon"></i>
                         <h3 class="c-dark">{{ $home_content->section1_3rd_title}}</h3>
                         <p>{{ $home_content->section1_3rd_details}}</p>
                     </div>
@@ -666,7 +666,7 @@
                 @foreach($blogs as $blog)
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="blog-single">
-                        <a href="{{ route('blog-details',encrypt($blog->id)) }}">
+                        <a href="{{ route('blog-details',$blog->slug) }}">
                             <figure>
                                 <img src="{{Storage::url($blog->main_image)}}" alt="blog"> 
                                 <div class="date bg-purple">
@@ -682,7 +682,7 @@
                                 </div>
                             </figure>
                         </a>
-                        <a href="{{ route('blog-details',encrypt($blog->id)) }}">
+                        <a href="{{ route('blog-details',$blog->slug) }}">
                             <h3 class="c-dark">{{ $blog->title }}</h3>
                         </a>
                         <h5 class="c-grey fw-500">11 comments <span>·</span> 3 min read</h5>

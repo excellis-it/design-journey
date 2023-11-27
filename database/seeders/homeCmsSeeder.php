@@ -15,7 +15,18 @@ class homeCmsSeeder extends Seeder
     public function run()
     {
         //
+        $data = [
+            'Web',
+            'Graphic',
+            'Logo',
+            '3D Graphic'
+        ];
+
         $homeCms = new HomeCms();
+        $homeCms->main_title1 = 'Hire the best';
+        $homeCms->main_title2 = implode(',', $data);
+        $homeCms->main_title3 = 'Designer for any job, online.';
+        $homeCms->banner_sub_title = 'Scale up your creative content production with a reliable and hassle-free design service.';
         $homeCms->banner_image = 'images/feature-background-image-1.jpg';
         $homeCms->section1_1st_title = 'Submit your request';
         $homeCms->section1_1st_details = 'Let us know what you need. Share references and upload your brand assets';

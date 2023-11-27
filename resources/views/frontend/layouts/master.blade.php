@@ -22,6 +22,7 @@
     <!-- <link rel="stylesheet" href="assets/css/overlay-scrollbars.min.css"> -->
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/style.css')}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
@@ -30,6 +31,7 @@
 
         @php 
             $contact_us = App\Models\ContactUsCms::first();
+            $home_cms = App\Models\HomeCms::first();
         @endphp
 
 
@@ -131,56 +133,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 
     <script>
-       var words = ["Web", "Graphic", "Logo", "3D Graphic"]
-var colors = ["#1a73e8" , "#e1392d", "#279947", "#7e57ff"]
 
-var counter = 0;
-var currentIndex = getRandomInt(0, words.length - 1);
+       var words1 = @json($home_cms->main_title2);
+       var words = words1.split(",");
 
-var text = document.getElementById("text2");
+        // var colors = ["#1a73e8" , "#e1392d", "#279947", "#7e57ff"]
 
-var stepInterval = setInterval(() => { step(); }, 200);
-var delInterval = null;
-var delTimeout = null;
+        var counter = 0;
+        var currentIndex = getRandomInt(0, words.length - 1);
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+        var text = document.getElementById("text2");
 
-function delIntervalCallback(){
-    delInterval = setInterval(() => { del(); }, 100);
-    clearTimeout(delTimeout);
-}
+        var stepInterval = setInterval(() => { step(); }, 200);
+        var delInterval = null;
+        var delTimeout = null;
 
-function del(){
-    if(counter == 0){
-        let newIndex = getRandomInt(0, words.length - 1);
-        while(newIndex == currentIndex){
-            newIndex = getRandomInt(0, words.length -1 );
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-        currentIndex = newIndex;
-        clearInterval(delInterval);
-        stepInterval = setInterval(() => { step(); }, 200);
-    }
-    else{
-        text.textContent = text.textContent.slice(0, -1)
-        counter--;
-    }
-}
 
-function step(){
-    if(counter >= words[currentIndex].length){
-        clearInterval(stepInterval);
-        delTimeout = setTimeout(() => { delIntervalCallback(); }, 2000);
+        function delIntervalCallback(){
+            delInterval = setInterval(() => { del(); }, 100);
+            clearTimeout(delTimeout);
+        }
+
+        function del(){
+            if(counter == 0){
+                let newIndex = getRandomInt(0, words.length - 1);
+                while(newIndex == currentIndex){
+                    newIndex = getRandomInt(0, words.length -1 );
+                }
+                currentIndex = newIndex;
+                clearInterval(delInterval);
+                stepInterval = setInterval(() => { step(); }, 200);
+            }
+            else{
+                text.textContent = text.textContent.slice(0, -1)
+                counter--;
+            }
+        }
+
+    function step(){
+        if(counter >= words[currentIndex].length){
+            clearInterval(stepInterval);
+            delTimeout = setTimeout(() => { delIntervalCallback(); }, 2000);
+        }
+        else{
+            text.textContent += words[currentIndex][counter];
+            // text.style.color = colors[currentIndex];
+            counter++;
+        }
     }
-    else{
-        text.textContent += words[currentIndex][counter];
-        text.style.color = colors[currentIndex];
-        counter++;
-    }
-}
     </script>
     <script>
         @if (Session::has('message'))
