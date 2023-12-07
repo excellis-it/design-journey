@@ -12090,3 +12090,37 @@ a.dt-button {
     color: #000 !important;
 }
 
+/* 07-12-2023 */
+.multiselect-form{
+    position: relative;
+}
+.multiselect-form .form-group .multi-label{
+    font-size: 16px;
+    color: #000;
+    background: #fff;
+    padding: 0px 10px;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    z-index: 10;
+}
+.multiselect-form  .multiselect-dropdown{
+   width: 100% !important;
+   padding: 10px 15px;
+}
+.multiselect-form .multiselect-dropdown span.placeholder{
+  color: transparent !important;
+}
+.multiselect-form .multiselect-dropdown-list-wrapper{
+    top: 30px;
+}
+.multiselect-form .multiselect-dropdown span.optext .optdel {
+    float: right;
+    margin: 0 -6px 1px 5px;
+    font-size: 10px;
+    margin-top: 2px;
+    cursor: pointer;
+    color: #000;
+    /* content: "\f057";
+    font-family: 'Font Awesome 5 Free'; */
+}

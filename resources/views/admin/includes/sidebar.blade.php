@@ -185,7 +185,12 @@
                 </ul>
             </li>
 
-            
+            <li class="{{ Request::is('admin/subscription*') ? 'active' : ' ' }}">
+                <a href="{{ route('subscription.list') }}">
+                    <i class="ph ph-chat-text"></i>
+                    <span>Subscription</span>
+                </a>
+            </li>
 
             <li class="{{ Request::is('admin/contact-us*') ? 'active' : ' ' }}">
                 <a href="{{ route('contact.us.list') }}">

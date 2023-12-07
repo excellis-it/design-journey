@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\CaseStudiesController;
 use App\Http\Controllers\Admin\JobApplyController;
 use App\Http\Controllers\Admin\OurTeamController;
 use App\Http\Controllers\Admin\ExtensionImageController;
+use App\Http\Controllers\Admin\SubscriptionController as AdminSubscriptionController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ResourcesController;
@@ -36,6 +37,7 @@ use App\Http\Controllers\Frontend\SolutionsController;
 use App\Http\Controllers\Frontend\ContactusController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\SocialLoginController;
+use App\Http\Controllers\Frontend\SubscriptionController;
 use Illuminate\Support\Facades\Artisan;
 
 // Clear cache
@@ -48,8 +50,6 @@ Route::get('clear', function () {
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/perks', [HomeController::class, 'perks'])->name('perks');
 Route::get('/admin', [AuthController::class, 'adminLogin'])->name('admin.login');
-
-
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -96,6 +96,7 @@ Route::post('/our-work/filter',[HomeController::class, 'ourWorkFilter'])->name('
 Route::post('/plan/filter',[HomeController::class, 'pricingFilter'])->name('pricing.filter');
 Route::post('/plan-checking',[HomeController::class, 'planChecking'])->name('plan.checking');
 Route::post('contact-us/submit', [ContactusController::class, 'contactUsSubmit'])->name('contact-us.submit');
+Route::post('subscription/submit', [SubscriptionController::class, 'subscriptionSubmit'])->name('subscription.submit');
 
 //payment routes
 Route::get('/payment/{payment}',[PaymentController::class, 'payment'])->name('payment.details');
@@ -216,6 +217,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/job-apply', [JobApplyController::class, 'jobApplyList'])->name('job-apply.list');
         Route::get('/job-apply/details/{id}', [JobApplyController::class, 'jobApplyDetails'])->name('job-apply.details');
         Route::get('careers/download-resume/{id}', [JobApplyController::class, 'downloadResume'])->name('download.resume');
+
+        //subscription list
+        Route::get('/subscription/list', [AdminSubscriptionController::class, 'subscriptionList'])->name('subscription.list');
+        Route::get('/subscription/send-mail', [AdminSubscriptionController::class, 'subscriptionSendMail'])->name('subscription.mail.send');
+        Route::post('/subscription/mail-submit', [AdminSubscriptionController::class, 'subscriptionMailSubmit'])->name('subscription.mail.submit');
         
 
         //cms routes

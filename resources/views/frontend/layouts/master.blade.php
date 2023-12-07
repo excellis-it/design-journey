@@ -25,14 +25,18 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 </head>
+
 <body>
     <main>
 
         @php 
             $contact_us = App\Models\ContactUsCms::first();
             $home_cms = App\Models\HomeCms::first();
+            use App\Helpers\Pricing;
         @endphp
+
 
 
         @include('frontend.includes.header')
@@ -113,6 +117,45 @@
                 </div>
             </div>
         </div>
+
+         <!--  subscription modal  -->
+       
+        <div class="modal modal-create fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="subscriptionModalLabel">Subscription</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{ route('subscription.submit') }}" method="post" id="subscription_form">
+                    @csrf
+                        <div class="modal-body">
+                            <div class="create-form">                    
+                                <div class="form-group">
+                                    <label for="user_name">Name</label>
+                                    <input type="text" class="form-control" name="user_name"  id="user_name">
+                                    <span id="nameError" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_email">Email</label>
+                                    <input type="text" class="form-control" name="user_email"  id="user_email">
+                                    <span id="nameError" class="text-danger"></span>
+                                </div>
+
+                                
+                                
+                            </div>
+                        </div>
+                        <div class="modal-footer text-left">
+                            <button type="submit" class="btn" id="createSubscription">Subcribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+         <!--  subscription modal end-->
+     
+
         <!-- contact section - end -->
         @include('frontend.includes.footer')
     </main>
@@ -220,6 +263,40 @@
             toastr.warning("{{ session('warning') }}");
         @endif
     </script>
+    <script>
+        //if condition for popup variaable is true or not
+        @if(Pricing::NewsletterSubscription() == true)
+        $(document).ready(function() {
+            
+            $('#subscriptionModal').modal('show');   
+        });
+        @endif
+        </script>
+
+<script>
+    $(document).ready(function() {
+        $('#subscription_form').validate({
+            rules: {
+                user_name: "required",
+                user_email: {
+                    required: true,
+                    email: true
+                }  
+            },
+            messages: {
+                user_name: "Name is required",
+                user_email: {
+                    required: "Email is required",
+                    email: "Please enter a valid email address"
+                }
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+    });
+</script>
+
 
 <script>
     $(document).ready(function() {

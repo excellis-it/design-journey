@@ -46,7 +46,7 @@
 
                         <div class="add-more-content">
                             <div class="row justify-content-between">
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group-div">
                                         <div class="form-group">
                                             <label for="floatingInputValue">Main Content2*</label>
@@ -58,7 +58,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-md-6">
                                     <div class="form-group-div">
@@ -71,12 +71,23 @@
                         </div>
 
                         <div class="row justify-content-between">
-                            
-
-                            <div class="image-area m-4" id="">   
-                                <input type="text" name="main_title2[]" class="form-control" id="floatingInputValue" placeholder="Enter content" value="">                        
-                                <a class="remove-image" href="javascript:void(0);" style="display: inline;">&#215;</a>
-                            </div>                          
+                            @foreach(explode(',', $homeCms->main_title2) as $key=>$value)
+                                <div class="col-md-6 remove_title2_{{ $key }}" >
+                                    <div class="form-group-div">
+                                        <div class="form-group">
+                                            <label for="floatingInputValue">Design</label>   
+                                            <input type="text" name="main_title2[]" class="form-control" id="floatingInputValue" placeholder="Enter content" value="{{$value}}">
+                                        </div>
+                                    </div>  
+                                </div> 
+                                <div class="col-md-6">
+                                    <div class="form-group-div">
+                                        <div class="form-group">
+                                        <a class="btn btn-danger" onclick="removeDesign($key)">Remove</a>
+                                        </div>
+                                    </div>
+                                </div> 
+                            @endforeach                  
                         </div>
 
                         <div class="row justify-content-between">
@@ -909,7 +920,7 @@
             html += '<div class="col-md-6">';
             html += '<div class="form-group-div">';
             html += '<div class="form-group">';
-            html += '<label for="floatingInputValue"> Design*</label>';
+            html += '<label for="floatingInputValue"> Design</label>';
             html += '<input type="test" name="main_title2[]" class="form-control" placeholder="Enter content">';
             html += '</div>';
             html += '</div>';
@@ -929,5 +940,12 @@
         });
     });
 </script>
-   
+<script>
+   function removeDesign(id)
+   {
+
+        $('.remove_title2_'+id).remove();
+   }
+</script>
+
 @endpush

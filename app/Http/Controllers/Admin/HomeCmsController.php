@@ -29,7 +29,11 @@ class HomeCmsController extends Controller
 
     public function homeCmsUpdate(Request $request)
     {
+        
         $request->validate([
+            'main_title1' => 'required',
+            'main_title3' => 'required',
+            'banner_sub_title' => 'required',
             'section1_1st_title' => 'required',
             'section1_1st_details' => 'required',
             'section1_2nd_title' => 'required',
@@ -69,6 +73,15 @@ class HomeCmsController extends Controller
 
         ]);
         $update_homeCms = HomeCms::find($request->home_cms_id);
+        $update_homeCms->main_title1 = $request->main_title1;
+        $update_homeCms->main_title3 = $request->main_title3;
+        $request->main_title2;
+        $main_title2 = implode(',', array_filter(array_map(function ($value) {
+            return $value !== null ? $value : '';
+        }, $request->main_title2)));
+        
+        $update_homeCms->main_title2 = $main_title2;
+        $update_homeCms->banner_sub_title = $request->banner_sub_title;
         $update_homeCms->section1_1st_title = $request->section1_1st_title;
         $update_homeCms->section1_1st_details = $request->section1_1st_details;
         $update_homeCms->section1_2nd_title = $request->section1_2nd_title;
@@ -99,7 +112,7 @@ class HomeCmsController extends Controller
         $update_homeCms->section5_title4 = $request->section5_title4;
         $update_homeCms->section5_detail4 = $request->section5_detail4;
         $update_homeCms->service_business_title = $request->service_business_title;
-
+        
 
         if ($request->hasFile('banner_image')) {
             $request->validate([
