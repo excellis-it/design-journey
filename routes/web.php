@@ -97,6 +97,7 @@ Route::post('/plan/filter',[HomeController::class, 'pricingFilter'])->name('pric
 Route::post('/plan-checking',[HomeController::class, 'planChecking'])->name('plan.checking');
 Route::post('contact-us/submit', [ContactusController::class, 'contactUsSubmit'])->name('contact-us.submit');
 Route::post('subscription/submit', [SubscriptionController::class, 'subscriptionSubmit'])->name('subscription.submit');
+Route::get('/check-subscription-mail',[SubscriptionController::class, 'checkSubscriptionMail'])->name('subscription.check.email');
 
 //payment routes
 Route::get('/payment/{payment}',[PaymentController::class, 'payment'])->name('payment.details');

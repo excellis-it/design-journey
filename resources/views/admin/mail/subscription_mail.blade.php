@@ -1,3 +1,9 @@
-Hi <br/>
-This is Test Mail.<br />
-Thank you !!
+
+
+
+Thank you for subscribing  our website.
+{!! $content !!} 
+
+
+Thanks,<br>
+{{ config('app.name') }}

@@ -14,7 +14,7 @@ class SendQueueEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     protected $details;
-    public $timeout = 7200; // 2 hours
+  
 
     /**
      * Create a new job instance.
@@ -36,14 +36,14 @@ class SendQueueEmail implements ShouldQueue
     {
         //
         $data = $this->details['email'];
-        $input['subject'] = $this->details['subject'];
+        $content = $this->details['subject'];
 
         foreach ($data as $key => $value) {
             $input['email'] = $value;
-            
-            \Mail::send('admin.mail.subscription_mail', [], function($message) use($input){
+
+            \Mail::send('admin.mail.subscription_mail', compact('content'), function($message) use($input){
                 $message->to($input['email'])
-                    ->subject($input['subject']);
+                    ->subject('Welcome to Design Journey! Thanks for Subscribing to Our Newsletter.');
             });
         }
     }

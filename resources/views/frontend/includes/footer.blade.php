@@ -84,6 +84,11 @@ use App\Helpers\Pricing;
                                         <span>Privacy Policy</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="javascript:void(0);" id="news-letter" class="link-underline">
+                                        <span>Newsletter</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div class="footer-list">
@@ -119,6 +124,7 @@ use App\Helpers\Pricing;
                                         <span>Term & Condition</span>
                                     </a>
                                 </li>
+                                
                             </ul>
                         </div>
                         <div class="footer-list">
@@ -155,5 +161,7 @@ use App\Helpers\Pricing;
         </div>
     </div>
 </footer>
+
+
 <!-- footer - end -->
 

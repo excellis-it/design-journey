@@ -26,4 +26,15 @@ class SubscriptionController extends Controller
         return redirect()->back()->with('message', 'Thanks for subscribing!');
         
     }
+
+    public function checkSubscriptionMail(Request $request)
+    {
+        // $subscriber_email = $request->session()->get('subscriber_email');
+        $subscription = Subscription::where('email', $request->email)->first();
+        if($subscription){
+            return response()->json(['data' => true, 'message' => 'Email already subscribed!']);
+        }else{
+            return response()->json(['data' => false, 'message' => 'Email not subscribed!']);
+        }
+    }
 }

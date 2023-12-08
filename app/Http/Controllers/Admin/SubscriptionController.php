@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subscription;
+use App\Jobs\SendQueueEmail;
 
 class SubscriptionController extends Controller
 {
@@ -26,15 +27,18 @@ class SubscriptionController extends Controller
     {
        
         $details = [
-    		'subject' => $request->content,
+            'subject' => $request->content,
             'email' => $request->email,
-    	];
-    	
-        $job = (new \App\Jobs\SendQueueEmail($details))
-            	->delay(now()->addSeconds(2)); 
-
+        ];
+        
+        // Use a faster queue driver like Redis or Beanstalkd
+        $job = (new SendQueueEmail($details))
+            ->onQueue('high-priority');
+        
         dispatch($job);
-        echo "Mail send successfully !!";
+        
+        return redirect()->back()->with('message', 'Email Send Job Dispatched Successfully');
+        
 
     }
 }

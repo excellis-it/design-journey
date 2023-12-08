@@ -141,9 +141,6 @@
                                     <input type="text" class="form-control" name="user_email"  id="user_email">
                                     <span id="nameError" class="text-danger"></span>
                                 </div>
-
-                                
-                                
                             </div>
                         </div>
                         <div class="modal-footer text-left">
@@ -218,17 +215,17 @@
             }
         }
 
-    function step(){
-        if(counter >= words[currentIndex].length){
-            clearInterval(stepInterval);
-            delTimeout = setTimeout(() => { delIntervalCallback(); }, 2000);
+        function step(){
+            if(counter >= words[currentIndex].length){
+                clearInterval(stepInterval);
+                delTimeout = setTimeout(() => { delIntervalCallback(); }, 2000);
+            }
+            else{
+                text.textContent += words[currentIndex][counter];
+                // text.style.color = colors[currentIndex];
+                counter++;
+            }
         }
-        else{
-            text.textContent += words[currentIndex][counter];
-            // text.style.color = colors[currentIndex];
-            counter++;
-        }
-    }
     </script>
     <script>
         @if (Session::has('message'))
@@ -271,7 +268,14 @@
             $('#subscriptionModal').modal('show');   
         });
         @endif
-        </script>
+    </script>
+
+    <script>
+    $(document).on("click","a[id='news-letter']", function (e) {
+        e.preventDefault();
+        $('#subscriptionModal').modal('show');
+    });
+    </script>
 
 <script>
     $(document).ready(function() {
@@ -290,6 +294,7 @@
                     email: "Please enter a valid email address"
                 }
             },
+
             submitHandler: function(form) {
                 form.submit();
             }
@@ -323,7 +328,6 @@
                 }
             },
             submitHandler: function(form) {
-                // You can perform additional actions or AJAX submission here
                 form.submit();
             }
         });
