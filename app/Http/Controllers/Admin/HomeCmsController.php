@@ -13,6 +13,7 @@ use App\Models\TermCondition;
 use App\Models\ContactUsCms;
 use App\Models\FooterCms;
 use App\Models\EmailUs;
+use App\Models\SubscriptionCms;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -535,6 +536,36 @@ class HomeCmsController extends Controller
         $update_email->update();
 
         return back()->with('message','Email Us updated successfully');
+    }
+
+    public function subscriptionCms()
+    {
+        $subscription_cms = SubscriptionCms::first();
+        return view('admin.cms.subscription-cms',compact('subscription_cms'));
+    }
+
+    public function subscriptionCmsUpdate(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+        ]);
+
+        $update_subscription_cms = SubscriptionCms::find($request->subscription_cms_id);
+        $update_subscription_cms->title = $request->title;
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
+            ]);
+            
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $image_path = $request->file('image')->store('subscription', 'public');
+            $update_subscription_cms->image = $image_path;
+        }
+
+        $update_subscription_cms->update();
+
+        return back()->with('message','Subscription Cms updated successfully');
     }
 
     public function footerCms()

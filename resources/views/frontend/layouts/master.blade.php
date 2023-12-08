@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    
+
     <!-- title tag -->
     <title>Design Journey</title>
 
@@ -24,17 +25,17 @@
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/style.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 </head>
 
 <body>
     <main>
 
-        @php 
-            $contact_us = App\Models\ContactUsCms::first();
-            $home_cms = App\Models\HomeCms::first();
-            use App\Helpers\Pricing;
+        @php
+        $contact_us = App\Models\ContactUsCms::first();
+        $home_cms = App\Models\HomeCms::first();
+        use App\Helpers\Subscribing;
         @endphp
 
 
@@ -42,7 +43,8 @@
         @include('frontend.includes.header')
         @yield('content')
         <!-- contact section - start -->
-        <div class="contact-section " id="contact" style="{{ Request::is('blogs*') || Request::is('help-center*') || Request::is('career*') ? 'display:none' : '' }}">
+        <div class="contact-section " id="contact"
+            style="{{ Request::is('blogs*') || Request::is('help-center*') || Request::is('career*') ? 'display:none' : '' }}">
             <div class="contact-section-wrapper">
                 <div class="container">
                     <div class="row gx-5">
@@ -60,8 +62,8 @@
                                             <label for="nameField">Full name</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="emailField" name="email_address"
-                                                placeholder="Email address">
+                                            <input type="email" class="form-control" id="emailField"
+                                                name="email_address" placeholder="Email address">
                                             <label for="emailField">Email address</label>
                                         </div>
                                         <div class="form-floating">
@@ -79,13 +81,13 @@
                                         <label for="practitionerCheck">I'm a Practitioner</label>
                                     </div>
                                 </div> -->
-                                    <div class="form-floating">
-                                        <div class="form-submit mt-3">
-                                            <button type="submit" class="button button-full-width button-red">
-                                                <span>Submit</span>
-                                            </button>
+                                        <div class="form-floating">
+                                            <div class="form-submit mt-3">
+                                                <button type="submit" class="button button-full-width button-red">
+                                                    <span>Submit</span>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
                                     </form>
                                 </div>
                                 <div class="box-small box-top-left bg-red wow pulse" data-wow-delay="0.4s"
@@ -98,7 +100,8 @@
                             <div class="cta position-relative mt-lg-0 mt-5">
                                 <div class="cta-wrapper bg-light">
                                     <div class="heading">
-                                        <h3 class="ls-1 t-center m-horz-auto heading-width-76">{{ $contact_us->text }}</h3>
+                                        <h3 class="ls-1 t-center m-horz-auto heading-width-76">{{ $contact_us->text }}
+                                        </h3>
                                     </div>
                                     <div class="image"
                                         style="background-image: url('{{ Storage::url($contact_us->image) }}');">
@@ -118,40 +121,92 @@
             </div>
         </div>
 
-         <!--  subscription modal  -->
-       
-        <div class="modal modal-create fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
+        <!--  subscription modal  -->
+
+        <div class="modal modal-create fade" id="subscriptionModal" tabindex="-1"
+            aria-labelledby="subscriptionModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title fs-5" id="subscriptionModalLabel">Subscription</h2>
+                        <h2 class="modal-title fs-5" id="subscriptionModalLabel"></h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ route('subscription.submit') }}" method="post" id="subscription_form">
-                    @csrf
+                        @csrf
                         <div class="modal-body">
-                            <div class="create-form">                    
-                                <div class="form-group">
-                                    <label for="user_name">Name</label>
-                                    <input type="text" class="form-control" name="user_name"  id="user_name">
-                                    <span id="nameError" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="user_email">Email</label>
-                                    <input type="text" class="form-control" name="user_email"  id="user_email">
-                                    <span id="nameError" class="text-danger"></span>
+                            <div class="modal-form-div">
+                                <div class="login_sec">
+                                    <div class="login_sec_wrap">
+                                        <div class="container-fluid">
+                                            <div class="row justify-content-end">
+                                                <div class="col-xl-6 col-lg-12 col-12 p-0">
+                                                    <div class="login_sec_left">
+                                                        <div class="login_sec_left_bg"></div>
+                                                        <div class="width_545">
+                                                            <div class="main_hh">
+                                                                 <div class="login_sec_right_text">
+                                                                    <div class="login-logo-sub">
+                                                                       <a href=""><img src="{{ asset('frontend_assets/assets/images/logo.png')}}" alt="orions-logo"></a>
+                                                                   </div>
+                                                                   <div class="login-logo-head">
+                                                                         <p>{{ Subscribing::SubcriptionCmsContent()->title }}
+                                                                        
+                                                                         </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="login_form">
+                                                                    
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputEmail1"
+                                                                                class="form-label">User name</label>
+                                                                            <input type="text" class="form-control"
+                                                                                name="user_name" id="user_name"
+                                                                                aria-describedby="emailHelp" />
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="txtPassword">Email</label>
+                                                                            <div class="position-relative">
+                                                                                <input type="text" name="user_email"  id="user_email"
+                                                                                    class="form-control" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <button type="submit"
+                                                                            class="btn btn-lg btn-primary btn-block btn-login">
+                                                                            Subcribe
+                                                                        </button>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <!--<div class="create-form">                    -->
+                            <!--    <div class="form-group">-->
+                            <!--        <label for="user_name">Name</label>-->
+                            <!--        <input type="text" class="form-control" name="user_name"  id="user_name">-->
+                            <!--        <span id="nameError" class="text-danger"></span>-->
+                            <!--    </div>-->
+                            <!--    <div class="form-group">-->
+                            <!--        <label for="user_email">Email</label>-->
+                            <!--        <input type="text" class="form-control" name="user_email"  id="user_email">-->
+                            <!--        <span id="nameError" class="text-danger"></span>-->
+                            <!--    </div>-->
+                            <!--</div>-->
                         </div>
                         <div class="modal-footer text-left">
-                            <button type="submit" class="btn" id="createSubscription">Subcribe</button>
+                            <!--<button type="submit" class="btn" id="createSubscription">Subcribe</button>-->
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-         <!--  subscription modal end-->
-     
+        <!--  subscription modal end-->
+
 
         <!-- contact section - end -->
         @include('frontend.includes.footer')
@@ -174,8 +229,8 @@
 
     <script>
 
-       var words1 = @json($home_cms->main_title2);
-       var words = words1.split(",");
+        var words1 = @json($home_cms -> main_title2);
+        var words = words1.split(",");
 
         // var colors = ["#1a73e8" , "#e1392d", "#279947", "#7e57ff"]
 
@@ -194,33 +249,33 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        function delIntervalCallback(){
+        function delIntervalCallback() {
             delInterval = setInterval(() => { del(); }, 100);
             clearTimeout(delTimeout);
         }
 
-        function del(){
-            if(counter == 0){
+        function del() {
+            if (counter == 0) {
                 let newIndex = getRandomInt(0, words.length - 1);
-                while(newIndex == currentIndex){
-                    newIndex = getRandomInt(0, words.length -1 );
+                while (newIndex == currentIndex) {
+                    newIndex = getRandomInt(0, words.length - 1);
                 }
                 currentIndex = newIndex;
                 clearInterval(delInterval);
                 stepInterval = setInterval(() => { step(); }, 200);
             }
-            else{
+            else {
                 text.textContent = text.textContent.slice(0, -1)
                 counter--;
             }
         }
 
-        function step(){
-            if(counter >= words[currentIndex].length){
+        function step() {
+            if (counter >= words[currentIndex].length) {
                 clearInterval(stepInterval);
                 delTimeout = setTimeout(() => { delIntervalCallback(); }, 2000);
             }
-            else{
+            else {
                 text.textContent += words[currentIndex][counter];
                 // text.style.color = colors[currentIndex];
                 counter++;
@@ -228,46 +283,70 @@
         }
     </script>
     <script>
-        @if (Session::has('message'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.success("{{ session('message') }}");
+        @if (Session:: has('message'))
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true
+        }
+        toastr.success("{{ session('message') }}");
         @endif
-    
-        @if (Session::has('error'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ session('error') }}");
+
+        @if (Session:: has('error'))
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true
+        }
+        toastr.error("{{ session('error') }}");
         @endif
-    
-        @if (Session::has('info'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.info("{{ session('info') }}");
+
+        @if (Session:: has('info'))
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true
+        }
+        toastr.info("{{ session('info') }}");
         @endif
-    
-        @if (Session::has('warning'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.warning("{{ session('warning') }}");
+
+        @if (Session:: has('warning'))
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true
+        }
+        toastr.warning("{{ session('warning') }}");
         @endif
     </script>
     <script>
         //if condition for popup variaable is true or not
-        @if(Pricing::NewsletterSubscription() == true)
-        $(document).ready(function() {
-            
-            $('#subscriptionModal').modal('show');   
+        @if (Subscribing:: NewsletterSubscription() == true)
+        $(document).ready(function () {
+
+            $('#subscriptionModal').modal('show');
         });
         @endif
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#subscription_form').validate({
+                rules: {
+                    user_name: "required",
+                    user_email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    user_name: "Name is required",
+                    user_email: {
+                        required: "Email is required",
+                        email: "Please enter a valid email address"
+                    }
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
+        });
     </script>
 
     <script>
@@ -277,61 +356,37 @@
     });
     </script>
 
-<script>
-    $(document).ready(function() {
-        $('#subscription_form').validate({
-            rules: {
-                user_name: "required",
-                user_email: {
-                    required: true,
-                    email: true
-                }  
-            },
-            messages: {
-                user_name: "Name is required",
-                user_email: {
-                    required: "Email is required",
-                    email: "Please enter a valid email address"
-                }
-            },
 
-            submitHandler: function(form) {
-                form.submit();
-            }
-        });
-    });
-</script>
-
-
-<script>
-    $(document).ready(function() {
-        $('#contact-form').validate({
-            rules: {
-                full_name: "required",
-                email_address: {
-                    required: true,
-                    email: true
+    <script>
+        $(document).ready(function () {
+            $('#contact-form').validate({
+                rules: {
+                    full_name: "required",
+                    email_address: {
+                        required: true,
+                        email: true
+                    },
+                    message: {
+                        required: true,
+                    }
                 },
-                message: {
-                    required: true,
-                }
-            },
-            messages: {
-                full_name: "Full name is required",
-                email_address: {
-                    required: "Email is required",
-                    email: "Please enter a valid email address"
+                messages: {
+                    full_name: "Full name is required",
+                    email_address: {
+                        required: "Email is required",
+                        email: "Please enter a valid email address"
+                    },
+                    message: {
+                        required: "Message is required",
+
+                    }
                 },
-                message: {
-                    required: "Message is required",
-                
+                submitHandler: function (form) {
+                    // You can perform additional actions or AJAX submission here
+                    form.submit();
                 }
-            },
-            submitHandler: function(form) {
-                form.submit();
-            }
+            });
         });
-    });
     </script>
     @stack('scripts')
 </body>

@@ -10,7 +10,7 @@
 
 <section class="section_breadcrumb d-block d-sm-flex justify-content-between">
     <div class="">
-        <h4 class="page-title m-b-0">Subscription list</h4>
+        <h4 class="page-title m-b-0">Subscribers list</h4>
     </div>
     <div class="">
         <ul class="breadcrumb breadcrumb-style">
@@ -62,6 +62,27 @@
     </div>
 </div>
 
-
-
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+   
+    <script>
+        $(document).ready(function() {
+            //Default data table
+            $('#myTable').DataTable({
+                "aaSorting": [],
+                "columnDefs": [{
+                        "orderable": false,
+                        "targets": []
+                    },
+                    {
+                        "orderable": true,
+                        "targets": [0, 1]
+                    }
+                ]
+            });
+
+        });
+    </script>
+@endpush

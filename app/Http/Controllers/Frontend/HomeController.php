@@ -35,7 +35,6 @@ class HomeController extends Controller
     //
     public function home()
     {
-        // session get subscription email
         
         $home_content = HomeCms::first();
         $faqs = Faq::orderBy('id','desc')->limit(5)->get();

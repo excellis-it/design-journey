@@ -21,13 +21,5 @@ class Pricing
         }
     }
 
-    public static function NewsletterSubscription()
-    {
-        $subscriber_email = Session::get('subscriber_email');
-        if($subscriber_email == null){
-            return true;
-        }else{
-            return false;
-        }
-    }
+    
 }

@@ -115,6 +115,9 @@
                     <li class="{{ Request::is('admin/footer-cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('footer-cms.index') }}">Footer Cms</a>
                     </li>
+                    <li class="{{ Request::is('admin/subscription-cms*') ? 'mm-active' : '' }}">
+                        <a class="nav-link" href="{{ route('subscription.cms') }}">Subscription Modal Cms</a>
+                    </li>
                     {{-- <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('solution.cms') }}">Solution Cms</a>
                     </li> --}}
@@ -187,7 +190,7 @@
 
             <li class="{{ Request::is('admin/subscription*') ? 'active' : ' ' }}">
                 <a href="{{ route('subscription.list') }}">
-                    <i class="ph ph-chat-text"></i>
+                    <i class="ph ph-hand"></i>
                     <span>Subscription</span>
                 </a>
             </li>

@@ -248,6 +248,10 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('terms/edit', [HomeCmsController::class, 'termsEdit'])->name('edit.term-condition');
             Route::post('terms/update', [HomeCmsController::class, 'termsUpdate'])->name('update.term-condition');
 
+            //subscription cms
+            Route::get('/subscription-cms', [HomeCmsController::class, 'subscriptionCms'])->name('subscription.cms');
+            Route::post('subscription-cms/update', [HomeCmsController::class, 'subscriptionCmsUpdate'])->name('update.subscription-cms');
+
             Route::resources([
                 'footer-cms' => FooterCmsController::class,
             ]);
