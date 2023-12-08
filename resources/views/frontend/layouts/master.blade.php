@@ -128,7 +128,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title fs-5" id="subscriptionModalLabel"></h2>
+                        <h2 class="modal-title fs-5" id="subscriptionModalLabel">newsletter subscriptions</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ route('subscription.submit') }}" method="post" id="subscription_form">
@@ -139,6 +139,11 @@
                                     <div class="login_sec_wrap">
                                         <div class="container-fluid">
                                             <div class="row justify-content-end">
+                                                  <div class="col-xl-6 col-lg-12 col-12 p-0">
+                                                    <div class="login-left-image">
+                                                      <img src="{{ Storage::url(Subscribing::SubcriptionCmsContent()->image) }}" alt="orions-logo">  
+                                                    </div>  
+                                                   </div>          
                                                 <div class="col-xl-6 col-lg-12 col-12 p-0">
                                                     <div class="login_sec_left">
                                                         <div class="login_sec_left_bg"></div>
@@ -158,7 +163,7 @@
                                                                     
                                                                         <div class="form-group">
                                                                             <label for="exampleInputEmail1"
-                                                                                class="form-label">User name</label>
+                                                                                class="form-label">Name</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="user_name" id="user_name"
                                                                                 aria-describedby="emailHelp" />
@@ -172,7 +177,7 @@
                                                                         </div>
                                                                         <button type="submit"
                                                                             class="btn btn-lg btn-primary btn-block btn-login">
-                                                                            Subcribe
+                                                                            Subscribe
                                                                         </button>
                                                                     
                                                                 </div>

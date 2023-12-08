@@ -5178,10 +5178,7 @@ body.loaded .preloader {
   
   /*08-12-2023*/
   .login_sec {
-  background-image: url(https://excellis.co.in/design-journey/public/storage/images/feature-background-image-1.jpg);
-  background-size: cover;
-  
-  height: 60vh;
+  height: 50vh;
   background-attachment: fixed;
   overflow: hidden;
   overflow-y: auto;
@@ -5201,14 +5198,14 @@ body.loaded .preloader {
   background: rgba(239, 249, 255, 0.8);
   backdrop-filter: blur(13px);
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   top: 0;
   left: 0;
   overflow: hidden;
 }
 
 .login_sec_wrap {
-  height: 60vh;
+  height: 50vh;
   overflow-y: auto;
 }
 
@@ -5223,7 +5220,7 @@ body.loaded .preloader {
 
 .login-logo-sub {
   width: 150px;
-  height: 100px;
+  height: 50px;
   margin: auto;
 }
 
@@ -5234,7 +5231,7 @@ body.loaded .preloader {
 }
 
 .login-logo-head {
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .login-logo-head h1 {
@@ -5266,7 +5263,7 @@ body.loaded .preloader {
 .login_sec_left {
   position: relative;
   overflow: hidden;
-  height: 60vh;
+  height: 50vh;
 }
 
 .login_sec_left_bg img {
@@ -5346,6 +5343,15 @@ body.loaded .preloader {
 .login-text-2 p a:hover {
   color: var(--blue-color);
   transition: ease all 0.5s;
+}
+.login-left-image{
+    height: 50vh;
+    width: 100%;
+}
+.login-left-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 input[type="text"],
@@ -5474,16 +5480,51 @@ padding-bottom: 20px;
 .search-form i {
   font-size: 1rem;
 }
+.login_form .form-group .error{
+    color: var(--color-red);
+}
+.login_form .btn{
+  margin-top: 0px;  
+}
+ .login_form .form-group label {
+    margin-bottom: 5px;
+}
+.modal-title{
+  font-size: 16px !important;
+  text-transform: uppercase;
+}
+.modal-header{
+    text-align: center;
+}
 /*responsive*/
+@media (max-width: 1600px) {
+.width_545 {
+    padding: 5px 30px;
+ }
+ .login_form .form-control {
+    padding: 5px 10px;
+}
+.login_form .btn{
+  margin-top: 0px;  
+}
+}
 @media (max-width: 1366px) {
  .login-logo-sub {
     width: 150px;
     height: 70px;
  }
+ .login_form  .btn.btn-login {
+    padding: 8px;
+ }
+}
+@media (max-width: 1024px) {
+  .login-left-image {
+    display: none;
+ }
 }
 @media (max-width: 767px) {
       .width_545 {
-    padding: 15px;
+    padding: 5px 15px;
  }
 }
   

@@ -43,7 +43,7 @@ class SendQueueEmail implements ShouldQueue
 
             \Mail::send('admin.mail.subscription_mail', compact('content'), function($message) use($input){
                 $message->to($input['email'])
-                    ->subject('Welcome to Design Journey! Thanks for Subscribing to Our Newsletter.');
+                    ->subject('Welcome to Design Journey!');
             });
         }
     }

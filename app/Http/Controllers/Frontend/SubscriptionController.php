@@ -16,6 +16,11 @@ class SubscriptionController extends Controller
             'user_email' => 'required|email',
         ]);
 
+        $check_email = Subscription::where('email', $request->user_email)->first();
+        if($check_email){
+            return redirect()->back()->with('error', 'Email Already Subscribed!');
+        }
+
         $subscription = new Subscription();
         $subscription->name = $request->user_name;
         $subscription->email = $request->user_email;

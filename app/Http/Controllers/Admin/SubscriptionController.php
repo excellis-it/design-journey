@@ -37,7 +37,7 @@ class SubscriptionController extends Controller
         
         dispatch($job);
         
-        return redirect()->back()->with('message', 'Email Send Job Dispatched Successfully');
+        return redirect()->back()->with('message', 'Email Send Successfully');
         
 
     }
