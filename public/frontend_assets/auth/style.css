@@ -222,7 +222,11 @@ body{
   }
 }
 /*28-07-2023*/
-
+.login-logo{
+  width: 250px;
+    height: 120px;
+    margin: 0 auto 30px;
+}
 .login_logo a img {
      width: 100%!important;
     height: 50px!important;

@@ -45,10 +45,10 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-lg-6 order-lg-1 order-2">
                         <div class="login-left">
-                            <div class="login-logo">
+                            <div class="login-logo logo-fixing">
                                 <a href="{{ route('home') }}"> <img src="{{ asset('frontend_assets/assets/images/logo.png')}}" alt=""></a>
                             </div>
-                            <div class="login-text">
+                            <div class="login-text text-center">
                                 <h3>Create account</h3>
                             </div>
                             <div class="login-form">
