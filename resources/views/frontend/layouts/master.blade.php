@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
+
 </head>
 
 <body>
@@ -129,7 +130,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title fs-5" id="subscriptionModalLabel">newsletter subscriptions</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close subscription-close" aria-label="Close" ></button>
                     </div>
                     <form action="{{ route('subscription.submit') }}" method="post" id="subscription_form">
                         @csrf
@@ -322,13 +323,48 @@
     </script>
     <script>
         //if condition for popup variaable is true or not
-        @if (Subscribing:: NewsletterSubscription() == true)
-        $(document).ready(function () {
-
-            $('#subscriptionModal').modal('show');
-        });
+        
+        @if(Subscribing::NewsletterSubscription() == false)
+            @if(session('close-subscription-modal') == false)
+            $(document).ready(function () {
+                $('#subscriptionModal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                $('#subscriptionModal').modal('show');
+            });
+            @elseif(session('close-subscription-modal') == true)   
+                $('#subscriptionModal').modal('hide');
+            @else
+            $(document).ready(function () {
+                $('#subscriptionModal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                $('#subscriptionModal').modal('show');
+            });
+            @endif
         @endif
     </script>
+
+    <script>
+        $('.subscription-close').click(function () {
+            //ajax call
+            $.ajax({
+                url: "{{ route('subscription.modal-close') }}",
+                type: "GET",
+                success: function (response) {
+                    console.log(response.status);
+                    if (response.status == true) {
+                        $('#subscriptionModal').modal('hide');
+                    }else{
+                        console.log('error');
+                    }    
+                }
+            });
+            // $('#subscriptionModal').modal('hide');
+        });
+        </script>
 
     <script>
         $(document).ready(function () {
@@ -357,7 +393,14 @@
     <script>
     $(document).on("click","a[id='news-letter']", function (e) {
         e.preventDefault();
+
+        $('#subscriptionModal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+        });
         $('#subscriptionModal').modal('show');
+    
+        // $('#subscriptionModal').modal('show');
     });
     </script>
 

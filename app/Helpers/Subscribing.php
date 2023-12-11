@@ -13,9 +13,9 @@ class Subscribing
     {
         $subscriber_email = Session::get('subscriber_email');
         if($subscriber_email == null){
-            return true;
-        }else{
             return false;
+        }else{
+            return true;
         }
     }
 

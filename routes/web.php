@@ -98,12 +98,12 @@ Route::post('/plan-checking',[HomeController::class, 'planChecking'])->name('pla
 Route::post('contact-us/submit', [ContactusController::class, 'contactUsSubmit'])->name('contact-us.submit');
 Route::post('subscription/submit', [SubscriptionController::class, 'subscriptionSubmit'])->name('subscription.submit');
 Route::get('/check-subscription-mail',[SubscriptionController::class, 'checkSubscriptionMail'])->name('subscription.check.email');
+Route::get('/close-subscription-modal',[SubscriptionController::class, 'closeSubscriptionModal'])->name('subscription.modal-close');
 
 //payment routes
 Route::get('/payment/{payment}',[PaymentController::class, 'payment'])->name('payment.details');
 Route::post('/payment/submit',[PaymentController::class, 'paymentSubmit'])->name('payment.submit');
 Route::get('/payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
-
 
 Route::post('/job-apply',[HomeController::class, 'JobApply'])->name('submit.job-apply');
 Route::get('/services',[HomeController::class, 'services'])->name('services');

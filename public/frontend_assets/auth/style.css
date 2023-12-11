@@ -213,9 +213,7 @@ body{
   .form-content .signup-form{
     width: 100%;
   }
-  .form-content .signup-form{
-    /* display: none; */
-  }
+ 
   .container #flip:checked ~ .forms .signup-form{
     display: block;
   }
@@ -224,8 +222,7 @@ body{
   }
 }
 /*28-07-2023*/
-.login_logo{
-}
+
 .login_logo a img {
      width: 100%!important;
     height: 50px!important;

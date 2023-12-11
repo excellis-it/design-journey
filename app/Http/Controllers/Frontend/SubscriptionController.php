@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subscription;
+use Session;
 
 class SubscriptionController extends Controller
 {
@@ -41,5 +42,20 @@ class SubscriptionController extends Controller
         }else{
             return response()->json(['data' => false, 'message' => 'Email not subscribed!']);
         }
+    }
+
+    public function closeSubscriptionModal(Request $request)
+    {
+        
+        session()->put('close-subscription-modal', true);
+        $closeModal = request()->session()->get('close-subscription-modal');
+        if($closeModal == true)
+        {
+            return response()->json(['status' => true, 'message' => 'Modal closed!']);
+        }else{
+            return response()->json(['status' => false, 'message' => 'Modal not closed!']);
+        }
+        
+        
     }
 }
