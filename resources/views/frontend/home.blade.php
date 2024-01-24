@@ -73,7 +73,7 @@
                 <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="heading">
                         <h1 class="lt-80 t-center m-horz-auto c-dark heading-width-res-full heading-width-60">
-                            App screenshots for you to review.
+                            {{ $home_content->section6_title }}
                         </h1>
                     </div>
                 </div>

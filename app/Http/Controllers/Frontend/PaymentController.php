@@ -64,7 +64,7 @@ class PaymentController extends Controller
             // Session::put('order_detail', $response);
 
            
-
+           
             return redirect($response['url']);
         } else {
             return redirect()->back()->with('error','Something went wrong');
@@ -75,6 +75,8 @@ class PaymentController extends Controller
 
     public function paymentSuccess(Request $request)
     {
+        
+        
         //session order_id
         $order_detail = Session::get('order_detail');
         $paymentDetails = $order_detail['payment_details'];

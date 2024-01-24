@@ -113,6 +113,7 @@ class HomeCmsController extends Controller
         $update_homeCms->section5_title4 = $request->section5_title4;
         $update_homeCms->section5_detail4 = $request->section5_detail4;
         $update_homeCms->service_business_title = $request->service_business_title;
+        $update_homeCms->section6_title = $request->section6_title;
         
 
         if ($request->hasFile('banner_image')) {

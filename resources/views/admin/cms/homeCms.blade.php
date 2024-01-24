@@ -889,6 +889,24 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <label for="inputEnterYourName" class="col-form-label">
+                            <h3>App Screenshot:</h3>
+                        </label>
+                        <hr>
+
+                        <div class="row justify-content-between">
+                            <div class="col-md-6">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Title</label>
+                                        <input type="text" name="section6_title" class="form-control"
+                                            id="floatingInputValue" value="{{ $homeCms->section6_title }}">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         
 

@@ -64,7 +64,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1" class="form-label">
-                                                    Email ID</label>
+                                                    Email </label>
                                                 <input type="text" class="form-control" id="exampleFormControlInput1"
                                                     placeholder="Enter Your email address" name="email" value="{{ old('email') }}">
                                                     @if($errors->has('email'))
@@ -104,7 +104,7 @@
                                         <div class="col-lg-12 text-center">
                                             <div class="join-div">
                                                 <p>
-                                                    Next User? <a href="{{ route('register') }}">REGISTER NOW</a>
+                                                    Don't have an account? <a href="{{ route('register') }}">Sign Up Now</a>
                                                 </p>
                                             </div>
                                         </div>
