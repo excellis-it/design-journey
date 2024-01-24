@@ -40,10 +40,9 @@
     <!-- preloader - end -->
     <!-- Login-Page -->
     <section class="login-page">
-        <div class="container">
             <div class="login-page-wrap">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-lg-6 order-lg-1 order-2">
+                <div class="row align-items-center justify-content-between m-0">
+                    <div class="col-lg-6 order-lg-1 order-2 p-0">
                         <div class="login-left">
                             <div class="login-logo logo-fixing">
                                 <a href="{{ route('home') }}"> <img src="{{ asset('frontend_assets/assets/images/logo.png')}}" alt=""></a>
@@ -134,14 +133,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 order-lg-2 order-1">
+                    <div class="col-lg-6 order-lg-2 order-1 p-0">
                         <div class="login-img">
-                            <img src="{{ asset('frontend_assets/assets/images/login-bg.png')}}" alt="">
+                            <img src="{{ asset('frontend_assets/assets/images/login_bg_larr.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>

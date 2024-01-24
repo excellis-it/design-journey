@@ -202,6 +202,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/book-a-call*') ? 'active' : ' ' }}">
+                <a href="{{ route('book-call.link') }}">
+                    <i class="ph ph-chat-text"></i>
+                    <span>Book A Call Link</span>
+                </a>
+            </li>
+
             <li class="dropdown {{ Request::is('admin/careers*') ? 'active' : ' ' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i class="ph ph-suitcase-simple"></i>

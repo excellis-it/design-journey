@@ -114,6 +114,8 @@ Route::get('/login/callback/{provider}', [SocialLoginController::class, 'handleP
 
 
 
+
+
 /* ----------------- Admin Routes -----------------*/
 
 // Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
@@ -262,7 +264,6 @@ Route::group(['prefix' => 'admin'], function () {
         });
 
         //privacy , term condition
-        
         Route::get('/solution/edit', [HomeCmsController::class, 'solutionEdit'])->name('solution.design.edit');
         Route::post('/solution/update', [HomeCmsController::class, 'solutionUpdate'])->name('solution.design.update');
 
@@ -285,7 +286,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('careers/delete/{id}', [CareerController::class, 'deleteCareer'])->name('delete.careers');
         Route::post('careers/update', [CareerController::class, 'updateCareer'])->name('update.careers');
 
-        //privacy 
+        //book a call 
+        Route::get('/book-a-call',[HomeCmsController::class, 'bookCall'])->name('book-call.link');
+        Route::post('/book-a-call/update',[HomeCmsController::class, 'updateBookCall'])->name('update-book-call');
         
     });
 });

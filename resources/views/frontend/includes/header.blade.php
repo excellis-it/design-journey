@@ -1,5 +1,6 @@
 @php
 use App\Helpers\Pricing;
+use App\Helpers\Subscribing;
 @endphp 
 
     <!-- preloader - start -->
@@ -208,7 +209,7 @@ use App\Helpers\Pricing;
                                 </a>
                             </li>
                             <li>
-                                <a href="" class="button button-blue button-navigation">
+                                <a href="{{ Subscribing::BookACall()->link }}" target="_blank"  class="button button-blue button-navigation">
                                     <span>Book a Call</span>
                                 </a>
                             </li>

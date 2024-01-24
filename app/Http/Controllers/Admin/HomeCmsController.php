@@ -14,6 +14,7 @@ use App\Models\ContactUsCms;
 use App\Models\FooterCms;
 use App\Models\EmailUs;
 use App\Models\SubscriptionCms;
+use App\Models\Bookcall;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -573,5 +574,24 @@ class HomeCmsController extends Controller
     {
         $footer_cms = FooterCms::orderBy('id','desc')->get();
         return view('admin.cms.footerCms',compact('footer_cms'));
+    }
+
+    public function bookCall()
+    {
+        $book_call = Bookcall::first();
+        return view('admin.bookCall.edit',compact('book_call'));
+    }
+
+    public function updateBookCall(Request $request)
+    {
+        $request->validate([
+            'link' => 'required',
+        ]);
+
+        $update_book_call = Bookcall::find($request->id);
+        $update_book_call->link = $request->link;
+        $update_book_call->update();
+
+        return back()->with('message','Book A Call Link Updated Successfully');
     }
 }
