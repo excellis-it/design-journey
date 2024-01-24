@@ -70,24 +70,31 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-between">
-                            @foreach(explode(',', $homeCms->main_title2) as $key=>$value)
-                                <div class="col-md-6 remove_title2_{{ $key }}" >
+                        <div class="row justify-content-between" id="mainTitleContainer">
+                            @foreach(explode(',', $homeCms->main_title2) as $key => $value)
+                                <div class="col-md-8 remove_title2_{{ $key }}">
                                     <div class="form-group-div">
                                         <div class="form-group">
-                                            <label for="floatingInputValue">Design</label>   
-                                            <input type="text" name="main_title2[]" class="form-control" id="floatingInputValue" placeholder="Enter content" value="{{$value}}">
-                                        </div>
-                                    </div>  
-                                </div> 
-                                <div class="col-md-6">
-                                    <div class="form-group-div">
-                                        <div class="form-group">
-                                        <a class="btn btn-danger" onclick="removeDesign($key)">Remove</a>
+                                            <label for="floatingInputValue">Design</label>
+                                            <input type="text" name="main_title2[]" class="form-control" placeholder="Enter content" value="{{$value}}">
                                         </div>
                                     </div>
-                                </div> 
-                            @endforeach                  
+                                </div>
+                                <div class="col-md-1 remove_title2_{{ $key }}">
+                                    <div class="form-group-div">
+                                        <div class="form-group">
+                                            <input type="color" name="main_title2_color[]" class="color_input" placeholder="Enter content" value="{{ explode(',', $homeCms->main_title2_color)[$key] }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 remove_title2_{{ $key }}">
+                                    <div class="form-group-div">
+                                        <div class="form-group">
+                                            <a class="btn btn-danger" onclick="removeDesign({{ $key }})">Remove</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
 
                         <div class="row justify-content-between">
@@ -935,7 +942,7 @@
             
             var html = '';
             html += '<div class="row">';
-            html += '<div class="col-md-6">';
+            html += '<div class="col-md-8">';
             html += '<div class="form-group-div">';
             html += '<div class="form-group">';
             html += '<label for="floatingInputValue"> Design</label>';
@@ -943,7 +950,14 @@
             html += '</div>';
             html += '</div>';
             html += '</div>';
-            html += '<div class="col-md-6">';
+            html += '<div class="col-md-1">';
+            html += '<div class="form-group-div">';
+            html += '<div class="form-group">';
+            html += '<input type="color" name="main_title2_color[]" class="color_input" placeholder="Enter color">';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '<div class="col-md-3">';
             html += '<div class="form-group-div">';
             html += '<div class="form-group">';
             html += '<a class="btn btn-danger remove">Remove</a>';
@@ -959,11 +973,10 @@
     });
 </script>
 <script>
-   function removeDesign(id)
-   {
-
-        $('.remove_title2_'+id).remove();
-   }
+    function removeDesign(key) {
+       
+        $(".remove_title2_" + key).remove();
+    }
 </script>
 
 @endpush

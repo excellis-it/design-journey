@@ -126,26 +126,27 @@
 
         <div class="modal modal-create fade" id="subscriptionModal" tabindex="-1"
             aria-labelledby="subscriptionModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title fs-5" id="subscriptionModalLabel">newsletter subscriptions</h2>
-                        <button type="button" class="btn-close subscription-close" aria-label="Close" ></button>
-                    </div>
+                    <button type="button" class="btn-close subscription-close" aria-label="Close" ></button>
+                    <!--<div class="modal-header">-->
+                    <!--    <h2 class="modal-title fs-5" id="subscriptionModalLabel">newsletter subscriptions</h2>-->
+                    <!--    <button type="button" class="btn-close subscription-close" aria-label="Close" ></button>-->
+                    <!--</div>-->
                     <form action="{{ route('subscription.submit') }}" method="post" id="subscription_form">
                         @csrf
-                        <div class="modal-body">
+                        <div class="modal-body p-0">
                             <div class="modal-form-div">
                                 <div class="login_sec">
                                     <div class="login_sec_wrap">
                                         <div class="container-fluid">
                                             <div class="row justify-content-end">
-                                                  <div class="col-xl-6 col-lg-12 col-12 p-0">
+                                                  <div class="col-xl-5 col-lg-12 col-12 p-0">
                                                     <div class="login-left-image">
                                                       <img src="{{ Storage::url(Subscribing::SubcriptionCmsContent()->image) }}" alt="orions-logo">  
                                                     </div>  
                                                    </div>          
-                                                <div class="col-xl-6 col-lg-12 col-12 p-0">
+                                                <div class="col-xl-7 col-lg-12 col-12 p-0">
                                                     <div class="login_sec_left">
                                                         <div class="login_sec_left_bg"></div>
                                                         <div class="width_545">
@@ -154,6 +155,7 @@
                                                                     <div class="login-logo-sub">
                                                                        <a href=""><img src="{{ asset('frontend_assets/assets/images/logo.png')}}" alt="orions-logo"></a>
                                                                    </div>
+                                                                   <h3>Newsletter Subscription</h3>
                                                                    <div class="login-logo-head">
                                                                          <p>{{ Subscribing::SubcriptionCmsContent()->title }}
                                                                         
@@ -161,7 +163,6 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="login_form">
-                                                                    
                                                                         <div class="form-group">
                                                                             <label for="exampleInputEmail1"
                                                                                 class="form-label">Name</label>
@@ -175,6 +176,12 @@
                                                                                 <input type="text" name="user_email"  id="user_email"
                                                                                     class="form-control" />
                                                                             </div>
+                                                                        </div>
+                                                                        <div class="form-check form-check-inline mb-3" style="font-size:14px;">
+                                                                            
+                                                                          <input class="form-check-input" name="check_box" type="checkbox" id="check_box" >
+                                                                          <label class="form-check-label" for="check_box">{!! Subscribing::SubcriptionCmsContent()->disclaimers !!}
+</label>
                                                                         </div>
                                                                         <button type="submit"
                                                                             class="btn btn-lg btn-primary btn-block btn-login">
@@ -191,7 +198,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--<div class="create-form">                    -->
+                            <!--<div class="create-form">-->
                             <!--    <div class="form-group">-->
                             <!--        <label for="user_name">Name</label>-->
                             <!--        <input type="text" class="form-control" name="user_name"  id="user_name">-->
@@ -204,14 +211,155 @@
                             <!--    </div>-->
                             <!--</div>-->
                         </div>
-                        <div class="modal-footer text-left">
-                            <!--<button type="submit" class="btn" id="createSubscription">Subcribe</button>-->
-                        </div>
+                        <!--<div class="modal-footer text-left">
+                            <button type="submit" class="btn" id="createSubscription">Subcribe</button>
+                        </div>-->
                     </form>
                 </div>
             </div>
         </div>
         <!--  subscription modal end-->
+        
+        
+        
+        
+        
+        
+        
+        
+        <!--  subscription modal  -->
+        <!--<div class="modal modal-create fade" id="disclamer" tabindex="-1"-->
+        <!--    aria-labelledby="disclamerModalLabel" aria-hidden="true">-->
+        <!--    <div class="modal-dialog">-->
+        <!--        <div class="modal-content">-->
+        <!--            <div class="modal-header">-->
+        <!--                <h2 class="modal-title fs-5" id="disclamerModalLabel">newsletter subscriptions</h2>-->
+        <!--                <button type="button" class="btn-close subscription-close" aria-label="Close" data-bs-dismiss="modal"></button>-->
+        <!--            </div>-->
+        <!--            <form action="" method="post" id="">-->
+        <!--                <div class="modal-body">-->
+        <!--                    <div class="modal-form-div">-->
+        <!--                        <div class="popup_sec">-->
+        <!--                            <div class="popup_sec_wrap">-->
+        <!--                                <div class="row justify-content-end">-->
+        <!--                                    <div class="col-xl-12 col-lg-12 col-12 p-0">-->
+        <!--                                        <div class="popup_sec_left">-->
+        <!--                                            <div class="width_545">-->
+        <!--                                                <div class="main_hh">-->
+        <!--                                                    <div class="login_sec_right_text">-->
+        <!--                                                        <div class="login-logo-sub">-->
+        <!--                                                           <a href=""><img src="{{ asset('frontend_assets/assets/images/logo.png')}}" alt="orions-logo"></a>-->
+        <!--                                                       </div>-->
+        <!--                                                       <div class="login-logo-head">-->
+        <!--                                                             <p>{{ Subscribing::SubcriptionCmsContent()->title }}-->
+                                                                    
+        <!--                                                             </p>-->
+        <!--                                                        </div>-->
+        <!--                                                    </div>-->
+        <!--                                                    <div class="login_form">-->
+        <!--                                                        <div class="form-group">-->
+        <!--                                                            <label for="exampleInputEmail1"-->
+        <!--                                                                class="form-label">Name</label>-->
+        <!--                                                            <input type="text" class="form-control"-->
+        <!--                                                                name="user_name" id="user_name"-->
+        <!--                                                                aria-describedby="emailHelp" />-->
+        <!--                                                        </div>-->
+        <!--                                                        <div class="form-group">-->
+        <!--                                                            <label for="txtPassword">Email</label>-->
+        <!--                                                            <div class="position-relative">-->
+        <!--                                                                <input type="text" name="user_email"  id="user_email"-->
+        <!--                                                                    class="form-control" />-->
+        <!--                                                            </div>-->
+        <!--                                                        </div>-->
+        <!--                                                        <button type="submit"-->
+        <!--                                                            class="btn btn-lg btn-primary btn-block btn-login">-->
+        <!--                                                            Subscribe-->
+        <!--                                                        </button>-->
+        <!--                                                    </div>-->
+        <!--                                                    <div class="login_sec_right_text mt-3">-->
+        <!--                                                       <div class="login-logo-head">-->
+        <!--                                                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+        <!--                                          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
+        <!--                                          It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.-->
+        <!--                                          It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages</p>-->
+        <!--                                                        </div>-->
+        <!--                                                    </div>-->
+        <!--                                                </div>-->
+        <!--                                            </div>-->
+        <!--                                        </div>-->
+        <!--                                    </div>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </form>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</div>-->
+        <!--  subscription modal end-->
+        
+        
+        <!--  subscription modal  -->
+        <!--<div class="modal modal-create fade" id="disclamer1" tabindex="-1"-->
+        <!--    aria-labelledby="disclamerModalLabel" aria-hidden="true">-->
+        <!--    <div class="modal-dialog">-->
+        <!--        <div class="modal-content">-->
+        <!--            <div class="modal-header">-->
+        <!--                <h2 class="modal-title fs-5" id="disclamerModalLabel">newsletter subscriptions</h2>-->
+        <!--                <button type="button" class="btn-close subscription-close" aria-label="Close" ></button>-->
+        <!--            </div>-->
+        <!--            <form action="" method="post" id="">-->
+        <!--                <div class="modal-body">-->
+        <!--                    <div class="modal-form-div">-->
+        <!--                        <div class="popup_sec">-->
+        <!--                            <div class="popup_sec_wrap">-->
+        <!--                                <div class="row justify-content-end">-->
+        <!--                                    <div class="col-xl-12 col-lg-12 col-12 p-0">-->
+        <!--                                        <div class="popup_sec_left">-->
+        <!--                                            <div class="width_545">-->
+        <!--                                                <div class="main_hh">-->
+        <!--                                                     <div class="login_sec_right_text">-->
+        <!--                                                        <div class="login-logo-sub">-->
+        <!--                                                           <a href=""><img src="{{ asset('frontend_assets/assets/images/logo.png')}}" alt="orions-logo"></a>-->
+        <!--                                                       </div>-->
+        <!--                                                       <div class="login-logo-head">-->
+        <!--                                                             <p>{{ Subscribing::SubcriptionCmsContent()->title }}-->
+                                                                    
+        <!--                                                             </p>-->
+        <!--                                                        </div>-->
+        <!--                                                    </div>-->
+        <!--                                                    <div class="login-left-text">-->
+        <!--                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+        <!--                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
+        <!--                                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.-->
+        <!--                                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages</p>-->
+        <!--                                            <div class="form-check form-check-inline mb-3" style="font-size:16px;">-->
+        <!--                                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">-->
+        <!--                                              <label class="form-check-label" for="inlineCheckbox1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</label>-->
+        <!--                                            </div>-->
+        <!--                                          <button type="submit" class="btn btn-lg btn-primary btn-login" data-bs-dismiss="modal">Confirm</button>-->
+        <!--                                        </div>  -->
+        <!--                                                </div>-->
+        <!--                                            </div>-->
+        <!--                                        </div>-->
+        <!--                                    </div>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </form>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</div>-->
+        <!--  subscription modal end-->
+        
+        
+        
+        
+        
+        
 
 
         <!-- contact section - end -->
@@ -235,31 +383,30 @@
 
     <script>
 
-        var words1 = @json($home_cms -> main_title2);
+        var words1 = @json($home_cms->main_title2);
         var words = words1.split(",");
-
-        // var colors = ["#1a73e8" , "#e1392d", "#279947", "#7e57ff"]
-
+        var colors1 = @json($home_cms->main_title2_color);
+        var colors = colors1.split(",");
+    
         var counter = 0;
         var currentIndex = getRandomInt(0, words.length - 1);
-
+    
         var text = document.getElementById("text2");
-
         var stepInterval = setInterval(() => { step(); }, 200);
         var delInterval = null;
         var delTimeout = null;
-
+    
         function getRandomInt(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-
+    
         function delIntervalCallback() {
             delInterval = setInterval(() => { del(); }, 100);
             clearTimeout(delTimeout);
         }
-
+    
         function del() {
             if (counter == 0) {
                 let newIndex = getRandomInt(0, words.length - 1);
@@ -269,24 +416,23 @@
                 currentIndex = newIndex;
                 clearInterval(delInterval);
                 stepInterval = setInterval(() => { step(); }, 200);
-            }
-            else {
-                text.textContent = text.textContent.slice(0, -1)
+            } else {
+                text.textContent = text.textContent.slice(0, -1);
                 counter--;
             }
         }
-
+    
         function step() {
             if (counter >= words[currentIndex].length) {
                 clearInterval(stepInterval);
                 delTimeout = setTimeout(() => { delIntervalCallback(); }, 2000);
-            }
-            else {
+            } else {
                 text.textContent += words[currentIndex][counter];
-                // text.style.color = colors[currentIndex];
+                text.style.color = colors[currentIndex]; // Set dynamic color
                 counter++;
             }
         }
+    
     </script>
     <script>
         @if (Session:: has('message'))
@@ -371,6 +517,7 @@
             $('#subscription_form').validate({
                 rules: {
                     user_name: "required",
+                    check_box: "required",
                     user_email: {
                         required: true,
                         email: true
@@ -378,6 +525,7 @@
                 },
                 messages: {
                     user_name: "Name is required",
+                    check_box: "Please checked the box",
                     user_email: {
                         required: "Email is required",
                         email: "Please enter a valid email address"
@@ -436,6 +584,25 @@
             });
         });
     </script>
+    <script>
+        // $(document).ready(function () {
+        //         $('#disclamer').modal({
+        //             backdrop: 'static',
+        //             keyboard: false
+        //         });
+        //         $('#disclamer').modal('show');
+        //     });
+    </script>
+    <script>
+        // $(document).ready(function () {
+        //         $('#disclamer1').modal({
+        //             backdrop: 'static',
+        //             keyboard: false
+        //         });
+        //         $('#disclamer1').modal('show');
+        //     });
+    </script>
+    
     @stack('scripts')
 </body>
 

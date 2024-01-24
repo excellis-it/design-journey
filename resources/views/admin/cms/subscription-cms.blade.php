@@ -40,6 +40,23 @@
                         </div>
 
                         <div class="row justify-content-between">
+                            <input type="hidden" name="subscription_cms_id" value="{{ $subscription_cms->id }}">
+                            <div class="col-md-12">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue"> Disclaimers*</label>
+                                        <textarea name="disclaimers" class="form-control" id="editor1"
+                                            placeholder="Enter disclaimers*" >{{ $subscription_cms->disclaimers }}</textarea>
+                                        @if ($errors->has('disclaimers'))
+                                            <div class="error" style="color:red;">{{ $errors->first('disclaimers') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-between">
                             <div class="col-md-6 ">
                                 <div class="form-group-div">
                                     <div class="form-group">
@@ -79,5 +96,21 @@
 @endsection
 
 @push('scripts')
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor1');
+    CKEDITOR.on('instanceReady', function(evt) {
+        var editor = evt.editor;
+
+        editor.on('change', function(e) {
+            var contentSpace = editor.ui.space('contents');
+            var ckeditorFrameCollection = contentSpace.$.getElementsByTagName('iframe');
+            var ckeditorFrame = ckeditorFrameCollection[0];
+            var innerDoc = ckeditorFrame.contentDocument;
+            var innerDocTextAreaHeight = $(innerDoc.body).height();
+            console.log(innerDocTextAreaHeight);
+        });
+    });
+</script>
 
 @endpush

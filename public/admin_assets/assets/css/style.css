@@ -12124,3 +12124,9 @@ a.dt-button {
     /* content: "\f057";
     font-family: 'Font Awesome 5 Free'; */
 }
+
+
+.form-group-div .form-group input.color_input {   
+    padding: 5px !important;
+    height: 55px;
+}

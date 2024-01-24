@@ -5,7 +5,7 @@ namespace App\Helpers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\Payment;
-use App\models\BookCall;
+use App\Models\BookCall;
 use App\Models\SubscriptionCms;
 
 class Subscribing

@@ -32,6 +32,7 @@ class HomeCmsController extends Controller
     public function homeCmsUpdate(Request $request)
     {
         
+        
         $request->validate([
             'main_title1' => 'required',
             'main_title3' => 'required',
@@ -81,8 +82,13 @@ class HomeCmsController extends Controller
         $main_title2 = implode(',', array_filter(array_map(function ($value) {
             return $value !== null ? $value : '';
         }, $request->main_title2)));
+
+        $main_title2_color = implode(',', array_filter(array_map(function ($values) {
+            return $values !== null ? $values : '';
+        }, $request->main_title2_color)));
         
         $update_homeCms->main_title2 = $main_title2;
+        $update_homeCms->main_title2_color = $main_title2_color;
         $update_homeCms->banner_sub_title = $request->banner_sub_title;
         $update_homeCms->section1_1st_title = $request->section1_1st_title;
         $update_homeCms->section1_1st_details = $request->section1_1st_details;
@@ -550,10 +556,12 @@ class HomeCmsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'disclaimers' => 'required',
         ]);
 
         $update_subscription_cms = SubscriptionCms::find($request->subscription_cms_id);
         $update_subscription_cms->title = $request->title;
+        $update_subscription_cms->disclaimers = $request->disclaimers;
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',

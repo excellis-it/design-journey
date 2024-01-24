@@ -5193,13 +5193,13 @@ body.loaded .preloader {
   
   /*08-12-2023*/
   .login_sec {
-  height: 50vh;
+  /*height: 50vh;*/
   background-attachment: fixed;
   overflow: hidden;
   overflow-y: auto;
 }
 .modal-create .modal-dialog {
-    max-width: 700px;
+    max-width: 1000px;
     margin: 1.75rem auto;
 }
 .modal-header{
@@ -5210,17 +5210,19 @@ body.loaded .preloader {
 }
 .login_sec_left_bg {
   position: absolute;
-  background: rgba(239, 249, 255, 0.8);
+  background: #fff;
   backdrop-filter: blur(13px);
   width: 100%;
-  height: 50vh;
+  /*height: 50vh;*/
+  height:auto;
   top: 0;
   left: 0;
   overflow: hidden;
 }
 
 .login_sec_wrap {
-  height: 50vh;
+  /*height: 50vh;*/
+  height:auto;
   overflow-y: auto;
 }
 
@@ -5234,8 +5236,8 @@ body.loaded .preloader {
 }
 
 .login-logo-sub {
-  width: 150px;
-  height: 50px;
+  width: 180px;
+  height: 80px;
   margin: auto;
 }
 
@@ -5278,7 +5280,8 @@ body.loaded .preloader {
 .login_sec_left {
   position: relative;
   overflow: hidden;
-  height: 50vh;
+  /*height: 50vh;*/
+  height:auto;
 }
 
 .login_sec_left_bg img {
@@ -5295,6 +5298,19 @@ body.loaded .preloader {
   padding: 30px;
   height: 100%;
   overflow: hidden;
+}
+
+.subscription-close{
+    position: absolute;
+    right: -15px;
+    top: -14px;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    background-color: #fff;
+    opacity: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
 }
 
 .login_form label {
@@ -5360,7 +5376,7 @@ body.loaded .preloader {
   transition: ease all 0.5s;
 }
 .login-left-image{
-    height: 50vh;
+    height: 100%;
     width: 100%;
 }
 .login-left-image img{
@@ -5527,10 +5543,18 @@ padding-bottom: 20px;
     font-size: 16px;
     line-height: 20px;  
 }
+.form-check-label p{
+    font-size:14px;
+    line-height:20px;
+}
+#check_box-error{
+    color: var(--color-red);
+    font-size:14px;
+}
 /*responsive*/
 @media (max-width: 1600px) {
 .width_545 {
-    padding: 5px 30px;
+    padding: 15px 30px;
  }
  .login_form .form-control {
     padding: 5px 10px;
@@ -5555,7 +5579,7 @@ padding-bottom: 20px;
 }
 @media (max-width: 767px) {
       .width_545 {
-    padding: 5px 15px;
+    padding: 15px 15px;
  }
  .login-page-wrap {
     height: 100vh;
