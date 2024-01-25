@@ -20,7 +20,6 @@ class PaymentController extends Controller
     public function payment($payment)
     {
         
-        
         if (Auth::check() && Auth::user()->hasRole('CUSTOMER')) {
             
             $plan_id = decrypt($payment);

@@ -35,8 +35,9 @@ class DatabaseSeeder extends Seeder
             // emailUsSeeder::class,
             // extensionImageSeeder::class,
             // footerCmsSeeder::class,
-            subscriptionModalCms::class,
+            // subscriptionModalCms::class,
             // bookCallSeeder::class,
+            generalCmsSeeder::class,
         ]);
     }
 }

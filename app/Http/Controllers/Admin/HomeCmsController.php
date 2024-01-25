@@ -14,6 +14,7 @@ use App\Models\ContactUsCms;
 use App\Models\FooterCms;
 use App\Models\EmailUs;
 use App\Models\SubscriptionCms;
+use App\Models\GeneralCms;
 use App\Models\BookCall;
 use Illuminate\Support\Facades\Validator;
 
@@ -601,5 +602,37 @@ class HomeCmsController extends Controller
         $update_book_call->update();
 
         return back()->with('message','Book A Call Link Updated Successfully');
+    }
+
+    public function generalCms()
+    {
+        $general_cms = GeneralCms::first();
+        return view('admin.cms.generalCms',compact('general_cms'));
+    }
+
+    public function generalCmsUpdate(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $update_general_cms = GeneralCms::find($request->general_cms_id);
+        $update_general_cms->title = $request->title;
+        $update_general_cms->description = $request->description;
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
+            ]);
+            
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $image_path = $request->file('image')->store('general', 'public');
+            $update_general_cms->image = $image_path;
+        }
+
+        $update_general_cms->update();
+
+        return back()->with('message','General Cms updated successfully');
     }
 }

@@ -40,7 +40,7 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th></th>
+                                <th>Category</th>
                                 <th>Type</th>
                                 <th>Actions</th>
                             </tr>

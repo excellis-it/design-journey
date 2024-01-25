@@ -118,9 +118,9 @@
                     <li class="{{ Request::is('admin/subscription-cms*') ? 'mm-active' : '' }}">
                         <a class="nav-link" href="{{ route('subscription.cms') }}">Subscription Modal Cms</a>
                     </li>
-                    {{-- <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
-                        <a class="nav-link" href="{{ route('solution.cms') }}">Solution Cms</a>
-                    </li> --}}
+                    <li class="{{ Request::is('admin/cms*') ? 'mm-active' : '' }}">
+                        <a class="nav-link" href="{{ route('general.cms') }}">General Cms</a>
+                    </li>
                 </ul>
             </li>
 

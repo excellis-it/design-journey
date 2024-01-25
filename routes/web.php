@@ -254,6 +254,10 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/subscription-cms', [HomeCmsController::class, 'subscriptionCms'])->name('subscription.cms');
             Route::post('subscription-cms/update', [HomeCmsController::class, 'subscriptionCmsUpdate'])->name('update.subscription-cms');
 
+            //general cms
+            Route::get('/general-cms', [HomeCmsController::class, 'generalCms'])->name('general.cms');
+            Route::post('general-cms/update', [HomeCmsController::class, 'generalCmsUpdate'])->name('update.general-cms');
+
             Route::resources([
                 'footer-cms' => FooterCmsController::class,
             ]);
