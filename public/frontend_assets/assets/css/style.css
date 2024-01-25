@@ -694,49 +694,111 @@ body {
     }
 }
 
-.link-underline>span {
-    position: relative;
-    -webkit-transition: all 0.25s ease-out 0s;
-    transition: all 0.25s ease-out 0s;
+/*.link-underline>span {*/
+/*    position: relative;*/
+/*    -webkit-transition: all 0.25s ease-out 0s;*/
+/*    transition: all 0.25s ease-out 0s;*/
+/*}*/
+
+/*.link-underline>span::before {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    right: 0rem;*/
+/*    bottom: -0.25rem;*/
+/*    height: 0.1rem;*/
+/*    background-color: #fff;*/
+/*    -webkit-transform-origin: right center;*/
+/*    transform-origin: right center;*/
+/*    -webkit-transform: scale(0, 1);*/
+/*    transform: scale(0, 1);*/
+/*    -webkit-transition: -webkit-transform 0.3s ease;*/
+/*    transition: -webkit-transform 0.3s ease;*/
+/*    transition: transform 0.3s ease;*/
+/*    transition: transform 0.3s ease, -webkit-transform 0.3s ease;*/
+/*}*/
+
+/*.link-underline:hover {*/
+/*    color: unset;*/
+/*}*/
+
+/*.link-underline:hover>span {*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*.link-underline:hover>span::before {*/
+/*    -webkit-transform-origin: left center;*/
+/*    transform-origin: left center;*/
+/*    -webkit-transform: scale(1, 1);*/
+/*    transform: scale(1, 1);*/
+/*}*/
+
+/*.link-underline-1>span::before {*/
+/*    background-color: var(--color-grey);*/
+/*}*/
+
+
+a.link-underline {
+  position: relative;
+  transition: all .5s
 }
 
-.link-underline>span::before {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0rem;
-    bottom: -0.25rem;
-    height: 0.1rem;
-    background-color: #fff;
-    -webkit-transform-origin: right center;
-    transform-origin: right center;
-    -webkit-transform: scale(0, 1);
-    transform: scale(0, 1);
-    -webkit-transition: -webkit-transform 0.3s ease;
-    transition: -webkit-transform 0.3s ease;
-    transition: transform 0.3s ease;
-    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+
+a.link-underline:before {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid var(--color-red);
+  border-width: 0 0 3px 3px;
+  opacity: 0;
+  transition: all 0.3s
 }
 
-.link-underline:hover {
-    color: unset;
+a.link-underline:hover:before {
+  opacity: 1;
+  bottom: -8px;
+  left: -8px;
 }
 
-.link-underline:hover>span {
-    text-decoration: none;
+a.link-underline:after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid var(--color-red);
+  border-width: 3px 3px 0 0;
+  opacity: 0;
+  transition: all 0.3s;
 }
 
-.link-underline:hover>span::before {
-    -webkit-transform-origin: left center;
-    transform-origin: left center;
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);
+a.link-underline:hover:after {
+  opacity: 1;
+  top: -8px;
+  right: -8px;
 }
 
-.link-underline-1>span::before {
-    background-color: var(--color-grey);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .paragraph-big {
     font-size: 2rem;

@@ -124,8 +124,9 @@ class HomeController extends Controller
         if(Auth::check()){
             $user_plan_count = Payment::where('user_id', Auth::user()->id)->where('subscription_status', 'Active')->count();
         }
-        $yearly_percent = Plan::where('plan_duration','yearly')->first();
-        $quarterly_percent = Plan::where('plan_duration','quarterly')->first();
+
+        $yearly_percent = Plan::where('plan_duration', 'yearly')->orderBy('percentage', 'desc')->first();
+        $quarterly_percent = Plan::where('plan_duration','quarterly')->orderBy('percentage', 'desc')->first();
         $plans = Plan::orderBy('id','asc')->where('plan_duration','monthly')->with('Specification')->take(3)->get();
         if(Auth::check()) {
             return view('frontend.pricing',compact('plans','quarterly_percent','yearly_percent','user_plan_count'));
