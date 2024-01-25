@@ -204,7 +204,7 @@
 
             <li class="{{ Request::is('admin/book-a-call*') ? 'active' : ' ' }}">
                 <a href="{{ route('book-call.link') }}">
-                    <i class="ph ph-chat-text"></i>
+                    <i class="ph ph-phone"></i>
                     <span>Book A Call Link</span>
                 </a>
             </li>

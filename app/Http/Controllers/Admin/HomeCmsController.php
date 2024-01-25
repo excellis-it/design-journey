@@ -14,7 +14,7 @@ use App\Models\ContactUsCms;
 use App\Models\FooterCms;
 use App\Models\EmailUs;
 use App\Models\SubscriptionCms;
-use App\Models\Bookcall;
+use App\Models\BookCall;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -586,7 +586,7 @@ class HomeCmsController extends Controller
 
     public function bookCall()
     {
-        $book_call = Bookcall::first();
+        $book_call = BookCall::first();
         return view('admin.bookCall.edit',compact('book_call'));
     }
 
@@ -596,7 +596,7 @@ class HomeCmsController extends Controller
             'link' => 'required',
         ]);
 
-        $update_book_call = Bookcall::find($request->id);
+        $update_book_call = BookCall::find($request->id);
         $update_book_call->link = $request->link;
         $update_book_call->update();
 

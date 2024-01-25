@@ -13,7 +13,7 @@
             <div class="card-title">
                 <div class="row justify-content-between">
                     <div class="col-md-6">
-                        <h4 class="mb-0">Edit</h4>
+                        <h4 class="mb-0">Edit Link</h4>
                     </div>
                 </div>
             </div>
