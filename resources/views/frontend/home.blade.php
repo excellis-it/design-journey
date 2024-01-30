@@ -151,7 +151,7 @@
                 <!-- single - start -->
                 <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="feature-section-content  text-center">
-                        <i class="fa fa-comments c-green icon"></i>
+                        <i class="fas fa-comments c-green icon"></i>
                         <h3 class="c-dark">{{ $home_content->section1_3rd_title}}</h3>
                         <p>{{ $home_content->section1_3rd_details}}</p>
                     </div>
