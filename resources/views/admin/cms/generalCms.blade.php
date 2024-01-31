@@ -99,7 +99,6 @@
                                     <div class="form-group">
                                         <img src="{{ Storage::url($general_cms->login_image) }}" alt="" width="400px"
                                             height="180px">
-
                                     </div>
                                 </div>
                             </div>
@@ -110,9 +109,9 @@
                                 <div class="form-group-div">
                                     <div class="form-group">
                                         <label for="floatingInputValue">Website logo*</label>
-                                        <input type="file" name="login_image" class="form-control">
-                                        @if ($errors->has('login_image'))
-                                            <div class="error" style="color:red;">{{ $errors->first('login_image') }}
+                                        <input type="file" name="website_logo" class="form-control">
+                                        @if ($errors->has('website_logo'))
+                                            <div class="error" style="color:red;">{{ $errors->first('website_logo') }}
                                             </div>
                                         @endif
                                     </div>
@@ -122,13 +121,30 @@
                             <div class="col-md-6">
                                 <div class="form-group-div">
                                     <div class="form-group">
-                                        <img src="{{ Storage::url($general_cms->login_image) }}" alt="" width="400px"
+                                        <img src="{{ Storage::url($general_cms->website_logo) }}" alt="" width="400px"
                                             height="180px">
 
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row justify-content-between">
+                            <div class="col-md-12">
+                                <div class="form-group-div">
+                                    <div class="form-group">
+                                        <label for="floatingInputValue">Copyright Title*</label>
+                                        <input type="text" name="copyright_title" class="form-control" id="floatingInputValue"
+                                            placeholder="Enter copyright title*" value="{{ $general_cms->copyright_title }}">
+                                        @if ($errors->has('copyright_title'))
+                                            <div class="error" style="color:red;">{{ $errors->first('copyright_title') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="row justify-content-between">
                             <div class="col-xl-12">

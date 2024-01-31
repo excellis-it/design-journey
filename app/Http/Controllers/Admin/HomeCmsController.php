@@ -612,23 +612,37 @@ class HomeCmsController extends Controller
 
     public function generalCmsUpdate(Request $request)
     {
+       
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'registration_title' => 'required',
+            'login_title' => 'required',
+            'copyright_title' => 'required',
         ]);
-
+       
         $update_general_cms = GeneralCms::find($request->general_cms_id);
-        $update_general_cms->title = $request->title;
-        $update_general_cms->description = $request->description;
-        if ($request->hasFile('image')) {
+        $update_general_cms->registration_title = $request->registration_title;
+        $update_general_cms->login_title = $request->login_title;
+        $update_general_cms->copyright_title = $request->copyright_title;
+        if ($request->hasFile('registration_image')) {
             $request->validate([
-                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:50000',
+                'registration_image' => 'required|registration_image|mimes:jpg,png,jpeg,gif,svg|max:50000',
             ]);
             
-            $file= $request->file('image');
+            $file= $request->file('registration_image');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $image_path = $request->file('image')->store('general', 'public');
-            $update_general_cms->image = $image_path;
+            $image_path = $request->file('registration_image')->store('general', 'public');
+            $update_general_cms->registration_image = $image_path;
+        }
+
+        if ($request->hasFile('login_image')) {
+            $request->validate([
+                'login_image' => 'required|login_image|mimes:jpg,png,jpeg,gif,svg|max:50000',
+            ]);
+            
+            $file1 = $request->file('login_image');
+            $filename1 = date('YmdHi').$file1->getClientOriginalName();
+            $image_path1 = $request->file('login_image')->store('general', 'public');
+            $update_general_cms->login_image = $image_path1;
         }
 
         $update_general_cms->update();

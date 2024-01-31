@@ -5613,9 +5613,7 @@ padding-bottom: 20px;
     color: var(--color-red);
     font-size:14px;
 }
-.login-left {
-    padding: 20px 20px;
-  }
+
 /*responsive*/
 @media (max-width: 1600px) {
 .width_545 {
@@ -5636,11 +5634,18 @@ padding-bottom: 20px;
  .login_form  .btn.btn-login {
     padding: 8px;
  }
+ .login-left {
+    padding: 20px 100px;
+  }
+ 
 }
 @media (max-width: 1024px) {
   .login-left-image {
     display: none;
  }
+ .login-left {
+    padding: 20px 50px;
+  }
 }
 @media (max-width: 767px) {
       .width_545 {
@@ -5652,6 +5657,9 @@ padding-bottom: 20px;
 }
 .login-img {
     height: 50vh;
+  }
+  .login-left {
+    padding: 20px 20px;
   }
 }
   

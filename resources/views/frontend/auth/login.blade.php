@@ -33,6 +33,9 @@
 </head>
 
 <body>
+    @php
+    use App\Helpers\General;
+    @endphp
 
     <!-- preloader - start -->
     <!--<div class="preloader">-->
@@ -51,10 +54,10 @@
                 <div class="col-lg-6 order-lg-1 order-2 p-0">
                     <div class="login-left">
                         <div class="login-logo logo-fixing">
-                           <a href="{{ route('home') }}"> <img src="{{ asset('frontend_assets/assets/images/logo.png')}}" alt=""></a>
+                           <a href="{{ route('home') }}"> <img src="{{Storage::url(General::GeneralCmsContent()->website_logo)}}" alt=""></a>
                         </div>
                         <div class="login-text text-center">
-                            <h3>Sign in</h3>
+                            <h3>{{ General::GeneralCmsContent()->login_title }}</h3>
                         </div>
                         <div class="login-form">
                             <form action="{{ route('login.check') }}"method="post">
@@ -68,7 +71,7 @@
                                                 placeholder="Enter Your email address" name="email" value="{{ old('email') }}">
                                                 @if($errors->has('email'))
                                                   <div class="error" style="color:red;">{{ $errors->first('email') }}</div>
-                                                  @endif
+                                                @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -122,7 +125,7 @@
                 </div>
                 <div class="col-lg-6 order-lg-2 order-1 p-0">
                     <div class="login-img">
-                        <img src="{{ asset('frontend_assets/assets/images/login_bg_larr.jpg')}}" alt="">
+                        <img src="{{ Storage::url(General::GeneralCmsContent()->login_image) }}" alt="">
                     </div>
                 </div>
             </div>
